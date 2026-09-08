@@ -7,7 +7,9 @@
 შეფასების სქემები სარეკომენდაციოა, ბრენდირება არსად არაა, და მასალა თავისუფლად
 გამოიყენება, გადაკეთდება და გავრცელდება.
 
-**გახსენი [`index.html`](index.html)** — იქიდან ყველა ლექციაზე გადახვალ.
+**🔗 ცოცხლად: [kapo-toolkits.github.io/python-course](https://kapo-toolkits.github.io/python-course/)**
+
+ლოკალურად — გახსენი [`index.html`](index.html); იქიდან ყველა ლექციაზე გადახვალ.
 
 ---
 
@@ -25,7 +27,7 @@
 ## სტრუქტურა
 
 ```
-Python_Basics/
+python-course/
 ├── index.html                    ← სასტარტო გვერდი
 ├── assets/
 │   ├── deck.css                  ← მთელი დიზაინი (ფერები :root-ში)
@@ -152,8 +154,19 @@ python -m http.server 8899
 
 ## ვებზე განთავსება
 
-სრულიად სტატიკურია, ამიტომ ნებისმიერი hosting გამოდგება.
-GitHub Pages: ატვირთე რეპოზიტორში → *Settings ▸ Pages ▸ Deploy from branch* → `main` / `root`.
+ეს რეპოზიტორი უკვე გამოქვეყნებულია GitHub Pages-ით:
+**<https://kapo-toolkits.github.io/python-course/>** — `main` / `root`, ყოველი push-ის შემდეგ ავტომატურად განახლდება.
+
+სრულიად სტატიკურია, ამიტომ ნებისმიერი სხვა hosting-იც გამოდგება (Netlify, Cloudflare Pages, ჩვეულებრივი Apache/nginx) —
+build არ სჭირდება, უბრალოდ დააკოპირე საქაღალდე.
+
+### საკუთარი ასლი
+
+```bash
+git clone https://github.com/kapo-Toolkits/python-course.git
+```
+
+ან GitHub-ზე **Fork** → *Settings ▸ Pages ▸ Deploy from branch* → `main` / `root`.
 
 ---
 
