@@ -12,7 +12,7 @@ Kapo MathTools — მარტივი მათემატიკური �
     converters.celsius_to_fahrenheit(25)  # 77.0
 """
 
-__version__ = "0.3.0"
+__version__ = "0.3.1"
 
 from . import converters, geometry, statistics, text_tools
 
