@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>პროგრამირების საწყისები (Python) — სალექციო მასალა</title>
+<link rel="stylesheet" href="assets/deck.css">
+<style>
+  /* index.html-ის საკუთარი განლაგება — deck.css-ის ფერებს იყენებს */
+  body{overflow:auto}
+  .wrap{max-width:1060px; margin:0 auto; padding:clamp(28px,5vw,64px) clamp(18px,4vw,40px) 80px}
+
+  header{border-bottom:1px solid var(--line); padding-bottom:26px; margin-bottom:32px}
+  header h1{font-size:clamp(28px,4.4vw,46px); margin-bottom:10px}
+  header .sub{color:var(--muted); font-size:clamp(15px,1.8vw,19px)}
+  .meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+
+  h2.sec{font-size:clamp(18px,2.2vw,24px); margin:38px 0 14px; padding-bottom:8px;
+         border-bottom:1px solid var(--line)}
+
+  .cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px}
+  a.lec{
+    display:block; text-decoration:none; color:inherit;
+    background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--accent);
+    border-radius:var(--radius); padding:14px 16px; transition:border-color .15s, transform .15s;
+  }
+  a.lec:hover{border-color:var(--accent); transform:translateY(-2px)}
+  a.lec .wk{font-size:11px; letter-spacing:1.6px; text-transform:uppercase; color:var(--muted); font-weight:700}
+  a.lec h3{font-size:17px; margin:5px 0 6px; color:var(--accent)}
+  a.lec p{font-size:13.5px; line-height:1.45; color:var(--muted); margin:0}
+  a.lec .flags{margin-top:9px; display:flex; flex-wrap:wrap; gap:5px}
+  .flag{font-size:10.5px; letter-spacing:.4px; padding:2px 7px; border-radius:20px;
+        border:1px solid var(--line); color:var(--muted); background:var(--bg)}
+  .flag.q{border-color:var(--accent2); color:var(--accent2)}
+  .flag.t{border-color:var(--warn); color:var(--warn)}
+  .flag.x{border-color:var(--danger); color:var(--danger)}
+
+  a.lec.setup{border-left-color:var(--accent2)}
+  a.lec.setup h3{color:var(--accent2)}
+  a.lec.exam{border-left-color:var(--danger)}
+  a.lec.exam h3{color:var(--danger)}
+
+  .keys{display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:8px; margin-top:12px}
+  .keys div{font-size:13.5px; color:var(--muted)}
+
+  footer{margin-top:48px; padding-top:22px; border-top:1px solid var(--line);
+         color:var(--muted); font-size:13px; line-height:1.6}
+  #themebtn{position:fixed; top:16px; right:18px; z-index:10;
+    background:var(--panel); border:1px solid var(--line); color:var(--muted);
+    border-radius:8px; font-family:var(--font); font-size:13px; padding:5px 12px; cursor:pointer}
+  #themebtn:hover{color:var(--accent); border-color:var(--accent)}
+  @media print{ #themebtn{display:none} body{overflow:visible} }
+</style>
+</head>
+<body>
+<button id="themebtn" type="button">◐ თემა</button>
+
+<div class="wrap">
+
+<header>
+  <p class="kicker">ღია სასწავლო მასალა · თავისუფალი ლიცენზია</p>
+  <h1>პროგრამირების საწყისები (Python)</h1>
+  <p class="sub">სალექციო პრეზენტაციები — 15-კვირიანი შესავალი კურსი</p>
+  <div class="meta">
+    <span class="tag">15 კვირა</span>
+    <span class="tag">16 პრეზენტაცია</span>
+    <span class="tag">228 სლაიდი</span>
+    <span class="tag">7 გამეორების ბლოკი</span>
+    <span class="tag">5 პრაქტიკული დავალება</span>
+  </div>
+</header>
+
+<h2 class="sec">მომზადება</h2>
+<div class="cards">
+  <a class="lec setup" href="lectures/L00-setup.html">
+    <div class="wk">I კვირა · პრაქტიკული</div>
+    <h3>00 · სამუშაო გარემო</h3>
+    <p>Python-ის ინსტალაცია, VS Code, აუცილებელი დანამატები, settings.json, პირველი პროგრამა, debugger</p>
+    <div class="flags"><span class="flag">setup</span><span class="flag">VS Code</span></div>
+  </a>
+</div>
+
+<h2 class="sec">I ნახევარი — საფუძვლები</h2>
+<div class="cards">
+  <a class="lec" href="lectures/L01-intro.html">
+    <div class="wk">I კვირა</div>
+    <h3>01 · შესავალი</h3>
+    <p>Python-ის ისტორია და კავშირი სხვა ენებთან, შესრულების გარემო, სინტაქსი, პროგრამის სტრუქტურა, კომენტარები, რეზერვირებული სიტყვები</p>
+  </a>
+  <a class="lec" href="lectures/L02-types.html">
+    <div class="wk">II კვირა</div>
+    <h3>02 · ტიპები და ცვლადები</h3>
+    <p>საბაზისო ტიპები, ცვლადების გამოცხადება, არითმეტიკული ოპერაციები, <code>input()</code> და <code>print()</code>, f-სტრიქონი</p>
+  </a>
+  <a class="lec" href="lectures/L03-conditions.html">
+    <div class="wk">III კვირა</div>
+    <h3>03 · პირობები და ლოგიკა</h3>
+    <p>შედარების და ლოგიკური ოპერატორები, <code>if / elif / else</code>, ჯაჭვური შედარება, ტერნარული ოპერატორი</p>
+    <div class="flags"><span class="flag q">გამეორება 01–02</span><span class="flag t">დავალება #1</span></div>
+  </a>
+  <a class="lec" href="lectures/L04-loops.html">
+    <div class="wk">IV კვირა</div>
+    <h3>04 · ციკლები</h3>
+    <p><code>for</code>, <code>while</code>, <code>range()</code>, <code>break</code>/<code>continue</code>, ციკლის <code>else</code>, ჩადგმული ციკლები, დაგროვების შაბლონი</p>
+  </a>
+  <a class="lec" href="lectures/L05-builtins.html">
+    <div class="wk">V კვირა</div>
+    <h3>05 · ჩაშენებული ფუნქციები</h3>
+    <p>რიცხვებთან სამუშაო ფუნქციები, მოდული <code>math</code>, შემთხვევითი რიცხვები, იმპორტის ფორმები</p>
+    <div class="flags"><span class="flag q">გამეორება 03–04</span></div>
+  </a>
+  <a class="lec" href="lectures/L06-functions.html">
+    <div class="wk">VI კვირა</div>
+    <h3>06 · ფუნქციები</h3>
+    <p><code>def</code>, პარამეტრები, <code>return</code> vs <code>print</code>, ნაგულისხმევი პარამეტრი, <code>*args</code>, scope, <code>lambda</code></p>
+    <div class="flags"><span class="flag t">დავალება #2</span></div>
+  </a>
+  <a class="lec" href="lectures/L07-strings.html">
+    <div class="wk">VII კვირა</div>
+    <h3>07 · სტრიქონები</h3>
+    <p>ინდექსაცია და ამონაჭერი, უცვლელობა, მეთოდები, ძებნა და ჩანაცვლება, ფორმატირება</p>
+    <div class="flags"><span class="flag q">გამეორება 05–06</span></div>
+  </a>
+  <a class="lec exam" href="lectures/L08-midterm.html">
+    <div class="wk">VIII კვირა</div>
+    <h3>08 · შუალედური — გამეორება</h3>
+    <p>I–VII კვირის სრული მიმოხილვა, 10 ტესტური + 10 ღია სავარჯიშო კითხვა, ტიპური შეცდომები, გამოცდის ტაქტიკა</p>
+    <div class="flags"><span class="flag x">შუალედური გამოცდა</span><span class="flag q">20 კითხვა</span></div>
+  </a>
+</div>
+
+<h2 class="sec">II ნახევარი — მონაცემები და ჩვევები</h2>
+<div class="cards">
+  <a class="lec" href="lectures/L09-files.html">
+    <div class="wk">IX კვირა</div>
+    <h3>09 · ფაილებთან მუშაობა</h3>
+    <p><code>open()</code> და რეჟიმები, <code>with ... as</code>, კითხვა და ჩაწერა, <code>encoding="utf-8"</code>, გზები, <code>os</code> და <code>pathlib</code></p>
+  </a>
+  <a class="lec" href="lectures/L10-lists.html">
+    <div class="wk">X კვირა</div>
+    <h3>10 · სიები და Tuple</h3>
+    <p>შექმნა, დამატება/ამოშლა, დახარისხება, კოპირება, list comprehension, მრავალგანზომილებიანი სიები, <code>tuple</code></p>
+  </a>
+  <a class="lec" href="lectures/L11-set-dict.html">
+    <div class="wk">XI კვირა</div>
+    <h3>11 · სიმრავლე და ლექსიკონი</h3>
+    <p><code>set</code>-ის ოპერაციები, <code>dict</code>, <code>get()</code>, <code>items()</code>, სიხშირის დათვლა, ჩადგმული სტრუქტურები</p>
+    <div class="flags"><span class="flag q">გამეორება 09–10</span><span class="flag t">დავალება #3</span></div>
+  </a>
+  <a class="lec" href="lectures/L12-exceptions.html">
+    <div class="wk">XII კვირა</div>
+    <h3>12 · შეცდომები</h3>
+    <p>Traceback-ის კითხვა, <code>try/except/else/finally</code>, <code>raise</code>, <code>with-as</code>, EAFP, ანტი-შაბლონები</p>
+  </a>
+  <a class="lec" href="lectures/L13-iterators.html">
+    <div class="wk">XIII კვირა</div>
+    <h3>13 · იტერატორები</h3>
+    <p>კონტეინერები, <code>iter()</code>/<code>next()</code>, <code>StopIteration</code>, გენერატორები და <code>yield</code>, lazy evaluation, <code>itertools</code></p>
+    <div class="flags"><span class="flag q">გამეორება 11–12</span><span class="flag t">დავალება #4</span></div>
+  </a>
+  <a class="lec" href="lectures/L14-pep8-pypi.html">
+    <div class="wk">XIV კვირა</div>
+    <h3>14 · PEP 8 და PyPI</h3>
+    <p>კოდის სტილი, სახელდება, Zen of Python, Ruff და სხვა checker-ები, <code>pip</code>, <code>requirements.txt</code>, უსაფრთხოება</p>
+  </a>
+  <a class="lec" href="lectures/L15-modules-git.html">
+    <div class="wk">XV კვირა</div>
+    <h3>15 · მოდულები და git</h3>
+    <p><code>import</code>/<code>from</code>, <code>__name__ == "__main__"</code>, <code>sys.path</code>, პაკეტები, ვერსიების კონტროლი, კურსის შეჯამება</p>
+    <div class="flags"><span class="flag q">გამეორება 13–14</span><span class="flag t">დავალება #5</span></div>
+  </a>
+</div>
+
+<h2 class="sec">კლავიატურა პრეზენტაციაში</h2>
+<div class="keys">
+  <div><kbd>→</kbd> <kbd>←</kbd> <kbd>Space</kbd> — ნავიგაცია</div>
+  <div><kbd>Home</kbd> <kbd>End</kbd> — თავი / ბოლო</div>
+  <div><kbd>O</kbd> — სლაიდების სია</div>
+  <div><kbd>N</kbd> — ლექტორის ჩანაწერები</div>
+  <div><kbd>D</kbd> — ღია / მუქი თემა</div>
+  <div><kbd>F</kbd> — სრული ეკრანი</div>
+  <div><kbd>P</kbd> — ბეჭდვა / PDF</div>
+  <div>მობილურზე — გადაფურცვლა</div>
+</div>
+
+<footer>
+  <p><b>რა არის ეს.</b> სრულიად სტატიკური HTML — გარე დამოკიდებულების, ბიბლიოთეკისა და build-ის გარეშე.
+     მუშაობს ინტერნეტის გარეშეც: საკმარისია ფაილის ბრაუზერში გახსნა.</p>
+  <p style="margin-top:8px"><b>რედაქტირება.</b> სლაიდი — ერთი <code>&lt;section class="slide"&gt;</code> ბლოკი.
+     დიზაინი მთლიანად <code>assets/deck.css</code>-შია, ფერები კი ფაილის თავში, <code>:root</code>-ში.
+     ქცევა — <code>assets/deck.js</code>.</p>
+  <p style="margin-top:8px"><b>ლიცენზია.</b> ძრავი (CSS/JS) — MIT. სალექციო შინაარსი — CC BY 4.0.
+     თავისუფლად გამოიყენე, შეცვალე და გაავრცელე — კომერციულადაც.</p>
+  <p style="margin-top:8px"><b>ნეიტრალურია.</b> მასალა არ არის მიბმული არც უნივერსიტეტზე, არც სასწავლო
+     პროგრამაზე. შეფასების სქემები სარეკომენდაციოა — შენი კურსის წესებით შეცვალე.</p>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById("themebtn");
+  try {
+    var saved = localStorage.getItem("deck-theme");
+    if (saved) document.documentElement.setAttribute("data-theme", saved);
+    else if (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches)
+      document.documentElement.setAttribute("data-theme", "dark");
+  } catch (e) {}
+
+  btn.addEventListener("click", function () {
+    var dark = document.documentElement.getAttribute("data-theme") === "dark";
+    document.documentElement.setAttribute("data-theme", dark ? "light" : "dark");
+    try { localStorage.setItem("deck-theme", dark ? "light" : "dark"); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>

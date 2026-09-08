@@ -1,0 +1,8 @@
+# რეპოზიტორში ხაზის დაბოლოება ყოველთვის LF-ია,
+# სამუშაო ასლში კი — ოპერაციული სისტემის ნაგულისხმევი.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.gif binary
+*.pdf binary

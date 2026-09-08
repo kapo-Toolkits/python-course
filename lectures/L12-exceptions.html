@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>12 · შეცდომები და გამონაკლისები</title>
+<link rel="stylesheet" href="../assets/deck.css">
+</head>
+<body>
+<main class="deck">
+
+<section class="slide">
+  <p class="kicker">ლექცია 12 · XII კვირა</p>
+  <h1>შეცდომები და<br>გამონაკლისები</h1>
+  <p class="lead" style="margin-top:16px">Exceptions Python-ში · <code class="inl">try-except-else-finally</code> · <code class="inl">with-as</code></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">კლასიფიკაცია</p>
+  <h2>შეცდომების სამი ჯგუფი</h2>
+  <div class="grid">
+    <div class="card">
+      <h3 style="color:var(--danger)">1 · სინტაქსური</h3>
+      <p class="small">კოდი <b>საერთოდ არ ეშვება</b>.</p>
+<pre class="code" style="margin-top:8px"><code class="nohl">if x &gt; 5
+    print(x)
+# SyntaxError</code></pre>
+      <p class="small muted" style="margin-top:6px">ვასწორებთ წერისას. დამუშავება შეუძლებელია.</p>
+    </div>
+    <div class="card">
+      <h3 style="color:var(--warn)">2 · გამონაკლისი</h3>
+      <p class="small">კოდი გაეშვა, <b>შუაში ჩავარდა</b>.</p>
+<pre class="code" style="margin-top:8px"><code class="nohl">print(10 / 0)
+# ZeroDivisionError</code></pre>
+      <p class="small muted" style="margin-top:6px"><b>ეს ლექცია სწორედ ამაზეა.</b></p>
+    </div>
+    <div class="card">
+      <h3 style="color:var(--accent)">3 · ლოგიკური</h3>
+      <p class="small">იმუშავა, მაგრამ <b>არასწორად</b>.</p>
+<pre class="code" style="margin-top:8px"><code class="nohl">avg = a + b / 2
+# ფრჩხილები დაგავიწყდა</code></pre>
+      <p class="small muted" style="margin-top:6px">ყველაზე მზაკვრული — Python შეცდომას ვერ ხედავს.</p>
+    </div>
+  </div>
+  <div class="note">მესამე ჯგუფი გამოცდაზე ხშირად ავიწყდებათ. სწორედ მისთვისაა დებაგერი და ტესტები.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">კითხვის უნარი</p>
+  <h2>Traceback — როგორ წავიკითხოთ</h2>
+<pre class="code" data-title="ტერმინალი"><code class="nohl">Traceback (most recent call last):
+  File "main.py", line 12, in &lt;module&gt;
+    result = divide(10, 0)
+             ^^^^^^^^^^^^^
+  File "main.py", line 8, in divide
+    return a / b
+           ~~^~~
+ZeroDivisionError: division by zero</code></pre>
+  <ol class="pts" style="margin-top:14px">
+    <li><b>წაიკითხე ბოლოდან</b><small>უკანასკნელი ხაზი ამბობს <i>რა</i> მოხდა: <code class="inl">ZeroDivisionError: division by zero</code></small></li>
+    <li><b>ზემოთ — სად</b><small><code class="inl">line 8, in divide</code> — ზუსტი ფაილი და ხაზი</small></li>
+    <li><b>ზევით-ქვევით — გამოძახებათა ჯაჭვი</b><small>ვინ ვის დაუძახა. „most recent call last“ — ბოლო გამოძახება ბოლოშია</small></li>
+  </ol>
+  <div class="callout tip"><b>ეს უნარი დაზოგავს საათებს</b>დამწყები ხედავს „წითელ ტექსტს“ და პანიკობს. გამოცდილი კითხულობს ორ ხაზს და მაშინვე იცის, სად წავიდეს.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ლექსიკა</p>
+  <h2>ხშირი გამონაკლისები</h2>
+  <table class="small">
+    <tr><th style="width:26%">გამონაკლისი</th><th style="width:34%">როდის ჩნდება</th><th>მაგალითი</th></tr>
+    <tr><td><code>ZeroDivisionError</code></td><td>ნულზე გაყოფა</td><td><code>10 / 0</code></td></tr>
+    <tr><td><code>ValueError</code></td><td>ტიპი სწორია, მნიშვნელობა — არა</td><td><code>int("abc")</code></td></tr>
+    <tr><td><code>TypeError</code></td><td>ოპერაცია არასწორ ტიპზე</td><td><code>"5" + 5</code></td></tr>
+    <tr><td><code>IndexError</code></td><td>ინდექსი დიაპაზონს გარეთ</td><td><code>[1,2][5]</code></td></tr>
+    <tr><td><code>KeyError</code></td><td>გასაღები ლექსიკონში არაა</td><td><code>d["x"]</code></td></tr>
+    <tr><td><code>NameError</code></td><td>ცვლადი არ არსებობს</td><td><code>print(undefined)</code></td></tr>
+    <tr><td><code>AttributeError</code></td><td>ობიექტს ასეთი მეთოდი არ აქვს</td><td><code>"abc".push()</code></td></tr>
+    <tr><td><code>FileNotFoundError</code></td><td>ფაილი ვერ მოიძებნა</td><td><code>open("no.txt")</code></td></tr>
+    <tr><td><code>ImportError</code></td><td>მოდული ვერ ჩაიტვირთა</td><td><code>import nomodule</code></td></tr>
+  </table>
+  <div class="callout"><b>ყველა მათგანი <code class="inl">Exception</code>-ის შვილია</b>ამიტომ <code class="inl">except Exception:</code> ყველას იჭერს — მაგრამ, როგორც ვნახავთ, ეს ხშირად ცუდი იდეაა.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">კონსტრუქცია</p>
+  <h2><code class="inl">try / except</code></h2>
+  <div class="two">
+    <div>
+<pre class="code" data-title="დაცვის გარეშე"><code>age = int(input("ასაკი: "))
+print(age + 1)
+
+# შეყვანა: "ოცი"
+# ValueError → პროგრამა ჩავარდა</code></pre>
+    </div>
+    <div>
+<pre class="code" data-title="დაცვით"><code>try:
+    age = int(input("ასაკი: "))
+    print(age + 1)
+except ValueError:
+    print("ეს რიცხვი არ არის")
+
+print("პროგრამა გრძელდება")</code></pre>
+    </div>
+  </div>
+<pre class="code" data-title="სქემა" style="margin-top:12px"><code class="nohl">try:
+    სახიფათო კოდი
+except კონკრეტული_შეცდომა:
+    რა ვქნათ ამ შემთხვევაში</code></pre>
+  <div class="callout tip"><b>ლოგიკა</b>„<b>სცადე</b> ეს კოდი; თუ ჩავარდა <b>ამ</b> შეცდომით — ავარიის ნაცვლად აი ეს გააკეთე.“</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">კონსტრუქცია</p>
+  <h2>რამდენიმე <code class="inl">except</code> და <code class="inl">as</code></h2>
+<pre class="code"><code>try:
+    a = int(input("გასაყოფი: "))
+    b = int(input("გამყოფი: "))
+    print(a / b)
+
+except ValueError:
+    print("რიცხვი შეიყვანე")
+
+except ZeroDivisionError:
+    print("ნულზე გაყოფა შეუძლებელია")
+
+except (TypeError, KeyError):        # რამდენიმე ერთად
+    print("ტიპის ან გასაღების პრობლემა")
+
+except Exception as e:               # ბოლოში — ყველა დანარჩენი
+    print(f"მოულოდნელი შეცდომა: {e}")
+    print(type(e).__name__)          # ZeroDivisionError</code></pre>
+  <div class="callout warn"><b>თანმიმდევრობა მნიშვნელოვანია</b>Python პირველივე შესაფერის <code class="inl">except</code>-ს იყენებს. <code class="inl">Exception</code> ყველას იჭერს, ამიტომ ის <b>ყოველთვის ბოლოშია</b> — წინააღმდეგ შემთხვევაში დანარჩენები არასდროს იმუშავებს.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">კონსტრუქცია</p>
+  <h2><code class="inl">else</code> და <code class="inl">finally</code></h2>
+<pre class="code"><code>try:
+    f = open("data.txt", encoding="utf-8")
+    data = f.read()
+
+except FileNotFoundError:
+    print("ფაილი ვერ მოიძებნა")
+
+else:
+    # სრულდება მხოლოდ თუ შეცდომა არ მოხდა
+    print(f"წაკითხულია {len(data)} სიმბოლო")
+
+finally:
+    # სრულდება ყოველთვის — შეცდომით თუ უშეცდომოდ
+    print("ოპერაცია დასრულდა")</code></pre>
+  <table class="small" style="margin-top:14px">
+    <tr><th style="width:16%">ბლოკი</th><th>როდის სრულდება</th></tr>
+    <tr><td><code>try</code></td><td>ყოველთვის — სანამ შეცდომა არ მოხდება</td></tr>
+    <tr><td><code>except</code></td><td>მხოლოდ შესაბამისი შეცდომისას</td></tr>
+    <tr><td><code>else</code></td><td>მხოლოდ თუ <b>არცერთი</b> შეცდომა არ მოხდა</td></tr>
+    <tr><td><code>finally</code></td><td><b>ყოველთვის</b> — რესურსების დახურვისთვის</td></tr>
+  </table>
+</section>
+
+<section class="slide">
+  <p class="kicker">კონსტრუქცია</p>
+  <h2><code class="inl">raise</code> — შეცდომის დაგდება</h2>
+<pre class="code"><code>def set_age(age):
+    if not isinstance(age, int):
+        raise TypeError("ასაკი მთელი რიცხვი უნდა იყოს")
+    if age &lt; 0:
+        raise ValueError("ასაკი უარყოფითი ვერ იქნება")
+    if age &gt; 150:
+        raise ValueError(f"ასაკი {age} არარეალურია")
+    return age
+
+
+try:
+    set_age(-5)
+except ValueError as e:
+    print("შეცდომა:", e)      # შეცდომა: ასაკი უარყოფითი ვერ იქნება</code></pre>
+  <div class="callout tip"><b>რატომ ღირს</b>ფუნქცია არასწორ მონაცემს <b>მაშინვე</b> უნდა უარყოფდეს, არა ჩუმად აგრძელებდეს. ეს პრობლემას წყაროსთან ჩერდება, არა 50 ხაზის შემდეგ.</div>
+  <div class="note">კარგი შედარებაა: raise არის „განგაშის ღილაკი“, except კი — „ვინც განგაშს პასუხობს“.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ინსტრუქცია</p>
+  <h2><code class="inl">with ... as</code> — კონტექსტის მენეჯერი</h2>
+  <div class="two">
+    <div>
+<pre class="code" data-title="try/finally-ით"><code>f = open("data.txt", encoding="utf-8")
+try:
+    data = f.read()
+finally:
+    f.close()      # ყოველთვის დაიხურება</code></pre>
+    </div>
+    <div>
+<pre class="code" data-title="with-ით — იგივე"><code>with open("data.txt", encoding="utf-8") as f:
+    data = f.read()
+
+# ავტომატურად დაიხურა</code></pre>
+    </div>
+  </div>
+  <div class="callout"><b>რას აკეთებს <code class="inl">with</code> სინამდვილეში</b>ბლოკში შესვლისას რესურსს „ხსნის“, გამოსვლისას — „ხურავს“. მაშინაც კი, თუ შიგნით <code class="inl">return</code>, <code class="inl">break</code> ან შეცდომა მოხდა.</div>
+<pre class="code" style="margin-top:8px"><code># რამდენიმე რესურსი ერთდროულად
+with open("in.txt", encoding="utf-8") as src, \
+     open("out.txt", "w", encoding="utf-8") as dst:
+    for line in src:
+        dst.write(line.upper())</code></pre>
+  <p class="small muted" style="margin-top:10px"><code class="inl">with</code> მუშაობს არა მხოლოდ ფაილებთან — ბაზის კავშირებთან, ქსელურ სოკეტებთან, დროებით საქაღალდეებთან.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">ფილოსოფია</p>
+  <h2>ორი მიდგომა: LBYL და EAFP</h2>
+  <div class="two">
+    <div class="card">
+      <h3>LBYL</h3>
+      <p class="small"><i>Look Before You Leap</i> — ჯერ შეამოწმე</p>
+<pre class="code" style="margin-top:8px"><code>if os.path.exists(path):
+    with open(path) as f:
+        data = f.read()
+else:
+    print("ფაილი არაა")</code></pre>
+      <p class="small muted" style="margin-top:6px">პრობლემა: შემოწმებასა და გახსნას შორის ფაილი შეიძლება წაიშალოს.</p>
+    </div>
+    <div class="card">
+      <h3>EAFP</h3>
+      <p class="small"><i>Easier to Ask Forgiveness than Permission</i> — სცადე</p>
+<pre class="code" style="margin-top:8px"><code>try:
+    with open(path) as f:
+        data = f.read()
+except FileNotFoundError:
+    print("ფაილი არაა")</code></pre>
+      <p class="small muted" style="margin-top:6px">Python-ში ეს <b>უპირატესი</b> სტილია.</p>
+    </div>
+  </div>
+  <div class="callout tip"><b>პრაქტიკული წესი</b>როცა შეცდომა <b>იშვიათია</b> — <code class="inl">try/except</code>. როცა <b>მოსალოდნელია</b> (მომხმარებლის შეყვანა) — შემოწმებაც გამოდგება. ხშირად ორივე ერთად გამოიყენება.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">შაბლონი</p>
+  <h2>საიმედო შეყვანა — ციკლი + try</h2>
+<pre class="code" data-title="input_safe.py"><code>def read_int(prompt, low=None, high=None):
+    """კითხულობს მთელ რიცხვს, სანამ სწორს არ შეიყვანენ."""
+    while True:
+        try:
+            value = int(input(prompt))
+        except ValueError:
+            print("  ⚠ მთელი რიცხვი შეიყვანე")
+            continue
+
+        if low is not None and value &lt; low:
+            print(f"  ⚠ არანაკლებ {low}")
+            continue
+        if high is not None and value &gt; high:
+            print(f"  ⚠ არაუმეტეს {high}")
+            continue
+
+        return value
+
+
+age = read_int("ასაკი: ", low=0, high=120)
+score = read_int("ქულა: ", low=0, high=100)
+print(f"ასაკი {age}, ქულა {score}")</code></pre>
+  <div class="callout tip"><b>ეს ფუნქცია შეინახე</b>ის ყველა შემდეგ დავალებაში გამოგადგება. სწორედ ასე იზრდება საკუთარი „ინსტრუმენტების ყუთი“.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ანტი-შაბლონები</p>
+  <h2>როგორ <em>არ</em> დავწეროთ</h2>
+<pre class="code" data-title="✗ ცუდად"><code>try:
+    do_everything()
+except:
+    pass</code></pre>
+  <ul class="pts tight" style="margin-top:12px">
+    <li><b>„შიშველი“ <code class="inl">except:</code></b><small>იჭერს <b>ყველაფერს</b> — <kbd>Ctrl</kbd>+<kbd>C</kbd>-საც კი. პროგრამის გაჩერება შეუძლებელი ხდება</small></li>
+    <li><b><code class="inl">pass</code> შეცდომის ნაცვლად</b><small>პრობლემა ჩუმად იმალება. მოგვიანებით სრულიად სხვა ადგილას „ამოტივტივდება“</small></li>
+    <li><b>ძალიან დიდი <code class="inl">try</code> ბლოკი</b><small>ვერ იგებ, რომელმა ხაზმა გამოიწვია შეცდომა</small></li>
+  </ul>
+<pre class="code" data-title="✓ კარგად" style="margin-top:12px"><code>try:
+    value = int(user_input)
+except ValueError:
+    print(f"'{user_input}' რიცხვი არ არის")
+    value = 0</code></pre>
+  <div class="callout err"><b>წესი</b>დაიჭირე <b>კონკრეტული</b> შეცდომა, <b>კონკრეტულ</b> ხაზზე, და <b>რეაგირე</b> მასზე — არა ჩაახშო.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">სრული მაგალითი</p>
+  <h2>მდგრადი კალკულატორი</h2>
+<pre class="code" data-title="calc.py"><code>def divide(a, b):
+    if b == 0:
+        raise ZeroDivisionError("გამყოფი ნული ვერ იქნება")
+    return a / b
+
+
+def load_history(path):
+    try:
+        with open(path, encoding="utf-8") as f:
+            return [line.strip() for line in f if line.strip()]
+    except FileNotFoundError:
+        return []          # პირველი გაშვება — ნორმაა
+
+
+def save(path, record):
+    try:
+        with open(path, "a", encoding="utf-8") as f:
+            f.write(record + "\n")
+    except OSError as e:
+        print(f"ჩაწერა ვერ მოხერხდა: {e}")
+
+
+history = load_history("calc.log")
+print(f"ისტორიაში {len(history)} ჩანაწერია")
+
+while True:
+    raw = input("\nგამოსახულება (a / b) ან 'q': ").strip()
+    if raw == "q":
+        break
+
+    try:
+        left, right = raw.split("/")
+        result = divide(float(left), float(right))
+    except ValueError:
+        print("ფორმატი: რიცხვი / რიცხვი")
+    except ZeroDivisionError as e:
+        print(e)
+    else:
+        print(f"= {result:.4f}")
+        save("calc.log", f"{raw} = {result:.4f}")
+    finally:
+        print("—" * 20)</code></pre>
+</section>
+
+<section class="slide">
+  <p class="kicker">შემაჯამებელი</p>
+  <h2>რა უნდა დაგამახსოვრდეს</h2>
+  <ul class="pts">
+    <li>სამი ჯგუფი: სინტაქსური · გამონაკლისი · ლოგიკური</li>
+    <li>Traceback იკითხება <b>ბოლოდან</b>: ჯერ <i>რა</i>, მერე <i>სად</i></li>
+    <li><code class="inl">try / except / else / finally</code> — <code class="inl">else</code> უშეცდომოდ, <code class="inl">finally</code> ყოველთვის</li>
+    <li>დაიჭირე <b>კონკრეტული</b> შეცდომა; <code class="inl">except Exception</code> — ბოლოში; „შიშველი“ <code class="inl">except:</code> — არასდროს</li>
+    <li><code class="inl">raise</code> — არასწორი მონაცემის მაშინვე უარყოფა</li>
+    <li><code class="inl">with ... as</code> რესურსს ავტომატურად ხურავს</li>
+    <li>Python-ში EAFP სტილი უპირატესია</li>
+  </ul>
+  <div class="callout"><b>სახლში</b>1) გადაწერე ყველა წინა დავალება <code class="inl">try/except</code>-ით. 2) ფუნქცია <code class="inl">safe_divide(a, b)</code>. 3) ფაილის მკითხველი, რომელიც არარსებობისას ქმნის მას. 4) ვალიდატორი: ელფოსტა უნდა შეიცავდეს <code class="inl">@</code>-ს — თუ არა, <code class="inl">raise ValueError</code>.</div>
+  <div class="callout tip"><b>შემდეგი — ლექცია 13</b>იტერატორები და კონტეინერები + <b>პრაქტიკული დავალება #4</b>.</div>
+</section>
+
+</main>
+<script src="../assets/deck.js"></script>
+</body>
+</html>

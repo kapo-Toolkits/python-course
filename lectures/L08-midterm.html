@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>08 · შუალედური გამოცდა — გამეორება</title>
+<link rel="stylesheet" href="../assets/deck.css">
+</head>
+<body>
+<main class="deck">
+
+<section class="slide">
+  <p class="kicker">ლექცია 08 · VIII კვირა</p>
+  <h1>შუალედური —<br>სრული გამეორება</h1>
+  <p class="lead" style="margin-top:16px">I–VII კვირის მასალა · 10 ტესტური + 10 ღია სავარჯიშო კითხვა · ტიპური შეცდომები</p>
+  <div class="note">ეს დეკი გამოცდის წინა კონსულტაციისთვისაა. დაურიგე სტუდენტებს — თავად გაივლიან. კითხვები გამოცდის ფორმატს იმეორებს, მაგრამ არა ზუსტ შინაარსს.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">რუკა</p>
+  <h2>რა გავიარეთ</h2>
+  <div class="grid">
+    <div class="card"><h3>I · შესავალი</h3><ul><li>ისტორია, PVM, ბაიტკოდი</li><li>წანაცვლება, ორწერტილი</li><li>კომენტარები, 35 keyword</li></ul></div>
+    <div class="card"><h3>II · ტიპები</h3><ul><li>int, float, str, bool, None</li><li><code>type()</code>, კონვერტაცია</li><li><code>input()</code> → str, f-string</li></ul></div>
+    <div class="card"><h3>III · პირობები</h3><ul><li><code>== != &gt; &lt; &gt;= &lt;=</code></li><li><code>and or not</code></li><li><code>if / elif / else</code></li></ul></div>
+    <div class="card"><h3>IV · ციკლები</h3><ul><li><code>for</code> + <code>range()</code></li><li><code>while</code>, 3 ნაწილი</li><li><code>break continue else</code></li></ul></div>
+    <div class="card"><h3>V · ჩაშენებული</h3><ul><li><code>abs round divmod sum</code></li><li><code>math</code>: sqrt, ceil, floor, pi</li><li><code>random</code>: randint, choice, seed</li></ul></div>
+    <div class="card"><h3>VI · ფუნქციები</h3><ul><li><code>def</code>, <code>return</code> ≠ <code>print</code></li><li>ნაგულისხმევი, <code>*args</code></li><li>scope, <code>lambda</code></li></ul></div>
+    <div class="card"><h3>VII · სტრიქონები</h3><ul><li>ინდექსი, slice, <code>[::-1]</code></li><li><code>strip split join replace</code></li><li><code>find index count in</code></li></ul></div>
+    <div class="card"><h3>ფორმატი</h3><ul><li>10 ტესტი × 1 ქულა</li><li>10 ღია × 2 ქულა</li><li>სულ 30 ქულა</li></ul></div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">გამეორება 1/4</p>
+  <h2>ტიპები და ოპერაციები — ერთ ეკრანზე</h2>
+<pre class="code"><code>7 / 2      # 3.5   ყოველთვის float
+7 // 2     # 3     მთელი ნაწილი
+7 % 2      # 1     ნაშთი
+7 ** 2     # 49    ახარისხება
+2 + 3 * 4  # 14    * უსწრებს +
+2 ** 3 ** 2  # 512  მარჯვნიდან მარცხნივ
+-2 ** 2    # -4    ჯერ ხარისხი, მერე მინუსი
+
+int("42")      # 42
+int(9.99)      # 9      კვეცავს
+round(9.99)    # 10     ამრგვალებს
+round(0.5)     # 0      ლუწისკენ!
+str(100) + "ლ" # "100ლ"
+
+bool(0), bool(""), bool([]), bool(None)   # ყველა False
+bool("False")                              # True!
+0.1 + 0.2 == 0.3                           # False</code></pre>
+</section>
+
+<section class="slide">
+  <p class="kicker">გამეორება 2/4</p>
+  <h2>პირობები და ციკლები</h2>
+  <div class="two">
+    <div>
+<pre class="code" data-title="პირობა"><code>if score &gt;= 91:
+    grade = "A"
+elif score &gt;= 81:
+    grade = "B"
+else:
+    grade = "F"
+
+# ჯაჭვი
+if 0 &lt;= x &lt;= 100: ...
+
+# ტერნარული
+s = "დიდი" if n &gt; 10 else "პატარა"</code></pre>
+    </div>
+    <div>
+<pre class="code" data-title="ციკლი"><code>range(5)          # 0 1 2 3 4
+range(2, 6)       # 2 3 4 5
+range(0, 10, 2)   # 0 2 4 6 8
+range(10, 0, -1)  # 10 … 1
+
+for i in range(1, 11):
+    if i == 5:
+        continue      # ბიჯს ტოვებს
+    if i == 8:
+        break         # ციკლს წყვეტს
+else:
+    print("break-ის გარეშე")</code></pre>
+    </div>
+  </div>
+  <div class="callout warn"><b>ორი ხაფანგი</b><code class="inl">range(1, 5)</code> — 5 <b>არ</b> შედის · <code class="inl">while</code>-ში მთვლელის გაზრდა დაგავიწყდა → უსასრულო ციკლი.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">გამეორება 3/4</p>
+  <h2>ფუნქციები</h2>
+<pre class="code"><code>def area(w, h=1):              # h — ნაგულისხმევი, ბოლოშია
+    """მართკუთხედის ფართობი."""
+    return w * h               # return ≠ print
+
+print(area(4, 5))              # 20
+print(area(4))                 # 4
+print(area(h=5, w=4))          # 20  სახელდებული
+
+def stats(*nums):              # ცვლადი რაოდენობა
+    return min(nums), max(nums)
+
+low, high = stats(3, 9, 1)     # unpacking
+
+x = 10
+def f():
+    x = 5                      # ლოკალური! გლობალურს არ ცვლის
+f()
+print(x)                       # 10
+
+square = lambda n: n ** 2      # ანონიმური</code></pre>
+</section>
+
+<section class="slide">
+  <p class="kicker">გამეორება 4/4</p>
+  <h2>სტრიქონები</h2>
+<pre class="code"><code>s = "Python"
+s[0]        # 'P'
+s[-1]       # 'n'
+s[0:3]      # 'Pyt'   3 არ შედის
+s[::-1]     # 'nohtyP'
+len(s)      # 6
+
+s.upper() s.lower() s.title() s.strip()
+s.replace("a", "b")
+s.split(",")            # str → list
+",".join(["a", "b"])    # list → str
+s.find("th")            # 2, ვერ პოვნისას -1
+s.index("th")           # 2, ვერ პოვნისას ValueError
+s.count("t")
+"th" in s               # True
+"123".isdigit()         # True
+
+f"{name:&lt;10}{score:&gt;8.2f}"    # გასწორება
+f"{n:05}"                      # 00042
+f"{0.256:.1%}"                 # 25.6%</code></pre>
+  <div class="callout err"><b>გახსოვდეს</b>სტრიქონი <b>უცვლელია</b>: <code class="inl">s.upper()</code> არაფერს ცვლის — უნდა დაწერო <code class="inl">s = s.upper()</code>.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">სავარჯიშო</p>
+  <h2>ტესტური კითხვები — 1–5</h2>
+  <div class="quiz">
+    <details><summary>1. რას დაბეჭდავს <code class="inl">print(type(10 / 2))</code>?</summary>
+      <div class="ans"><code>&lt;class 'float'&gt;</code> — ოპერატორი <code>/</code> ყოველთვის <code>float</code>-ს აბრუნებს, მაშინაც კი, როცა შედეგი მთელია.</div></details>
+    <details><summary>2. რომელი სახელია დაუშვებელი ცვლადისთვის? <code class="inl">_x</code> · <code class="inl">x2</code> · <code class="inl">2x</code> · <code class="inl">X</code></summary>
+      <div class="ans"><code>2x</code> — იდენტიფიკატორი ციფრით ვერ დაიწყება.</div></details>
+    <details><summary>3. რას დაბეჭდავს <code class="inl">print(list(range(1, 10, 3)))</code>?</summary>
+      <div class="ans"><code>[1, 4, 7]</code>.</div></details>
+    <details><summary>4. რას აბრუნებს <code class="inl">"Python".find("z")</code>?</summary>
+      <div class="ans"><code>-1</code>. <code>index()</code> იმავე შემთხვევაში <code>ValueError</code>-ს ისვრის.</div></details>
+    <details><summary>5. რას დაბეჭდავს? <code class="inl">s = "abc"; s.upper(); print(s)</code></summary>
+      <div class="ans"><code>abc</code>. სტრიქონი უცვლელია — შედეგი არსად შეინახა.</div></details>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">სავარჯიშო</p>
+  <h2>ტესტური კითხვები — 6–10</h2>
+  <div class="quiz">
+    <details><summary>6. რას დაბეჭდავს <code class="inl">print(bool("False"))</code>?</summary>
+      <div class="ans"><code>True</code> — ესაა არაცარიელი სტრიქონი. მცდარია მხოლოდ ცარიელი <code>""</code>.</div></details>
+    <details><summary>7. რას აბრუნებს ფუნქცია <code class="inl">return</code>-ის გარეშე?</summary>
+      <div class="ans"><code>None</code>.</div></details>
+    <details><summary>8. რას დაბეჭდავს <code class="inl">print(divmod(17, 5))</code>?</summary>
+      <div class="ans"><code>(3, 2)</code> — მთელი ნაწილი და ნაშთი, tuple-ად.</div></details>
+    <details><summary>9. რომელი ჩანაწერი შეაბრუნებს სტრიქონს?</summary>
+      <div class="ans"><code>s[::-1]</code>.</div></details>
+    <details><summary>10. რას დაბეჭდავს <code class="inl">print(2 + 3 * 4 ** 2)</code>?</summary>
+      <div class="ans"><code>50</code>. ჯერ <code>4**2=16</code>, მერე <code>3*16=48</code>, ბოლოს <code>2+48=50</code>.</div></details>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">სავარჯიშო</p>
+  <h2>ღია კითხვები — 1–5</h2>
+  <div class="quiz">
+    <details><summary>1. აღწერეთ Python-ის პროგრამის შესრულების ეტაპები.</summary>
+      <div class="ans">წყარო <code>.py</code> → ინტერპრეტატორი თარგმნის <b>ბაიტკოდში</b> (ინახება <code>__pycache__</code>-ში, <code>.pyc</code>) → <b>PVM</b> (Python-ის ვირტუალური მანქანა) ასრულებს ბაიტკოდს → შედეგი. სწორედ ბაიტკოდის გამო მუშაობს ერთი და იგივე ფაილი სხვადასხვა ოპერაციულ სისტემაზე.</div></details>
+    <details><summary>2. რით განსხვავდება <code class="inl">for</code> და <code class="inl">while</code>? მოიყვანეთ თითო მაგალითი.</summary>
+      <div class="ans"><code>for</code> — გავლა <b>ცნობილ</b> თანმიმდევრობაზე ან რაოდენობაზე (<code>for i in range(10)</code>). <code>while</code> — სრულდება, სანამ <b>პირობა</b> ჭეშმარიტია, როცა რაოდენობა წინასწარ არაა ცნობილი (პაროლის შემოწმება).</div></details>
+    <details><summary>3. რა განსხვავებაა ლოკალურ და გლობალურ ცვლადს შორის?</summary>
+      <div class="ans">ლოკალური იქმნება ფუნქციის შიგნით და მისი დასრულებისას ქრება — გარედან მიუწვდომელია. გლობალური ცხოვრობს მთელი პროგრამის განმავლობაში; ფუნქციას მისი წაკითხვა შეუძლია, შეცვლა — მხოლოდ <code>global</code>-ით (რაც არასასურველია).</div></details>
+    <details><summary>4. რას ნიშნავს „სტრიქონი უცვლელია“ და რა გამომდინარეობს აქედან?</summary>
+      <div class="ans">შექმნის შემდეგ სტრიქონის ცალკეული სიმბოლოს შეცვლა შეუძლებელია (<code>s[0] = "x"</code> → <code>TypeError</code>). ყველა მეთოდი <b>ახალ</b> სტრიქონს აბრუნებს, ამიტომ შედეგი ცვლადში უნდა შევინახოთ: <code>s = s.upper()</code>.</div></details>
+    <details><summary>5. რატომ არის <code class="inl">0.1 + 0.2 != 0.3</code>?</summary>
+      <div class="ans"><code>float</code> ორობით სისტემაში ინახება, სადაც 0.1 და 0.2 ზუსტად ვერ ჩაიწერება (ისევე, როგორც 1/3 ათობითში). ჯამი გამოდის <code>0.30000000000000004</code>. შედარებისთვის იყენებენ <code>round()</code>-ს ან <code>math.isclose()</code>-ს.</div></details>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">სავარჯიშო</p>
+  <h2>ღია კითხვები — 6–10</h2>
+  <div class="quiz">
+    <details><summary>6. რას აკეთებს <code class="inl">break</code>, <code class="inl">continue</code> და ციკლის <code class="inl">else</code>?</summary>
+      <div class="ans"><code>break</code> — ციკლს მთლიანად წყვეტს. <code>continue</code> — მიმდინარე ბიჯს ტოვებს და შემდეგზე გადადის. <code>else</code> — სრულდება მხოლოდ მაშინ, თუ ციკლი <code>break</code>-ის გარეშე დასრულდა.</div></details>
+    <details><summary>7. რა განსხვავებაა <code class="inl">return</code>-სა და <code class="inl">print</code>-ს შორის?</summary>
+      <div class="ans"><code>print</code> ტექსტს ეკრანზე გამოაქვს — ეს <b>ადამიანისთვისაა</b>, დაბრუნებული მნიშვნელობა <code>None</code>-ია. <code>return</code> მნიშვნელობას <b>გამომძახებელს უბრუნებს</b> — მისი შემდგომი გამოთვლებში გამოყენება შესაძლებელია.</div></details>
+    <details><summary>8. რას ნიშნავს ნაგულისხმევი (გაჩუმებით) პარამეტრი? რა წესი მოქმედებს?</summary>
+      <div class="ans">პარამეტრი, რომელსაც აღწერისას მნიშვნელობა ენიჭება და გამოძახებისას შეიძლება არ გადავცეთ: <code>def greet(name, msg="გამარჯობა")</code>. წესი — ასეთი პარამეტრები ყოველთვის <b>ბოლოში</b> იწერება.</div></details>
+    <details><summary>9. აღწერეთ სამი განსხვავება <code class="inl">find()</code>-სა და <code class="inl">index()</code>-ს შორის.</summary>
+      <div class="ans">ორივე ეძებს ქვესტრიქონს და აბრუნებს პირველი დამთხვევის ინდექსს. განსხვავება: ვერ პოვნისას <code>find</code> აბრუნებს <code>-1</code>-ს, <code>index</code> კი ისვრის <code>ValueError</code>-ს. ამიტომ <code>find</code> უსაფრთხოა, როცა არსებობა დარწმუნებული არაა.</div></details>
+    <details><summary>10. რას აკეთებს <code class="inl">split()</code> და <code class="inl">join()</code>? მოიყვანეთ მაგალითი.</summary>
+      <div class="ans"><code>split()</code> სტრიქონს ჰყოფს გამყოფის მიხედვით და <b>სიას</b> აბრუნებს: <code>"a,b".split(",") → ['a','b']</code>. <code>join()</code> პირიქით — სიის ელემენტებს <b>ერთ სტრიქონად</b> აერთებს: <code>",".join(['a','b']) → "a,b"</code>.</div></details>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">სავარჯიშო</p>
+  <h2>პრაქტიკული ამოცანები</h2>
+  <ol class="pts">
+    <li><b>ციფრების ანალიზი</b><small>მთელი რიცხვისთვის იპოვე: ციფრების ჯამი, რაოდენობა, უდიდესი ციფრი და შებრუნებული რიცხვი. მხოლოდ <code class="inl">%</code> და <code class="inl">//</code>-ით</small></li>
+    <li><b>ფუნქცია <code class="inl">is_prime(n)</code></b><small>დაწერე ფუნქცია და გამოიყენე 1–100 დიაპაზონში ყველა მარტივი რიცხვის დასაბეჭდად</small></li>
+    <li><b>ტექსტის სტატისტიკა</b><small>სიმბოლოების, სიტყვების, ხმოვნების რაოდენობა; ყველაზე გრძელი სიტყვა; შებრუნებული ტექსტი</small></li>
+    <li><b>ბანკის კალკულატორი</b><small>თანხა და წლიური პროცენტი შეიტანე; დაბეჭდე ბალანსი ყოველი წლისთვის, სანამ არ გაორმაგდება</small></li>
+    <li><b>მენიუ</b><small><code class="inl">while True</code> + ფუნქციები: 4 არითმეტიკული ოპერაცია, 0 — გასვლა. ნულზე გაყოფა უნდა შემოწმდეს</small></li>
+  </ol>
+  <div class="callout tip"><b>რჩევა</b>ამოცანა ჯერ <b>ქაღალდზე</b> დაშალე ნაბიჯებად, მერე დაწერე. გამოცდაზე ეს დროს დაზოგავს, არა დაგახარჯვინებს.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ყურადღება</p>
+  <h2>ტიპური შეცდომები გამოცდაზე</h2>
+  <table class="small">
+    <tr><th style="width:34%">შეცდომა</th><th>სწორად</th></tr>
+    <tr><td><code>age = input("ასაკი: ")</code> და შემდეგ <code>age + 1</code></td><td><code>age = int(input("ასაკი: "))</code></td></tr>
+    <tr><td><code>range(1, 5)</code> როცა 5 გჭირდება</td><td><code>range(1, 6)</code></td></tr>
+    <tr><td><code>if x = 5:</code></td><td><code>if x == 5:</code></td></tr>
+    <tr><td><code>s.upper()</code> შედეგის შენახვის გარეშე</td><td><code>s = s.upper()</code></td></tr>
+    <tr><td><code>while</code>-ში მთვლელი არ იზრდება</td><td><code>count += 1</code> სხეულში</td></tr>
+    <tr><td>ფუნქციაში <code>print</code> <code>return</code>-ის ნაცვლად</td><td><code>return result</code></td></tr>
+    <tr><td>დამგროვებელი ცვლადი ციკლის შიგნით ინიციალიზდება</td><td>გაიტანე ციკლის <b>წინ</b></td></tr>
+    <tr><td>ორწერტილი ან წანაცვლება დაგავიწყდა</td><td><code>if x &gt; 0:</code> + 4 ჰარე</td></tr>
+  </table>
+  <div class="note">ეს ცხრილი შუალედურის შემდეგ IX კვირაზეც გამოგადგება შედეგების განხილვისას.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ტაქტიკა</p>
+  <h2>გამოცდის დღეს</h2>
+  <ul class="pts">
+    <li><b>ჯერ გადაათვალიერე ყველა კითხვა</b><small>დაიწყე იმით, რაც ზუსტად იცი — ქულა უკვე ჯიბეშია</small></li>
+    <li><b>ღია კითხვაზე ტერმინოლოგია მნიშვნელოვანია</b><small>2 ქულა იწერება, როცა პასუხი სრული და ტერმინოლოგიურად გამართულია</small></li>
+    <li><b>კოდის ამოცანაზე ჯერ ალგორითმი დაწერე</b><small>ნაწილობრივ სწორი გზაც ფასდება — ცარიელი ფურცელი არა</small></li>
+    <li><b>შეამოწმე კიდურა შემთხვევები</b><small>0, უარყოფითი, ცარიელი ტექსტი — სწორედ იქ იმალება შეცდომა</small></li>
+    <li><b>წანაცვლება და ორწერტილი</b><small>ქაღალდზეც კი — ეს შეფასების კრიტერიუმია</small></li>
+  </ul>
+  <div class="callout tip"><b>შემდეგი — ლექცია 09</b>შუალედურის შედეგების განხილვა + ფაილებთან მუშაობა.</div>
+</section>
+
+</main>
+<script src="../assets/deck.js"></script>
+</body>
+</html>

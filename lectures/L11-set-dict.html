@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>11 · სიმრავლე და ლექსიკონი</title>
+<link rel="stylesheet" href="../assets/deck.css">
+</head>
+<body>
+<main class="deck">
+
+<section class="slide">
+  <p class="kicker">ლექცია 11 · XI კვირა</p>
+  <h1>სიმრავლე და<br>ლექსიკონი</h1>
+  <p class="lead" style="margin-top:16px"><code class="inl">set</code> · <code class="inl">dict</code> · შესაბამის სტრუქტურებთან სამუშაო ფუნქციები</p>
+  <p class="small muted" style="margin-top:22px">დღეს ასევე: <b>პრაქტიკული დავალება #3</b></p>
+</section>
+
+<section class="slide">
+  <p class="kicker g">გამეორება · ლექციები 09–10</p>
+  <h2>შემოწმება — 9 კითხვა</h2>
+  <div class="quiz">
+    <details><summary>1. რა განსხვავებაა <code class="inl">"w"</code> და <code class="inl">"a"</code> რეჟიმებს შორის?</summary>
+      <div class="ans"><code>"w"</code> ფაილის შიგთავსს <b>შლის</b> და ახლიდან წერს; <code>"a"</code> არსებულს ინახავს და <b>ბოლოში ამატებს</b>.</div></details>
+    <details><summary>2. რატომ ვწერთ <code class="inl">encoding="utf-8"</code>?</summary>
+      <div class="ans">Windows-ზე ნაგულისხმევი კოდირება UTF-8 არაა, ამიტომ ქართული ტექსტი ან „კუბიკებად“ გამოჩნდება, ან <code>UnicodeDecodeError</code>-ს გამოიწვევს.</div></details>
+    <details><summary>3. რა უპირატესობა აქვს <code class="inl">with open(...) as f:</code>-ს?</summary>
+      <div class="ans">ფაილს <b>ავტომატურად ხურავს</b> ბლოკიდან გამოსვლისას — მაშინაც კი, თუ შიგნით შეცდომა მოხდა.</div></details>
+    <details><summary>4. რას დაბეჭდავს? <code class="inl">a = [1,2]; b = a; b.append(3); print(a)</code></summary>
+      <div class="ans"><code>[1, 2, 3]</code>. <code>b = a</code> ასლს არ ქმნის — ორივე სახელი <b>ერთსა და იმავე</b> სიაზე მიუთითებს. ასლისთვის: <code>a.copy()</code> ან <code>a[:]</code>.</div></details>
+    <details><summary>5. რას აბრუნებს <code class="inl">lst.sort()</code>?</summary>
+      <div class="ans"><code>None</code> — ის ორიგინალს ცვლის ადგილზე. ახალი დახარისხებული სიისთვის — <code>sorted(lst)</code>.</div></details>
+    <details><summary>6. რა განსხვავებაა <code class="inl">append([3,4])</code>-სა და <code class="inl">extend([3,4])</code>-ს შორის?</summary>
+      <div class="ans"><code>append</code> <b>მთელ სიას</b> ერთ ელემენტად დაამატებს → <code>[1,2,[3,4]]</code>; <code>extend</code> ელემენტებს ცალ-ცალკე → <code>[1,2,3,4]</code>.</div></details>
+    <details><summary>7. რით განსხვავდება <code class="inl">tuple</code> <code class="inl">list</code>-ისგან?</summary>
+      <div class="ans"><code>tuple</code> <b>უცვლელია</b> — შექმნის შემდეგ ელემენტს ვერ შეცვლი/დაამატებ. სამაგიეროდ ოდნავ სწრაფია და ლექსიკონის გასაღებად გამოდგება.</div></details>
+    <details><summary>8. რას აკეთებს <code class="inl">enumerate()</code> და <code class="inl">zip()</code>?</summary>
+      <div class="ans"><code>enumerate</code> ერთდროულად აბრუნებს <b>ინდექსსა და მნიშვნელობას</b>; <code>zip</code> ორ (ან მეტ) თანმიმდევრობას <b>პარალელურად</b> გადის, წყვილებად.</div></details>
+    <details><summary>9. რატომ არის <code class="inl">[[0]*3]*3</code> საშიში?</summary>
+      <div class="ans">ის სამ <b>მიმართვას ერთსა და იმავე</b> სიაზე ქმნის — ერთი ელემენტის შეცვლა სამივე „რიგს“ შეცვლის. სწორია: <code>[[0]*3 for _ in range(3)]</code>.</div></details>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ახალი ტიპი</p>
+  <h2><code class="inl">set</code> — სიმრავლე</h2>
+  <p class="big">უნიკალური ელემენტების <em>დაულაგებელი</em> კრებული.</p>
+<pre class="code" style="margin-top:14px"><code>s = {1, 2, 3, 3, 2, 1}
+print(s)                  # {1, 2, 3} — დუბლიკატები გაქრა
+
+empty = set()             # ⚠ {} — ეს ლექსიკონია!
+
+numbers = [1, 2, 2, 3, 3, 3]
+unique = set(numbers)
+print(unique)             # {1, 2, 3}
+print(list(unique))       # [1, 2, 3] — უკან სიად
+
+print(len(s))             # 3
+print(2 in s)             # True
+# print(s[0])             # TypeError — ინდექსი არ აქვს!</code></pre>
+  <div class="two" style="margin-top:12px">
+    <div class="callout tip small"><b>#1 გამოყენება</b>დუბლიკატების მოშორება ერთ ხაზში: <code class="inl">list(set(data))</code>.</div>
+    <div class="callout small"><b>#2 გამოყენება</b><code class="inl">in</code>-შემოწმება <b>ბევრად სწრაფია</b>, ვიდრე სიაში — დიდ მონაცემზე ეს კრიტიკულია.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">set</p>
+  <h2>სიმრავლეთა ოპერაციები</h2>
+<pre class="code"><code>a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+
+print(a | b)    # {1,2,3,4,5,6}  გაერთიანება    a.union(b)
+print(a &amp; b)    # {3, 4}         თანაკვეთა     a.intersection(b)
+print(a - b)    # {1, 2}         სხვაობა       a.difference(b)
+print(a ^ b)    # {1,2,5,6}      სიმეტრიული სხვაობა
+
+print({1, 2} &lt;= a)     # True — ქვესიმრავლეა?
+print(a.isdisjoint({9}))   # True — საერთო არაფერი აქვთ</code></pre>
+  <h3 style="margin-top:16px">ცვლილება</h3>
+<pre class="code"><code>s = {1, 2, 3}
+s.add(4)              # ერთი ელემენტი
+s.update([5, 6])      # რამდენიმე
+s.discard(10)         # წაშლა — თუ არაა, შეცდომა არ იქნება
+s.remove(1)           # წაშლა — თუ არაა, KeyError
+x = s.pop()           # შემთხვევითი ელემენტი
+s.clear()</code></pre>
+  <div class="callout tip"><b>პრაქტიკული მაგალითი</b>ორ ჯგუფში საერთო სტუდენტები: <code class="inl">group_a &amp; group_b</code>. მხოლოდ პირველში მყოფნი: <code class="inl">group_a - group_b</code>.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ახალი ტიპი</p>
+  <h2><code class="inl">dict</code> — ლექსიკონი</h2>
+  <p class="big">წყვილები <em>გასაღები → მნიშვნელობა</em>. წვდომა ინდექსით კი არა, <b>სახელით</b>.</p>
+  <div class="two" style="margin-top:14px">
+    <div>
+<pre class="code" data-title="სიით — ბუნდოვანი"><code>student = ["ნინო", 20, 92]
+print(student[2])     # რა არის 2?</code></pre>
+    </div>
+    <div>
+<pre class="code" data-title="ლექსიკონით — ცხადი"><code>student = {
+    "name": "ნინო",
+    "age": 20,
+    "score": 92,
+}
+print(student["score"])   # 92</code></pre>
+    </div>
+  </div>
+<pre class="code" style="margin-top:12px"><code>empty = {}
+also = dict()
+from_pairs = dict([("a", 1), ("b", 2)])
+by_kwargs = dict(name="ნინო", age=20)
+
+print(len(student))          # 3
+print("name" in student)     # True — გასაღებებში ეძებს</code></pre>
+</section>
+
+<section class="slide">
+  <p class="kicker">dict</p>
+  <h2>წვდომა — <code class="inl">[]</code> თუ <code class="inl">get()</code>?</h2>
+<pre class="code"><code>student = {"name": "ნინო", "score": 92}
+
+print(student["name"])          # ნინო
+print(student["email"])
+# KeyError: 'email'
+
+print(student.get("email"))            # None — შეცდომის გარეშე
+print(student.get("email", "არ არის")) # არ არის — ნაგულისხმევი</code></pre>
+  <div class="callout"><b>როდის რომელი</b>
+    <span style="display:block;margin-top:6px"><code class="inl">[]</code> — როცა გასაღები <b>აუცილებლად</b> უნდა არსებობდეს (მისი არარსებობა შეცდომაა)</span>
+    <span style="display:block"><code class="inl">get()</code> — როცა შესაძლოა არ იყოს და ნაგულისხმევი მნიშვნელობა გვაწყობს</span></div>
+<pre class="code" style="margin-top:8px"><code># დამატება და შეცვლა
+student["email"] = "nino@example.com"    # ახალი გასაღები
+student["score"] = 95                    # არსებულის შეცვლა
+
+# წაშლა
+del student["email"]
+value = student.pop("score")             # წაშლა + დაბრუნება
+student.clear()</code></pre>
+</section>
+
+<section class="slide">
+  <p class="kicker">dict</p>
+  <h2>გავლა ლექსიკონზე</h2>
+<pre class="code"><code>scores = {"ნინო": 92, "გიორგი": 78, "ანა": 85}
+
+print(scores.keys())     # dict_keys(['ნინო', 'გიორგი', 'ანა'])
+print(scores.values())   # dict_values([92, 78, 85])
+print(scores.items())    # dict_items([('ნინო', 92), ...])
+
+# მხოლოდ გასაღებები (ნაგულისხმევი)
+for name in scores:
+    print(name, scores[name])
+
+# მხოლოდ მნიშვნელობები
+for score in scores.values():
+    print(score)
+
+# ✓ ორივე ერთად — ყველაზე ხშირი
+for name, score in scores.items():
+    print(f"{name:&lt;10}{score:&gt;5}")
+
+print(sum(scores.values()) / len(scores))     # საშუალო
+print(max(scores, key=scores.get))            # საუკეთესო სტუდენტი</code></pre>
+  <div class="callout tip"><b><code class="inl">.items()</code></b>ესაა ლექსიკონზე გავლის სტანდარტული ხერხი — თითოეულ ბიჯზე tuple-ს აბრუნებს, რომელიც პირდაპირ ორ ცვლადად იშლება.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">შაბლონი</p>
+  <h2>სიხშირის დათვლა — ლექსიკონის კლასიკა</h2>
+<pre class="code" data-title="frequency.py"><code>text = "პროგრამირება პითონზე"
+freq = {}
+
+for ch in text:
+    if ch == " ":
+        continue
+    if ch in freq:
+        freq[ch] += 1
+    else:
+        freq[ch] = 1
+
+# იგივე, უფრო მოკლედ:
+for ch in text.replace(" ", ""):
+    freq[ch] = freq.get(ch, 0) + 1
+
+# დახარისხება სიხშირით
+for ch, n in sorted(freq.items(), key=lambda p: p[1], reverse=True):
+    print(f"{ch}: {'█' * n} {n}")</code></pre>
+  <div class="callout tip"><b>მზა ინსტრუმენტი</b>
+<pre class="code" style="margin-top:8px"><code>from collections import Counter
+
+freq = Counter(text.replace(" ", ""))
+print(freq.most_common(3))    # 3 ყველაზე ხშირი</code></pre></div>
+  <div class="note">ეს ამოცანა თითქმის ყოველთვის ხვდება დასკვნით გამოცდაზე. სთხოვე ჯერ ხელით დაწერონ, მერე Counter-ით.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">კომბინაცია</p>
+  <h2>ჩადგმული სტრუქტურები</h2>
+<pre class="code"><code>students = {
+    "ნინო": {"age": 20, "scores": [92, 88, 95]},
+    "გიორგი": {"age": 21, "scores": [78, 82, 70]},
+}
+
+print(students["ნინო"]["age"])          # 20
+print(students["ნინო"]["scores"][0])    # 92
+
+for name, info in students.items():
+    scores = info["scores"]
+    avg = sum(scores) / len(scores)
+    print(f"{name:&lt;10}{info['age']:&gt;4}{avg:&gt;8.1f}")
+
+# სია ლექსიკონებისგან — ყველაზე გავრცელებული ფორმა
+group = [
+    {"name": "ნინო", "score": 92},
+    {"name": "გიორგი", "score": 78},
+]
+
+for s in group:
+    print(s["name"], s["score"])
+
+best = max(group, key=lambda s: s["score"])
+print("საუკეთესო:", best["name"])</code></pre>
+  <div class="callout"><b>ეს სტრუქტურა შემთხვევითი არაა</b>„სია ლექსიკონებისგან“ ზუსტად ისეა აგებული, როგორც <b>JSON</b> — ფორმატი, რომლითაც ვებ-სერვისები მონაცემს ცვლიან.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">შედარება</p>
+  <h2>ოთხი კრებული ერთ ცხრილში</h2>
+  <table>
+    <tr><th style="width:16%">ტიპი</th><th style="width:16%">ჩანაწერი</th><th style="width:14%">დალაგებული</th><th style="width:14%">ცვალებადი</th><th style="width:14%">დუბლიკატი</th><th>წვდომა</th></tr>
+    <tr><td><code>list</code></td><td><code>[1, 2, 3]</code></td><td>✔</td><td>✔</td><td>✔</td><td>ინდექსით</td></tr>
+    <tr><td><code>tuple</code></td><td><code>(1, 2, 3)</code></td><td>✔</td><td>✘</td><td>✔</td><td>ინდექსით</td></tr>
+    <tr><td><code>set</code></td><td><code>{1, 2, 3}</code></td><td>✘</td><td>✔</td><td>✘</td><td>მხოლოდ <code>in</code></td></tr>
+    <tr><td><code>dict</code></td><td><code>{"a": 1}</code></td><td>✔ <small>(ჩაწერის რიგით)</small></td><td>✔</td><td>გასაღები ✘</td><td>გასაღებით</td></tr>
+  </table>
+  <div class="callout tip"><b>როგორ ავირჩიოთ</b>
+    <span style="display:block;margin-top:6px"><b>რიგი და ცვლილება</b> → <code class="inl">list</code></span>
+    <span style="display:block"><b>უცვლელი ჩანაწერი</b> (კოორდინატი, RGB) → <code class="inl">tuple</code></span>
+    <span style="display:block"><b>უნიკალურობა ან სწრაფი <code class="inl">in</code></b> → <code class="inl">set</code></span>
+    <span style="display:block"><b>სახელით მოძებნა</b> → <code class="inl">dict</code></span></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">შეფასება</p>
+  <h2>პრაქტიკული დავალება #3</h2>
+  <p class="small muted">8 ქულა · სრულდება აუდიტორიაში, დამოუკიდებლად</p>
+  <ol class="pts">
+    <li><b>უნიკალური სიტყვები</b><small>ტექსტიდან გამოყავი უნიკალური სიტყვები <code class="inl">set</code>-ით, დაბეჭდე ანბანურად დახარისხებული</small></li>
+    <li><b>ორი ჯგუფის შედარება</b><small>ორი სიმრავლიდან: საერთო სტუდენტები, მხოლოდ პირველში, მხოლოდ მეორეში მყოფნი</small></li>
+    <li><b>სიტყვების სიხშირე</b><small>ლექსიკონით დათვალე ტექსტში თითოეული სიტყვა; დაბეჭდე 5 ყველაზე ხშირი</small></li>
+    <li><b>სატელეფონო წიგნაკი</b><small>მენიუთი: დამატება, ძებნა (<code class="inl">get</code>-ით), წაშლა, სრული სია. მონაცემები ფაილში შეინახე</small></li>
+    <li><b>უწყისი</b><small>სია ლექსიკონებისგან: სახელი + 3 ქულა. დაბეჭდე საშუალოთი დახარისხებული ცხრილი</small></li>
+  </ol>
+  <div class="callout tip"><b>რჩევა</b>დავალება 4 და 5 IX კვირის ფაილებთან მუშაობასაც იყენებს — ესაა კარგი ინტეგრაცია.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">შემაჯამებელი</p>
+  <h2>რა უნდა დაგამახსოვრდეს</h2>
+  <ul class="pts">
+    <li><code class="inl">set</code> — უნიკალური, დაულაგებელი, ინდექსის გარეშე; <code class="inl">set()</code> ცარიელისთვის (<code class="inl">{}</code> — ლექსიკონია!)</li>
+    <li>ოპერაციები: <code class="inl">|</code> გაერთიანება · <code class="inl">&amp;</code> თანაკვეთა · <code class="inl">-</code> სხვაობა · <code class="inl">^</code> სიმეტრიული</li>
+    <li><code class="inl">dict</code> — გასაღები→მნიშვნელობა; <code class="inl">[]</code> მკაცრი, <code class="inl">get()</code> უსაფრთხო</li>
+    <li>გავლა: <code class="inl">for k, v in d.items():</code></li>
+    <li>სიხშირის შაბლონი: <code class="inl">d[x] = d.get(x, 0) + 1</code></li>
+    <li>„სია ლექსიკონებისგან“ — რეალური მონაცემების სტანდარტული ფორმა (JSON)</li>
+  </ul>
+  <div class="callout tip"><b>შემდეგი — ლექცია 12</b>შეცდომები და მათი დამუშავება: <code class="inl">try / except / else / finally</code>, <code class="inl">with ... as</code>.</div>
+</section>
+
+</main>
+<script src="../assets/deck.js"></script>
+</body>
+</html>

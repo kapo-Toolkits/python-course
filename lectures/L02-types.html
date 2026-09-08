@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>02 · საბაზისო ტიპები, ცვლადები, არითმეტიკა</title>
+<link rel="stylesheet" href="../assets/deck.css">
+</head>
+<body>
+<main class="deck">
+
+<section class="slide">
+  <p class="kicker">ლექცია 02 · II კვირა</p>
+  <h1>ცვლადები და<br>საბაზისო ტიპები</h1>
+  <p class="lead" style="margin-top:16px">ცვლადების გამოცხადება · მონაცემთა ტიპები · არითმეტიკული ოპერაციები · <code class="inl">input()</code> და <code class="inl">print()</code></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">საბაზისო</p>
+  <h2>რა არის ცვლადი</h2>
+  <p class="big">ცვლადი — <em>სახელი</em>, რომელიც მეხსიერებაში არსებულ მნიშვნელობაზე მიუთითებს.</p>
+  <div class="two" style="margin-top:18px">
+    <div>
+<pre class="code"><code>age = 20
+name = "ნინო"
+price = 19.99
+is_student = True</code></pre>
+      <p class="small muted" style="margin-top:10px">ნიშანი <code class="inl">=</code> არაა „ტოლობა“ — ესაა <b>მინიჭება</b>: „მარჯვნივ გამოთვლილი მნიშვნელობა მიაბი მარცხენა სახელს“.</p>
+    </div>
+    <div>
+      <div class="callout tip"><b>წარმოიდგინე ასე</b>მნიშვნელობა ყუთშია, ცვლადი კი — ყუთზე გაკრული სტიკერი. ერთ ყუთს რამდენიმე სტიკერიც შეიძლება ჰქონდეს.</div>
+<pre class="code" style="margin-top:12px"><code>x = 5
+y = x      # ორივე ერთსა და იმავეზე მიუთითებს
+x = 7      # x-ს ახალი ყუთი მიება
+print(x, y)</code></pre>
+      <p class="out">7 5</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">თავისებურება</p>
+  <h2>Python <em>დინამიკურად</em> ტიპიზებულია</h2>
+  <p>ტიპს არ ვწერთ — Python მას თავად ცნობს მინიჭებული მნიშვნელობიდან.</p>
+  <div class="two">
+    <div>
+<pre class="code" data-title="Python"><code>x = 10          # int
+x = "ტექსტი"    # ახლა str
+x = 3.5         # ახლა float</code></pre>
+      <p class="small muted" style="margin-top:8px">ერთი და იმავე ცვლადის ტიპი პროგრამის მსვლელობისას იცვლება.</p>
+    </div>
+    <div>
+<pre class="code" data-title="C / Java"><code class="nohl">int x = 10;
+x = "ტექსტი";   // შეცდომა!</code></pre>
+      <p class="small muted" style="margin-top:8px">იქ ტიპი ერთხელ ცხადდება და აღარ იცვლება.</p>
+    </div>
+  </div>
+  <div class="callout warn"><b>თავისუფლების ფასი</b>მოქნილობა მოსახერხებელია, მაგრამ შეცდომა მხოლოდ <b>გაშვების დროს</b> ჩნდება. ამიტომაა Pylance სასარგებლო — ის ბევრ ასეთ პრობლემას წერისასვე ხედავს.</div>
+  <div class="note">კარგი კითხვაა აუდიტორიისთვის: „რა უპირატესობა და რა საფრთხე აქვს ამას?“ — მსჯელობა 3–4 წუთი.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ტიპები</p>
+  <h2>საბაზისო ტიპები</h2>
+  <table>
+    <tr><th style="width:15%">ტიპი</th><th style="width:22%">რა არის</th><th style="width:30%">მაგალითი</th><th>შენიშვნა</th></tr>
+    <tr><td><code>int</code></td><td>მთელი რიცხვი</td><td><code>0, -14, 1_000_000</code></td><td>ზომაზე შეზღუდვა არ აქვს</td></tr>
+    <tr><td><code>float</code></td><td>წილადი</td><td><code>3.14, -0.5, 2e3</code></td><td>ათწილადის გამყოფი — <b>წერტილი</b></td></tr>
+    <tr><td><code>str</code></td><td>ტექსტი</td><td><code>"გამარჯობა", 'ა'</code></td><td>ბრჭყალები ორივე გამოდგება</td></tr>
+    <tr><td><code>bool</code></td><td>ლოგიკური</td><td><code>True, False</code></td><td>დიდი ასოებით!</td></tr>
+    <tr><td><code>NoneType</code></td><td>„არაფერი“</td><td><code>None</code></td><td>„მნიშვნელობა ჯერ არაა“</td></tr>
+    <tr><td><code>complex</code></td><td>კომპლექსური</td><td><code>2 + 3j</code></td><td>იშვიათი, მაგრამ ჩაშენებული</td></tr>
+  </table>
+  <div class="callout tip"><b>შემდეგში</b>კონტეინერული ტიპები — <code class="inl">list</code>, <code class="inl">tuple</code> (X კვირა), <code class="inl">set</code>, <code class="inl">dict</code> (XI კვირა).</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ინსტრუმენტი</p>
+  <h2><code class="inl">type()</code> — რა ტიპისაა?</h2>
+<pre class="code" data-title="types.py"><code>a = 5
+b = 5.0
+c = "5"
+d = True
+e = None
+
+print(type(a))    # &lt;class 'int'&gt;
+print(type(b))    # &lt;class 'float'&gt;
+print(type(c))    # &lt;class 'str'&gt;
+print(type(d))    # &lt;class 'bool'&gt;
+print(type(e))    # &lt;class 'NoneType'&gt;
+
+print(a == b)             # True  — მნიშვნელობა ერთია
+print(type(a) == type(b)) # False — ტიპი სხვაა</code></pre>
+  <div class="callout"><b>რატომაა მნიშვნელოვანი?</b>უმეტესი შეცდომა დამწყებთან ტიპების არევიდან იბადება: <code class="inl">"5" + 5</code> → <code class="inl">TypeError</code>. როცა გაუგებრობაა — დაბეჭდე <code class="inl">type()</code>.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">დეტალი</p>
+  <h2><code class="inl">int</code> და <code class="inl">float</code></h2>
+  <div class="two">
+    <div>
+      <h3>int — შეზღუდვის გარეშე</h3>
+<pre class="code"><code>big = 2 ** 100
+print(big)
+# 1267650600228229401496703205376
+
+million = 1_000_000   # ქვედა ტირე
+print(million)        # 1000000</code></pre>
+    </div>
+    <div>
+      <h3>float — სიზუსტის ზღვარი</h3>
+<pre class="code"><code>print(0.1 + 0.2)
+# 0.30000000000000004
+
+print(0.1 + 0.2 == 0.3)   # False
+print(round(0.1 + 0.2, 2) == 0.3)  # True</code></pre>
+    </div>
+  </div>
+  <div class="callout warn"><b>ეს არაა Python-ის ბაგი</b>ორობით სისტემაში 0.1 ზუსტად ვერ ჩაიწერება — ისევე, როგორც ათობითში 1/3. ეს ყველა ენას ეხება. <b>ფულთან</b> მუშაობისას იყენებენ <code class="inl">decimal</code> მოდულს ან მთელ თეთრებს.</div>
+  <div class="note">ეს დემონსტრაცია REPL-ში აუცილებლად აჩვენე — ყოველთვის აოცებს და კარგად ამახსოვრდებათ.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">დეტალი</p>
+  <h2><code class="inl">bool</code> — მხოლოდ ორი მნიშვნელობა</h2>
+<pre class="code"><code>is_ready = True
+has_error = False
+
+print(True + True)      # 2   — bool რიცხვია!
+print(int(False))       # 0
+
+# რომელი მნიშვნელობებია "მცდარი" (falsy)?
+print(bool(0))          # False
+print(bool(""))         # False
+print(bool([]))         # False
+print(bool(None))       # False
+print(bool(0.0))        # False
+
+print(bool(-5))         # True — ნებისმიერი არა-ნულოვანი
+print(bool("False"))    # True — არაცარიელი ტექსტი!</code></pre>
+  <div class="callout err"><b>კლასიკური ხაფანგი</b><code class="inl">bool("False")</code> არის <code class="inl">True</code>, რადგან ეს არაცარიელი <b>ტექსტია</b>, არა ლოგიკური მნიშვნელობა.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">კონვერტაცია</p>
+  <h2>ტიპის შეცვლა (casting)</h2>
+<pre class="code" data-title="convert.py"><code>print(int("42") + 8)        # 50
+print(float("3.5") * 2)     # 7.0
+print(str(100) + " ლარი")   # 100 ლარი
+
+print(int(9.99))            # 9  — კვეცავს, არ ამრგვალებს!
+print(round(9.99))          # 10 — ეს ამრგვალებს
+
+print(int("42abc"))
+# ValueError: invalid literal for int() with base 10: '42abc'</code></pre>
+  <div class="two" style="margin-top:12px">
+    <div class="callout tip small"><b><code class="inl">int()</code> კვეცავს</b><code class="inl">int(9.99) → 9</code>, <code class="inl">int(-9.99) → -9</code>. დამრგვალებისთვის <code class="inl">round()</code>-ია.</div>
+    <div class="callout err small"><b>ValueError</b>ჩნდება, როცა ტექსტი რიცხვად არ იკითხება. დამუშავებას XII კვირაზე ვისწავლით.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ოპერაციები</p>
+  <h2>არითმეტიკული ოპერატორები</h2>
+  <table>
+    <tr><th style="width:12%">ოპ.</th><th style="width:24%">დასახელება</th><th style="width:28%">მაგალითი</th><th>შედეგი</th></tr>
+    <tr><td><code>+</code></td><td>შეკრება</td><td><code>7 + 3</code></td><td><code>10</code></td></tr>
+    <tr><td><code>-</code></td><td>გამოკლება</td><td><code>7 - 3</code></td><td><code>4</code></td></tr>
+    <tr><td><code>*</code></td><td>გამრავლება</td><td><code>7 * 3</code></td><td><code>21</code></td></tr>
+    <tr><td><code>/</code></td><td>გაყოფა</td><td><code>7 / 3</code></td><td><code>2.333…</code> — <b>ყოველთვის float</b></td></tr>
+    <tr><td><code>//</code></td><td>მთელი გაყოფა</td><td><code>7 // 3</code></td><td><code>2</code></td></tr>
+    <tr><td><code>%</code></td><td>ნაშთი (modulo)</td><td><code>7 % 3</code></td><td><code>1</code></td></tr>
+    <tr><td><code>**</code></td><td>ახარისხება</td><td><code>7 ** 3</code></td><td><code>343</code></td></tr>
+  </table>
+  <div class="callout"><b>ყურადღება</b><code class="inl">10 / 2</code> აბრუნებს <code class="inl">5.0</code>-ს (float), არა <code class="inl">5</code>-ს. მთელი შედეგისთვის — <code class="inl">10 // 2</code>.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">პრაქტიკა</p>
+  <h2><code class="inl">//</code> და <code class="inl">%</code> — რისთვის გამოგადგება</h2>
+  <div class="two">
+    <div>
+      <h3>წამების გარდაქმნა</h3>
+<pre class="code"><code>total = 3725   # წამი
+
+hours = total // 3600
+rest = total % 3600
+minutes = rest // 60
+seconds = rest % 60
+
+print(hours, "სთ", minutes, "წთ", seconds, "წმ")</code></pre>
+      <p class="out">1 სთ 2 წთ 5 წმ</p>
+    </div>
+    <div>
+      <h3>ლუწი / კენტი</h3>
+<pre class="code"><code>n = 14
+print(n % 2 == 0)   # True → ლუწია</code></pre>
+      <h3 style="margin-top:14px">ბოლო ციფრი</h3>
+<pre class="code"><code>print(1234 % 10)    # 4
+print(1234 // 10)   # 123</code></pre>
+      <div class="callout tip small"><b>ეს ორი ოპერატორი</b>გამოცდაზე თითქმის ყოველთვის ხვდება. <code class="inl">%</code> — „გაყოფის ნაშთი“, <code class="inl">//</code> — „მთელი ნაწილი“.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">წესი</p>
+  <h2>ოპერაციების პრიორიტეტი</h2>
+  <ol class="pts">
+    <li><code class="inl">( )</code> — ფრჩხილები</li>
+    <li><code class="inl">**</code> — ახარისხება <small>(მარჯვნიდან მარცხნივ)</small></li>
+    <li><code class="inl">-x</code> — უნარული მინუსი</li>
+    <li><code class="inl">* / // %</code> — მარცხნიდან მარჯვნივ</li>
+    <li><code class="inl">+ -</code> — მარცხნიდან მარჯვნივ</li>
+  </ol>
+<pre class="code" style="margin-top:14px"><code>print(2 + 3 * 4)        # 14, არა 20
+print((2 + 3) * 4)      # 20
+print(2 ** 3 ** 2)      # 512  (2 ** 9), არა 64
+print(-2 ** 2)          # -4   (ჯერ 2**2, მერე მინუსი)
+print((-2) ** 2)        # 4</code></pre>
+  <div class="callout tip"><b>რჩევა</b>ეჭვის შემთხვევაში დასვი ფრჩხილები. ისინი უფასოა და კოდს კითხვადს ხდის.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">მოკლე ჩანაწერი</p>
+  <h2>შემოკლებული მინიჭება</h2>
+  <div class="two">
+    <div>
+<pre class="code"><code>count = 10
+
+count = count + 5   # ჩვეულებრივი
+count += 5          # იგივე, მოკლედ
+
+count -= 3          # count = count - 3
+count *= 2          # count = count * 2
+count /= 4          # count = count / 4
+count //= 2
+count %= 7
+count **= 2</code></pre>
+    </div>
+    <div>
+      <h3>მრავლობითი მინიჭება</h3>
+<pre class="code"><code>x = y = z = 0
+
+a, b = 5, 10
+print(a, b)     # 5 10
+
+a, b = b, a     # ადგილების გაცვლა!
+print(a, b)     # 10 5</code></pre>
+      <div class="callout tip small"><b>ეს ჩანაწერი</b><code class="inl">a, b = b, a</code> — Python-ის ერთ-ერთი ყველაზე ლამაზი თვისებაა. სხვა ენებში დროებითი ცვლადი დაგჭირდებოდა.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">შეტანა</p>
+  <h2><code class="inl">input()</code> — მონაცემები კლავიატურიდან</h2>
+<pre class="code" data-title="input.py"><code>name = input("სახელი: ")
+print("გამარჯობა,", name)
+
+age = input("ასაკი: ")
+print(type(age))          # &lt;class 'str'&gt; — ყოველთვის!
+
+print(age + 1)
+# TypeError: can only concatenate str (not "int") to str</code></pre>
+  <div class="callout err"><b>წესი, რომელიც ერთხელ და სამუდამოდ უნდა დაიმახსოვრო</b><code class="inl">input()</code> <b>ყოველთვის</b> ტექსტს (<code class="inl">str</code>) აბრუნებს — მაშინაც კი, როცა მომხმარებელი რიცხვს კრეფს.</div>
+<pre class="code" data-title="სწორად"><code>age = int(input("ასაკი: "))
+print(age + 1)            # ახლა მუშაობს
+
+height = float(input("სიმაღლე (მ): "))
+print(height * 100, "სმ")</code></pre>
+  <div class="note">ეს სლაიდი ყველაზე მნიშვნელოვანია ამ ლექციაში. თითქმის ყველა პრაქტიკული დავალება input-ით იწყება და სწორედ აქ იჭედება ნახევარი ჯგუფი.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">გამოტანა</p>
+  <h2><code class="inl">print()</code> — უფრო მეტი, ვიდრე გგონია</h2>
+<pre class="code" data-title="print.py"><code>print("ა", "ბ", "გ")              # ა ბ გ
+print("ა", "ბ", sep="-")          # ა-ბ
+print("ა", "ბ", sep="")           # აბ
+
+print("ერთი", end=" ")            # ხაზს არ წყვეტს
+print("ხაზი")                     # ერთი ხაზი
+
+print()                            # ცარიელი ხაზი
+print("-" * 20)                    # ------------------—</code></pre>
+  <div class="two" style="margin-top:12px">
+    <div class="card small">
+      <h3><code>sep</code></h3>
+      <p>რა ჩაიდოს არგუმენტებს <b>შორის</b>. ნაგულისხმევი — ერთი ჰარე.</p>
+    </div>
+    <div class="card small">
+      <h3><code>end</code></h3>
+      <p>რით <b>დამთავრდეს</b>. ნაგულისხმევი — ხაზის გადატანა <code>\n</code>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">გამოტანა</p>
+  <h2>f-სტრიქონი — თანამედროვე ფორმატირება</h2>
+<pre class="code" data-title="fstring.py"><code>name = "ნინო"
+score = 87.6543
+
+# ძველი გზები
+print("სტუდენტი " + name + ", ქულა " + str(score))
+print("სტუდენტი {}, ქულა {}".format(name, score))
+
+# f-სტრიქონი — ყველაზე მოხერხებული
+print(f"სტუდენტი {name}, ქულა {score}")
+
+# ფორმატირება პირდაპირ შიგნით
+print(f"ქულა: {score:.2f}")        # 87.65
+print(f"გამოთვლა: {2 + 3 * 4}")    # 14
+print(f"{name!r}")                  # 'ნინო'</code></pre>
+  <div class="callout tip"><b>დაიმახსოვრე</b><code class="inl">f</code> ბრჭყალის <b>წინ</b>, ცვლადი — ფიგურულ ფრჩხილებში. დეტალურად ფორმატირებას <b>VII კვირაზე</b> გავივლით.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">სრული მაგალითი</p>
+  <h2>ყველაფერი ერთად</h2>
+<pre class="code" data-title="shop.py"><code># პროგრამა ითვლის შენაძენის ღირებულებას ფასდაკლებით
+
+print("=== კალკულატორი ===")
+
+item = input("პროდუქტი: ")
+price = float(input("ფასი (ლარი): "))
+count = int(input("რაოდენობა: "))
+discount = float(input("ფასდაკლება (%): "))
+
+total = price * count
+saved = total * discount / 100
+final = total - saved
+
+print("-" * 30)
+print(f"პროდუქტი:    {item}")
+print(f"ჯამი:        {total:.2f} ₾")
+print(f"დაზოგე:      {saved:.2f} ₾")
+print(f"გადასახდელი: {final:.2f} ₾")</code></pre>
+  <div class="note">სთხოვე სტუდენტებს ეს გადააკეთონ: დაამატონ დღგ 18%, ან ფასდაკლება მხოლოდ 3-ზე მეტი ერთეულის შემთხვევაში (ეს უკვე III კვირის მასალაა — კარგი „კაუჭია“).</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">შემაჯამებელი</p>
+  <h2>რა უნდა დაგამახსოვრდეს</h2>
+  <ul class="pts">
+    <li>ცვლადს ტიპს არ ვუთითებთ — Python მას მინიჭებისას განსაზღვრავს</li>
+    <li>საბაზისო ტიპები: <code class="inl">int · float · str · bool · None</code>, შემოწმება — <code class="inl">type()</code></li>
+    <li><code class="inl">/</code> ყოველთვის <code class="inl">float</code>-ს აბრუნებს; მთელი გაყოფა — <code class="inl">//</code>, ნაშთი — <code class="inl">%</code></li>
+    <li><code class="inl">input()</code> ყოველთვის <code class="inl">str</code>-ს აბრუნებს → შემოახვიე <code class="inl">int()</code> ან <code class="inl">float()</code></li>
+    <li>გამოტანისთვის — <code class="inl">f"..."</code> და <code class="inl">{value:.2f}</code></li>
+  </ul>
+  <div class="callout"><b>სახლში</b>1) წამების → სთ/წთ/წმ გადამყვანი. 2) წრეწირის სიგრძე და წრის ფართობი რადიუსით. 3) ორნიშნა რიცხვის ციფრების ჯამი (<code class="inl">//</code> და <code class="inl">%</code>-ით). 4) ტემპერატურა °C → °F.</div>
+  <div class="callout tip"><b>შემდეგი — ლექცია 03</b>შედარებისა და ლოგიკური ოპერატორები, <code class="inl">if / elif / else</code> + <b>პრაქტიკული დავალება #1</b>.</div>
+</section>
+
+</main>
+<script src="../assets/deck.js"></script>
+</body>
+</html>

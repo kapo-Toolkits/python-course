@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>15 · მოდულები, პაკეტები და ვერსიების კონტროლი</title>
+<link rel="stylesheet" href="../assets/deck.css">
+</head>
+<body>
+<main class="deck">
+
+<section class="slide">
+  <p class="kicker">ლექცია 15 · XV კვირა</p>
+  <h1>მოდულები,<br>პაკეტები, git</h1>
+  <p class="lead" style="margin-top:16px"><code class="inl">import</code> და <code class="inl">from</code> · მოდულის მოძებნა და ხელახლა ჩატვირთვა · პაკეტები · ვერსიების კონტროლი · შემაჯამებელი</p>
+  <p class="small muted" style="margin-top:22px">დღეს ასევე: <b>პრაქტიკული დავალება #5</b></p>
+</section>
+
+<section class="slide">
+  <p class="kicker g">გამეორება · ლექციები 13–14</p>
+  <h2>შემოწმება — 8 კითხვა</h2>
+  <div class="quiz">
+    <details><summary>1. რა სამ ნაბიჯს ასრულებს <code class="inl">for</code> ციკლი შიგნით?</summary>
+      <div class="ans">იძახებს <code>iter()</code>-ს იტერატორის მისაღებად → ყოველ ბიჯზე <code>next()</code>-ს → <code>StopIteration</code>-ის დაჭერისას ჩერდება.</div></details>
+    <details><summary>2. რა განსხვავებაა <code class="inl">yield</code>-სა და <code class="inl">return</code>-ს შორის?</summary>
+      <div class="ans"><code>return</code> ფუნქციას ამთავრებს; <code>yield</code> მნიშვნელობას აბრუნებს და ფუნქციას „აპაუზებს“ — შემდეგი <code>next()</code> იმავე ადგილიდან განაგრძობს.</div></details>
+    <details><summary>3. რა განსხვავებაა <code class="inl">[x for x in r]</code>-სა და <code class="inl">(x for x in r)</code>-ს შორის?</summary>
+      <div class="ans">პირველი <b>სიას</b> ქმნის — ყველა ელემენტი მაშინვე მეხსიერებაშია. მეორე <b>გენერატორია</b> — ელემენტს საჭიროებისას ქმნის, მეხსიერებას თითქმის არ იკავებს.</div></details>
+    <details><summary>4. რატომ აბრუნებს <code class="inl">list(it)</code> მეორედ ცარიელ სიას?</summary>
+      <div class="ans">იტერატორი <b>ერთჯერადია</b> — გავლის შემდეგ ამოწურულია. ხელახლა გავლისთვის ახალი <code>iter()</code> სჭირდება.</div></details>
+    <details><summary>5. რას ნიშნავს <code class="inl">snake_case</code>, <code class="inl">UPPER_CASE</code> და <code class="inl">PascalCase</code> PEP 8-ში?</summary>
+      <div class="ans">ცვლადები და ფუნქციები · კონსტანტები · კლასები.</div></details>
+    <details><summary>6. რა განსხვავებაა linter-სა და formatter-ს შორის?</summary>
+      <div class="ans">Linter <b>პრობლემას პოულობს</b> და გაცნობებს; formatter <b>თავად ასწორებს</b> ფორმატირებას. Ruff ორივეს აკეთებს.</div></details>
+    <details><summary>7. რას აკეთებს <code class="inl">pip freeze &gt; requirements.txt</code>?</summary>
+      <div class="ans">ჩაწერს ფაილში მიმდინარე გარემოს ყველა პაკეტს ზუსტი ვერსიებით. აღდგენა — <code>pip install -r requirements.txt</code>.</div></details>
+    <details><summary>8. რატომ არის სახიფათო უცნობი პაკეტის დაყენება?</summary>
+      <div class="ans">PyPI-ს მოდერაცია არ აქვს, დაყენებისას პაკეტის კოდი <b>შენს კომპიუტერზე სრულდება</b>. სახელის ერთი ასოთი შეცდომა (typosquatting) მავნე პაკეტს გამოიწვევს.</div></details>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ცნება</p>
+  <h2>მოდული — უბრალოდ <code class="inl">.py</code> ფაილი</h2>
+  <p class="big">ყოველი Python-ის ფაილი უკვე <em>მოდულია</em>. საკმარისია მისი იმპორტი.</p>
+<pre class="code" data-title="mathtools.py" style="margin-top:14px"><code>"""მათემატიკური დამხმარე ფუნქციები."""
+
+PI = 3.14159
+
+
+def circle_area(r):
+    return PI * r ** 2
+
+
+def is_prime(n):
+    if n &lt; 2:
+        return False
+    for d in range(2, int(n ** 0.5) + 1):
+        if n % d == 0:
+            return False
+    return True</code></pre>
+<pre class="code" data-title="main.py" style="margin-top:10px"><code>import mathtools
+
+print(mathtools.PI)
+print(mathtools.circle_area(5))
+print(mathtools.is_prime(17))</code></pre>
+  <div class="callout tip"><b>რატომ ვყოფთ ფაილებად</b>500-ხაზიან ერთ ფაილში შეცდომის პოვნა რთულია. ხუთი 100-ხაზიანი ფაილი, თითო თავისი პასუხისმგებლობით — გაცილებით მართვადია.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">სინტაქსი</p>
+  <h2><code class="inl">import</code> და <code class="inl">from</code></h2>
+<pre class="code"><code># 1. მთელი მოდული — სახელი ყოველთვის ჩანს
+import mathtools
+print(mathtools.circle_area(5))
+
+# 2. კონკრეტული სახელები
+from mathtools import circle_area, PI
+print(circle_area(5))
+
+# 3. ფსევდონიმი
+import mathtools as mt
+print(mt.circle_area(5))
+
+from mathtools import circle_area as area
+print(area(5))
+
+# 4. ✗ ყველაფერი — არასდროს
+from mathtools import *</code></pre>
+  <div class="callout"><b>რომელი როდის</b>
+    <span style="display:block;margin-top:6px"><b><code class="inl">import module</code></b> — ნაგულისხმევი არჩევანი. კოდში ჩანს, საიდან მოვიდა ფუნქცია</span>
+    <span style="display:block"><b><code class="inl">from … import x</code></b> — როცა 1–3 სახელს ხშირად იყენებ</span>
+    <span style="display:block"><b><code class="inl">import … as</code></b> — გრძელი სახელისთვის ან მიღებული შემოკლებისთვის (<code class="inl">import pandas as pd</code>)</span></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">მნიშვნელოვანი</p>
+  <h2><code class="inl">if __name__ == "__main__":</code></h2>
+<pre class="code" data-title="mathtools.py"><code>def circle_area(r):
+    return PI * r ** 2
+
+
+print("ტესტი:", circle_area(1))     # ⚠ იმპორტისასაც შესრულდება!</code></pre>
+<pre class="code" data-title="სწორად" style="margin-top:10px"><code>def circle_area(r):
+    return PI * r ** 2
+
+
+if __name__ == "__main__":
+    # სრულდება მხოლოდ პირდაპირი გაშვებისას
+    print("ტესტი:", circle_area(1))</code></pre>
+  <div class="two" style="margin-top:14px">
+    <div class="card"><h3>პირდაპირ გაშვება</h3><p class="small"><code>python mathtools.py</code><br><code>__name__</code> = <code>"__main__"</code> → ბლოკი შესრულდება</p></div>
+    <div class="card"><h3>იმპორტი</h3><p class="small"><code>import mathtools</code><br><code>__name__</code> = <code>"mathtools"</code> → ბლოკი გამოტოვდება</p></div>
+  </div>
+  <div class="callout tip"><b>ეს იდიომა ყველგან შეგხვდება</b>ის მოდულს ორმაგ როლს აძლევს: ბიბლიოთეკაც არის და დამოუკიდებელი პროგრამაც.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">მექანიზმი</p>
+  <h2>სად ეძებს Python მოდულს</h2>
+<pre class="code"><code>import sys
+
+for path in sys.path:
+    print(path)</code></pre>
+  <ol class="pts" style="margin-top:14px">
+    <li><b>მიმდინარე საქაღალდე</b> (სკრიპტის ადგილმდებარეობა)</li>
+    <li><code class="inl">PYTHONPATH</code> გარემოს ცვლადში მითითებული გზები</li>
+    <li>სტანდარტული ბიბლიოთეკის საქაღალდეები</li>
+    <li><code class="inl">site-packages</code> — სადაც <code class="inl">pip</code> აყენებს პაკეტებს</li>
+  </ol>
+  <div class="callout err"><b>ხაფანგი, რომელიც ყველას გადახდენია</b>ფაილს <code class="inl">math.py</code> დაარქვი და <code class="inl">import math</code> <b>შენს</b> ფაილს იპოვის სტანდარტულის ნაცვლად. იგივე ეხება <code class="inl">random.py</code>, <code class="inl">string.py</code>, <code class="inl">json.py</code>-ს.</div>
+<pre class="code" data-title="ხელახლა ჩატვირთვა" style="margin-top:8px"><code>import importlib
+import mathtools
+
+importlib.reload(mathtools)    # კოდი შეიცვალა — ხელახლა წაიკითხე</code></pre>
+  <p class="small muted" style="margin-top:8px">მოდული სესიაზე <b>ერთხელ</b> იტვირთება. ჩვეულებრივ სკრიპტში ეს არ გვაწუხებს, მაგრამ REPL-ში ან Jupyter-ში <code class="inl">reload</code> გამოგადგება.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">სტრუქტურა</p>
+  <h2>პაკეტი — მოდულების საქაღალდე</h2>
+<pre class="code" data-title="პროექტის სტრუქტურა"><code class="nohl">myproject/
+├── main.py
+├── requirements.txt
+├── .gitignore
+└── tools/
+    ├── __init__.py
+    ├── mathtools.py
+    └── textutils.py</code></pre>
+<pre class="code" data-title="main.py" style="margin-top:10px"><code>from tools.mathtools import circle_area
+from tools import textutils
+
+import tools.mathtools as mt
+
+print(circle_area(5))
+print(textutils.clean("  ტექსტი  "))</code></pre>
+  <div class="callout"><b><code class="inl">__init__.py</code></b>აღნიშნავს, რომ საქაღალდე პაკეტია. შეიძლება ცარიელი იყოს, ან პაკეტის „ფასადი“ — ხშირად გამოყენებული სახელების ერთად შემოსატანად.<br>
+  <span class="muted small">Python 3.3+-ში ტექნიკურად სავალდებულო აღარაა, მაგრამ ცხადობისთვის მაინც ვწერთ.</span></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ვერსიების კონტროლი</p>
+  <h2>რა პრობლემას წყვეტს git</h2>
+  <div class="two">
+    <div>
+      <h3 style="color:var(--danger)">git-ის გარეშე</h3>
+<pre class="code"><code class="nohl">main.py
+main_v2.py
+main_v2_final.py
+main_v2_final_FIXED.py
+main_v2_final_FIXED_ok.py</code></pre>
+      <ul class="pts tight" style="margin-top:10px">
+        <li>რომელი მუშაობდა?</li>
+        <li>რა შეიცვალა მათ შორის?</li>
+        <li>როგორ დავაბრუნო გუშინდელი?</li>
+        <li>როგორ ვიმუშაოთ ორმა ერთ ფაილზე?</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color:var(--accent2)">git-ით</h3>
+      <ul class="pts tight">
+        <li><b>ისტორია</b><small>ყოველი ცვლილება ჩაწერილია — ვინ, როდის, რატომ</small></li>
+        <li><b>დაბრუნება</b><small>ნებისმიერ წერტილში დაბრუნება ერთი ბრძანებით</small></li>
+        <li><b>განშტოებები</b><small>ექსპერიმენტი მთავარი ვერსიის დაზიანების გარეშე</small></li>
+        <li><b>თანამშრომლობა</b><small>რამდენიმე ადამიანი ერთ პროექტზე</small></li>
+      </ul>
+    </div>
+  </div>
+  <div class="note">იკითხე, ვის აქვს „საბოლოო_ვერსია_2“ დოკუმენტი. ყველას აქვს — ესაა ის პრობლემა, რომელსაც git წყვეტს.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">git</p>
+  <h2>საბაზისო ბრძანებები</h2>
+<pre class="code" data-title="terminal"><code class="nohl"># ერთხელ, კომპიუტერზე
+git config --global user.name "სახელი გვარი"
+git config --global user.email "you@example.com"
+
+# პროექტში
+git init                    # რეპოზიტორის შექმნა
+git status                  # რა შეიცვალა
+
+git add main.py             # ფაილის მომზადება ჩასაწერად
+git add .                   # ყველაფერი
+git commit -m "ციკლების დავალება დამატებულია"
+
+git log --oneline           # ისტორია
+git diff                    # რა შეიცვალა ბოლო commit-ის შემდეგ
+
+git checkout main.py        # ცვლილებების გაუქმება ფაილში</code></pre>
+  <div class="callout tip"><b>სამი „ზონა“</b>
+    <span style="display:block;margin-top:6px"><b>Working directory</b> — სადაც რედაქტირებ → <code class="inl">git add</code> →</span>
+    <span style="display:block"><b>Staging area</b> — რას ჩავწერ → <code class="inl">git commit</code> →</span>
+    <span style="display:block"><b>Repository</b> — ისტორია</span></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">git</p>
+  <h2>განშტოებები და GitHub</h2>
+<pre class="code" data-title="branches"><code class="nohl">git branch feature-menu       # ახალი განშტოება
+git switch feature-menu       # გადასვლა
+git switch -c feature-menu    # ორივე ერთად
+
+git switch main               # უკან დაბრუნება
+git merge feature-menu        # ცვლილებების შერწყმა</code></pre>
+<pre class="code" data-title="დისტანციური რეპოზიტორი" style="margin-top:10px"><code class="nohl">git remote add origin https://github.com/user/project.git
+git push -u origin main       # ატვირთვა
+git pull                      # ჩამოტვირთვა
+git clone https://github.com/user/project.git</code></pre>
+  <div class="two" style="margin-top:14px">
+    <div class="card"><h3>GitHub / GitLab</h3><p class="small">ღრუბლოვანი პლატფორმა git-რეპოზიტორებისთვის. სარეზერვო ასლი + თანამშრომლობა + პორტფოლიო</p></div>
+    <div class="card"><h3>VS Code-ში</h3><p class="small">Source Control პანელი (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd>) — commit, push, diff ტერმინალის გარეშე. + <b>GitLens</b></p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">git</p>
+  <h2><code class="inl">.gitignore</code> — რას <em>არ</em> ვინახავთ</h2>
+<pre class="code" data-title=".gitignore"><code class="nohl"># Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# გარემო და საიდუმლოებები
+.env
+config_secret.py
+
+# რედაქტორი
+.vscode/
+.idea/
+
+# ოპერაციული სისტემა
+.DS_Store
+Thumbs.db
+
+# მონაცემები
+*.log
+data/temp/</code></pre>
+  <div class="callout err"><b>არასდროს ჩააგდო git-ში</b>პაროლები, API-გასაღებები, ბაზის მონაცემები. ერთხელ ატვირთული საიდუმლო <b>ისტორიაში რჩება</b> მაშინაც კი, თუ შემდეგ წაშალე.</div>
+  <p class="small muted" style="margin-top:10px">მზა შაბლონები: <code class="inl">github.com/github/gitignore</code></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">შეფასება</p>
+  <h2>პრაქტიკული დავალება #5</h2>
+  <p class="small muted">8 ქულა · სრულდება აუდიტორიაში, დამოუკიდებლად</p>
+  <ol class="pts">
+    <li><b>მოდულად დაშლა</b><small>წინა დავალება დაშალე: <code class="inl">tools/mathtools.py</code>, <code class="inl">tools/textutils.py</code>, <code class="inl">main.py</code></small></li>
+    <li><b><code class="inl">__init__.py</code></b><small>შექმენი პაკეტი და გამოიყენე <code class="inl">from tools.mathtools import ...</code></small></li>
+    <li><b><code class="inl">if __name__ == "__main__":</code></b><small>თითოეულ მოდულს დაუმატე საკუთარი ტესტ-ბლოკი</small></li>
+    <li><b>git</b><small><code class="inl">git init</code> → <code class="inl">.gitignore</code> → მინიმუმ 3 აზრიანი commit</small></li>
+    <li><b>ატვირთვა</b><small>ატვირთე GitHub-ზე და დაამატე <code class="inl">README.md</code> პროექტის აღწერით</small></li>
+  </ol>
+  <div class="callout tip"><b>ბონუსი</b>გაუშვი <code class="inl">ruff check .</code> და გაასწორე ყველა შენიშვნა commit-ამდე.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">შემაჯამებელი ლექცია</p>
+  <h2>რა ვისწავლეთ სემესტრში</h2>
+  <div class="grid">
+    <div class="card"><h3>საფუძვლები</h3><ul><li>სინტაქსი, წანაცვლება</li><li>ტიპები და კონვერტაცია</li><li>ოპერატორები</li></ul></div>
+    <div class="card"><h3>მართვის ნაკადი</h3><ul><li><code>if / elif / else</code></li><li><code>for</code> და <code>while</code></li><li><code>break / continue</code></li></ul></div>
+    <div class="card"><h3>ფუნქციები</h3><ul><li>ჩაშენებული, <code>math</code>, <code>random</code></li><li><code>def</code>, პარამეტრები, <code>return</code></li><li>scope, <code>lambda</code></li></ul></div>
+    <div class="card"><h3>მონაცემები</h3><ul><li><code>str</code> და მისი მეთოდები</li><li><code>list</code>, <code>tuple</code></li><li><code>set</code>, <code>dict</code></li></ul></div>
+    <div class="card"><h3>მდგრადობა</h3><ul><li>ფაილები, <code>with</code></li><li><code>try / except</code></li><li>იტერატორები, <code>yield</code></li></ul></div>
+    <div class="card"><h3>პროფესიული ჩვევები</h3><ul><li>PEP 8, Ruff</li><li>PyPI, <code>pip</code>, <code>venv</code></li><li>მოდულები, პაკეტები, git</li></ul></div>
+  </div>
+  <div class="callout tip"><b>მთავარი</b>სინტაქსი ინსტრუმენტია. ნამდვილი შედეგი — <b>ალგორითმული აზროვნება</b>: ამოცანის ნაბიჯებად დაშლის უნარი. ის ყველა ენაზე გადადის.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">შეფასება</p>
+  <h2>დასკვნითი გამოცდა</h2>
+  <div class="two">
+    <div>
+      <h3>ფორმატი — 30 ქულა</h3>
+      <ul class="pts tight">
+        <li><b>3 პრაქტიკული ამოცანა</b> × 10 ქულა</li>
+        <li>მოიცავს <b>მთელ</b> სემესტრის მასალას</li>
+      </ul>
+      <div class="callout warn small" style="margin-top:12px"><b>საბოლოო ქულა</b>სემესტრული (70) + დასკვნითი (30). დადებითი შეფასების ზღვარი ჩვეულებრივ 51 ქულაა — ზუსტი წესი შენს კურსში დააზუსტე.</div>
+    </div>
+    <div>
+      <h3>როგორ მოემზადო</h3>
+      <ul class="pts tight">
+        <li>ხელახლა <b>დაწერე</b> ხუთივე პრაქტიკული დავალება — არა წაიკითხო</li>
+        <li>გაიარე ყველა „შემაჯამებელი“ სლაიდი</li>
+        <li>გაიმეორე გამეორების კითხვები (ლექციები 03, 05, 07, 08, 11, 13, 15)</li>
+        <li>ივარჯიშე ტიპურ ამოცანებზე: ციფრები, სტრიქონები, სიები, ლექსიკონები, ფაილები</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">გაგრძელება</p>
+  <h2>სად წავიდეთ აქედან</h2>
+  <div class="grid">
+    <div class="card"><h3>ობიექტზე ორიენტირებული</h3><p class="small">კლასები, მემკვიდრეობა, ინკაფსულაცია — შემდეგი ბუნებრივი ნაბიჯი</p></div>
+    <div class="card"><h3>მონაცემთა ანალიზი</h3><p class="small"><code>pandas</code>, <code>numpy</code>, <code>matplotlib</code> — Python-ის ყველაზე ძლიერი სფერო</p></div>
+    <div class="card"><h3>ვები</h3><p class="small"><code>flask</code>, <code>fastapi</code>, <code>django</code> — სერვისები და API</p></div>
+    <div class="card"><h3>ავტომატიზაცია</h3><p class="small">ფაილები, Excel, ვებ-სკრეიპინგი — ყოველდღიური რუტინის შემცირება</p></div>
+    <div class="card"><h3>ტესტირება</h3><p class="small"><code>pytest</code> — როგორ დავრწმუნდეთ, რომ კოდი მართლა მუშაობს</p></div>
+    <div class="card"><h3>ალგორითმები</h3><p class="small">დახარისხება, ძებნა, სირთულე — ინტერვიუებისთვის აუცილებელი</p></div>
+  </div>
+  <div class="callout"><b>ერთადერთი რჩევა</b>აირჩიე <b>საკუთარი</b> პატარა პროექტი და დაწერე. კურსი საფუძველს გაძლევს — უნარი პრაქტიკიდან მოდის. 20 ხაზი დღეში სამ თვეში სრულიად სხვა დონეზე გაგიყვანს.</div>
+  <div class="note">დაასრულე პოზიტიურად. სთხოვე თითოეულს ერთი წინადადებით თქვას, რა პროექტს დაწერდა — ეს ხშირად ნამდვილ მოტივაციას ბადებს.</div>
+</section>
+
+</main>
+<script src="../assets/deck.js"></script>
+</body>
+</html>

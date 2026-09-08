@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>09 · ფაილებთან მუშაობა</title>
+<link rel="stylesheet" href="../assets/deck.css">
+</head>
+<body>
+<main class="deck">
+
+<section class="slide">
+  <p class="kicker">ლექცია 09 · IX კვირა</p>
+  <h1>ფაილებთან<br>მუშაობა</h1>
+  <p class="lead" style="margin-top:16px">ფაილიდან კითხვა · ფაილში ჩაწერა · მანიპულირების ფუნქციები</p>
+  <p class="small muted" style="margin-top:22px">დღეს ასევე: <b>შუალედური გამოცდის შედეგების განხილვა</b></p>
+</section>
+
+<section class="slide">
+  <p class="kicker">მოტივაცია</p>
+  <h2>რატომ გვჭირდება ფაილები</h2>
+  <p class="big">პროგრამის დასრულებისას <em>ყველა ცვლადი ქრება</em>. ფაილი — ერთადერთი გზა, მონაცემი „გადარჩეს“.</p>
+  <div class="grid" style="margin-top:20px">
+    <div class="card"><h3>შენახვა</h3><p class="small">მომხმარებლის პარამეტრები, თამაშის ანგარიში, პროგრესი</p></div>
+    <div class="card"><h3>შეტანა</h3><p class="small">დიდი მოცულობის მონაცემი, რომლის ხელით აკრეფაც აზრს მოკლებულია</p></div>
+    <div class="card"><h3>გაცვლა</h3><p class="small">CSV, JSON, ლოგები — სხვა პროგრამებთან კომუნიკაცია</p></div>
+    <div class="card"><h3>ანგარიში</h3><p class="small">გამოთვლის შედეგის ჩაწერა, რომ ეკრანზე არ დაიკარგოს</p></div>
+  </div>
+  <div class="callout tip"><b>სამი ნაბიჯი, ყოველთვის</b>1) გახსენი → 2) წაიკითხე ან ჩაწერე → 3) დახურე. Python-ში მესამე ნაბიჯს <code class="inl">with</code> ავტომატურად აკეთებს.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">საფუძველი</p>
+  <h2><code class="inl">open()</code> და რეჟიმები</h2>
+<pre class="code"><code class="nohl">f = open("data.txt", "r", encoding="utf-8")
+#         ფაილი      რეჟიმი   კოდირება</code></pre>
+  <table style="margin-top:14px">
+    <tr><th style="width:12%">რეჟიმი</th><th style="width:26%">დასახელება</th><th>ქცევა</th></tr>
+    <tr><td><code>"r"</code></td><td>read — კითხვა</td><td>ნაგულისხმევი. თუ ფაილი არ არსებობს → <code>FileNotFoundError</code></td></tr>
+    <tr><td><code>"w"</code></td><td>write — ჩაწერა</td><td><b>შიგთავსს შლის!</b> არარსებობისას ქმნის ახალს</td></tr>
+    <tr><td><code>"a"</code></td><td>append — დამატება</td><td>წერს <b>ბოლოში</b>, არსებულს ინახავს</td></tr>
+    <tr><td><code>"x"</code></td><td>exclusive — შექმნა</td><td>თუ ფაილი უკვე არსებობს → შეცდომა</td></tr>
+    <tr><td><code>"r+"</code></td><td>კითხვა + ჩაწერა</td><td>ორივე ერთდროულად</td></tr>
+    <tr><td><code>"rb"</code> <code>"wb"</code></td><td>ბინარული</td><td>სურათები, არქივები — ტექსტად არ იკითხება</td></tr>
+  </table>
+  <div class="callout err"><b>ყველაზე ძვირადღირებული შეცდომა</b><code class="inl">"w"</code> რეჟიმი ფაილს <b>მაშინვე ასუფთავებს</b>, ჩაწერამდეც კი. შემთხვევით <code class="inl">"a"</code>-ს ნაცვლად <code class="inl">"w"</code> რომ დაწერო — მონაცემები წაიშლება.</div>
+  <div class="note">ეს გააფრთხილე ორჯერ. სტუდენტები ხშირად კარგავენ საკუთარ სამუშაოს სწორედ ამის გამო.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">სწორი სტილი</p>
+  <h2><code class="inl">with ... as</code> — კონტექსტის მენეჯერი</h2>
+  <div class="two">
+    <div>
+      <h3 style="color:var(--danger)">ხელით</h3>
+<pre class="code"><code>f = open("data.txt", "r", encoding="utf-8")
+content = f.read()
+f.close()          # თუ დაგავიწყდა?
+                   # თუ შუაში შეცდომა მოხდა?</code></pre>
+    </div>
+    <div>
+      <h3 style="color:var(--accent2)"><code>with</code>-ით</h3>
+<pre class="code"><code>with open("data.txt", "r", encoding="utf-8") as f:
+    content = f.read()
+
+# აქ ფაილი უკვე დახურულია — ავტომატურად
+print(content)</code></pre>
+    </div>
+  </div>
+  <div class="callout tip"><b>წესი</b>ფაილთან <b>ყოველთვის</b> <code class="inl">with</code>-ით ვმუშაობთ. ის ფაილს ხურავს მაშინაც კი, თუ ბლოკის შიგნით შეცდომა მოხდა.</div>
+  <p class="small muted" style="margin-top:12px"><code class="inl">with ... as</code> ინსტრუქციას სიღრმისეულად XII კვირაზე დავუბრუნდებით — ის შეცდომების დამუშავებასთანაა დაკავშირებული.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">კრიტიკული დეტალი</p>
+  <h2><code class="inl">encoding="utf-8"</code> — ქართულისთვის სავალდებულო</h2>
+<pre class="code"><code># ⚠ Windows-ზე ნაგულისხმევი კოდირება UTF-8 არ არის
+with open("names.txt", "r") as f:      # რისკი!
+    print(f.read())
+# UnicodeDecodeError ან "კუბიკები"
+
+# ✓ ყოველთვის მიუთითე
+with open("names.txt", "r", encoding="utf-8") as f:
+    print(f.read())</code></pre>
+  <div class="two" style="margin-top:14px">
+    <div class="callout warn small"><b>რატომ</b>Windows-ზე ნაგულისხმევია სისტემური კოდირება (მაგ. cp1252), არა UTF-8. ქართული ასოები მასში არ არსებობს.</div>
+    <div class="callout tip small"><b>წესი</b>ტექსტურ ფაილთან ყოველთვის დაწერე <code class="inl">encoding="utf-8"</code> — კითხვისასაც და ჩაწერისასაც.</div>
+  </div>
+  <div class="note">ეს კურსის ერთ-ერთი ყველაზე პრაქტიკული სლაიდია — ბევრი დავალება სწორედ აქ იჭედება.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">კითხვა</p>
+  <h2>ოთხი გზა წასაკითხად</h2>
+<pre class="code" data-title="students.txt"><code class="nohl">ნინო 92
+გიორგი 78
+ანა 85</code></pre>
+<pre class="code" data-title="read.py" style="margin-top:10px"><code>with open("students.txt", encoding="utf-8") as f:
+    text = f.read()          # ყველაფერი ერთ სტრიქონად
+print(text)
+
+with open("students.txt", encoding="utf-8") as f:
+    line = f.readline()      # ერთი ხაზი
+print(line)                  # "ნინო 92\n"
+
+with open("students.txt", encoding="utf-8") as f:
+    lines = f.readlines()    # სია ხაზებისგან
+print(lines)                 # ['ნინო 92\n', 'გიორგი 78\n', ...]
+
+# ✓ საუკეთესო გზა — პირდაპირ ციკლით
+with open("students.txt", encoding="utf-8") as f:
+    for line in f:
+        print(line.strip())</code></pre>
+  <div class="callout tip"><b>რატომ სჯობს ბოლო?</b>ის ფაილს <b>ხაზ-ხაზ</b> კითხულობს და მთელს მეხსიერებაში არ ტვირთავს. 1 გბ ფაილიც კი უპრობლემოდ დამუშავდება.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ჩაწერა</p>
+  <h2>ფაილში ჩაწერა</h2>
+<pre class="code"><code># "w" — ახლიდან (ძველი შიგთავსი იშლება)
+with open("output.txt", "w", encoding="utf-8") as f:
+    f.write("პირველი ხაზი\n")      # \n ხელით!
+    f.write("მეორე ხაზი\n")
+
+# "a" — დამატება ბოლოში
+with open("output.txt", "a", encoding="utf-8") as f:
+    f.write("მესამე ხაზი\n")
+
+# რამდენიმე ხაზი ერთად
+lines = ["ერთი\n", "ორი\n", "სამი\n"]
+with open("output.txt", "w", encoding="utf-8") as f:
+    f.writelines(lines)
+
+# print() პირდაპირ ფაილში
+with open("report.txt", "w", encoding="utf-8") as f:
+    print("ანგარიში", file=f)
+    print(f"ჯამი: {100:.2f}", file=f)</code></pre>
+  <div class="callout warn"><b><code class="inl">write()</code> ხაზს არ წყვეტს</b><code class="inl">print()</code>-ისგან განსხვავებით, <code class="inl">\n</code> ხელით უნდა დაწერო.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ფაილის გზა</p>
+  <h2>სად ეძებს Python ფაილს</h2>
+<pre class="code"><code># შედარებითი გზა — მიმდინარე საქაღალდიდან
+open("data.txt")
+open("files/data.txt")
+open("../data.txt")          # ერთი დონით ზემოთ
+
+# აბსოლუტური გზა
+open(r"C:\Users\K\data.txt")     # r — ნედლი სტრიქონი!
+open("C:/Users/K/data.txt")      # ან წინა სლეში
+open("/home/user/data.txt")      # Linux / macOS</code></pre>
+  <div class="callout err"><b>Windows-ის ხაფანგი</b><code class="inl">"C:\Users\new"</code>-ში <code class="inl">\n</code> ხაზის გადატანად წაიკითხება! გამოსავალი: <code class="inl">r"C:\Users\new"</code> ან <code class="inl">"C:/Users/new"</code>.</div>
+<pre class="code" data-title="თანამედროვე გზა — pathlib" style="margin-top:8px"><code>from pathlib import Path
+
+p = Path("data") / "students.txt"    # ოპერაციულ სისტემაზე დამოუკიდებელი
+print(p.exists())
+print(p.suffix)                       # .txt
+text = p.read_text(encoding="utf-8")  # ერთი ხაზით!
+p.write_text("ახალი შიგთავსი", encoding="utf-8")</code></pre>
+</section>
+
+<section class="slide">
+  <p class="kicker">მანიპულირება</p>
+  <h2>ფაილებზე ოპერაციები</h2>
+<pre class="code"><code>import os
+
+print(os.path.exists("data.txt"))    # არსებობს?
+print(os.path.getsize("data.txt"))   # ზომა ბაიტებში
+print(os.path.abspath("data.txt"))   # სრული გზა
+print(os.path.basename("a/b/c.txt")) # c.txt
+print(os.path.splitext("c.txt"))     # ('c', '.txt')
+
+os.rename("old.txt", "new.txt")      # გადარქმევა
+os.remove("temp.txt")                # წაშლა — შეუქცევადი!
+
+os.mkdir("reports")                  # საქაღალდის შექმნა
+print(os.listdir("."))               # საქაღალდის შიგთავსი</code></pre>
+  <div class="callout tip"><b>უსაფრთხო შაბლონი</b>
+<pre class="code" style="margin-top:8px"><code>if os.path.exists("data.txt"):
+    with open("data.txt", encoding="utf-8") as f:
+        print(f.read())
+else:
+    print("ფაილი ვერ მოიძებნა")</code></pre></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">პრაქტიკა</p>
+  <h2>ტექსტური მონაცემების დამუშავება</h2>
+<pre class="code" data-title="grades.txt"><code class="nohl">ნინო,92
+გიორგი,78
+ანა,85
+ლევანი,61</code></pre>
+<pre class="code" data-title="process.py" style="margin-top:10px"><code>total = 0
+count = 0
+best_name = ""
+best_score = -1
+
+with open("grades.txt", encoding="utf-8") as f:
+    for line in f:
+        line = line.strip()
+        if not line:              # ცარიელ ხაზს ვტოვებთ
+            continue
+
+        name, score = line.split(",")
+        score = int(score)
+
+        total += score
+        count += 1
+
+        if score &gt; best_score:
+            best_score = score
+            best_name = name
+
+print(f"სტუდენტი: {count}")
+print(f"საშუალო:  {total / count:.2f}")
+print(f"საუკეთესო: {best_name} ({best_score})")</code></pre>
+  <div class="note">ეს შაბლონი — <code>strip → split → convert → accumulate</code> — ფაილებთან მუშაობის საფუძველია. სტუდენტებმა ის ზეპირად უნდა იცოდნენ.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">სრული მაგალითი</p>
+  <h2>ჩანაწერების დამატება და ანგარიშის შექმნა</h2>
+<pre class="code" data-title="journal.py"><code>FILE = "grades.txt"
+
+
+def add_record():
+    name = input("სახელი: ").strip()
+    score = input("ქულა: ").strip()
+
+    with open(FILE, "a", encoding="utf-8") as f:
+        f.write(f"{name},{score}\n")
+    print("ჩაწერილია ✓")
+
+
+def show_report():
+    try:
+        with open(FILE, encoding="utf-8") as f:
+            rows = [line.strip().split(",") for line in f if line.strip()]
+    except FileNotFoundError:
+        print("ფაილი ჯერ არ არსებობს")
+        return
+
+    print(f"\n{'სახელი':&lt;15}{'ქულა':&gt;6}")
+    print("-" * 21)
+    for name, score in rows:
+        print(f"{name:&lt;15}{score:&gt;6}")
+
+
+while True:
+    choice = input("\n1 დამატება · 2 ანგარიში · 0 გასვლა: ")
+    if choice == "0":
+        break
+    elif choice == "1":
+        add_record()
+    elif choice == "2":
+        show_report()</code></pre>
+</section>
+
+<section class="slide">
+  <p class="kicker">დიაგნოსტიკა</p>
+  <h2>ხშირი შეცდომები</h2>
+  <table class="small">
+    <tr><th style="width:34%">შეცდომა</th><th>მიზეზი და გამოსავალი</th></tr>
+    <tr><td><code>FileNotFoundError</code></td><td>ფაილი სხვა საქაღალდეშია. შეამოწმე <code>os.getcwd()</code>. VS Code-ში <b>საქაღალდე</b> გახსენი, არა ცალკე ფაილი</td></tr>
+    <tr><td><code>UnicodeDecodeError</code></td><td>დაგავიწყდა <code>encoding="utf-8"</code></td></tr>
+    <tr><td>ფაილი დაცარიელდა</td><td><code>"w"</code> გამოიყენე <code>"a"</code>-ს ნაცვლად</td></tr>
+    <tr><td>ხაზები ერთმანეთს ეწებება</td><td><code>f.write()</code>-ს <code>\n</code> აკლია</td></tr>
+    <tr><td>ხაზის ბოლოს ზედმეტი სიმბოლო</td><td>დაგავიწყდა <code>line.strip()</code></td></tr>
+    <tr><td><code>ValueError: not enough values to unpack</code></td><td>ცარიელი ხაზი ან არასწორი გამყოფი. დაამატე <code>if not line: continue</code></td></tr>
+    <tr><td>ფაილი „დაკავებულია“</td><td>Excel-ში ან სხვა პროგრამაშია გახსნილი</td></tr>
+  </table>
+</section>
+
+<section class="slide">
+  <p class="kicker">შემაჯამებელი</p>
+  <h2>რა უნდა დაგამახსოვრდეს</h2>
+  <ul class="pts">
+    <li><code class="inl">with open(path, mode, encoding="utf-8") as f:</code> — ერთადერთი სწორი სტილი</li>
+    <li>რეჟიმები: <code class="inl">r</code> კითხვა · <code class="inl">w</code> <b>შლის</b> და წერს · <code class="inl">a</code> ამატებს ბოლოში</li>
+    <li>კითხვა: <code class="inl">read()</code> · <code class="inl">readlines()</code> · უკეთესი — <code class="inl">for line in f</code></li>
+    <li>ჩაწერა: <code class="inl">write()</code> (<code class="inl">\n</code> ხელით) · <code class="inl">print(..., file=f)</code></li>
+    <li>ქართული ტექსტი → <code class="inl">encoding="utf-8"</code> ყოველთვის</li>
+    <li>დამუშავების შაბლონი: <code class="inl">strip → split → convert → accumulate</code></li>
+  </ul>
+  <div class="callout"><b>სახლში</b>1) ფაილში ჩაწერე 20 შემთხვევითი რიცხვი, შემდეგ წაიკითხე და იპოვე ჯამი/საშუალო/მაქსიმუმი. 2) ორი ფაილის შერწყმა მესამეში. 3) ტექსტურ ფაილში სიტყვის დათვლა. 4) ლოგერი, რომელიც ყოველ გაშვებაზე თარიღს ამატებს (<code class="inl">datetime</code>).</div>
+  <div class="callout tip"><b>შემდეგი — ლექცია 10</b>მონაცემთა სიები: შექმნა, ცვლილება, დახარისხება, მრავალგანზომილებიანი სიები, <code class="inl">tuple</code>.</div>
+</section>
+
+</main>
+<script src="../assets/deck.js"></script>
+</body>
+</html>

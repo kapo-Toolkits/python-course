@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>10 · მონაცემთა სიები და Tuple</title>
+<link rel="stylesheet" href="../assets/deck.css">
+</head>
+<body>
+<main class="deck">
+
+<section class="slide">
+  <p class="kicker">ლექცია 10 · X კვირა</p>
+  <h1>სიები და<br>Tuple</h1>
+  <p class="lead" style="margin-top:16px">შექმნა, წაშლა, დამატება/ამოშლა, დახარისხება · მრავალგანზომილებიანი სიები · <code class="inl">tuple</code> მონაცემთა ტიპი</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">მოტივაცია</p>
+  <h2>რატომ არ გვყოფნის ცალკეული ცვლადები</h2>
+  <div class="two">
+    <div>
+      <h3 style="color:var(--danger)">სიის გარეშე</h3>
+<pre class="code"><code>score1 = 92
+score2 = 78
+score3 = 85
+# …და თუ 200 სტუდენტია?
+
+total = score1 + score2 + score3</code></pre>
+    </div>
+    <div>
+      <h3 style="color:var(--accent2)">სიით</h3>
+<pre class="code"><code>scores = [92, 78, 85, 61, 100]
+
+print(sum(scores))
+print(max(scores))
+print(len(scores))
+
+for s in scores:
+    print(s)</code></pre>
+    </div>
+  </div>
+  <div class="callout tip"><b>სია (<code class="inl">list</code>)</b>დალაგებული, ცვალებადი კრებული, რომელიც <b>ნებისმიერი ტიპის</b> ელემენტს იტევს — ერთდროულადაც კი.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">საფუძველი</p>
+  <h2>შექმნა და წვდომა</h2>
+<pre class="code"><code>numbers = [10, 20, 30, 40, 50]
+names = ["ნინო", "გიორგი", "ანა"]
+mixed = [1, "ტექსტი", 3.14, True, None]
+empty = []
+also_empty = list()
+
+from_string = list("Python")   # ['P','y','t','h','o','n']
+from_range = list(range(5))    # [0, 1, 2, 3, 4]
+
+print(numbers[0])      # 10
+print(numbers[-1])     # 50
+print(numbers[1:4])    # [20, 30, 40]
+print(numbers[::-1])   # [50, 40, 30, 20, 10]
+print(len(numbers))    # 5</code></pre>
+  <div class="callout"><b>ინდექსაცია იგივეა, რაც სტრიქონებში</b>0-დან იწყება, <code class="inl">-1</code> ბოლოა, ამონაჭერში <code class="inl">stop</code> არ შედის. ერთხელ ნასწავლი წესი ორივეზე ვრცელდება.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">მთავარი განსხვავება</p>
+  <h2>სია <em>ცვალებადია</em> (mutable)</h2>
+  <div class="two">
+    <div>
+<pre class="code" data-title="სტრიქონი — უცვლელი"><code>s = "Python"
+s[0] = "J"
+# TypeError!</code></pre>
+    </div>
+    <div>
+<pre class="code" data-title="სია — ცვალებადი"><code>lst = [1, 2, 3]
+lst[0] = 100
+print(lst)      # [100, 2, 3]
+
+lst[1:3] = [9, 9, 9]
+print(lst)      # [100, 9, 9, 9]</code></pre>
+    </div>
+  </div>
+  <div class="callout warn"><b>შედეგი, რომელიც უნდა გესმოდეს</b>
+<pre class="code" style="margin-top:8px"><code>a = [1, 2, 3]
+b = a               # ესაა იგივე სია, არა ასლი!
+b.append(4)
+print(a)            # [1, 2, 3, 4] — a-ც შეიცვალა
+
+c = a.copy()        # ✓ ნამდვილი ასლი
+c = a[:]            # ✓ იგივე, ამონაჭრით
+c = list(a)         # ✓ იგივე
+c.append(5)
+print(a)            # [1, 2, 3, 4] — უცვლელი</code></pre></div>
+  <div class="note">ეს ერთ-ერთი ყველაზე მნიშვნელოვანი ცნებაა კურსში. დაფაზე დახატე: ორი სახელი ერთ ყუთზე მიმართული ისრებით.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">მეთოდები</p>
+  <h2>ელემენტების დამატება</h2>
+<pre class="code"><code>lst = [1, 2, 3]
+
+lst.append(4)            # ბოლოში, ერთი ელემენტი
+print(lst)               # [1, 2, 3, 4]
+
+lst.insert(0, 0)         # მითითებულ პოზიციაზე
+print(lst)               # [0, 1, 2, 3, 4]
+
+lst.extend([5, 6])       # რამდენიმე ელემენტი
+print(lst)               # [0, 1, 2, 3, 4, 5, 6]
+
+lst = lst + [7, 8]       # ახალი სია (ნელია დიდ მონაცემზე)
+lst += [9]               # იგივე, რაც extend</code></pre>
+  <div class="callout err"><b><code class="inl">append</code> vs <code class="inl">extend</code></b>
+<pre class="code" style="margin-top:8px"><code>a = [1, 2]
+a.append([3, 4])    # [1, 2, [3, 4]]  — ჩადგმული სია!
+b = [1, 2]
+b.extend([3, 4])    # [1, 2, 3, 4]    — ელემენტები</code></pre></div>
+</section>
+
+<section class="slide">
+  <p class="kicker">მეთოდები</p>
+  <h2>ელემენტების წაშლა</h2>
+<pre class="code"><code>lst = [10, 20, 30, 20, 40]
+
+lst.remove(20)        # პირველი დამთხვევა მნიშვნელობით
+print(lst)            # [10, 30, 20, 40]
+
+x = lst.pop()         # ბოლო + აბრუნებს მას
+print(x, lst)         # 40 [10, 30, 20]
+
+y = lst.pop(0)        # ინდექსით
+print(y, lst)         # 10 [30, 20]
+
+del lst[0]            # ინდექსით, დაბრუნების გარეშე
+print(lst)            # [20]
+
+lst.clear()           # ყველაფერი
+print(lst)            # []</code></pre>
+  <div class="callout warn"><b>ფრთხილად</b><code class="inl">remove()</code> ვერ პოვნისას <code class="inl">ValueError</code>-ს ისვრის. ჯერ შეამოწმე: <code class="inl">if x in lst:</code>.<br>
+  <b>არასდროს</b> შეცვალო სია ციკლში, რომელიც სწორედ მასზე გადის — ელემენტები „გამოგრჩება“.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ძებნა</p>
+  <h2>ძებნა და დათვლა</h2>
+<pre class="code"><code>scores = [92, 78, 85, 78, 61]
+
+print(78 in scores)          # True
+print(100 not in scores)     # True
+
+print(scores.index(78))      # 1 — პირველი დამთხვევა
+print(scores.count(78))      # 2 — რამდენჯერ გვხვდება
+
+print(len(scores))           # 5
+print(sum(scores))           # 394
+print(min(scores), max(scores))   # 61 92
+print(sum(scores) / len(scores))  # 78.8</code></pre>
+  <div class="two" style="margin-top:12px">
+    <div class="callout small"><b><code class="inl">index()</code></b>ვერ პოვნისას — <code class="inl">ValueError</code>. ჯერ <code class="inl">in</code>-ით შეამოწმე.</div>
+    <div class="callout tip small"><b><code class="inl">sum</code>, <code class="inl">min</code>, <code class="inl">max</code></b>ჩაშენებული ფუნქციებია (V კვირა) — სიაზეც უშუალოდ მუშაობს.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">დახარისხება</p>
+  <h2><code class="inl">sort()</code> თუ <code class="inl">sorted()</code>?</h2>
+  <div class="two">
+    <div>
+<pre class="code" data-title="sort() — ცვლის ორიგინალს"><code>lst = [3, 1, 2]
+lst.sort()
+print(lst)        # [1, 2, 3]
+print(lst.sort()) # None!</code></pre>
+    </div>
+    <div>
+<pre class="code" data-title="sorted() — აბრუნებს ახალს"><code>lst = [3, 1, 2]
+new = sorted(lst)
+print(new)        # [1, 2, 3]
+print(lst)        # [3, 1, 2] უცვლელი</code></pre>
+    </div>
+  </div>
+<pre class="code" style="margin-top:12px"><code>nums = [5, 2, 9, 1]
+nums.sort(reverse=True)          # [9, 5, 2, 1]
+
+names = ["გიორგი", "ანა", "ნინო"]
+names.sort()                     # ანბანურად
+
+words = ["python", "java", "c"]
+words.sort(key=len)              # სიგრძის მიხედვით
+
+students = [("ნინო", 92), ("გიორგი", 78), ("ანა", 85)]
+students.sort(key=lambda s: s[1], reverse=True)
+print(students)   # [('ნინო',92), ('ანა',85), ('გიორგი',78)]
+
+nums.reverse()                   # უბრალო შებრუნება</code></pre>
+  <div class="callout err"><b>ტიპური შეცდომა</b><code class="inl">lst = lst.sort()</code> → <code class="inl">lst</code> გახდება <code class="inl">None</code>. <code class="inl">sort()</code> არაფერს აბრუნებს!</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">Python-ური სტილი</p>
+  <h2>List comprehension</h2>
+  <div class="two">
+    <div>
+      <h3>ჩვეულებრივი ციკლი</h3>
+<pre class="code"><code>squares = []
+for n in range(1, 6):
+    squares.append(n ** 2)
+print(squares)     # [1, 4, 9, 16, 25]</code></pre>
+    </div>
+    <div>
+      <h3>ერთ ხაზში</h3>
+<pre class="code"><code>squares = [n ** 2 for n in range(1, 6)]
+print(squares)     # [1, 4, 9, 16, 25]</code></pre>
+    </div>
+  </div>
+<pre class="code" style="margin-top:12px"><code># პირობით
+evens = [n for n in range(20) if n % 2 == 0]
+
+# გარდაქმნა
+names = ["ნინო", "გიორგი"]
+lengths = [len(n) for n in names]        # [4, 6]
+
+# გაფილტვრა + გარდაქმნა
+scores = [92, 45, 78, 30, 85]
+passed = [s for s in scores if s &gt;= 51]  # [92, 78, 85]
+
+# ტექსტიდან რიცხვები
+line = "10 20 30"
+nums = [int(x) for x in line.split()]    # [10, 20, 30]</code></pre>
+  <div class="callout tip"><b>წაიკითხე ასე</b><i>„[<b>რა</b> for <b>თითოეული</b> in <b>საიდან</b> if <b>პირობა</b>]“</i>. თუ ერთ ხაზში აღარ ეტევა — დაწერე ჩვეულებრივი ციკლი.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">სტრუქტურა</p>
+  <h2>მრავალგანზომილებიანი სიები</h2>
+<pre class="code" data-title="matrix.py"><code>matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+]
+
+print(matrix[0])        # [1, 2, 3]
+print(matrix[1][2])     # 6   — მე-2 რიგი, მე-3 სვეტი
+print(len(matrix))      # 3   რიგები
+print(len(matrix[0]))   # 3   სვეტები
+
+# დაბეჭდვა
+for row in matrix:
+    for value in row:
+        print(f"{value:4}", end="")
+    print()
+
+# ჯამი
+total = sum(sum(row) for row in matrix)   # 45
+
+# შექმნა ციკლით
+grid = [[0] * 3 for _ in range(3)]        # ✓ სწორად
+# grid = [[0] * 3] * 3                    # ✗ სამივე რიგი ერთი და იგივეა!</code></pre>
+  <div class="callout err"><b>კლასიკური ხაფანგი</b><code class="inl">[[0] * 3] * 3</code> ქმნის სამ <b>მიმართვას ერთსა და იმავე</b> სიაზე. <code class="inl">grid[0][0] = 5</code> სამივე რიგს შეცვლის.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ახალი ტიპი</p>
+  <h2><code class="inl">tuple</code> — უცვლელი სია</h2>
+<pre class="code"><code>point = (10, 20)
+colors = ("წითელი", "მწვანე", "ლურჯი")
+single = (42,)          # მძიმე სავალდებულოა!
+without = 1, 2, 3       # ფრჩხილები არასავალდებულოა
+
+print(point[0])         # 10
+print(len(colors))      # 3
+print("წითელი" in colors)   # True
+
+point[0] = 99
+# TypeError: 'tuple' object does not support item assignment</code></pre>
+  <div class="grid" style="margin-top:16px">
+    <div class="card"><h3>უსაფრთხოება</h3><p class="small">შემთხვევით ვერ შეცვლი — კონსტანტებისთვის იდეალურია</p></div>
+    <div class="card"><h3>სისწრაფე</h3><p class="small">სიაზე ოდნავ სწრაფი და ნაკლებ მეხსიერებას იკავებს</p></div>
+    <div class="card"><h3>გასაღები</h3><p class="small">ლექსიკონის გასაღები შეიძლება იყოს, სია — ვერა (XI კვირა)</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">tuple</p>
+  <h2>დაშლა (unpacking) და <code class="inl">zip</code></h2>
+<pre class="code"><code>point = (10, 20)
+x, y = point
+print(x, y)                  # 10 20
+
+a, b = b, a                  # ადგილების გაცვლა — ესეც tuple-ია
+
+def min_max(data):
+    return min(data), max(data)
+
+low, high = min_max([4, 9, 1])
+
+# enumerate — ინდექსი + მნიშვნელობა
+names = ["ნინო", "გიორგი", "ანა"]
+for i, name in enumerate(names, start=1):
+    print(f"{i}. {name}")
+
+# zip — ორი სია პარალელურად
+scores = [92, 78, 85]
+for name, score in zip(names, scores):
+    print(f"{name:&lt;10}{score:&gt;5}")
+
+pairs = list(zip(names, scores))
+# [('ნინო', 92), ('გიორგი', 78), ('ანა', 85)]</code></pre>
+  <div class="callout tip"><b><code class="inl">enumerate</code> და <code class="inl">zip</code></b>ესაა ორი ფუნქცია, რომელიც კოდს ყველაზე მეტად აპითონურებს. <code class="inl">range(len(...))</code>-ს თითქმის ყოველთვის ცვლის.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">სრული მაგალითი</p>
+  <h2>სტუდენტების უწყისი</h2>
+<pre class="code" data-title="journal.py"><code>students = []          # სია tuple-ებისგან
+
+
+def add(name, score):
+    students.append((name, score))
+
+
+def report():
+    if not students:
+        print("სია ცარიელია")
+        return
+
+    ranked = sorted(students, key=lambda s: s[1], reverse=True)
+    scores = [s[1] for s in ranked]
+
+    print(f"\n{'#':&lt;4}{'სახელი':&lt;15}{'ქულა':&gt;6}")
+    print("-" * 25)
+    for i, (name, score) in enumerate(ranked, start=1):
+        print(f"{i:&lt;4}{name:&lt;15}{score:&gt;6}")
+
+    print("-" * 25)
+    print(f"საშუალო: {sum(scores) / len(scores):.2f}")
+    print(f"უმაღლესი: {max(scores)} · უმდაბლესი: {min(scores)}")
+    print(f"ჩააბარა: {len([s for s in scores if s &gt;= 51])}")
+
+
+add("ნინო", 92)
+add("გიორგი", 78)
+add("ანა", 85)
+add("ლევანი", 45)
+report()</code></pre>
+</section>
+
+<section class="slide">
+  <p class="kicker">შემაჯამებელი</p>
+  <h2>რა უნდა დაგამახსოვრდეს</h2>
+  <ul class="pts">
+    <li><code class="inl">list</code> — <b>ცვალებადი</b>, <code class="inl">tuple</code> — <b>უცვლელი</b>; ორივე დალაგებულია და ინდექსით მუშაობს</li>
+    <li>დამატება: <code class="inl">append</code> (ერთი) · <code class="inl">extend</code> (რამდენიმე) · <code class="inl">insert</code> (პოზიციაზე)</li>
+    <li>წაშლა: <code class="inl">remove</code> (მნიშვნელობით) · <code class="inl">pop</code> (ინდექსით, აბრუნებს) · <code class="inl">del</code> · <code class="inl">clear</code></li>
+    <li><code class="inl">sort()</code> ცვლის და აბრუნებს <code class="inl">None</code>-ს; <code class="inl">sorted()</code> ახალ სიას აბრუნებს</li>
+    <li><code class="inl">b = a</code> ასლს <b>არ</b> ქმნის — გამოიყენე <code class="inl">a.copy()</code> ან <code class="inl">a[:]</code></li>
+    <li><code class="inl">[x for x in ... if ...]</code> · <code class="inl">enumerate()</code> · <code class="inl">zip()</code></li>
+  </ul>
+  <div class="callout"><b>სახლში</b>1) სიიდან დუბლიკატების მოშორება (<code class="inl">set</code>-ის გარეშე). 2) ორი სიის შერწყმა და დახარისხება. 3) მატრიცის ტრანსპონირება. 4) ფაილიდან რიცხვების წაკითხვა სიაში და სტატისტიკის გამოტანა.</div>
+  <div class="callout tip"><b>შემდეგი — ლექცია 11</b>სიმრავლე (<code class="inl">set</code>) და ლექსიკონი (<code class="inl">dict</code>) + <b>პრაქტიკული დავალება #3</b>.</div>
+</section>
+
+</main>
+<script src="../assets/deck.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+# Python (სტუდენტების კოდი, თუ იმავე საქაღალდეში დაიწერა)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# რედაქტორი / IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# ოპერაციული სისტემა
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# დროებითი ფაილები
+*.log
+*.tmp
+*~

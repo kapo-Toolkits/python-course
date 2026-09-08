@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>05 · ჩაშენებული ფუნქციები, math, შემთხვევითი რიცხვები</title>
+<link rel="stylesheet" href="../assets/deck.css">
+</head>
+<body>
+<main class="deck">
+
+<section class="slide">
+  <p class="kicker">ლექცია 05 · V კვირა</p>
+  <h1>ჩაშენებული<br>ფუნქციები</h1>
+  <p class="lead" style="margin-top:16px">რიცხვებთან სამუშაო ფუნქციები და მეთოდები · მოდული <code class="inl">math</code> · შემთხვევითი რიცხვები</p>
+</section>
+
+<section class="slide">
+  <p class="kicker g">გამეორება · ლექციები 03–04</p>
+  <h2>შემოწმება — 8 კითხვა</h2>
+  <div class="quiz">
+    <details><summary>1. რა განსხვავებაა <code class="inl">=</code>-სა და <code class="inl">==</code>-ს შორის?</summary>
+      <div class="ans"><code>=</code> — <b>მინიჭება</b> (მარჯვენა მნიშვნელობას მარცხენა სახელს აბამს), <code>==</code> — <b>შედარება</b>, აბრუნებს <code>True</code>/<code>False</code>.</div></details>
+    <details><summary>2. რას დაბეჭდავს? <code class="inl">print(True or False and False)</code></summary>
+      <div class="ans"><code>True</code>. <code>and</code>-ის პრიორიტეტი <code>or</code>-ზე მაღალია, ამიტომ ჯერ <code>False and False → False</code>, შემდეგ <code>True or False → True</code>.</div></details>
+    <details><summary>3. რამდენ ბიჯს გაივლის <code class="inl">for i in range(1, 10, 3)</code> და რა მნიშვნელობებით?</summary>
+      <div class="ans">3 ბიჯს: <code>1, 4, 7</code>. 10 არ შედის.</div></details>
+    <details><summary>4. რა განსხვავებაა <code class="inl">break</code>-სა და <code class="inl">continue</code>-ს შორის?</summary>
+      <div class="ans"><code>break</code> ციკლს <b>მთლიანად წყვეტს</b>; <code>continue</code> მხოლოდ <b>მიმდინარე ბიჯს ტოვებს</b> და შემდეგზე გადადის.</div></details>
+    <details><summary>5. როდის სრულდება <code class="inl">else</code>, რომელიც <code class="inl">for</code>-ს მიება?</summary>
+      <div class="ans">მაშინ, როცა ციკლი <b><code>break</code>-ის გარეშე</b> დასრულდა ბოლომდე. თუ <code>break</code> გასრულდა — <code>else</code> გამოტოვდება.</div></details>
+    <details><summary>6. რატომ არის ეს ციკლი უსასრულო?<br><code class="inl">i = 0</code><br><code class="inl">while i &lt; 5: print(i)</code></summary>
+      <div class="ans">აკლია <b>ცვლილება</b>: <code>i += 1</code>. პირობა <code>i &lt; 5</code> სამუდამოდ ჭეშმარიტი რჩება. გაჩერება — <kbd>Ctrl</kbd>+<kbd>C</kbd>.</div></details>
+    <details><summary>7. რას დაბეჭდავს? <code class="inl">x = 15; print(10 &lt; x &lt; 20)</code></summary>
+      <div class="ans"><code>True</code>. Python უშვებს ჯაჭვურ შედარებას — ტოლფასია <code>10 &lt; x and x &lt; 20</code>-ისა.</div></details>
+    <details><summary>8. რას აკეთებს <code class="inl">n % 10</code> და <code class="inl">n // 10</code> ერთად, ციკლში?</summary>
+      <div class="ans"><code>n % 10</code> გამოყოფს <b>ბოლო ციფრს</b>, <code>n // 10</code> კი <b>აშორებს</b> მას. ერთად — რიცხვის ციფრებზე გავლის სტანდარტული ხერხია.</div></details>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ცნება</p>
+  <h2>ფუნქცია — „შავი ყუთი“</h2>
+  <p class="big">იღებს <em>არგუმენტს</em>, აბრუნებს <em>შედეგს</em>. როგორ აკეთებს — შენი საზრუნავი არაა.</p>
+<pre class="code" style="margin-top:16px"><code>result = len("გამარჯობა")
+#        ↑         ↑
+#     ფუნქცია   არგუმენტი
+print(result)      # 9</code></pre>
+  <div class="two" style="margin-top:16px">
+    <div class="card"><h3>ჩაშენებული</h3><p class="small">უკვე არსებობს — <code>print</code>, <code>len</code>, <code>abs</code>… სულ ~70. იმპორტი არ სჭირდება.</p></div>
+    <div class="card"><h3>მოდულიდან</h3><p class="small">საჭიროებს <code>import</code>-ს — <code>math.sqrt</code>, <code>random.randint</code>.</p></div>
+  </div>
+  <p class="small muted" style="margin-top:14px"><b>შენს საკუთარ</b> ფუნქციებს — VI კვირაზე.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">რიცხვები</p>
+  <h2>ჩაშენებული ფუნქციები რიცხვებისთვის</h2>
+  <table>
+    <tr><th style="width:24%">ფუნქცია</th><th style="width:34%">მაგალითი</th><th>შედეგი</th></tr>
+    <tr><td><code>abs(x)</code></td><td><code>abs(-7.5)</code></td><td><code>7.5</code> — მოდული</td></tr>
+    <tr><td><code>round(x, n)</code></td><td><code>round(3.14159, 2)</code></td><td><code>3.14</code></td></tr>
+    <tr><td><code>pow(x, y)</code></td><td><code>pow(2, 10)</code></td><td><code>1024</code> — იგივე <code>2 ** 10</code></td></tr>
+    <tr><td><code>divmod(a, b)</code></td><td><code>divmod(17, 5)</code></td><td><code>(3, 2)</code> — მთელი და ნაშთი</td></tr>
+    <tr><td><code>min() / max()</code></td><td><code>max(4, 9, 2)</code></td><td><code>9</code></td></tr>
+    <tr><td><code>sum()</code></td><td><code>sum(range(1, 101))</code></td><td><code>5050</code></td></tr>
+    <tr><td><code>int() float() str()</code></td><td><code>int("42")</code></td><td><code>42</code></td></tr>
+    <tr><td><code>bin() oct() hex()</code></td><td><code>bin(10)</code></td><td><code>'0b1010'</code></td></tr>
+  </table>
+  <div class="callout warn"><b><code class="inl">round()</code>-ის თავისებურება</b><code class="inl">round(0.5)</code> → <b>0</b>, <code class="inl">round(1.5)</code> → <b>2</b>. ესაა „ბანკირის დამრგვალება“ — ლუწისკენ. სტანდარტია და შეცდომა არაა.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">მოდული</p>
+  <h2><code class="inl">math</code> — მათემატიკური ფუნქციები</h2>
+<pre class="code" data-title="math_demo.py"><code>import math
+
+print(math.sqrt(16))        # 4.0     კვადრატული ფესვი
+print(math.ceil(4.1))       # 5       ზემოთ დამრგვალება
+print(math.floor(4.9))      # 4       ქვემოთ დამრგვალება
+print(math.trunc(-4.9))     # -4      წილადის მოკვეცა
+print(math.factorial(5))    # 120     ფაქტორიალი
+print(math.gcd(12, 18))     # 6       უდიდესი საერთო გამყოფი
+
+print(math.pi)              # 3.141592653589793
+print(math.e)               # 2.718281828459045
+
+print(math.log(100, 10))    # 2.0     ლოგარითმი
+print(math.log10(1000))     # 3.0
+print(math.exp(1))          # 2.718…</code></pre>
+  <div class="callout"><b>რატომ არაა ეს ჩაშენებული?</b>ენის „ბირთვი“ მინიმალურია. სპეციალიზებული ფუნქციები მოდულებშია — იტვირთება მხოლოდ საჭიროებისას. ეს Python-ის დიზაინის პრინციპია.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">მოდული</p>
+  <h2><code class="inl">math</code> — ტრიგონომეტრია და გრადუსები</h2>
+<pre class="code"><code>import math
+
+# ტრიგონომეტრიული ფუნქციები რადიანებში მუშაობს!
+angle_deg = 90
+angle_rad = math.radians(angle_deg)
+
+print(math.sin(angle_rad))       # 1.0
+print(math.cos(0))               # 1.0
+print(math.degrees(math.pi))     # 180.0
+
+# წრეწირის სიგრძე და ფართობი
+r = 5
+print(f"სიგრძე:  {2 * math.pi * r:.2f}")
+print(f"ფართობი: {math.pi * r ** 2:.2f}")
+
+# მანძილი ორ წერტილს შორის
+print(math.hypot(3, 4))          # 5.0
+print(math.dist((0, 0), (3, 4))) # 5.0</code></pre>
+  <div class="callout err"><b>ტიპური შეცდომა</b><code class="inl">math.sin(90)</code> არ იძლევა 1-ს — 90 <b>რადიანად</b> აღიქმება. ჯერ <code class="inl">math.radians(90)</code>.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">იმპორტი</p>
+  <h2>იმპორტის სამი ფორმა</h2>
+<pre class="code"><code># 1. მთელი მოდული — ყველაზე გავრცელებული და ცხადი
+import math
+print(math.sqrt(16))
+
+# 2. კონკრეტული სახელები
+from math import sqrt, pi
+print(sqrt(16), pi)
+
+# 3. მოკლე ფსევდონიმი
+import math as m
+print(m.sqrt(16))</code></pre>
+  <div class="callout err"><b>რასაც არ ვაკეთებთ</b><code class="inl">from math import *</code> — ყველა სახელს ერთბაშად შემოიტანს და შენს ცვლადებს „გადააფარებს“. PEP 8 ამას პირდაპირ კრძალავს.</div>
+  <p class="small muted" style="margin-top:10px">დეტალურად მოდულებსა და პაკეტებს — <b>XV კვირაზე</b>.</p>
+</section>
+
+<section class="slide">
+  <p class="kicker">მოდული</p>
+  <h2><code class="inl">random</code> — შემთხვევითი რიცხვები</h2>
+<pre class="code" data-title="random_demo.py"><code>import random
+
+print(random.random())          # 0.0 ≤ x &lt; 1.0
+print(random.randint(1, 6))     # 1..6 — ორივე კიდე შედის!
+print(random.randrange(0, 10, 2))  # 0,2,4,6,8
+
+print(random.uniform(1.5, 3.5)) # წილადი დიაპაზონში
+
+colors = ["წითელი", "მწვანე", "ლურჯი"]
+print(random.choice(colors))         # ერთი ელემენტი
+print(random.sample(colors, 2))      # ორი, გამეორების გარეშე
+
+random.shuffle(colors)               # არევა ადგილზე
+print(colors)</code></pre>
+  <div class="callout warn"><b><code class="inl">randint</code> vs <code class="inl">range</code></b><code class="inl">random.randint(1, 6)</code> — <b>6 შედის</b>. <code class="inl">range(1, 6)</code> — 6 <b>არ შედის</b>. ეს განსხვავება ხშირად ავიწყდებათ.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">თეორია</p>
+  <h2>ფსევდო-შემთხვევითობა</h2>
+  <p>კომპიუტერს „ნამდვილი“ შემთხვევითობა არ შეუძლია — ის <b>ალგორითმით</b> ითვლის მიმდევრობას, რომელიც შემთხვევითს ჰგავს.</p>
+<pre class="code"><code>import random
+
+random.seed(42)
+print(random.randint(1, 100))   # 82
+print(random.randint(1, 100))   # 15
+
+random.seed(42)                  # იმავე წერტილიდან
+print(random.randint(1, 100))   # 82 — იგივე!
+print(random.randint(1, 100))   # 15</code></pre>
+  <div class="two" style="margin-top:12px">
+    <div class="callout tip small"><b>რატომაა სასარგებლო</b><code class="inl">seed()</code>-ით შედეგი <b>განმეორებადია</b> — ტესტირებისა და ლაბორატორიული სამუშაოსთვის აუცილებელია.</div>
+    <div class="callout err small"><b>უსაფრთხოება</b>პაროლების ან კრიპტოგრაფიული გასაღებებისთვის <code class="inl">random</code> <b>არ ვარგა</b> — მისთვის <code class="inl">secrets</code> მოდულია.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">პრაქტიკა</p>
+  <h2>თამაში — გამოიცანი რიცხვი</h2>
+<pre class="code" data-title="guess.py"><code>import random
+
+secret = random.randint(1, 100)
+attempts = 0
+
+print("გამოიცანი რიცხვი 1-დან 100-მდე")
+
+while True:
+    guess = int(input("შენი ვარიანტი: "))
+    attempts += 1
+
+    if guess &lt; secret:
+        print("მეტია ↑")
+    elif guess &gt; secret:
+        print("ნაკლებია ↓")
+    else:
+        print(f"სწორია! {attempts} ცდაში გამოიცანი")
+        break</code></pre>
+  <div class="callout tip"><b>განვითარება</b>დაუმატე ცდების ლიმიტი (7), შეყვანის შემოწმება, ან შეაბრუნე როლები — კომპიუტერი იცნობს შენს რიცხვს ბინარული ძებნით.</div>
+  <div class="note">ეს დავალება მუშაობს კარგად: სწრაფად იწერება, მაშინვე „თამაშად“ იქცევა. 7 ცდაში 100-მდე რიცხვის გამოცნობა ყოველთვის შესაძლებელია — კარგი შესავალი ალგორითმის ეფექტურობაში.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ინსტრუმენტი</p>
+  <h2>როგორ გავიგოთ, რა შეუძლია მოდულს</h2>
+<pre class="code"><code>import math
+
+print(dir(math))        # ყველა სახელის სია
+help(math.sqrt)         # კონკრეტული ფუნქციის დოკუმენტაცია
+print(math.sqrt.__doc__)</code></pre>
+  <p class="out">Help on built-in function sqrt in module math:
+
+sqrt(x, /)
+    Return the square root of x.</p>
+  <div class="two" style="margin-top:14px">
+    <div class="callout tip small"><b>VS Code-ში</b>დაიჭირე <kbd>Ctrl</kbd> და დააწკაპე ფუნქციის სახელს — გადახვალ მის კოდზე. ან უბრალოდ გააჩერე კურსორი — Pylance აჩვენებს აღწერას.</div>
+    <div class="callout small"><b>ოფიციალური დოკუმენტაცია</b><code class="inl">docs.python.org/3/library/math.html</code> — ყოველთვის უფრო სრულია, ვიდრე ნებისმიერი გაკვეთილი.</div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">შემაჯამებელი</p>
+  <h2>რა უნდა დაგამახსოვრდეს</h2>
+  <ul class="pts">
+    <li>ჩაშენებული ფუნქციები იმპორტს არ საჭიროებს: <code class="inl">abs, round, pow, divmod, min, max, sum</code></li>
+    <li><code class="inl">math</code> — <code class="inl">sqrt, ceil, floor, factorial, gcd, pi, log</code>; ტრიგონომეტრია <b>რადიანებში</b></li>
+    <li><code class="inl">random</code> — <code class="inl">random(), randint(a, b)</code> (b შედის!), <code class="inl">choice, shuffle, sample</code></li>
+    <li><code class="inl">seed()</code> შედეგს განმეორებადს ხდის</li>
+    <li>იმპორტი: <code class="inl">import math</code> · <code class="inl">from math import sqrt</code> · <code class="inl">import math as m</code>; <code class="inl">import *</code> — არასდროს</li>
+    <li>უცნობი ფუნქცია — <code class="inl">help()</code> და <code class="inl">dir()</code></li>
+  </ul>
+  <div class="callout"><b>სახლში</b>1) კვადრატული განტოლების ამომხსნელი დისკრიმინანტით. 2) კამათლის 1000-ჯერ გაგორება და თითოეული მხარის სიხშირის დათვლა. 3) გენერატორი: 10 შემთხვევითი რიცხვი, მათი ჯამი, საშუალო, მინიმუმი და მაქსიმუმი.</div>
+  <div class="callout tip"><b>შემდეგი — ლექცია 06</b>საკუთარი ფუნქციები: <code class="inl">def</code>, პარამეტრები, <code class="inl">return</code>, <code class="inl">lambda</code> + <b>პრაქტიკული დავალება #2</b>.</div>
+</section>
+
+</main>
+<script src="../assets/deck.js"></script>
+</body>
+</html>

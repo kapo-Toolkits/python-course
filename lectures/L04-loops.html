@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>04 · ციკლის ოპერატორები</title>
+<link rel="stylesheet" href="../assets/deck.css">
+</head>
+<body>
+<main class="deck">
+
+<section class="slide">
+  <p class="kicker">ლექცია 04 · IV კვირა</p>
+  <h1>ციკლები</h1>
+  <p class="lead" style="margin-top:16px"><code class="inl">for</code> · <code class="inl">while</code> · <code class="inl">range()</code> · <code class="inl">break</code> და <code class="inl">continue</code> · ჩადგმული ციკლები</p>
+  <div class="note">ეს კურსის ერთ-ერთი გადამწყვეტი ლექციაა. ვინც ციკლებს ვერ აითვისებს, შემდეგ ყველგან გაუჭირდება. მეტი დრო დაუთმე ცოცხალ ტრასირებას.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">მოტივაცია</p>
+  <h2>რატომ გვჭირდება ციკლი</h2>
+  <div class="two">
+    <div>
+      <h3 style="color:var(--danger)">ციკლის გარეშე</h3>
+<pre class="code"><code>print("გამარჯობა")
+print("გამარჯობა")
+print("გამარჯობა")
+print("გამარჯობა")
+print("გამარჯობა")</code></pre>
+      <p class="small muted" style="margin-top:8px">და თუ 1000-ჯერ დაგვჭირდა? ან რაოდენობა მომხმარებლისგან მოდის?</p>
+    </div>
+    <div>
+      <h3 style="color:var(--accent2)">ციკლით</h3>
+<pre class="code"><code>for i in range(5):
+    print("გამარჯობა")</code></pre>
+      <p class="small muted" style="margin-top:8px">რიცხვის შეცვლა — ერთი სიმბოლოა.</p>
+      <div class="callout tip" style="margin-top:14px"><b>ორი სახეობა</b>
+        <span style="display:block;margin-top:5px"><code class="inl">for</code> — როცა <b>ვიცით</b>, რამდენჯერ (ან რაზე ვიარებთ)</span>
+        <span style="display:block"><code class="inl">while</code> — როცა <b>პირობა</b> წყვეტს, გავაგრძელოთ თუ არა</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">კონსტრუქცია</p>
+  <h2><code class="inl">for</code> — გავლა თანმიმდევრობაზე</h2>
+<pre class="code" data-title="სინტაქსი"><code class="nohl">for ცვლადი in თანმიმდევრობა:
+    სხეული</code></pre>
+  <div class="two" style="margin-top:14px">
+    <div>
+<pre class="code"><code>for i in range(5):
+    print(i)</code></pre>
+      <p class="out">0
+1
+2
+3
+4</p>
+    </div>
+    <div>
+<pre class="code"><code>for letter in "პითონი":
+    print(letter, end=" ")</code></pre>
+      <p class="out">პ ი თ ო ნ ი</p>
+      <div class="callout small" style="margin-top:12px"><b>ცვლადის სახელი</b>ხშირად <code class="inl">i</code> (index), მაგრამ აზრიანი სახელი სჯობს: <code class="inl">for student in group:</code></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ინსტრუმენტი</p>
+  <h2><code class="inl">range()</code> — სამი ფორმა</h2>
+  <table>
+    <tr><th style="width:30%">ჩანაწერი</th><th style="width:36%">რას ნიშნავს</th><th>მნიშვნელობები</th></tr>
+    <tr><td><code>range(5)</code></td><td>0-დან 5-მდე</td><td><code>0 1 2 3 4</code></td></tr>
+    <tr><td><code>range(2, 6)</code></td><td>2-დან 6-მდე</td><td><code>2 3 4 5</code></td></tr>
+    <tr><td><code>range(0, 10, 2)</code></td><td>ბიჯით 2</td><td><code>0 2 4 6 8</code></td></tr>
+    <tr><td><code>range(10, 0, -1)</code></td><td>უკუსვლით</td><td><code>10 9 8 … 1</code></td></tr>
+  </table>
+  <div class="callout warn"><b>ბოლო რიცხვი <u>არ</u> შედის</b><code class="inl">range(1, 5)</code> იძლევა <b>1, 2, 3, 4</b>-ს. 5-ის ჩასათვლელად საჭიროა <code class="inl">range(1, 6)</code>.<br>ეს დამწყებთა #1 შეცდომაა („off-by-one“).</div>
+<pre class="code" style="margin-top:8px"><code>for i in range(1, 11):
+    print(i, end=" ")        # 1 2 3 4 5 6 7 8 9 10
+
+print(list(range(5)))        # [0, 1, 2, 3, 4]</code></pre>
+</section>
+
+<section class="slide">
+  <p class="kicker">კონსტრუქცია</p>
+  <h2><code class="inl">while</code> — სანამ პირობა სრულდება</h2>
+  <div class="two">
+    <div>
+<pre class="code" data-title="სინტაქსი"><code class="nohl">while პირობა:
+    სხეული</code></pre>
+<pre class="code" style="margin-top:12px"><code>count = 0
+
+while count &lt; 5:
+    print(count)
+    count += 1        # ⚠ სავალდებულო!
+
+print("დასრულდა")</code></pre>
+    </div>
+    <div>
+      <h3>სამი აუცილებელი ნაწილი</h3>
+      <ol class="pts tight">
+        <li><b>ინიციალიზაცია</b> — <code class="inl">count = 0</code> ციკლამდე</li>
+        <li><b>პირობა</b> — <code class="inl">count &lt; 5</code></li>
+        <li><b>ცვლილება</b> — <code class="inl">count += 1</code> სხეულში</li>
+      </ol>
+      <div class="callout err" style="margin-top:14px"><b>თუ მესამე დაგავიწყდა</b>მიიღებ <b>უსასრულო ციკლს</b> — პროგრამა არასდროს დამთავრდება.<br>გაჩერება: <kbd>Ctrl</kbd>+<kbd>C</kbd> ტერმინალში.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">მაგალითი</p>
+  <h2><code class="inl">while</code>-ის ნამდვილი ადგილი</h2>
+  <p><code class="inl">for</code> ჯობია, როცა რაოდენობა ცნობილია. <code class="inl">while</code> — როცა არა.</p>
+  <div class="two">
+    <div>
+      <h3>მომხმარებლის შემოწმება</h3>
+<pre class="code"><code>password = ""
+
+while password != "python":
+    password = input("პაროლი: ")
+
+print("წვდომა დაშვებულია")</code></pre>
+    </div>
+    <div>
+      <h3>დაგროვება ზღვრამდე</h3>
+<pre class="code"><code>balance = 1000
+year = 0
+
+while balance &lt; 2000:
+    balance *= 1.10   # 10% წლიური
+    year += 1
+
+print(f"{year} წელი, ბალანსი {balance:.2f}")</code></pre>
+      <p class="out">8 წელი, ბალანსი 2143.59</p>
+    </div>
+  </div>
+  <div class="note">იკითხე: „რამდენი წელი დასჭირდება?“ — სტუდენტები ვერ იტყვიან წინასწარ. სწორედ ესაა while-ის არსი.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">მართვა</p>
+  <h2><code class="inl">break</code> და <code class="inl">continue</code></h2>
+  <div class="two">
+    <div>
+      <h3><code>break</code> — გამოდის ციკლიდან</h3>
+<pre class="code"><code>for i in range(1, 11):
+    if i == 5:
+        break
+    print(i, end=" ")</code></pre>
+      <p class="out">1 2 3 4</p>
+      <p class="small muted" style="margin-top:6px">ციკლი მთლიანად წყდება.</p>
+    </div>
+    <div>
+      <h3><code>continue</code> — გამოტოვებს ერთ ბიჯს</h3>
+<pre class="code"><code>for i in range(1, 11):
+    if i % 2 == 0:
+        continue
+    print(i, end=" ")</code></pre>
+      <p class="out">1 3 5 7 9</p>
+      <p class="small muted" style="margin-top:6px">ციკლი გრძელდება, ეს ბიჯი გამოტოვდა.</p>
+    </div>
+  </div>
+  <div class="callout tip"><b>ჩადგმულ ციკლში</b><code class="inl">break</code> მხოლოდ <b>უახლოეს</b> ციკლს წყვეტს, არა ყველას.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">ნაკლებად ცნობილი</p>
+  <h2><code class="inl">else</code> ციკლთან ერთად</h2>
+  <p>სრულდება მაშინ, როცა ციკლი <b><code class="inl">break</code>-ის გარეშე</b> დამთავრდა.</p>
+<pre class="code" data-title="prime.py"><code>n = int(input("რიცხვი: "))
+
+for d in range(2, n):
+    if n % d == 0:
+        print(f"{n} იყოფა {d}-ზე — მარტივი არაა")
+        break
+else:
+    print(f"{n} მარტივი რიცხვია")</code></pre>
+  <div class="callout"><b>წაიკითხე ასე</b><i>„გაიარე ციკლი; თუ <code class="inl">break</code>-ს <b>ვერ</b> მიაღწიე — შეასრულე <code class="inl">else</code>“.</i> გამოგადგება „ვეძებდი და ვერ ვიპოვე“ ტიპის ამოცანებში.</div>
+  <div class="note">ეს კონსტრუქცია Python-ის სპეციფიკურია და შუალედურის ღია კითხვად კარგად გამოდგება.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">შაბლონი</p>
+  <h2>დაგროვება (accumulator)</h2>
+  <p class="small muted">ყველაზე ხშირი შაბლონი ციკლებში: ცვლადი ციკლამდე, ცვლილება ციკლში.</p>
+  <div class="two">
+    <div>
+      <h3>ჯამი</h3>
+<pre class="code"><code>total = 0
+for i in range(1, 101):
+    total += i
+print(total)        # 5050</code></pre>
+      <h3 style="margin-top:14px">დათვლა</h3>
+<pre class="code"><code>count = 0
+for c in "programming":
+    if c in "aeiou":
+        count += 1
+print(count)        # 3</code></pre>
+    </div>
+    <div>
+      <h3>მაქსიმუმის ძებნა</h3>
+<pre class="code"><code>biggest = 0
+for i in range(5):
+    n = int(input("რიცხვი: "))
+    if n &gt; biggest:
+        biggest = n
+print("უდიდესი:", biggest)</code></pre>
+      <div class="callout warn small" style="margin-top:12px"><b>ფრთხილად</b><code class="inl">biggest = 0</code> ვერ იმუშავებს, თუ ყველა რიცხვი უარყოფითია. სწორი გზა — პირველი მნიშვნელობით ინიციალიზაცია.</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">კონსტრუქცია</p>
+  <h2>ჩადგმული ციკლები</h2>
+<pre class="code" data-title="multiplication.py"><code>for i in range(1, 6):
+    for j in range(1, 6):
+        print(f"{i * j:4}", end="")
+    print()          # ხაზის გადატანა გარე ციკლში</code></pre>
+  <p class="out">   1   2   3   4   5
+   2   4   6   8  10
+   3   6   9  12  15
+   4   8  12  16  20
+   5  10  15  20  25</p>
+  <div class="callout"><b>როგორ იმუშავა</b>გარე ციკლის <b>ერთ</b> ბიჯზე შიდა ციკლი <b>მთლიანად</b> გაირბენს. 5 × 5 = 25 შესრულება.</div>
+  <div class="two" style="margin-top:12px">
+    <div>
+<pre class="code" data-title="სამკუთხედი"><code>for i in range(1, 6):
+    print("*" * i)</code></pre>
+    </div>
+    <div>
+      <p class="out">*
+**
+***
+****
+*****</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker">შაბლონი</p>
+  <h2>უსასრულო ციკლი + <code class="inl">break</code> (მენიუ)</h2>
+<pre class="code" data-title="menu.py"><code>while True:
+    print("\n1 — შეკრება")
+    print("2 — გამრავლება")
+    print("0 — გასვლა")
+
+    choice = input("არჩევანი: ")
+
+    if choice == "0":
+        print("ნახვამდის!")
+        break
+    elif choice == "1":
+        a = float(input("a: "))
+        b = float(input("b: "))
+        print("შედეგი:", a + b)
+    elif choice == "2":
+        a = float(input("a: "))
+        b = float(input("b: "))
+        print("შედეგი:", a * b)
+    else:
+        print("არასწორი არჩევანი")</code></pre>
+  <div class="callout tip"><b>ეს შაბლონი</b>ინტერაქტიული პროგრამების საფუძველია. <code class="inl">while True</code> + <code class="inl">break</code> — სრულიად ნორმალური და გავრცელებული ხერხია.</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">პრაქტიკა</p>
+  <h2>რიცხვის ციფრებთან მუშაობა</h2>
+<pre class="code" data-title="digits.py"><code>n = int(input("მთელი რიცხვი: "))
+n = abs(n)
+
+total = 0
+count = 0
+reversed_num = 0
+
+while n &gt; 0:
+    digit = n % 10          # ბოლო ციფრი
+    total += digit
+    count += 1
+    reversed_num = reversed_num * 10 + digit
+    n = n // 10             # ბოლო ციფრს ვაშორებთ
+
+print("ციფრების ჯამი:", total)
+print("ციფრების რაოდენობა:", count)
+print("შებრუნებული:", reversed_num)</code></pre>
+  <p class="out">მთელი რიცხვი: 1234
+ციფრების ჯამი: 10
+ციფრების რაოდენობა: 4
+შებრუნებული: 4321</p>
+  <div class="note">ეს კლასიკური ამოცანაა და გამოცდაზე ხშირად ხვდება. ტრასირება დაფაზე: n=1234 → digit=4, n=123 → …</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">დიაგნოსტიკა</p>
+  <h2>ხშირი შეცდომები</h2>
+  <table class="small">
+    <tr><th style="width:40%">შეცდომა</th><th>რა ხდება</th></tr>
+    <tr><td>მთვლელის გაზრდა დაგავიწყდა <code>while</code>-ში</td><td>უსასრულო ციკლი. <kbd>Ctrl</kbd>+<kbd>C</kbd></td></tr>
+    <tr><td><code>range(1, 5)</code> და 5-ს ელოდები</td><td>ბოლო რიცხვი არ შედის → <code>range(1, 6)</code></td></tr>
+    <tr><td>დამგროვებელი ცვლადი ციკლის <b>შიგნით</b> ინიციალიზდება</td><td>ყოველ ბიჯზე ნულდება — შედეგი არასწორია</td></tr>
+    <tr><td><code>print()</code> არასწორ დონეზეა ჩადგმულ ციკლში</td><td>გამოტანა არეულია — გადახედე წანაცვლებას</td></tr>
+    <tr><td><code>for i in range(len(s))</code> როცა პირდაპირ <code>for c in s</code> გამოდგება</td><td>მუშაობს, მაგრამ არა-Python-ური სტილია</td></tr>
+  </table>
+  <div class="callout tip"><b>დიაგნოსტიკის ხერხი</b>ჩადეთ <code class="inl">print(i, total)</code> ციკლის სხეულში — მაშინვე დაინახავთ, სად გაფუჭდა. ან გამოიყენეთ დებაგერი (<kbd>F5</kbd>).</div>
+</section>
+
+<section class="slide">
+  <p class="kicker">შემაჯამებელი</p>
+  <h2>რა უნდა დაგამახსოვრდეს</h2>
+  <ul class="pts">
+    <li><code class="inl">for</code> — ცნობილი რაოდენობა ან გავლა თანმიმდევრობაზე; <code class="inl">while</code> — პირობით მართვა</li>
+    <li><code class="inl">range(start, stop, step)</code> — <b>stop არ შედის</b></li>
+    <li><code class="inl">break</code> წყვეტს, <code class="inl">continue</code> ტოვებს ბიჯს, <code class="inl">else</code> სრულდება <code class="inl">break</code>-ის გარეშე დასრულებისას</li>
+    <li>დაგროვების შაბლონი: ცვლადი <b>ციკლამდე</b>, ცვლილება <b>ციკლში</b></li>
+    <li>ჩადგმულ ციკლში გარე ბიჯზე შიდა მთლიანად გადის</li>
+  </ul>
+  <div class="callout"><b>სახლში</b>1) 1–100 რიცხვების ჯამი და საშუალო. 2) ფაქტორიალი. 3) მამრავლების ცხრილი (1–9). 4) გამოიცანი რიცხვი (<code class="inl">random</code>-ის გარეშე, ფიქსირებული რიცხვით). 5) დახატე „ნაძვის ხე“ ვარსკვლავებით.</div>
+  <div class="callout tip"><b>შემდეგი — ლექცია 05</b>ჩაშენებული ფუნქციები, მოდული <code class="inl">math</code> და შემთხვევითი რიცხვები.</div>
+</section>
+
+</main>
+<script src="../assets/deck.js"></script>
+</body>
+</html>
