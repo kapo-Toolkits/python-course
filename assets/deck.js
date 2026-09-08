@@ -6,7 +6,7 @@
      → ← Space PgUp PgDn Home End  — ნავიგაცია
      O — სლაიდების სია (outline)      N — ლექტორის ჩანაწერები
      D — ღია/მუქი თემა               F — სრული ეკრანი
-     P — ბეჭდვა (PDF)
+     L — ენა (ქართული / English)     P — ბეჭდვა (PDF)
    URL-ში #7 პირდაპირ მე-7 სლაიდზე გადადის.
    ============================================================ */
 (function () {
@@ -107,20 +107,18 @@
       '<button type="button" data-act="prev" title="წინა">←</button>' +
       '<span id="num"></span>' +
       '<button type="button" data-act="next" title="შემდეგი">→</button>' +
-      '<button type="button" data-act="outline" title="სლაიდების სია (O)">☰</button>' +
-      '<button type="button" data-act="theme" title="ღია / მუქი (D)">◐</button>';
+      '<button type="button" data-act="outline" title="სლაიდების სია · Outline (O)">☰</button>' +
+      '<button type="button" data-act="lang" title="ენა · Language (L)"><span id="langlbl"></span></button>' +
+      '<button type="button" data-act="theme" title="ღია / მუქი · Theme (D)">◐</button>';
 
     var hint = document.createElement("div"); hint.id = "hint";
-    hint.innerHTML = '<b>←/→</b> ნავიგაცია · <b>O</b> სია · <b>N</b> ჩანაწერები · ' +
-                     '<b>D</b> თემა · <b>F</b> ეკრანი · <b>P</b> PDF';
+    hint.innerHTML =
+      '<span lang="ka"><b>←/→</b> ნავიგაცია · <b>O</b> სია · <b>N</b> ჩანაწერები · ' +
+      '<b>D</b> თემა · <b>L</b> ენა · <b>F</b> ეკრანი · <b>P</b> PDF</span>' +
+      '<span lang="en"><b>←/→</b> navigate · <b>O</b> outline · <b>N</b> notes · ' +
+      '<b>D</b> theme · <b>L</b> language · <b>F</b> fullscreen · <b>P</b> PDF</span>';
 
     var ol = document.createElement("div"); ol.id = "outline";
-    var items = "";
-    for (var i = 0; i < slides.length; i++) {
-      var h = slides[i].querySelector("h1, h2, h3");
-      items += "<li data-i=" + i + ">" + esc(h ? h.textContent.trim() : "—") + "</li>";
-    }
-    ol.innerHTML = "<h2>სლაიდები</h2><ol>" + items + "</ol>";
 
     document.body.appendChild(bar);
     document.body.appendChild(hud);
@@ -128,11 +126,13 @@
     document.body.appendChild(ol);
 
     hud.addEventListener("click", function (e) {
-      var a = e.target.dataset && e.target.dataset.act;
+      var btn = e.target.closest ? e.target.closest("[data-act]") : null;
+      var a = btn && btn.dataset.act;
       if (a === "prev") go(-1);
       else if (a === "next") go(1);
       else if (a === "outline") ol.classList.toggle("on");
       else if (a === "theme") theme();
+      else if (a === "lang") lang();
     });
     ol.addEventListener("click", function (e) {
       if (e.target.dataset && e.target.dataset.i !== undefined) {
@@ -145,6 +145,50 @@
     var d = document.documentElement.getAttribute("data-theme") === "dark";
     document.documentElement.setAttribute("data-theme", d ? "light" : "dark");
     try { localStorage.setItem("deck-theme", d ? "light" : "dark"); } catch (e) {}
+  }
+
+  /* ---------- ენა ---------- */
+  function curLang() {
+    return document.documentElement.getAttribute("lang") === "en" ? "en" : "ka";
+  }
+
+  function setLang(l) {
+    document.documentElement.setAttribute("lang", l);
+    var lbl = document.getElementById("langlbl");
+    if (lbl) lbl.textContent = l === "en" ? "ქარ" : "EN";
+    buildOutline();
+    try { localStorage.setItem("deck-lang", l); } catch (e) {}
+  }
+
+  function lang() { setLang(curLang() === "en" ? "ka" : "en"); }
+
+  /* სათაურიდან მხოლოდ მიმდინარე ენის ტექსტს იღებს */
+  function headText(h) {
+    if (!h) return "—";
+    var pick = h.querySelector('[lang="' + curLang() + '"]') || h;
+    /* <br>-ს ჰარით ვცვლით ასლში: არააქტიურ სლაიდზე innerText არ გამოდგება,
+       რადგან ის display:none-ის დროს textContent-ივით იქცევა */
+    var c = pick.cloneNode(true);
+    var brs = c.querySelectorAll("br");
+    for (var i = 0; i < brs.length; i++) {
+      brs[i].parentNode.replaceChild(document.createTextNode(" "), brs[i]);
+    }
+    return c.textContent.replace(/\s+/g, " ").trim() || "—";
+  }
+
+  function buildOutline() {
+    var ol = document.getElementById("outline");
+    if (!ol) return;
+    var items = "";
+    for (var i = 0; i < slides.length; i++) {
+      items += "<li data-i=" + i + ">" +
+               esc(headText(slides[i].querySelector("h1, h2, h3"))) + "</li>";
+    }
+    ol.innerHTML =
+      '<h2><span lang="ka">სლაიდები</span><span lang="en">Slides</span></h2>' +
+      "<ol>" + items + "</ol>";
+    var lis = ol.querySelectorAll("li");
+    for (var j = 0; j < lis.length; j++) lis[j].classList.toggle("cur", j === cur);
   }
 
   /* ---------- 5. მოვლენები ---------- */
@@ -161,6 +205,7 @@
       if (c === "o") document.getElementById("outline").classList.toggle("on");
       else if (c === "n") document.body.classList.toggle("notes");
       else if (c === "d") theme();
+      else if (c === "l") lang();
       else if (c === "f") {
         if (document.fullscreenElement) document.exitFullscreen();
         else document.documentElement.requestFullscreen();
@@ -190,6 +235,11 @@
 
   prepCode();
   buildUI();
+
+  var savedLang = "ka";
+  try { savedLang = localStorage.getItem("deck-lang") || "ka"; } catch (e) {}
+  setLang(savedLang);          /* outline-საც აწყობს */
+
   document.addEventListener("keydown", keys);
   window.addEventListener("hashchange", function () {
     var n = parseInt(location.hash.slice(1), 10);

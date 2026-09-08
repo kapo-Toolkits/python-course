@@ -55,6 +55,12 @@
   color-scheme: dark;
 }
 
+/* ---------- ორენოვნება ----------
+   ტექსტი იწერება ორჯერ: <span lang="ka">…</span><span lang="en">…</span>
+   ჩანს მხოლოდ ის, რომელიც <html lang="…">-ს ემთხვევა. სუფთა CSS — JS არ სჭირდება. */
+html[lang="ka"] [lang="en"]{display:none !important}
+html[lang="en"] [lang="ka"]{display:none !important}
+
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
@@ -174,7 +180,10 @@ code.inl{
 .callout.tip{border-color:var(--accent2)}
 .callout.warn{border-color:var(--warn)}
 .callout.err{border-color:var(--danger)}
-.callout > b:first-child{display:block; margin-bottom:3px}   /* მხოლოდ სათაური, არა ყველა <b> */
+/* მხოლოდ სათაური იქცევა ბლოკად, არა ყველა <b>.
+   მეორე სელექტორი ორენოვან ჩანაწერს ეხება: .callout > [lang] > b */
+.callout > b:first-child,
+.callout > [lang] > b:first-child{display:block; margin-bottom:3px}
 
 /* ---------- ცხრილი ---------- */
 table{border-collapse:collapse; width:100%; margin-top:14px; font-size:clamp(13px,1.45vw,17px)}

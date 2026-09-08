@@ -10,147 +10,266 @@
 <main class="deck">
 
 <section class="slide">
-  <p class="kicker">პროგრამირების საწყისები (Python)</p>
-  <h1>სამუშაო გარემოს<br>მომზადება</h1>
-  <p class="lead" style="margin-top:18px">Python-ის ინტერპრეტატორი · VS Code · აუცილებელი დანამატები</p>
-  <p class="small muted" style="margin-top:28px">I კვირა — პრაქტიკული საათი</p>
-  <div class="note">ეს სლაიდები დაურიგე სტუდენტებს — ბევრი მათგანი სახლის კომპიუტერზე მარტო დააყენებს. სთხოვე ბოლო სლაიდის checklist გაიაროს.</div>
+  <p class="kicker">
+    <span lang="ka">პროგრამირების საწყისები (Python)</span>
+    <span lang="en">Programming Essentials (Python)</span>
+  </p>
+  <h1>
+    <span lang="ka">სამუშაო გარემოს<br>მომზადება</span>
+    <span lang="en">Setting up your<br>environment</span>
+  </h1>
+  <p class="lead" style="margin-top:18px">
+    <span lang="ka">Python-ის ინტერპრეტატორი · VS Code · აუცილებელი დანამატები</span>
+    <span lang="en">The Python interpreter · VS Code · the extensions you actually need</span>
+  </p>
+  <p class="small muted" style="margin-top:28px">
+    <span lang="ka">I კვირა — პრაქტიკული საათი</span>
+    <span lang="en">Week I — lab session</span>
+  </p>
+  <div class="note">
+    <span lang="ka">ეს სლაიდები დაურიგე სტუდენტებს — ბევრი მათგანი სახლის კომპიუტერზე მარტო დააყენებს. სთხოვე ბოლო სლაიდის checklist გაიაროს.</span>
+    <span lang="en">Hand these out — many students will install everything alone at home. Ask them to walk through the checklist on the last slide.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">კონტექსტი</p>
-  <h2>რა გვჭირდება რეალურად?</h2>
+  <p class="kicker"><span lang="ka">კონტექსტი</span><span lang="en">Context</span></p>
+  <h2><span lang="ka">რა გვჭირდება რეალურად?</span><span lang="en">What do we actually need?</span></h2>
   <div class="grid">
     <div class="card">
-      <h3>1 · ინტერპრეტატორი</h3>
-      <p>პროგრამა, რომელიც <b>კითხულობს და ასრულებს</b> შენს კოდს. ესაა <em>Python</em> თავად.</p>
-      <ul><li>მის გარეშე კოდი უბრალო ტექსტია</li></ul>
+      <h3><span lang="ka">1 · ინტერპრეტატორი</span><span lang="en">1 · The interpreter</span></h3>
+      <p lang="ka">პროგრამა, რომელიც <b>კითხულობს და ასრულებს</b> შენს კოდს. ესაა <em>Python</em> თავად.</p>
+      <p lang="en">The program that <b>reads and runs</b> your code. This is <em>Python</em> itself.</p>
+      <ul lang="ka"><li>მის გარეშე კოდი უბრალო ტექსტია</li></ul>
+      <ul lang="en"><li>Without it, code is just text</li></ul>
     </div>
     <div class="card">
-      <h3>2 · რედაქტორი</h3>
-      <p>პროგრამა, რომელშიც კოდს <b>წერ</b>. ესაა <em>VS Code</em>.</p>
-      <ul><li>ჩანაცვლებადია: PyCharm, Vim, Notepad++</li></ul>
+      <h3><span lang="ka">2 · რედაქტორი</span><span lang="en">2 · The editor</span></h3>
+      <p lang="ka">პროგრამა, რომელშიც კოდს <b>წერ</b>. ესაა <em>VS Code</em>.</p>
+      <p lang="en">The program you <b>write</b> code in. This is <em>VS Code</em>.</p>
+      <ul lang="ka"><li>ჩანაცვლებადია: PyCharm, Vim, Notepad++</li></ul>
+      <ul lang="en"><li>Interchangeable: PyCharm, Vim, Notepad++</li></ul>
     </div>
     <div class="card">
-      <h3>3 · ტერმინალი</h3>
-      <p>ადგილი, სადაც პროგრამას <b>უშვებ</b> და პასუხს ხედავ.</p>
-      <ul><li>VS Code-ს საკუთარი აქვს ჩაშენებული</li></ul>
+      <h3><span lang="ka">3 · ტერმინალი</span><span lang="en">3 · The terminal</span></h3>
+      <p lang="ka">ადგილი, სადაც პროგრამას <b>უშვებ</b> და პასუხს ხედავ.</p>
+      <p lang="en">Where you <b>run</b> the program and see its output.</p>
+      <ul lang="ka"><li>VS Code-ს საკუთარი აქვს ჩაშენებული</li></ul>
+      <ul lang="en"><li>VS Code has one built in</li></ul>
     </div>
   </div>
-  <div class="callout tip"><b>მთავარი აზრი</b>ეს სამი ცალკე რამაა. თუ რომელიმე გატყდა, დანარჩენს არაფერი უშავს — და ეს დიაგნოსტიკას ამარტივებს.</div>
+  <div class="callout tip">
+    <span lang="ka"><b>მთავარი აზრი</b>ეს სამი ცალკე რამაა. თუ რომელიმე გატყდა, დანარჩენს არაფერი უშავს — და ეს დიაგნოსტიკას ამარტივებს.</span>
+    <span lang="en"><b>The key idea</b>These are three separate things. If one breaks, the others are unaffected — which makes diagnosing problems much easier.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ნაბიჯი 1</p>
-  <h2>Python-ის დაყენება</h2>
+  <p class="kicker"><span lang="ka">ნაბიჯი 1</span><span lang="en">Step 1</span></p>
+  <h2><span lang="ka">Python-ის დაყენება</span><span lang="en">Installing Python</span></h2>
   <div class="two">
     <div>
       <h3>Windows</h3>
-      <ul class="pts tight">
+      <ul class="pts tight" lang="ka">
         <li>ჩამოტვირთე <code class="inl">python.org/downloads</code></li>
         <li><b>ინსტალაციისას აუცილებლად:</b><br><code class="inl">☑ Add python.exe to PATH</code>
           <small>თუ ეს არ მონიშნე — ტერმინალი ვერ იპოვის Python-ს</small></li>
         <li>„Install Now“ საკმარისია</li>
       </ul>
-      <h3 style="margin-top:16px">macOS / Linux</h3>
-      <ul class="pts tight">
+      <ul class="pts tight" lang="en">
+        <li>Download from <code class="inl">python.org/downloads</code></li>
+        <li><b>During installation, do not miss:</b><br><code class="inl">☑ Add python.exe to PATH</code>
+          <small>Skip this and the terminal will not find Python</small></li>
+        <li>“Install Now” is enough</li>
+      </ul>
+      <h3 style="margin-top:16px"><span lang="ka">macOS / Linux</span><span lang="en">macOS / Linux</span></h3>
+      <ul class="pts tight" lang="ka">
+        <li>macOS: <code class="inl">brew install python</code></li>
+        <li>Fedora: <code class="inl">sudo dnf install python3</code></li>
+        <li>Ubuntu: <code class="inl">sudo apt install python3 python3-pip</code></li>
+      </ul>
+      <ul class="pts tight" lang="en">
         <li>macOS: <code class="inl">brew install python</code></li>
         <li>Fedora: <code class="inl">sudo dnf install python3</code></li>
         <li>Ubuntu: <code class="inl">sudo apt install python3 python3-pip</code></li>
       </ul>
     </div>
     <div>
-      <h3>რომელი ვერსია?</h3>
-      <p class="small">ნებისმიერი <b>Python 3.10+</b>. კურსში 3.12/3.13 ვგულისხმობთ.</p>
-      <div class="callout warn"><b>Python 2 არ გამოგადგება</b>ის 2020 წელს გაუქმდა. თუ სადმე ნახავ <code class="inl">print "გამარჯობა"</code> ფრჩხილების გარეშე — ეს ძველი კოდია.</div>
-      <div class="callout warn"><b>Microsoft Store-ის Python</b>Windows-ზე <code class="inl">python</code>-ის აკრეფამ შეიძლება Store გახსნას. ეს ნიშნავს, რომ ნამდვილი Python არაა დაყენებული ან PATH-ში არაა.</div>
+      <h3><span lang="ka">რომელი ვერსია?</span><span lang="en">Which version?</span></h3>
+      <p class="small" lang="ka">ნებისმიერი <b>Python 3.10+</b>. კურსში 3.12/3.13 ვგულისხმობთ.</p>
+      <p class="small" lang="en">Any <b>Python 3.10+</b>. This course assumes 3.12 / 3.13.</p>
+      <div class="callout warn">
+        <span lang="ka"><b>Python 2 არ გამოგადგება</b>ის 2020 წელს გაუქმდა. თუ სადმე ნახავ <code class="inl">print "გამარჯობა"</code> ფრჩხილების გარეშე — ეს ძველი კოდია.</span>
+        <span lang="en"><b>Python 2 will not help you</b>It was retired in 2020. If you ever see <code class="inl">print "hello"</code> without parentheses, that is old code.</span>
+      </div>
+      <div class="callout warn">
+        <span lang="ka"><b>Microsoft Store-ის Python</b>Windows-ზე <code class="inl">python</code>-ის აკრეფამ შეიძლება Store გახსნას. ეს ნიშნავს, რომ ნამდვილი Python არაა დაყენებული ან PATH-ში არაა.</span>
+        <span lang="en"><b>The Microsoft Store stub</b>On Windows, typing <code class="inl">python</code> may open the Store. That means the real Python is either not installed or not on PATH.</span>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ნაბიჯი 1 · შემოწმება</p>
-  <h2>დარწმუნდი, რომ იმუშავა</h2>
-  <p>გახსენი ტერმინალი (Windows: <kbd>Win</kbd>+<kbd>R</kbd> → <code class="inl">cmd</code>) და აკრიფე:</p>
+  <p class="kicker"><span lang="ka">ნაბიჯი 1 · შემოწმება</span><span lang="en">Step 1 · Verify</span></p>
+  <h2><span lang="ka">დარწმუნდი, რომ იმუშავა</span><span lang="en">Make sure it worked</span></h2>
+  <p lang="ka">გახსენი ტერმინალი (Windows: <kbd>Win</kbd>+<kbd>R</kbd> → <code class="inl">cmd</code>) და აკრიფე:</p>
+  <p lang="en">Open a terminal (Windows: <kbd>Win</kbd>+<kbd>R</kbd> → <code class="inl">cmd</code>) and type:</p>
 <pre class="code" data-title="terminal"><code class="nohl">python --version
 Python 3.13.1
 
 pip --version
 pip 24.3.1 from ...</code></pre>
-  <p class="small muted" style="margin-top:10px">Windows-ზე ალტერნატივა: <code class="inl">py -V</code> · Linux/macOS: <code class="inl">python3 --version</code></p>
-  <div class="callout err"><b>„python is not recognized“ / „command not found“</b>PATH არაა მოწესრიგებული. მარტივი გამოსავალი: ხელახლა გაუშვი ინსტალატორი → <i>Modify</i> → მონიშნე <i>Add to PATH</i>. შემდეგ <b>დახურე და ხელახლა გახსენი</b> ტერმინალი.</div>
+  <p class="small muted" style="margin-top:10px">
+    <span lang="ka">Windows-ზე ალტერნატივა: <code class="inl">py -V</code> · Linux/macOS: <code class="inl">python3 --version</code></span>
+    <span lang="en">On Windows also: <code class="inl">py -V</code> · Linux/macOS: <code class="inl">python3 --version</code></span>
+  </p>
+  <div class="callout err">
+    <span lang="ka"><b>„python is not recognized“ / „command not found“</b>PATH არაა მოწესრიგებული. მარტივი გამოსავალი: ხელახლა გაუშვი ინსტალატორი → <i>Modify</i> → მონიშნე <i>Add to PATH</i>. შემდეგ <b>დახურე და ხელახლა გახსენი</b> ტერმინალი.</span>
+    <span lang="en"><b>“python is not recognized” / “command not found”</b>PATH is not set up. The simple fix: run the installer again → <i>Modify</i> → tick <i>Add to PATH</i>. Then <b>close and reopen</b> the terminal.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ნაბიჯი 1 · ბონუსი</p>
-  <h2>REPL — ინტერაქტიული რეჟიმი</h2>
-  <p>უბრალოდ აკრიფე <code class="inl">python</code> ტერმინალში — მიიღებ „ცოცხალ“ Python-ს:</p>
+  <p class="kicker"><span lang="ka">ნაბიჯი 1 · ბონუსი</span><span lang="en">Step 1 · Bonus</span></p>
+  <h2><span lang="ka">REPL — ინტერაქტიული რეჟიმი</span><span lang="en">The REPL — interactive mode</span></h2>
+  <p lang="ka">უბრალოდ აკრიფე <code class="inl">python</code> ტერმინალში — მიიღებ „ცოცხალ“ Python-ს:</p>
+  <p lang="en">Just type <code class="inl">python</code> in the terminal and you get a live Python:</p>
 <pre class="code" data-title="REPL"><code class="nohl">&gt;&gt;&gt; 2 + 3 * 4
 14
 &gt;&gt;&gt; "გამარჯობა" + " " + "მსოფლიო"
 'გამარჯობა მსოფლიო'
 &gt;&gt;&gt; exit()</code></pre>
-  <div class="callout tip"><b>რისთვის?</b>სწრაფი ექსპერიმენტისთვის: „როგორ იქცევა ეს ფუნქცია?“ — ფაილის შექმნა არ გჭირდება. კურსის განმავლობაში ხშირად გამოვიყენებთ.</div>
-  <div class="note">აქ ცოცხლად აჩვენე: მოკლე გამოთვლა, სტრიქონის შეერთება, შემდეგ განზრახ შეცდომა (მაგ. 1/0) — რომ ნახონ traceback-ის სახე.</div>
-</section>
-
-<section class="slide">
-  <p class="kicker">ნაბიჯი 2</p>
-  <h2>რატომ <em>VS Code</em>?</h2>
-  <div class="grid">
-    <div class="card"><h3>უფასო და ღია</h3><p class="small">კოდი MIT ლიცენზიით. სრულიად ღია ალტერნატივა — <b>VSCodium</b> (ტელემეტრიის გარეშე).</p></div>
-    <div class="card"><h3>ერთი და იგივე ყველგან</h3><p class="small">Windows · macOS · Linux — იდენტური ინტერფეისი. ლექციაზე და სახლში ერთნაირად გამოიყურება.</p></div>
-    <div class="card"><h3>მსუბუქი</h3><p class="small">ჩართავ და მუშაობს. ძლიერდება მხოლოდ იმ დანამატებით, რომლებიც შენ დაამატე.</p></div>
-    <div class="card"><h3>ინდუსტრიის სტანდარტი</h3><p class="small">ყველაზე გავრცელებული რედაქტორი დეველოპერებში — ეს უნარი სამსახურშიც გამოგადგება.</p></div>
+  <div class="callout tip">
+    <span lang="ka"><b>რისთვის?</b>სწრაფი ექსპერიმენტისთვის: „როგორ იქცევა ეს ფუნქცია?“ — ფაილის შექმნა არ გჭირდება. კურსის განმავლობაში ხშირად გამოვიყენებთ.</span>
+    <span lang="en"><b>What for?</b>Quick experiments: “how does this function behave?” — no need to create a file. We will use it constantly.</span>
   </div>
-  <p class="small muted" style="margin-top:16px">ჩამოტვირთვა: <code class="inl">code.visualstudio.com</code> · ალტერნატივები: PyCharm Community, Thonny (დამწყებთათვის), Vim/Neovim</p>
+  <div class="note">
+    <span lang="ka">აქ ცოცხლად აჩვენე: მოკლე გამოთვლა, სტრიქონის შეერთება, შემდეგ განზრახ შეცდომა (მაგ. 1/0) — რომ ნახონ traceback-ის სახე.</span>
+    <span lang="en">Demo it live: a quick calculation, string concatenation, then a deliberate error (e.g. 1/0) so they see what a traceback looks like.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ნაბიჯი 3 · სავალდებულო</p>
-  <h2>დანამატები, რომელთა გარეშეც არ ღირს</h2>
+  <p class="kicker"><span lang="ka">ნაბიჯი 2</span><span lang="en">Step 2</span></p>
+  <h2><span lang="ka">რატომ <em>VS Code</em>?</span><span lang="en">Why <em>VS Code</em>?</span></h2>
+  <div class="grid">
+    <div class="card">
+      <h3><span lang="ka">უფასო და ღია</span><span lang="en">Free and open</span></h3>
+      <p class="small" lang="ka">კოდი MIT ლიცენზიით. სრულიად ღია ალტერნატივა — <b>VSCodium</b> (ტელემეტრიის გარეშე).</p>
+      <p class="small" lang="en">MIT-licensed source. A fully open alternative is <b>VSCodium</b> (no telemetry).</p>
+    </div>
+    <div class="card">
+      <h3><span lang="ka">ერთი და იგივე ყველგან</span><span lang="en">The same everywhere</span></h3>
+      <p class="small" lang="ka">Windows · macOS · Linux — იდენტური ინტერფეისი. ლექციაზე და სახლში ერთნაირად გამოიყურება.</p>
+      <p class="small" lang="en">Windows · macOS · Linux — identical interface. It looks the same in class and at home.</p>
+    </div>
+    <div class="card">
+      <h3><span lang="ka">მსუბუქი</span><span lang="en">Lightweight</span></h3>
+      <p class="small" lang="ka">ჩართავ და მუშაობს. ძლიერდება მხოლოდ იმ დანამატებით, რომლებიც შენ დაამატე.</p>
+      <p class="small" lang="en">Install and it works. It only grows with the extensions you add yourself.</p>
+    </div>
+    <div class="card">
+      <h3><span lang="ka">ინდუსტრიის სტანდარტი</span><span lang="en">An industry standard</span></h3>
+      <p class="small" lang="ka">ყველაზე გავრცელებული რედაქტორი დეველოპერებში — ეს უნარი სამსახურშიც გამოგადგება.</p>
+      <p class="small" lang="en">The most widely used editor among developers — this skill transfers to a job.</p>
+    </div>
+  </div>
+  <p class="small muted" style="margin-top:16px">
+    <span lang="ka">ჩამოტვირთვა: <code class="inl">code.visualstudio.com</code> · ალტერნატივები: PyCharm Community, Thonny (დამწყებთათვის), Vim/Neovim</span>
+    <span lang="en">Download: <code class="inl">code.visualstudio.com</code> · Alternatives: PyCharm Community, Thonny (for beginners), Vim/Neovim</span>
+  </p>
+</section>
+
+<section class="slide">
+  <p class="kicker"><span lang="ka">ნაბიჯი 3 · სავალდებულო</span><span lang="en">Step 3 · Essential</span></p>
+  <h2><span lang="ka">დანამატები, რომელთა გარეშეც არ ღირს</span><span lang="en">Extensions you should not skip</span></h2>
   <table>
-    <tr><th style="width:26%">დანამატი</th><th style="width:30%">ID</th><th>რას აკეთებს</th></tr>
-    <tr><td><b>Python</b></td><td><code>ms-python.python</code></td><td>მთავარი. ინტერპრეტატორის არჩევა, გაშვება, ტესტები. თან მოაქვს დანარჩენი ორი.</td></tr>
-    <tr><td><b>Pylance</b></td><td><code>ms-python.vscode-pylance</code></td><td>ავტოშევსება, ტიპების შემოწმება, შეცდომების ჩვენება წერისასვე.</td></tr>
-    <tr><td><b>Python Debugger</b></td><td><code>ms-python.debugpy</code></td><td>Breakpoint-ები, ნაბიჯ-ნაბიჯ შესრულება, ცვლადების დათვალიერება.</td></tr>
+    <tr>
+      <th style="width:26%"><span lang="ka">დანამატი</span><span lang="en">Extension</span></th>
+      <th style="width:30%">ID</th>
+      <th><span lang="ka">რას აკეთებს</span><span lang="en">What it does</span></th>
+    </tr>
+    <tr><td><b>Python</b></td><td><code>ms-python.python</code></td>
+      <td><span lang="ka">მთავარი. ინტერპრეტატორის არჩევა, გაშვება, ტესტები. თან მოაქვს დანარჩენი ორი.</span>
+          <span lang="en">The main one. Interpreter selection, running, testing. Pulls in the other two.</span></td></tr>
+    <tr><td><b>Pylance</b></td><td><code>ms-python.vscode-pylance</code></td>
+      <td><span lang="ka">ავტოშევსება, ტიპების შემოწმება, შეცდომების ჩვენება წერისასვე.</span>
+          <span lang="en">Autocomplete, type checking, errors flagged as you type.</span></td></tr>
+    <tr><td><b>Python Debugger</b></td><td><code>ms-python.debugpy</code></td>
+      <td><span lang="ka">Breakpoint-ები, ნაბიჯ-ნაბიჯ შესრულება, ცვლადების დათვალიერება.</span>
+          <span lang="en">Breakpoints, step-by-step execution, inspecting variables.</span></td></tr>
   </table>
-  <div class="callout tip"><b>რეალურად ერთი დაყენება</b>„Python“ დანამატის დაყენებისას Pylance და Debugger ავტომატურად მოჰყვება. ესაა მინიმუმი, რომლითაც კურსი მთლიანად გაივლის.</div>
+  <div class="callout tip">
+    <span lang="ka"><b>რეალურად ერთი დაყენება</b>„Python“ დანამატის დაყენებისას Pylance და Debugger ავტომატურად მოჰყვება. ესაა მინიმუმი, რომლითაც კურსი მთლიანად გაივლის.</span>
+    <span lang="en"><b>Really just one install</b>Installing “Python” brings Pylance and the Debugger along automatically. That is the minimum needed for the whole course.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ნაბიჯი 3 · სასურველი</p>
-  <h2>დანამატები, რომლებიც ცხოვრებას გიმსუბუქებს</h2>
+  <p class="kicker"><span lang="ka">ნაბიჯი 3 · სასურველი</span><span lang="en">Step 3 · Recommended</span></p>
+  <h2><span lang="ka">დანამატები, რომლებიც ცხოვრებას გიმსუბუქებს</span><span lang="en">Extensions that make life easier</span></h2>
   <table class="small">
-    <tr><th style="width:24%">დანამატი</th><th style="width:30%">ID</th><th>რატომ</th></tr>
-    <tr><td><b>Ruff</b></td><td><code>charliermarsh.ruff</code></td><td>ავტოფორმატირება + სტილის შემოწმება (PEP 8). ძალიან სწრაფი. → XIV კვირა</td></tr>
-    <tr><td><b>Error Lens</b></td><td><code>usernamehw.errorlens</code></td><td>შეცდომას პირდაპირ ხაზზე გიწერს, არა ქვედა პანელში. დამწყებისთვის — ოქრო.</td></tr>
-    <tr><td><b>Python Indent</b></td><td><code>KevinRose.vsc-python-indent</code></td><td>სწორად „ხვდება“ სად უნდა გაწიოს კოდი. Python-ში ეს კრიტიკულია.</td></tr>
-    <tr><td><b>indent-rainbow</b></td><td><code>oderwat.indent-rainbow</code></td><td>წანაცვლების დონეებს აფერადებს — ციკლების/პირობების შეცდომები თვალით ჩანს.</td></tr>
-    <tr><td><b>Code Runner</b></td><td><code>formulahendry.code-runner</code></td><td>ერთი ღილაკით გაშვება (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd>).</td></tr>
-    <tr><td><b>Jupyter</b></td><td><code>ms-toolsai.jupyter</code></td><td>ინტერაქტიული უჯრები — მაგალითების ცოცხლად ჩვენებისთვის.</td></tr>
-    <tr><td><b>GitLens</b></td><td><code>eamodio.gitlens</code></td><td>ვერსიების კონტროლი VS Code-შივე. → XV კვირა</td></tr>
+    <tr>
+      <th style="width:24%"><span lang="ka">დანამატი</span><span lang="en">Extension</span></th>
+      <th style="width:30%">ID</th>
+      <th><span lang="ka">რატომ</span><span lang="en">Why</span></th>
+    </tr>
+    <tr><td><b>Ruff</b></td><td><code>charliermarsh.ruff</code></td>
+      <td><span lang="ka">ავტოფორმატირება + სტილის შემოწმება (PEP 8). ძალიან სწრაფი. → XIV კვირა</span>
+          <span lang="en">Auto-formatting + style checks (PEP 8). Very fast. → Week XIV</span></td></tr>
+    <tr><td><b>Error Lens</b></td><td><code>usernamehw.errorlens</code></td>
+      <td><span lang="ka">შეცდომას პირდაპირ ხაზზე გიწერს, არა ქვედა პანელში. დამწყებისთვის — ოქრო.</span>
+          <span lang="en">Shows the error on the line itself, not in a bottom panel. Gold for beginners.</span></td></tr>
+    <tr><td><b>Python Indent</b></td><td><code>KevinRose.vsc-python-indent</code></td>
+      <td><span lang="ka">სწორად „ხვდება“ სად უნდა გაწიოს კოდი. Python-ში ეს კრიტიკულია.</span>
+          <span lang="en">Guesses the right indentation. In Python that matters a lot.</span></td></tr>
+    <tr><td><b>indent-rainbow</b></td><td><code>oderwat.indent-rainbow</code></td>
+      <td><span lang="ka">წანაცვლების დონეებს აფერადებს — ციკლების/პირობების შეცდომები თვალით ჩანს.</span>
+          <span lang="en">Colours indentation levels — loop and branch mistakes become visible.</span></td></tr>
+    <tr><td><b>Code Runner</b></td><td><code>formulahendry.code-runner</code></td>
+      <td><span lang="ka">ერთი ღილაკით გაშვება (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd>).</span>
+          <span lang="en">Run with one shortcut (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>N</kbd>).</span></td></tr>
+    <tr><td><b>Jupyter</b></td><td><code>ms-toolsai.jupyter</code></td>
+      <td><span lang="ka">ინტერაქტიული უჯრები — მაგალითების ცოცხლად ჩვენებისთვის.</span>
+          <span lang="en">Interactive cells — handy for live demos.</span></td></tr>
+    <tr><td><b>GitLens</b></td><td><code>eamodio.gitlens</code></td>
+      <td><span lang="ka">ვერსიების კონტროლი VS Code-შივე. → XV კვირა</span>
+          <span lang="en">Version control inside VS Code. → Week XV</span></td></tr>
   </table>
-  <div class="note">არ დაატვირთო პირველივე დღეს ყველა დანამატით. სავალდებულო სამი + Error Lens — სრულიად საკმარისია I–V კვირისთვის.</div>
+  <div class="note">
+    <span lang="ka">არ დაატვირთო პირველივე დღეს ყველა დანამატით. სავალდებულო სამი + Error Lens — სრულიად საკმარისია I–V კვირისთვის.</span>
+    <span lang="en">Do not overload them on day one. The three essentials plus Error Lens are plenty for weeks I–V.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">სწრაფი გზა</p>
-  <h2>ყველაფერი ერთი ბრძანებით</h2>
-  <p>თუ <code class="inl">code</code> ბრძანება ხელმისაწვდომია ტერმინალში:</p>
+  <p class="kicker"><span lang="ka">სწრაფი გზა</span><span lang="en">The fast way</span></p>
+  <h2><span lang="ka">ყველაფერი ერთი ბრძანებით</span><span lang="en">Everything in one command</span></h2>
+  <p lang="ka">თუ <code class="inl">code</code> ბრძანება ხელმისაწვდომია ტერმინალში:</p>
+  <p lang="en">If the <code class="inl">code</code> command is available in your terminal:</p>
 <pre class="code" data-title="terminal"><code class="nohl">code --install-extension ms-python.python
 code --install-extension charliermarsh.ruff
 code --install-extension usernamehw.errorlens
 code --install-extension KevinRose.vsc-python-indent
 code --install-extension oderwat.indent-rainbow</code></pre>
-  <p class="small muted" style="margin-top:10px">ხელით: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> → ჩაწერე სახელი → <i>Install</i></p>
-  <div class="callout"><b>ჯგუფური მუშაობისთვის</b>ფაილი <code class="inl">.vscode/extensions.json</code> პროექტში ჩააგდე — VS Code თავად შესთავაზებს გუნდის წევრებს დაყენებას.</div>
+  <p class="small muted" style="margin-top:10px">
+    <span lang="ka">ხელით: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> → ჩაწერე სახელი → <i>Install</i></span>
+    <span lang="en">By hand: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> → type the name → <i>Install</i></span>
+  </p>
+  <div class="callout">
+    <span lang="ka"><b>ჯგუფური მუშაობისთვის</b>ფაილი <code class="inl">.vscode/extensions.json</code> პროექტში ჩააგდე — VS Code თავად შესთავაზებს გუნდის წევრებს დაყენებას.</span>
+    <span lang="en"><b>For teamwork</b>Drop a <code class="inl">.vscode/extensions.json</code> into the project — VS Code will offer the same set to everyone.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ნაბიჯი 4</p>
-  <h2>პარამეტრები, რომლებსაც ერთხელ ვაწყობთ</h2>
-  <p class="small muted"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> → <i>Preferences: Open User Settings (JSON)</i></p>
+  <p class="kicker"><span lang="ka">ნაბიჯი 4</span><span lang="en">Step 4</span></p>
+  <h2><span lang="ka">პარამეტრები, რომლებსაც ერთხელ ვაწყობთ</span><span lang="en">Settings you configure once</span></h2>
+  <p class="small muted">
+    <span lang="ka"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> → <i>Preferences: Open User Settings (JSON)</i></span>
+    <span lang="en"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> → <i>Preferences: Open User Settings (JSON)</i></span>
+  </p>
 <pre class="code" data-title="settings.json"><code class="nohl">{
   "editor.fontSize": 15,
   "editor.tabSize": 4,
@@ -166,104 +285,169 @@ code --install-extension oderwat.indent-rainbow</code></pre>
   }
 }</code></pre>
   <div class="two" style="margin-top:8px">
-    <div class="callout tip small"><b>tabSize 4 + spaces</b>PEP 8-ის მოთხოვნაა. ტაბებისა და ჰარეების შერევა Python-ში <b>შეცდომაა</b>, არა სტილის საკითხი.</div>
-    <div class="callout tip small"><b>rulers [79]</b>ვერტიკალური ხაზი გახსენებს, სად უნდა გადაიტანო სტრიქონი.</div>
+    <div class="callout tip small">
+      <span lang="ka"><b>tabSize 4 + spaces</b>PEP 8-ის მოთხოვნაა. ტაბებისა და ჰარეების შერევა Python-ში <b>შეცდომაა</b>, არა სტილის საკითხი.</span>
+      <span lang="en"><b>tabSize 4 + spaces</b>Required by PEP 8. Mixing tabs and spaces in Python is an <b>error</b>, not a style choice.</span>
+    </div>
+    <div class="callout tip small">
+      <span lang="ka"><b>rulers [79]</b>ვერტიკალური ხაზი გახსენებს, სად უნდა გადაიტანო სტრიქონი.</span>
+      <span lang="en"><b>rulers [79]</b>A vertical guide reminding you where to wrap a line.</span>
+    </div>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ნაბიჯი 5</p>
-  <h2>სწორი ინტერპრეტატორის არჩევა</h2>
-  <p>ეს ყველაზე ხშირი დაბნეულობის წყაროა. VS Code უნდა იცოდეს, <b>რომელი</b> Python გაუშვას.</p>
-  <ol class="pts">
+  <p class="kicker"><span lang="ka">ნაბიჯი 5</span><span lang="en">Step 5</span></p>
+  <h2><span lang="ka">სწორი ინტერპრეტატორის არჩევა</span><span lang="en">Selecting the right interpreter</span></h2>
+  <p lang="ka">ეს ყველაზე ხშირი დაბნეულობის წყაროა. VS Code უნდა იცოდეს, <b>რომელი</b> Python გაუშვას.</p>
+  <p lang="en">This is the most common source of confusion. VS Code needs to know <b>which</b> Python to run.</p>
+  <ol class="pts" lang="ka">
     <li><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd></li>
     <li>აკრიფე <code class="inl">Python: Select Interpreter</code></li>
     <li>აირჩიე ვერსია სიიდან (მაგ. <code class="inl">Python 3.13.1 64-bit</code>)</li>
   </ol>
-  <p class="small muted" style="margin-top:14px">არჩეული ვერსია ჩანს ქვედა ზოლში (status bar), მარჯვნივ.</p>
-  <div class="callout err"><b>ტიპური სიმპტომი</b>„ბიბლიოთეკა დავაყენე pip-ით, მაგრამ VS Code ამბობს <code class="inl">ModuleNotFoundError</code>“ → სავარაუდოდ pip სხვა Python-ში დააყენა, ვიდრე VS Code იყენებს.</div>
+  <ol class="pts" lang="en">
+    <li><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd></li>
+    <li>Type <code class="inl">Python: Select Interpreter</code></li>
+    <li>Pick a version from the list (e.g. <code class="inl">Python 3.13.1 64-bit</code>)</li>
+  </ol>
+  <p class="small muted" style="margin-top:14px">
+    <span lang="ka">არჩეული ვერსია ჩანს ქვედა ზოლში (status bar), მარჯვნივ.</span>
+    <span lang="en">The selected version appears in the status bar, bottom right.</span>
+  </p>
+  <div class="callout err">
+    <span lang="ka"><b>ტიპური სიმპტომი</b>„ბიბლიოთეკა დავაყენე pip-ით, მაგრამ VS Code ამბობს <code class="inl">ModuleNotFoundError</code>“ → სავარაუდოდ pip სხვა Python-ში დააყენა, ვიდრე VS Code იყენებს.</span>
+    <span lang="en"><b>Typical symptom</b>“I installed the library with pip, but VS Code says <code class="inl">ModuleNotFoundError</code>” → pip most likely installed it into a different Python than the one VS Code uses.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">პირველი პროგრამა</p>
+  <p class="kicker"><span lang="ka">პირველი პროგრამა</span><span lang="en">First program</span></p>
   <h2>hello.py</h2>
-  <p class="small muted">შექმენი საქაღალდე (მაგ. <code class="inl">python-course</code>) → VS Code → <i>File ▸ Open Folder</i> → ახალი ფაილი <code class="inl">hello.py</code></p>
+  <p class="small muted">
+    <span lang="ka">შექმენი საქაღალდე (მაგ. <code class="inl">python-course</code>) → VS Code → <i>File ▸ Open Folder</i> → ახალი ფაილი <code class="inl">hello.py</code></span>
+    <span lang="en">Create a folder (e.g. <code class="inl">python-course</code>) → VS Code → <i>File ▸ Open Folder</i> → new file <code class="inl">hello.py</code></span>
+  </p>
 <pre class="code" data-title="hello.py"><code>print("გამარჯობა, მსოფლიო!")
 print("Python-ის კურსი დაიწყო")</code></pre>
-  <h3 style="margin-top:18px">გაშვების სამი გზა</h3>
+  <h3 style="margin-top:18px"><span lang="ka">გაშვების სამი გზა</span><span lang="en">Three ways to run it</span></h3>
   <div class="grid">
-    <div class="card"><h3>▶ ღილაკი</h3><p class="small">ზედა მარჯვენა კუთხეში, „Run Python File“</p></div>
-    <div class="card"><h3>ტერმინალიდან</h3><p class="small"><code class="inl">python hello.py</code></p></div>
-    <div class="card"><h3><kbd>Ctrl</kbd>+<kbd>F5</kbd></h3><p class="small">გამართვის გარეშე გაშვება</p></div>
+    <div class="card"><h3>▶</h3>
+      <p class="small"><span lang="ka">ზედა მარჯვენა კუთხეში, „Run Python File“</span><span lang="en">Top-right corner, “Run Python File”</span></p></div>
+    <div class="card"><h3><span lang="ka">ტერმინალიდან</span><span lang="en">From the terminal</span></h3>
+      <p class="small"><code class="inl">python hello.py</code></p></div>
+    <div class="card"><h3><kbd>Ctrl</kbd>+<kbd>F5</kbd></h3>
+      <p class="small"><span lang="ka">გამართვის გარეშე გაშვება</span><span lang="en">Run without debugging</span></p></div>
   </div>
-  <div class="note">სთხოვე ყველას ეკრანზე გამოიტანოს საკუთარი სახელი — უმცირესი წარმატება პირველ 10 წუთში მოტივაციისთვის ძალიან მნიშვნელოვანია.</div>
+  <div class="note">
+    <span lang="ka">სთხოვე ყველას ეკრანზე გამოიტანოს საკუთარი სახელი — უმცირესი წარმატება პირველ 10 წუთში მოტივაციისთვის ძალიან მნიშვნელოვანია.</span>
+    <span lang="en">Have everyone print their own name — a small win in the first ten minutes matters a lot for motivation.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ინსტრუმენტი</p>
-  <h2>ჩაშენებული ტერმინალი</h2>
-  <p><kbd>Ctrl</kbd>+<kbd>`</kbd> — ხსნის და ხურავს ტერმინალს რედაქტორის შიგნით.</p>
-  <ul class="pts">
+  <p class="kicker"><span lang="ka">ინსტრუმენტი</span><span lang="en">Tool</span></p>
+  <h2><span lang="ka">ჩაშენებული ტერმინალი</span><span lang="en">The built-in terminal</span></h2>
+  <p lang="ka"><kbd>Ctrl</kbd>+<kbd>`</kbd> — ხსნის და ხურავს ტერმინალს რედაქტორის შიგნით.</p>
+  <p lang="en"><kbd>Ctrl</kbd>+<kbd>`</kbd> — opens and closes a terminal inside the editor.</p>
+  <ul class="pts" lang="ka">
     <li><b>რატომ სჭირდება?</b><small>პროგრამის გაშვება, პაკეტების დაყენება, ვერსიების შემოწმება — ყველაფერი ერთ ფანჯარაში</small></li>
     <li><b>Windows-ზე ორი ვარიანტია</b><small>PowerShell (ნაგულისხმევი) და Command Prompt. ორივე გამოდგება — ბრძანებები, რომლებსაც ვიყენებთ, იდენტურია</small></li>
   </ul>
-<pre class="code" data-title="ხშირი ბრძანებები"><code class="nohl">python hello.py          # პროგრამის გაშვება
-pip install requests     # პაკეტის დაყენება
-pip list                 # რა მაქვს დაყენებული
-cd საქაღალდე             # საქაღალდეში გადასვლა
-cls / clear              # ეკრანის გასუფთავება</code></pre>
+  <ul class="pts" lang="en">
+    <li><b>Why bother?</b><small>Running programs, installing packages, checking versions — all in one window</small></li>
+    <li><b>Two options on Windows</b><small>PowerShell (default) and Command Prompt. Either works — the commands we use are identical</small></li>
+  </ul>
+<pre class="code" data-title="terminal"><code class="nohl">python hello.py          # პროგრამის გაშვება / run the program
+pip install requests     # პაკეტის დაყენება / install a package
+pip list                 # რა მაქვს დაყენებული / what is installed
+cd folder                # საქაღალდეში გადასვლა / change directory
+cls / clear              # ეკრანის გასუფთავება / clear the screen</code></pre>
 </section>
 
 <section class="slide">
-  <p class="kicker">კარგი ჩვევა</p>
-  <h2>ვირტუალური გარემო (venv)</h2>
-  <p>ცალკე „ყუთი“ თითოეული პროექტისთვის, სადაც მისი ბიბლიოთეკები ცხოვრობს.</p>
-<pre class="code" data-title="terminal"><code class="nohl"># შექმნა (პროექტის საქაღალდეში)
+  <p class="kicker"><span lang="ka">კარგი ჩვევა</span><span lang="en">Good habit</span></p>
+  <h2><span lang="ka">ვირტუალური გარემო (venv)</span><span lang="en">Virtual environments (venv)</span></h2>
+  <p lang="ka">ცალკე „ყუთი“ თითოეული პროექტისთვის, სადაც მისი ბიბლიოთეკები ცხოვრობს.</p>
+  <p lang="en">A separate box for each project, holding just that project’s libraries.</p>
+<pre class="code" data-title="terminal"><code class="nohl"># შექმნა / create (in the project folder)
 python -m venv .venv
 
-# გააქტიურება — Windows
+# გააქტიურება / activate — Windows
 .venv\Scripts\activate
 
-# გააქტიურება — macOS / Linux
+# გააქტიურება / activate — macOS / Linux
 source .venv/bin/activate
 
 # ახლა pip მხოლოდ ამ პროექტში დააყენებს
+# now pip installs only into this project
 pip install requests</code></pre>
-  <div class="callout"><b>რატომ?</b>პროექტს A სჭირდება ბიბლიოთეკის 1.0 ვერსია, პროექტს B — 2.0. ერთ საერთო Python-ში ეს კონფლიქტია. venv ამ პრობლემას საერთოდ აცილებს.</div>
-  <p class="small muted" style="margin-top:8px">დეტალურად — <b>XIV–XV კვირაზე</b> (პაკეტები და pypi). ახლა უბრალოდ იცოდე, რომ არსებობს.</p>
+  <div class="callout">
+    <span lang="ka"><b>რატომ?</b>პროექტს A სჭირდება ბიბლიოთეკის 1.0 ვერსია, პროექტს B — 2.0. ერთ საერთო Python-ში ეს კონფლიქტია. venv ამ პრობლემას საერთოდ აცილებს.</span>
+    <span lang="en"><b>Why?</b>Project A needs version 1.0 of a library, project B needs 2.0. In one shared Python that is a conflict. A venv avoids the problem entirely.</span>
+  </div>
+  <p class="small muted" style="margin-top:8px">
+    <span lang="ka">დეტალურად — <b>XIV–XV კვირაზე</b> (პაკეტები და pypi). ახლა უბრალოდ იცოდე, რომ არსებობს.</span>
+    <span lang="en">In detail in <b>weeks XIV–XV</b> (packages and PyPI). For now, just know it exists.</span>
+  </p>
 </section>
 
 <section class="slide">
-  <p class="kicker">ინსტრუმენტი</p>
-  <h2>გამართვა (debugging) — <em>F5</em></h2>
-  <p>„print-ებით ძებნა“ მუშაობს, მაგრამ დებაგერი უფრო სწრაფია.</p>
-  <ol class="pts">
+  <p class="kicker"><span lang="ka">ინსტრუმენტი</span><span lang="en">Tool</span></p>
+  <h2><span lang="ka">გამართვა (debugging) — <em>F5</em></span><span lang="en">Debugging — <em>F5</em></span></h2>
+  <p lang="ka">„print-ებით ძებნა“ მუშაობს, მაგრამ დებაგერი უფრო სწრაფია.</p>
+  <p lang="en">Hunting with print statements works, but the debugger is faster.</p>
+  <ol class="pts" lang="ka">
     <li>დააწკაპე ხაზის ნომრის მარცხნივ → გამოჩნდება <b>წითელი წერტილი</b> (breakpoint)</li>
     <li>დააჭირე <kbd>F5</kbd> → პროგრამა გაჩერდება იმ ხაზზე</li>
     <li>მარცხენა პანელში ხედავ <b>ყველა ცვლადის მიმდინარე მნიშვნელობას</b></li>
     <li><kbd>F10</kbd> ერთი ნაბიჯი · <kbd>F11</kbd> ფუნქციაში შესვლა · <kbd>F5</kbd> გაგრძელება</li>
   </ol>
-  <div class="callout tip"><b>როდის გამოვიყენოთ</b>როცა შედეგი არასწორია, მაგრამ არ ვიცი <i>რომელ</i> ნაბიჯზე გაფუჭდა. → XII კვირა (შეცდომები)</div>
+  <ol class="pts" lang="en">
+    <li>Click to the left of a line number → a <b>red dot</b> appears (breakpoint)</li>
+    <li>Press <kbd>F5</kbd> → the program pauses on that line</li>
+    <li>The left panel shows <b>the current value of every variable</b></li>
+    <li><kbd>F10</kbd> step over · <kbd>F11</kbd> step into · <kbd>F5</kbd> continue</li>
+  </ol>
+  <div class="callout tip">
+    <span lang="ka"><b>როდის გამოვიყენოთ</b>როცა შედეგი არასწორია, მაგრამ არ ვიცი <i>რომელ</i> ნაბიჯზე გაფუჭდა. → XII კვირა (შეცდომები)</span>
+    <span lang="en"><b>When to reach for it</b>When the result is wrong but you do not know <i>which</i> step broke it. → Week XII (errors)</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">დიაგნოსტიკა</p>
-  <h2>ხშირი პრობლემები</h2>
+  <p class="kicker"><span lang="ka">დიაგნოსტიკა</span><span lang="en">Troubleshooting</span></p>
+  <h2><span lang="ka">ხშირი პრობლემები</span><span lang="en">Common problems</span></h2>
   <table class="small">
-    <tr><th style="width:38%">სიმპტომი</th><th>მიზეზი და გამოსავალი</th></tr>
-    <tr><td><code>'python' is not recognized</code></td><td>PATH-ში არაა. ინსტალატორი → Modify → ☑ Add to PATH → ტერმინალის გადატვირთვა</td></tr>
-    <tr><td>Microsoft Store იხსნება</td><td>ნამდვილი Python არაა დაყენებული. დააყენე python.org-იდან</td></tr>
-    <tr><td><code>ModuleNotFoundError</code></td><td>არასწორი ინტერპრეტატორია არჩეული → <i>Python: Select Interpreter</i></td></tr>
-    <tr><td><code>IndentationError</code></td><td>ტაბები და ჰარეები აირია → <code>"editor.insertSpaces": true</code></td></tr>
-    <tr><td>ქართული ტექსტი „კუბიკებია“</td><td>ფაილი UTF-8-ში არაა შენახული ან ტერმინალის შრიფტი არ უჭერს მხარს</td></tr>
-    <tr><td>ავტოშევსება არ მუშაობს</td><td>Pylance გამორთულია ან ინტერპრეტატორი არაა არჩეული</td></tr>
+    <tr>
+      <th style="width:38%"><span lang="ka">სიმპტომი</span><span lang="en">Symptom</span></th>
+      <th><span lang="ka">მიზეზი და გამოსავალი</span><span lang="en">Cause and fix</span></th>
+    </tr>
+    <tr><td><code>'python' is not recognized</code></td>
+      <td><span lang="ka">PATH-ში არაა. ინსტალატორი → Modify → ☑ Add to PATH → ტერმინალის გადატვირთვა</span>
+          <span lang="en">Not on PATH. Installer → Modify → ☑ Add to PATH → restart the terminal</span></td></tr>
+    <tr><td><span lang="ka">Microsoft Store იხსნება</span><span lang="en">Microsoft Store opens</span></td>
+      <td><span lang="ka">ნამდვილი Python არაა დაყენებული. დააყენე python.org-იდან</span>
+          <span lang="en">The real Python is not installed. Install it from python.org</span></td></tr>
+    <tr><td><code>ModuleNotFoundError</code></td>
+      <td><span lang="ka">არასწორი ინტერპრეტატორია არჩეული → <i>Python: Select Interpreter</i></span>
+          <span lang="en">The wrong interpreter is selected → <i>Python: Select Interpreter</i></span></td></tr>
+    <tr><td><code>IndentationError</code></td>
+      <td><span lang="ka">ტაბები და ჰარეები აირია → <code>"editor.insertSpaces": true</code></span>
+          <span lang="en">Tabs and spaces are mixed → <code>"editor.insertSpaces": true</code></span></td></tr>
+    <tr><td><span lang="ka">ქართული ტექსტი „კუბიკებია“</span><span lang="en">Text shows as boxes</span></td>
+      <td><span lang="ka">ფაილი UTF-8-ში არაა შენახული ან ტერმინალის შრიფტი არ უჭერს მხარს</span>
+          <span lang="en">The file is not saved as UTF-8, or the terminal font lacks the glyphs</span></td></tr>
+    <tr><td><span lang="ka">ავტოშევსება არ მუშაობს</span><span lang="en">Autocomplete does not work</span></td>
+      <td><span lang="ka">Pylance გამორთულია ან ინტერპრეტატორი არაა არჩეული</span>
+          <span lang="en">Pylance is disabled, or no interpreter is selected</span></td></tr>
   </table>
 </section>
 
 <section class="slide">
-  <p class="kicker">შემაჯამებელი</p>
-  <h2>Checklist — გავიარეთ თუ არა?</h2>
-  <ul class="pts">
+  <p class="kicker"><span lang="ka">შემაჯამებელი</span><span lang="en">Wrap-up</span></p>
+  <h2><span lang="ka">Checklist — გავიარეთ თუ არა?</span><span lang="en">Checklist — are we set up?</span></h2>
+  <ul class="pts" lang="ka">
     <li><code class="inl">python --version</code> აბრუნებს 3.10+ ვერსიას</li>
     <li>VS Code დაყენებულია და იხსნება</li>
     <li>დანამატი <b>Python</b> (ms-python.python) დაყენებულია</li>
@@ -272,8 +456,23 @@ pip install requests</code></pre>
     <li><code class="inl">hello.py</code> იქმნება, ეშვება და ტექსტს გამოიტანს</li>
     <li>ჩაშენებული ტერმინალი იხსნება <kbd>Ctrl</kbd>+<kbd>`</kbd>-ით</li>
   </ul>
-  <div class="callout tip"><b>შემდეგი</b>ლექცია 01 — Python-ის ისტორია, სინტაქსი, პროგრამის სტრუქტურა და კომენტარები.</div>
-  <div class="note">ვისაც არ გამოუვიდა — სთხოვე ჯგუფის ჩატში დაწეროს ზუსტი შეცდომის ტექსტი. სახლში დარჩენილი პრობლემა მეორე კვირაზე უკვე ჩამორჩენაა.</div>
+  <ul class="pts" lang="en">
+    <li><code class="inl">python --version</code> reports 3.10 or newer</li>
+    <li>VS Code is installed and opens</li>
+    <li>The <b>Python</b> extension (ms-python.python) is installed</li>
+    <li>An interpreter is chosen via <i>Python: Select Interpreter</i></li>
+    <li>A <b>folder</b> is open via <i>File ▸ Open Folder</i> (not a single file!)</li>
+    <li><code class="inl">hello.py</code> can be created, run, and prints its text</li>
+    <li>The built-in terminal opens with <kbd>Ctrl</kbd>+<kbd>`</kbd></li>
+  </ul>
+  <div class="callout tip">
+    <span lang="ka"><b>შემდეგი</b>ლექცია 01 — Python-ის ისტორია, სინტაქსი, პროგრამის სტრუქტურა და კომენტარები.</span>
+    <span lang="en"><b>Next</b>Lecture 01 — Python’s history, syntax, program structure and comments.</span>
+  </div>
+  <div class="note">
+    <span lang="ka">ვისაც არ გამოუვიდა — სთხოვე ჯგუფის ჩატში დაწეროს ზუსტი შეცდომის ტექსტი. სახლში დარჩენილი პრობლემა მეორე კვირაზე უკვე ჩამორჩენაა.</span>
+    <span lang="en">Anyone stuck should post the exact error text in the group chat. A problem left unsolved at home becomes a week-two gap.</span>
+  </div>
 </section>
 
 </main>
