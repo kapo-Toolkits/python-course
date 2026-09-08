@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kapo-mathtools"
+version = "0.3.0"
+description = "მარტივი მათემატიკური ხელსაწყოები Python-ისთვის — სასწავლო ბიბლიოთეკა ქართული დოკუმენტაციით"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Giorgi Kapanadze" }]
+keywords = ["education", "mathematics", "statistics", "geometry", "georgian", "teaching"]
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "Topic :: Education",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Natural Language :: Georgian",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+# გარე დამოკიდებულება არ აქვს — მხოლოდ სტანდარტული ბიბლიოთეკა.
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/kapo-Toolkits/python-course"
+Repository = "https://github.com/kapo-Toolkits/python-course"
+Issues = "https://github.com/kapo-Toolkits/python-course/issues"
+"სასწავლო კურსი" = "https://kapo-toolkits.github.io/python-course/"
+
+[tool.setuptools]
+packages = ["kapo_mathtools"]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]

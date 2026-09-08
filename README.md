@@ -30,8 +30,13 @@ python-course/
 │   ├── L13-iterators.html        XIII  იტერატორები       + გამეორება + დავალება #4
 │   ├── L14-pep8-pypi.html        XIV   PEP 8 და PyPI
 │   └── L15-modules-git.html      XV    მოდულები და git    + გამეორება + დავალება #5
-└── tasks/
-    └── practical-assignments.md  ← ხუთივე პრაქტიკული დავალება ერთად (დასარიგებლად)
+├── tasks/
+│   └── practical-assignments.md  ← ხუთივე პრაქტიკული დავალება ერთად (დასარიგებლად)
+└── library/                      ← kapo-mathtools — PyPI პაკეტი (pip install kapo-mathtools)
+    ├── kapo_mathtools/           statistics · geometry · text_tools · converters
+    ├── tests/
+    ├── examples/demo.py
+    └── pyproject.toml
 ```
 
 ---

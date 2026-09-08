@@ -1,0 +1,91 @@
+name: library
+
+# ბიბლიოთეკა ცხოვრობს library/ საქაღალდეში.
+#   • ტესტები — ყოველ push-ზე, რომელიც library/-ს ეხება
+#   • PyPI-ზე გამოცემა — მხოლოდ release-ის გამოქვეყნებისას
+
+on:
+  push:
+    paths: ["library/**", ".github/workflows/library.yml"]
+  pull_request:
+    paths: ["library/**", ".github/workflows/library.yml"]
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: ტესტები (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.11", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: დამოკიდებულებები
+        working-directory: library
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+          pip install .
+
+      - name: pytest
+        working-directory: library
+        run: pytest tests/ -v
+
+  build:
+    name: აწყობა
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: build + twine
+        working-directory: library
+        run: |
+          python -m pip install --upgrade pip
+          pip install build twine
+          python -m build
+          python -m twine check dist/*
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: library/dist/
+
+  publish:
+    name: PyPI-ზე გამოცემა
+    # მხოლოდ release-ზე; push-ზე არ ეშვება
+    if: github.event_name == 'release'
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: pypi
+      url: https://pypi.org/p/kapo-mathtools
+
+    permissions:
+      id-token: write # trusted publishing-ისთვის სავალდებულოა
+
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: ატვირთვა
+        uses: pypa/gh-action-pypi-publish@release/v1
