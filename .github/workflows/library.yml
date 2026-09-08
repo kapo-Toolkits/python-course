@@ -38,9 +38,9 @@ jobs:
           pip install pytest
           pip install .
 
-      - name: pytest
+      - name: pytest (ტესტები + docstring-ების doctest)
         working-directory: library
-        run: pytest tests/ -v
+        run: pytest -v
 
   build:
     name: აწყობა

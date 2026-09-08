@@ -1,7 +1,7 @@
 # kapo-mathtools
 
 **მარტივი მათემატიკური ხელსაწყოები Python-ისთვის.**
-სასწავლო ბიბლიოთეკა ქართული დოკუმენტაციით, **გარე დამოკიდებულების გარეშე**.
+სასწავლო ბიბლიოთეკა ორენოვანი დოკუმენტაციით, **გარე დამოკიდებულების გარეშე**.
 
 **Simple math tools for Python.**
 A small teaching library with bilingual documentation and **zero dependencies**.
@@ -113,8 +113,11 @@ converters.kilograms_to_pounds(70)     # 154.3234
 
 ## დახმარება / Built-in help
 
-ყველა ფუნქციას აქვს ქართული docstring მაგალითით.
-Every function carries a docstring with a worked example.
+ყველა ფუნქციას აქვს **ორენოვანი** docstring გამართული მაგალითით — `help()` პირდაპირ
+ტერმინალში მუშაობს, ინტერნეტის გარეშე.
+
+Every function carries a **bilingual** docstring with a worked example, so `help()`
+works right in the terminal, offline.
 
 ```python
 from kapo_mathtools import statistics

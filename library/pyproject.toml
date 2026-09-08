@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kapo-mathtools"
-version = "0.3.1"
+version = "0.4.0"
 description = "მარტივი მათემატიკური ხელსაწყოები Python-ისთვის · Simple math tools for Python — a zero-dependency teaching library"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -40,6 +40,11 @@ Issues = "https://github.com/kapo-Toolkits/python-course/issues"
 
 [tool.setuptools]
 packages = ["kapo_mathtools"]
+
+[tool.pytest.ini_options]
+# docstring-ების Example: ბლოკები ნამდვილ ტესტებად ითვლება
+addopts = "--doctest-modules"
+testpaths = ["kapo_mathtools", "tests"]
 
 [tool.ruff]
 line-length = 88
