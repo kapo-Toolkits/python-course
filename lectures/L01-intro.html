@@ -10,114 +10,189 @@
 <main class="deck">
 
 <section class="slide">
-  <p class="kicker">ლექცია 01 · I კვირა</p>
-  <h1>შესავალი</h1>
-  <p class="lead" style="margin-top:16px">Python-ის ისტორია · კავშირი სხვა ენებთან · შესრულების გარემო · სინტაქსი, სტრუქტურა, კომენტარები · რეზერვირებული სიტყვები</p>
-  <div class="note">პირველი ლექცია — მოტივაციაა მთავარი, არა მოცულობა. კურსის მიმოხილვაზე 10 წუთი, ისტორიაზე 10, დანარჩენი პრაქტიკაზე.</div>
+  <p class="kicker"><span lang="ka">ლექცია 01 · I კვირა</span><span lang="en">Lecture 01 · Week I</span></p>
+  <h1><span lang="ka">შესავალი</span><span lang="en">Introduction</span></h1>
+  <p class="lead" style="margin-top:16px">
+    <span lang="ka">Python-ის ისტორია · კავშირი სხვა ენებთან · შესრულების გარემო · სინტაქსი, სტრუქტურა, კომენტარები · რეზერვირებული სიტყვები</span>
+    <span lang="en">Python’s history · how it relates to other languages · the runtime · syntax, structure, comments · reserved words</span>
+  </p>
+  <div class="note">
+    <span lang="ka">პირველი ლექცია — მოტივაციაა მთავარი, არა მოცულობა. კურსის მიმოხილვაზე 10 წუთი, ისტორიაზე 10, დანარჩენი პრაქტიკაზე.</span>
+    <span lang="en">First lecture — motivation matters more than volume. Ten minutes on the course map, ten on history, the rest hands-on.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ორიენტირება</p>
-  <h2>კურსის რუკა — 15 კვირა</h2>
+  <p class="kicker"><span lang="ka">ორიენტირება</span><span lang="en">Orientation</span></p>
+  <h2><span lang="ka">კურსის რუკა — 15 კვირა</span><span lang="en">Course map — 15 weeks</span></h2>
   <div class="two">
     <div>
-      <ul class="pts tight">
+      <ul class="pts tight" lang="ka">
         <li><b>I–IV · საფუძვლები</b><small>სინტაქსი · ცვლადები და ტიპები · ოპერატორები · ციკლები</small></li>
         <li><b>V–VII · ფუნქციები და ტექსტი</b><small>ჩაშენებული ფუნქციები, math, random · საკუთარი ფუნქციები · სტრიქონები</small></li>
         <li><b>VIII · შუალედური გამოცდა</b><small>10 ტესტი + 10 ღია კითხვა = 30 ქულა</small></li>
       </ul>
+      <ul class="pts tight" lang="en">
+        <li><b>I–IV · Foundations</b><small>Syntax · variables and types · operators · loops</small></li>
+        <li><b>V–VII · Functions and text</b><small>Built-ins, math, random · your own functions · strings</small></li>
+        <li><b>VIII · Midterm exam</b><small>10 test questions + 10 open questions = 30 points</small></li>
+      </ul>
     </div>
     <div>
-      <ul class="pts tight">
+      <ul class="pts tight" lang="ka">
         <li><b>IX–XI · მონაცემები</b><small>ფაილები · სიები და tuple · სიმრავლე და ლექსიკონი</small></li>
         <li><b>XII–XIII · მდგრადობა</b><small>შეცდომები და try/except · იტერატორები და კონტეინერები</small></li>
         <li><b>XIV–XV · პროფესიული ჩვევები</b><small>PEP 8 · pypi · მოდულები და პაკეტები · git</small></li>
       </ul>
+      <ul class="pts tight" lang="en">
+        <li><b>IX–XI · Data</b><small>Files · lists and tuples · sets and dictionaries</small></li>
+        <li><b>XII–XIII · Robustness</b><small>Errors and try/except · iterators and containers</small></li>
+        <li><b>XIV–XV · Professional habits</b><small>PEP 8 · PyPI · modules and packages · git</small></li>
+      </ul>
     </div>
   </div>
-  <div class="callout tip"><b>ლოგიკა</b>ყოველი კვირა წინაზე დგას. გამოტოვებული კვირა შემდეგს <i>ორმაგად</i> ართულებს — განსაკუთრებით IV (ციკლები) და VI (ფუნქციები).</div>
+  <div class="callout tip">
+    <span lang="ka"><b>ლოგიკა</b>ყოველი კვირა წინაზე დგას. გამოტოვებული კვირა შემდეგს <i>ორმაგად</i> ართულებს — განსაკუთრებით IV (ციკლები) და VI (ფუნქციები).</span>
+    <span lang="en"><b>The logic</b>Every week builds on the previous one. A missed week makes the next one <i>twice</i> as hard — especially IV (loops) and VI (functions).</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ორგანიზება</p>
-  <h2>როგორ ფასდება</h2>
+  <p class="kicker"><span lang="ka">ორგანიზება</span><span lang="en">Organisation</span></p>
+  <h2><span lang="ka">როგორ ფასდება</span><span lang="en">How it is graded</span></h2>
   <div class="two">
     <div>
       <table class="small">
-        <tr><th>კომპონენტი</th><th>ქულა</th></tr>
-        <tr><td>5 პრაქტიკული დავალება (8×5)</td><td><b>40</b></td></tr>
-        <tr><td>შუალედური გამოცდა</td><td><b>30</b></td></tr>
-        <tr><td>დასკვნითი გამოცდა (3×10)</td><td><b>30</b></td></tr>
-        <tr><th>სულ</th><th>100</th></tr>
+        <tr>
+          <th><span lang="ka">კომპონენტი</span><span lang="en">Component</span></th>
+          <th><span lang="ka">ქულა</span><span lang="en">Points</span></th>
+        </tr>
+        <tr><td><span lang="ka">5 პრაქტიკული დავალება (8×5)</span><span lang="en">5 practical assignments (8×5)</span></td><td><b>40</b></td></tr>
+        <tr><td><span lang="ka">შუალედური გამოცდა</span><span lang="en">Midterm exam</span></td><td><b>30</b></td></tr>
+        <tr><td><span lang="ka">დასკვნითი გამოცდა (3×10)</span><span lang="en">Final exam (3×10)</span></td><td><b>30</b></td></tr>
+        <tr><th><span lang="ka">სულ</span><span lang="en">Total</span></th><th>100</th></tr>
       </table>
-      <p class="small muted" style="margin-top:10px">სარეკომენდაციო სქემაა — კონკრეტული ზღვრები და წესები დაწესებულების მიხედვით განსხვავდება.</p>
+      <p class="small muted" style="margin-top:10px">
+        <span lang="ka">სარეკომენდაციო სქემაა — კონკრეტული ზღვრები და წესები დაწესებულების მიხედვით განსხვავდება.</span>
+        <span lang="en">This is a suggested scheme — exact thresholds and rules vary by institution.</span>
+      </p>
     </div>
     <div>
-      <h3>პრაქტიკული დავალების კრიტერიუმი</h3>
-      <ul class="pts tight">
+      <h3><span lang="ka">პრაქტიკული დავალების კრიტერიუმი</span><span lang="en">Assignment criteria</span></h3>
+      <ul class="pts tight" lang="ka">
         <li><b>3 ქულა</b> — შესრულებულია სრულად, შედეგი მიღებულია</li>
         <li><b>2 ქულა</b> — დამოუკიდებლად, დათქმულ დროში</li>
         <li><b>3 ქულა</b> — გზა სწორია, მექანიკური შეცდომების გარეშე</li>
       </ul>
-      <div class="callout warn small"><b>ყურადღება</b>თუ ერთ-ერთი კრიტერიუმი 0-ია, მთელი დავალება 0 ქულით ფასდება.</div>
+      <ul class="pts tight" lang="en">
+        <li><b>3 points</b> — completed in full, the intended result achieved</li>
+        <li><b>2 points</b> — done independently, within the allotted time</li>
+        <li><b>3 points</b> — correct approach, free of mechanical mistakes</li>
+      </ul>
+      <div class="callout warn small">
+        <span lang="ka"><b>ყურადღება</b>თუ ერთ-ერთი კრიტერიუმი 0-ია, მთელი დავალება 0 ქულით ფასდება.</span>
+        <span lang="en"><b>Careful</b>If any single criterion scores 0, the whole assignment scores 0.</span>
+      </div>
     </div>
   </div>
-  <div class="note">ხაზი გაუსვი: 40 ქულა — ესაა ის, რაც აუდიტორიაში კეთდება. ვინც პრაქტიკულებზე მოდის და აკეთებს, ის თითქმის ვერ ჩაიჭრება.</div>
+  <div class="note">
+    <span lang="ka">ხაზი გაუსვი: 40 ქულა — ესაა ის, რაც აუდიტორიაში კეთდება. ვინც პრაქტიკულებზე მოდის და აკეთებს, ის თითქმის ვერ ჩაიჭრება.</span>
+    <span lang="en">Stress this: 40 points come from work done in the room. Students who show up to the labs and do the work will almost never fail.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">საბაზისო</p>
-  <h2>რა არის პროგრამა?</h2>
-  <p class="big"><em>ალგორითმი</em> — ნაბიჯების მკაცრი თანმიმდევრობა, რომელიც ამოცანას ჭრის.<br>
+  <p class="kicker"><span lang="ka">საბაზისო</span><span lang="en">Fundamentals</span></p>
+  <h2><span lang="ka">რა არის პროგრამა?</span><span lang="en">What is a program?</span></h2>
+  <p class="big" lang="ka"><em>ალგორითმი</em> — ნაბიჯების მკაცრი თანმიმდევრობა, რომელიც ამოცანას ჭრის.<br>
   <em>პროგრამა</em> — ალგორითმი, ჩაწერილი ენაზე, რომელსაც კომპიუტერი ასრულებს.</p>
+  <p class="big" lang="en">An <em>algorithm</em> is a strict sequence of steps that solves a problem.<br>
+  A <em>program</em> is an algorithm written in a language a computer can execute.</p>
   <div class="two" style="margin-top:22px">
     <div>
-      <h3>ალგორითმი (ბუნებრივი ენა)</h3>
-      <ol class="pts tight">
+      <h3><span lang="ka">ალგორითმი (ბუნებრივი ენა)</span><span lang="en">The algorithm (plain language)</span></h3>
+      <ol class="pts tight" lang="ka">
         <li>ჰკითხე მომხმარებელს ორი რიცხვი</li>
         <li>შეკრიბე ისინი</li>
         <li>დაბეჭდე შედეგი</li>
       </ol>
+      <ol class="pts tight" lang="en">
+        <li>Ask the user for two numbers</li>
+        <li>Add them together</li>
+        <li>Print the result</li>
+      </ol>
     </div>
     <div>
-      <h3>იგივე — Python-ზე</h3>
+      <h3><span lang="ka">იგივე — Python-ზე</span><span lang="en">The same — in Python</span></h3>
 <pre class="code"><code>a = int(input("პირველი: "))
 b = int(input("მეორე: "))
 print(a + b)</code></pre>
     </div>
   </div>
-  <div class="callout"><b>რთული ნაწილი რომელია?</b>სინტაქსი ორ კვირაში ისწავლება. <b>ალგორითმული აზროვნება</b> — მთელი სემესტრი. ამიტომ ყოველი ამოცანა ჯერ ქაღალდზე დაშალე ნაბიჯებად.</div>
+  <div class="callout">
+    <span lang="ka"><b>რთული ნაწილი რომელია?</b>სინტაქსი ორ კვირაში ისწავლება. <b>ალგორითმული აზროვნება</b> — მთელი სემესტრი. ამიტომ ყოველი ამოცანა ჯერ ქაღალდზე დაშალე ნაბიჯებად.</span>
+    <span lang="en"><b>Which part is hard?</b>Syntax takes two weeks. <b>Algorithmic thinking</b> takes the whole semester. So break every problem into steps on paper first.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ისტორია</p>
-  <h2>საიდან მოვიდა Python</h2>
+  <p class="kicker"><span lang="ka">ისტორია</span><span lang="en">History</span></p>
+  <h2><span lang="ka">საიდან მოვიდა Python</span><span lang="en">Where Python came from</span></h2>
   <div class="two">
     <div>
-      <ul class="pts tight">
+      <ul class="pts tight" lang="ka">
         <li><b>1989 · შობის არდადეგები</b><small>ჰოლანდიელი პროგრამისტი <em>Guido van Rossum</em> იწყებს „საშობაო ჰობი-პროექტს“</small></li>
         <li><b>1991 · ვერსია 0.9.0</b><small>პირველი საჯარო გამოშვება</small></li>
         <li><b>2000 · Python 2.0</b><small>Unicode, garbage collector</small></li>
         <li><b>2008 · Python 3.0</b><small>უკუთავსებადობის გატეხვა — სუფთა დასაწყისი</small></li>
         <li><b>2020 · Python 2 გარდაიცვალა</b><small>დღეს მხოლოდ Python 3 არსებობს</small></li>
       </ul>
+      <ul class="pts tight" lang="en">
+        <li><b>1989 · Christmas break</b><small>Dutch programmer <em>Guido van Rossum</em> starts a “Christmas hobby project”</small></li>
+        <li><b>1991 · version 0.9.0</b><small>The first public release</small></li>
+        <li><b>2000 · Python 2.0</b><small>Unicode, garbage collector</small></li>
+        <li><b>2008 · Python 3.0</b><small>Backward compatibility broken — a clean start</small></li>
+        <li><b>2020 · Python 2 retired</b><small>Only Python 3 exists today</small></li>
+      </ul>
     </div>
     <div>
-      <div class="callout tip"><b>სახელი გველისგან არ მოდის</b>Guido ბრიტანულ კომედიურ შოუს <i>„Monty Python's Flying Circus“</i> უყურებდა. ამიტომაც ოფიციალურ დოკუმენტაციაში ხშირად ნახავ <code class="inl">spam</code> და <code class="inl">eggs</code> ცვლადებად — ესეც იმ შოუდანაა.</div>
-      <p class="small muted" style="margin-top:14px">ენის განვითარებას დღეს <b>PEP</b>-ები მართავს (Python Enhancement Proposal) — საჯარო წინადადებები, რომლებზეც საზოგადოება მსჯელობს. მათგან ყველაზე ცნობილია <b>PEP 8</b> — კოდის სტილის სტანდარტი (XIV კვირა).</p>
+      <div class="callout tip">
+        <span lang="ka"><b>სახელი გველისგან არ მოდის</b>Guido ბრიტანულ კომედიურ შოუს <i>„Monty Python's Flying Circus“</i> უყურებდა. ამიტომაც ოფიციალურ დოკუმენტაციაში ხშირად ნახავ <code class="inl">spam</code> და <code class="inl">eggs</code> ცვლადებად — ესეც იმ შოუდანაა.</span>
+        <span lang="en"><b>The name is not about the snake</b>Guido was watching the British comedy show <i>Monty Python’s Flying Circus</i>. That is also why the official docs are full of variables called <code class="inl">spam</code> and <code class="inl">eggs</code> — same show.</span>
+      </div>
+      <p class="small muted" style="margin-top:14px">
+        <span lang="ka">ენის განვითარებას დღეს <b>PEP</b>-ები მართავს (Python Enhancement Proposal) — საჯარო წინადადებები, რომლებზეც საზოგადოება მსჯელობს. მათგან ყველაზე ცნობილია <b>PEP 8</b> — კოდის სტილის სტანდარტი (XIV კვირა).</span>
+        <span lang="en">The language evolves through <b>PEPs</b> (Python Enhancement Proposals) — public proposals the community debates. The best known is <b>PEP 8</b>, the code style standard (week XIV).</span>
+      </p>
     </div>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">კონტექსტი</p>
-  <h2>Python სხვა ენებს შორის</h2>
+  <p class="kicker"><span lang="ka">კონტექსტი</span><span lang="en">Context</span></p>
+  <h2><span lang="ka">Python სხვა ენებს შორის</span><span lang="en">Python among other languages</span></h2>
   <table class="small">
-    <tr><th style="width:14%">ენა</th><th style="width:22%">ტიპური სფერო</th><th>რით განსხვავდება Python-ისგან</th></tr>
-    <tr><td><b>C / C++</b></td><td>ოპერაციული სისტემები, თამაშები</td><td>ბევრად სწრაფი, მაგრამ მეხსიერებას თავად მართავ. Python-ის „ძრავი“ (CPython) სწორედ C-ზეა დაწერილი.</td></tr>
-    <tr><td><b>Java / C#</b></td><td>კორპორაციული აპლიკაციები</td><td>ტიპები სავალდებულოდ იწერება, კოდი ბევრად გრძელია. მკაცრი, მაგრამ დიდ გუნდში უსაფრთხო.</td></tr>
-    <tr><td><b>JavaScript</b></td><td>ვებ-გვერდები, ბრაუზერი</td><td>მსგავსად დინამიკურია. ბრაუზერში მუშაობს, Python — სერვერზე და კომპიუტერზე.</td></tr>
-    <tr><td><b>Python</b></td><td>ანალიზი, AI, ავტომატიზაცია, ვები, სკრიპტები</td><td>მოკლე და წაკითხვადი. სისწრაფეს ცვლის <b>დაწერის სისწრაფეში</b>.</td></tr>
+    <tr>
+      <th style="width:14%"><span lang="ka">ენა</span><span lang="en">Language</span></th>
+      <th style="width:22%"><span lang="ka">ტიპური სფერო</span><span lang="en">Typical use</span></th>
+      <th><span lang="ka">რით განსხვავდება Python-ისგან</span><span lang="en">How it differs from Python</span></th>
+    </tr>
+    <tr><td><b>C / C++</b></td>
+      <td><span lang="ka">ოპერაციული სისტემები, თამაშები</span><span lang="en">Operating systems, games</span></td>
+      <td><span lang="ka">ბევრად სწრაფი, მაგრამ მეხსიერებას თავად მართავ. Python-ის „ძრავი“ (CPython) სწორედ C-ზეა დაწერილი.</span>
+          <span lang="en">Much faster, but you manage memory yourself. Python’s own engine (CPython) is written in C.</span></td></tr>
+    <tr><td><b>Java / C#</b></td>
+      <td><span lang="ka">კორპორაციული აპლიკაციები</span><span lang="en">Enterprise applications</span></td>
+      <td><span lang="ka">ტიპები სავალდებულოდ იწერება, კოდი ბევრად გრძელია. მკაცრი, მაგრამ დიდ გუნდში უსაფრთხო.</span>
+          <span lang="en">Types must be declared and the code is far longer. Strict, but safer in a large team.</span></td></tr>
+    <tr><td><b>JavaScript</b></td>
+      <td><span lang="ka">ვებ-გვერდები, ბრაუზერი</span><span lang="en">Web pages, the browser</span></td>
+      <td><span lang="ka">მსგავსად დინამიკურია. ბრაუზერში მუშაობს, Python — სერვერზე და კომპიუტერზე.</span>
+          <span lang="en">Dynamic in a similar way. It runs in the browser; Python runs on servers and desktops.</span></td></tr>
+    <tr><td><b>Python</b></td>
+      <td><span lang="ka">ანალიზი, AI, ავტომატიზაცია, ვები, სკრიპტები</span><span lang="en">Analysis, AI, automation, web, scripting</span></td>
+      <td><span lang="ka">მოკლე და წაკითხვადი. სისწრაფეს ცვლის <b>დაწერის სისწრაფეში</b>.</span>
+          <span lang="en">Short and readable. It trades run-time speed for <b>writing speed</b>.</span></td></tr>
   </table>
   <div class="two" style="margin-top:16px">
     <div>
@@ -129,103 +204,156 @@ print(a + b)</code></pre>
     </div>
     <div>
 <pre class="code" data-title="Python"><code>print("გამარჯობა")</code></pre>
-      <p class="small muted" style="margin-top:10px">ეს არაა „უკეთესი/უარესი“ — ეს განსხვავებული პრიორიტეტებია.</p>
+      <p class="small muted" style="margin-top:10px">
+        <span lang="ka">ეს არაა „უკეთესი/უარესი“ — ეს განსხვავებული პრიორიტეტებია.</span>
+        <span lang="en">This is not “better or worse” — these are different priorities.</span>
+      </p>
     </div>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">როგორ მუშაობს</p>
-  <h2>კომპილაცია თუ ინტერპრეტაცია?</h2>
+  <p class="kicker"><span lang="ka">როგორ მუშაობს</span><span lang="en">How it works</span></p>
+  <h2><span lang="ka">კომპილაცია თუ ინტერპრეტაცია?</span><span lang="en">Compiled or interpreted?</span></h2>
   <div class="two">
     <div class="card">
-      <h3>კომპილირებადი (C, Go)</h3>
-      <ul>
+      <h3><span lang="ka">კომპილირებადი (C, Go)</span><span lang="en">Compiled (C, Go)</span></h3>
+      <ul lang="ka">
         <li>კოდი ერთხელ ითარგმნება მანქანურ ენად</li>
         <li>მიიღება <code>.exe</code> — დამოუკიდებელი ფაილი</li>
         <li>სწრაფია</li>
         <li>ყოველი ცვლილება = ხელახლა კომპილაცია</li>
       </ul>
+      <ul lang="en">
+        <li>The code is translated to machine code once</li>
+        <li>You get an <code>.exe</code> — a standalone file</li>
+        <li>Fast</li>
+        <li>Every change means recompiling</li>
+      </ul>
     </div>
     <div class="card">
-      <h3>ინტერპრეტირებადი (Python)</h3>
-      <ul>
+      <h3><span lang="ka">ინტერპრეტირებადი (Python)</span><span lang="en">Interpreted (Python)</span></h3>
+      <ul lang="ka">
         <li>კოდი სრულდება <b>ხაზ-ხაზ</b>, გაშვების მომენტში</li>
         <li>შესრულებას სჭირდება Python დაყენებული</li>
         <li>უფრო ნელია</li>
         <li>შეცვალე და მაშინვე გაუშვი — სწრაფი ექსპერიმენტი</li>
       </ul>
+      <ul lang="en">
+        <li>The code runs <b>line by line</b>, at launch time</li>
+        <li>Running it requires Python to be installed</li>
+        <li>Slower</li>
+        <li>Edit and run immediately — fast experiments</li>
+      </ul>
     </div>
   </div>
-  <div class="callout"><b>რეალურად Python ორივეს აკეთებს</b>ჯერ კოდს გადაიყვანს შუალედურ <b>ბაიტკოდში</b>, შემდეგ ვირტუალური მანქანა ასრულებს მას.</div>
+  <div class="callout">
+    <span lang="ka"><b>რეალურად Python ორივეს აკეთებს</b>ჯერ კოდს გადაიყვანს შუალედურ <b>ბაიტკოდში</b>, შემდეგ ვირტუალური მანქანა ასრულებს მას.</span>
+    <span lang="en"><b>Python actually does both</b>First it translates the code into intermediate <b>bytecode</b>, then a virtual machine executes it.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">შესრულების გარემო</p>
-  <h2>რა ხდება, როცა <code class="inl">python hello.py</code> ვწერთ</h2>
-  <ol class="pts">
+  <p class="kicker"><span lang="ka">შესრულების გარემო</span><span lang="en">The runtime</span></p>
+  <h2><span lang="ka">რა ხდება, როცა <code class="inl">python hello.py</code> ვწერთ</span><span lang="en">What happens when you run <code class="inl">python hello.py</code></span></h2>
+  <ol class="pts" lang="ka">
     <li><b>წყარო</b> — <code class="inl">hello.py</code>, ჩვეულებრივი ტექსტური ფაილი</li>
     <li><b>თარგმნა ბაიტკოდში</b> — შედეგი ინახება <code class="inl">__pycache__/</code> საქაღალდეში, <code class="inl">.pyc</code> ფაილად</li>
     <li><b>შესრულება</b> — Python-ის ვირტუალური მანქანა (PVM) ბაიტკოდს ასრულებს</li>
     <li><b>შედეგი</b> — ტერმინალში გამოტანილი ტექსტი</li>
   </ol>
-  <div class="callout tip" style="margin-top:18px"><b>ამიტომაც</b>ერთი და იგივე <code class="inl">.py</code> ფაილი Windows-ზეც მუშაობს და Linux-ზეც — ბაიტკოდი ერთია, PVM კი თითოეულ სისტემაზე ცალკე არსებობს.</div>
-  <div class="callout warn"><b>__pycache__</b>თუ ეს საქაღალდე გამოგიჩნდა — ეს ნორმაა. წაშალო შეგიძლია, Python ხელახლა შექმნის. ვერსიების კონტროლში (git) მას არასდროს ვამატებთ.</div>
-  <div class="note">ეს სლაიდი შუალედურის ღია კითხვად ხშირად ხვდება — „აღწერეთ Python-ის პროგრამის შესრულების ეტაპები“.</div>
+  <ol class="pts" lang="en">
+    <li><b>Source</b> — <code class="inl">hello.py</code>, an ordinary text file</li>
+    <li><b>Compilation to bytecode</b> — stored in <code class="inl">__pycache__/</code> as a <code class="inl">.pyc</code> file</li>
+    <li><b>Execution</b> — the Python Virtual Machine (PVM) runs the bytecode</li>
+    <li><b>Result</b> — text printed in the terminal</li>
+  </ol>
+  <div class="callout tip" style="margin-top:18px">
+    <span lang="ka"><b>ამიტომაც</b>ერთი და იგივე <code class="inl">.py</code> ფაილი Windows-ზეც მუშაობს და Linux-ზეც — ბაიტკოდი ერთია, PVM კი თითოეულ სისტემაზე ცალკე არსებობს.</span>
+    <span lang="en"><b>Which is why</b>The same <code class="inl">.py</code> file runs on Windows and Linux alike — the bytecode is identical, and each system has its own PVM.</span>
+  </div>
+  <div class="callout warn">
+    <span lang="ka"><b>__pycache__</b>თუ ეს საქაღალდე გამოგიჩნდა — ეს ნორმაა. წაშალო შეგიძლია, Python ხელახლა შექმნის. ვერსიების კონტროლში (git) მას არასდროს ვამატებთ.</span>
+    <span lang="en"><b>__pycache__</b>Seeing this folder appear is normal. You may delete it; Python recreates it. Never add it to version control.</span>
+  </div>
+  <div class="note">
+    <span lang="ka">ეს სლაიდი შუალედურის ღია კითხვად ხშირად ხვდება — „აღწერეთ Python-ის პროგრამის შესრულების ეტაპები“.</span>
+    <span lang="en">This slide often becomes a midterm open question: “describe the stages of executing a Python program”.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">სინტაქსი</p>
-  <h2>სამი წესი, რომელიც ყველაფერს განსაზღვრავს</h2>
-  <ol class="pts">
+  <p class="kicker"><span lang="ka">სინტაქსი</span><span lang="en">Syntax</span></p>
+  <h2><span lang="ka">სამი წესი, რომელიც ყველაფერს განსაზღვრავს</span><span lang="en">Three rules that shape everything</span></h2>
+  <ol class="pts" lang="ka">
     <li><b>ერთი ხაზი = ერთი ინსტრუქცია</b><small>წერტილ-მძიმე (<code class="inl">;</code>) არ გვჭირდება — ხაზის დასასრული თავად ჰყოფს</small></li>
     <li><b>ბლოკს წანაცვლება ქმნის</b><small>ფიგურული ფრჩხილები <code class="inl">{ }</code> არ არსებობს. სტანდარტი — <b>4 ჰარე</b></small></li>
     <li><b>ორწერტილი ხსნის ბლოკს</b><small><code class="inl">if</code>, <code class="inl">for</code>, <code class="inl">while</code>, <code class="inl">def</code> — ყოველთვის მთავრდება <code class="inl">:</code>-ით</small></li>
   </ol>
-<pre class="code" data-title="სტრუქტურა"><code>temperature = 30
+  <ol class="pts" lang="en">
+    <li><b>One line = one statement</b><small>No semicolons needed — the end of the line separates statements</small></li>
+    <li><b>Indentation creates blocks</b><small>There are no curly braces <code class="inl">{ }</code>. The standard is <b>4 spaces</b></small></li>
+    <li><b>A colon opens a block</b><small><code class="inl">if</code>, <code class="inl">for</code>, <code class="inl">while</code>, <code class="inl">def</code> — always end with <code class="inl">:</code></small></li>
+  </ol>
+<pre class="code" data-title="structure"><code>temperature = 30
 
 if temperature &gt; 25:
     print("ცხელა")
     print("წყალი დალიე")
 
 print("დასასრული")</code></pre>
-  <p class="small muted" style="margin-top:8px">ბოლო <code class="inl">print</code> ბლოკის გარეთაა — ის ყოველთვის შესრულდება.</p>
+  <p class="small muted" style="margin-top:8px">
+    <span lang="ka">ბოლო <code class="inl">print</code> ბლოკის გარეთაა — ის ყოველთვის შესრულდება.</span>
+    <span lang="en">The last <code class="inl">print</code> is outside the block — it always runs.</span>
+  </p>
 </section>
 
 <section class="slide">
-  <p class="kicker">სინტაქსი</p>
-  <h2>წანაცვლება — არა ესთეტიკა, არამედ <em>აზრი</em></h2>
+  <p class="kicker"><span lang="ka">სინტაქსი</span><span lang="en">Syntax</span></p>
+  <h2><span lang="ka">წანაცვლება — არა ესთეტიკა, არამედ <em>აზრი</em></span><span lang="en">Indentation is <em>meaning</em>, not decoration</span></h2>
   <div class="two">
     <div>
-<pre class="code" data-title="ვარიანტი A"><code>if 5 &gt; 3:
+<pre class="code" data-title="A"><code>if 5 &gt; 3:
     print("ა")
     print("ბ")</code></pre>
       <p class="out">ა
 ბ</p>
     </div>
     <div>
-<pre class="code" data-title="ვარიანტი B"><code>if 5 &gt; 3:
+<pre class="code" data-title="B"><code>if 5 &gt; 3:
     print("ა")
 print("ბ")</code></pre>
       <p class="out">ა
 ბ</p>
-      <p class="small muted" style="margin-top:6px">აქ „ბ“ ყოველთვის დაიბეჭდება — პირობის მიუხედავად.</p>
+      <p class="small muted" style="margin-top:6px">
+        <span lang="ka">აქ „ბ“ ყოველთვის დაიბეჭდება — პირობის მიუხედავად.</span>
+        <span lang="en">Here “ბ” always prints — regardless of the condition.</span>
+      </p>
     </div>
   </div>
-  <div class="callout err"><b>ორი ტიპური შეცდომა</b>
-    <span style="display:block;margin-top:6px"><code class="inl">IndentationError: expected an indented block</code> — ორწერტილის შემდეგ ბლოკი არ დაწერე</span>
-    <span style="display:block"><code class="inl">TabError</code> — ერთ ფაილში ტაბებიც გამოიყენე და ჰარეებიც</span>
+  <div class="callout err">
+    <span lang="ka"><b>ორი ტიპური შეცდომა</b>
+      <span style="display:block;margin-top:6px"><code class="inl">IndentationError: expected an indented block</code> — ორწერტილის შემდეგ ბლოკი არ დაწერე</span>
+      <span style="display:block"><code class="inl">TabError</code> — ერთ ფაილში ტაბებიც გამოიყენე და ჰარეებიც</span></span>
+    <span lang="en"><b>Two classic errors</b>
+      <span style="display:block;margin-top:6px"><code class="inl">IndentationError: expected an indented block</code> — no block written after the colon</span>
+      <span style="display:block"><code class="inl">TabError</code> — tabs and spaces mixed in one file</span></span>
   </div>
-  <div class="note">ცოცხლად აჩვენე ორივე შეცდომა — სტუდენტები მათ ისედაც შეხვდებიან, ჯობია ლექციაზე ნახონ და შიში მოეხსნათ.</div>
+  <div class="note">
+    <span lang="ka">ცოცხლად აჩვენე ორივე შეცდომა — სტუდენტები მათ ისედაც შეხვდებიან, ჯობია ლექციაზე ნახონ და შიში მოეხსნათ.</span>
+    <span lang="en">Demonstrate both live — students will hit them anyway, and seeing them in class removes the fear.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">სტრუქტურა</p>
-  <h2>კომენტარები</h2>
-  <p>ტექსტი, რომელსაც Python <b>უგულებელყოფს</b>. დაწერილია <em>ადამიანისთვის</em>.</p>
+  <p class="kicker"><span lang="ka">სტრუქტურა</span><span lang="en">Structure</span></p>
+  <h2><span lang="ka">კომენტარები</span><span lang="en">Comments</span></h2>
+  <p lang="ka">ტექსტი, რომელსაც Python <b>უგულებელყოფს</b>. დაწერილია <em>ადამიანისთვის</em>.</p>
+  <p lang="en">Text that Python <b>ignores</b>. It is written <em>for humans</em>.</p>
 <pre class="code" data-title="comments.py"><code># ერთხაზიანი კომენტარი — ყველაზე ხშირი
+# a single-line comment — the most common kind
 
-price = 100  # კომენტარი ინსტრუქციის შემდეგ
+price = 100  # კომენტარი ინსტრუქციის შემდეგ / after a statement
 
 """
 მრავალხაზიანი ტექსტი.
@@ -238,14 +366,21 @@ def area(a, b):
     return a * b
 
 print(area.__doc__)</code></pre>
-  <div class="callout tip"><b>კარგი კომენტარი „რატომს“ პასუხობს, არა „რას“</b>
-    ცუდი: <code class="inl"># x-ს ვუმატებ 1-ს</code> · კარგი: <code class="inl"># ინდექსი 1-დან იწყება, რადგან 0 სათაურია</code></div>
+  <div class="callout tip">
+    <span lang="ka"><b>კარგი კომენტარი „რატომს“ პასუხობს, არა „რას“</b>
+      ცუდი: <code class="inl"># x-ს ვუმატებ 1-ს</code> · კარგი: <code class="inl"># ინდექსი 1-დან იწყება, რადგან 0 სათაურია</code></span>
+    <span lang="en"><b>A good comment answers “why”, not “what”</b>
+      Bad: <code class="inl"># add 1 to x</code> · Good: <code class="inl"># index starts at 1 because row 0 is the header</code></span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ლექსიკა</p>
-  <h2>რეზერვირებული სიტყვები</h2>
-  <p class="small muted">ენის „საკუთარი“ სიტყვები — ცვლადის სახელად ვერ გამოიყენებ. სულ 35.</p>
+  <p class="kicker"><span lang="ka">ლექსიკა</span><span lang="en">Vocabulary</span></p>
+  <h2><span lang="ka">რეზერვირებული სიტყვები</span><span lang="en">Reserved words</span></h2>
+  <p class="small muted">
+    <span lang="ka">ენის „საკუთარი“ სიტყვები — ცვლადის სახელად ვერ გამოიყენებ. სულ 35.</span>
+    <span lang="en">Words the language keeps for itself — you cannot use them as variable names. 35 in total.</span>
+  </p>
 <pre class="code" data-title="Python 3.12"><code class="nohl">False    None     True     and      as       assert   async
 await    break    class    continue def      del      elif
 else     except   finally  for      from     global   if
@@ -253,56 +388,74 @@ import   in       is       lambda   nonlocal not      or
 pass     raise    return   try      while    with     yield</code></pre>
   <div class="two" style="margin-top:14px">
     <div>
-<pre class="code" data-title="თავად შეამოწმე"><code>import keyword
+<pre class="code" data-title="check it yourself"><code>import keyword
 
 print(keyword.kwlist)
 print(len(keyword.kwlist))
 print(keyword.iskeyword("for"))</code></pre>
     </div>
     <div>
-      <div class="callout err"><b>რა მოხდება, თუ სცადავ</b>
+      <div class="callout err">
+        <span lang="ka"><b>რა მოხდება, თუ სცადავ</b></span>
+        <span lang="en"><b>What happens if you try</b></span>
 <pre class="code" style="margin-top:6px"><code class="nohl">class = "IT-101"
 # SyntaxError: invalid syntax</code></pre></div>
-      <p class="small muted" style="margin-top:8px">VS Code რეზერვირებულ სიტყვებს ავტომატურად აფერადებს — თუ სახელი „შეიფერადა“, ესე იგი დაკავებულია.</p>
+      <p class="small muted" style="margin-top:8px">
+        <span lang="ka">VS Code რეზერვირებულ სიტყვებს ავტომატურად აფერადებს — თუ სახელი „შეიფერადა“, ესე იგი დაკავებულია.</span>
+        <span lang="en">VS Code colours reserved words automatically — if a name lights up, it is taken.</span>
+      </p>
     </div>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ლექსიკა</p>
-  <h2>იდენტიფიკატორები — სახელების წესები</h2>
+  <p class="kicker"><span lang="ka">ლექსიკა</span><span lang="en">Vocabulary</span></p>
+  <h2><span lang="ka">იდენტიფიკატორები — სახელების წესები</span><span lang="en">Identifiers — naming rules</span></h2>
   <div class="two">
     <div>
-      <h3 style="color:var(--accent2)">შეიძლება</h3>
-      <ul class="pts tight">
+      <h3 style="color:var(--accent2)"><span lang="ka">შეიძლება</span><span lang="en">Allowed</span></h3>
+      <ul class="pts tight" lang="ka">
         <li>ასოები, ციფრები, ქვედა ტირე <code class="inl">_</code></li>
         <li>იწყება ასოთი ან <code class="inl">_</code>-ით</li>
         <li>რეგისტრი მნიშვნელოვანია: <code class="inl">age</code> ≠ <code class="inl">Age</code></li>
+      </ul>
+      <ul class="pts tight" lang="en">
+        <li>Letters, digits, underscore <code class="inl">_</code></li>
+        <li>Must start with a letter or <code class="inl">_</code></li>
+        <li>Case matters: <code class="inl">age</code> ≠ <code class="inl">Age</code></li>
       </ul>
 <pre class="code"><code>student_name = "ნინო"
 _temp = 0
 count2 = 15</code></pre>
     </div>
     <div>
-      <h3 style="color:var(--danger)">არ შეიძლება</h3>
-      <ul class="pts tight">
+      <h3 style="color:var(--danger)"><span lang="ka">არ შეიძლება</span><span lang="en">Not allowed</span></h3>
+      <ul class="pts tight" lang="ka">
         <li>ციფრით დაწყება</li>
         <li>ჰარე ან სპეცსიმბოლო</li>
         <li>რეზერვირებული სიტყვა</li>
+      </ul>
+      <ul class="pts tight" lang="en">
+        <li>Starting with a digit</li>
+        <li>Spaces or special characters</li>
+        <li>A reserved word</li>
       </ul>
 <pre class="code"><code class="nohl">2name = "x"      # SyntaxError
 my name = "x"    # SyntaxError
 class = "x"      # SyntaxError</code></pre>
     </div>
   </div>
-  <div class="callout tip"><b>PEP 8-ის რეკომენდაცია</b>ცვლადები — <code class="inl">snake_case</code> (პატარა ასოებით, ტირეებით). სახელი აზრიანი უნდა იყოს: <code class="inl">total_price</code>, არა <code class="inl">tp</code> ან <code class="inl">x1</code>.</div>
+  <div class="callout tip">
+    <span lang="ka"><b>PEP 8-ის რეკომენდაცია</b>ცვლადები — <code class="inl">snake_case</code> (პატარა ასოებით, ტირეებით). სახელი აზრიანი უნდა იყოს: <code class="inl">total_price</code>, არა <code class="inl">tp</code> ან <code class="inl">x1</code>.</span>
+    <span lang="en"><b>PEP 8 recommends</b>Variables in <code class="inl">snake_case</code> (lowercase with underscores). Names should mean something: <code class="inl">total_price</code>, not <code class="inl">tp</code> or <code class="inl">x1</code>.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">პრაქტიკა</p>
-  <h2>პირველი სრული პროგრამა</h2>
-<pre class="code" data-title="greet.py"><code># პროგრამა ესალმება მომხმარებელს
-# ავტორი: სახელი გვარი
+  <p class="kicker"><span lang="ka">პრაქტიკა</span><span lang="en">Practice</span></p>
+  <h2><span lang="ka">პირველი სრული პროგრამა</span><span lang="en">Your first complete program</span></h2>
+<pre class="code" data-title="greet.py"><code># პროგრამა ესალმება მომხმარებელს / the program greets the user
+# ავტორი / author: სახელი გვარი
 
 print("=" * 30)
 print("Python-ის კურსი")
@@ -317,35 +470,49 @@ Python-ის კურსი
 შენი სახელი: ნინო
 გამარჯობა, ნინო
 კარგად მოხვედი!</p>
-  <p class="small muted" style="margin-top:10px">დეტალები — <code class="inl">input()</code>, ტიპები, <code class="inl">print()</code>-ის პარამეტრები — <b>II კვირაზე</b>.</p>
+  <p class="small muted" style="margin-top:10px">
+    <span lang="ka">დეტალები — <code class="inl">input()</code>, ტიპები, <code class="inl">print()</code>-ის პარამეტრები — <b>II კვირაზე</b>.</span>
+    <span lang="en">The details — <code class="inl">input()</code>, types, <code class="inl">print()</code> parameters — come in <b>week II</b>.</span>
+  </p>
 </section>
 
 <section class="slide">
-  <p class="kicker">დიაგნოსტიკა</p>
-  <h2>შეცდომების ორი ჯგუფი</h2>
+  <p class="kicker"><span lang="ka">დიაგნოსტიკა</span><span lang="en">Troubleshooting</span></p>
+  <h2><span lang="ka">შეცდომების ორი ჯგუფი</span><span lang="en">Two families of error</span></h2>
   <div class="two">
     <div class="card">
-      <h3 style="color:var(--danger)">სინტაქსური</h3>
-      <p class="small">კოდი <b>საერთოდ არ ეშვება</b>. Python ვერ „კითხულობს“ დაწერილს.</p>
+      <h3 style="color:var(--danger)"><span lang="ka">სინტაქსური</span><span lang="en">Syntax errors</span></h3>
+      <p class="small" lang="ka">კოდი <b>საერთოდ არ ეშვება</b>. Python ვერ „კითხულობს“ დაწერილს.</p>
+      <p class="small" lang="en">The code <b>does not run at all</b>. Python cannot parse what you wrote.</p>
 <pre class="code" style="margin-top:8px"><code class="nohl">print("გამარჯობა"
 # SyntaxError: '(' was never closed</code></pre>
-      <p class="small muted" style="margin-top:6px">გამოსავალი: მიუთითებულ ხაზს <b>და მის წინა ხაზს</b> დახედე.</p>
+      <p class="small muted" style="margin-top:6px">
+        <span lang="ka">გამოსავალი: მიუთითებულ ხაზს <b>და მის წინა ხაზს</b> დახედე.</span>
+        <span lang="en">The fix: look at the reported line <b>and the line before it</b>.</span>
+      </p>
     </div>
     <div class="card">
-      <h3 style="color:var(--warn)">შესრულების დროს</h3>
-      <p class="small">კოდი გაეშვა, მაგრამ შუაში ჩავარდა.</p>
+      <h3 style="color:var(--warn)"><span lang="ka">შესრულების დროს</span><span lang="en">Runtime errors</span></h3>
+      <p class="small" lang="ka">კოდი გაეშვა, მაგრამ შუაში ჩავარდა.</p>
+      <p class="small" lang="en">The code started, then failed part-way through.</p>
 <pre class="code" style="margin-top:8px"><code class="nohl">print(10 / 0)
 # ZeroDivisionError: division by zero</code></pre>
-      <p class="small muted" style="margin-top:6px">ამ ჯგუფის დამუშავებას <b>XII კვირაზე</b> ვისწავლით (<code class="inl">try / except</code>).</p>
+      <p class="small muted" style="margin-top:6px">
+        <span lang="ka">ამ ჯგუფის დამუშავებას <b>XII კვირაზე</b> ვისწავლით (<code class="inl">try / except</code>).</span>
+        <span lang="en">Handling this family comes in <b>week XII</b> (<code class="inl">try / except</code>).</span>
+      </p>
     </div>
   </div>
-  <div class="callout tip"><b>ოქროს წესი</b>შეცდომის ტექსტი <b>წაიკითხე ბოლოდან</b> — ბოლო ხაზი ამბობს <i>რა</i> მოხდა, ზემოთ კი — <i>სად</i>.</div>
+  <div class="callout tip">
+    <span lang="ka"><b>ოქროს წესი</b>შეცდომის ტექსტი <b>წაიკითხე ბოლოდან</b> — ბოლო ხაზი ამბობს <i>რა</i> მოხდა, ზემოთ კი — <i>სად</i>.</span>
+    <span lang="en"><b>Golden rule</b>Read an error <b>from the bottom up</b> — the last line says <i>what</i> happened, the lines above say <i>where</i>.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">შემაჯამებელი</p>
-  <h2>რა უნდა დაგამახსოვრდეს</h2>
-  <ul class="pts">
+  <p class="kicker"><span lang="ka">შემაჯამებელი</span><span lang="en">Wrap-up</span></p>
+  <h2><span lang="ka">რა უნდა დაგამახსოვრდეს</span><span lang="en">What to remember</span></h2>
+  <ul class="pts" lang="ka">
     <li>Python — ინტერპრეტირებადი, დინამიკური, წაკითხვადობაზე ორიენტირებული ენა (1991, Guido van Rossum)</li>
     <li>შესრულება: <code class="inl">.py</code> → ბაიტკოდი → PVM</li>
     <li>ბლოკს <b>წანაცვლება</b> ქმნის (4 ჰარე), ბლოკს <code class="inl">:</code> ხსნის</li>
@@ -353,8 +520,22 @@ Python-ის კურსი
     <li>35 რეზერვირებული სიტყვა — <code class="inl">keyword.kwlist</code></li>
     <li>სახელები: <code class="inl">snake_case</code>, ციფრით არ იწყება, რეგისტრი მნიშვნელოვანია</li>
   </ul>
-  <div class="callout"><b>სახლში</b>1) დააყენე გარემო (იხ. ლექცია 00). 2) დაწერე პროგრამა, რომელიც შენს სახელს, ჯგუფსა და საყვარელ რიცხვს ბეჭდავს. 3) განზრახ დაუშვი 3 სხვადასხვა შეცდომა და ჩაინიშნე მათი ტექსტი.</div>
-  <div class="callout tip"><b>შემდეგი — ლექცია 02</b>საბაზისო ტიპები, ცვლადები, არითმეტიკა, <code class="inl">input()</code> და <code class="inl">print()</code>.</div>
+  <ul class="pts" lang="en">
+    <li>Python is interpreted, dynamic and readability-focused (1991, Guido van Rossum)</li>
+    <li>Execution: <code class="inl">.py</code> → bytecode → PVM</li>
+    <li><b>Indentation</b> creates blocks (4 spaces); a <code class="inl">:</code> opens one</li>
+    <li>Comments with <code class="inl">#</code>, documentation with <code class="inl">"""docstring"""</code></li>
+    <li>35 reserved words — <code class="inl">keyword.kwlist</code></li>
+    <li>Names: <code class="inl">snake_case</code>, never start with a digit, case matters</li>
+  </ul>
+  <div class="callout">
+    <span lang="ka"><b>სახლში</b>1) დააყენე გარემო (იხ. ლექცია 00). 2) დაწერე პროგრამა, რომელიც შენს სახელს, ჯგუფსა და საყვარელ რიცხვს ბეჭდავს. 3) განზრახ დაუშვი 3 სხვადასხვა შეცდომა და ჩაინიშნე მათი ტექსტი.</span>
+    <span lang="en"><b>At home</b>1) Set up the environment (see lecture 00). 2) Write a program that prints your name, your group and your favourite number. 3) Deliberately make three different errors and write down their messages.</span>
+  </div>
+  <div class="callout tip">
+    <span lang="ka"><b>შემდეგი — ლექცია 02</b>საბაზისო ტიპები, ცვლადები, არითმეტიკა, <code class="inl">input()</code> და <code class="inl">print()</code>.</span>
+    <span lang="en"><b>Next — lecture 02</b>Basic types, variables, arithmetic, <code class="inl">input()</code> and <code class="inl">print()</code>.</span>
+  </div>
 </section>
 
 </main>
