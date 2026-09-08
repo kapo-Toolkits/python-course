@@ -10,127 +10,198 @@
 <main class="deck">
 
 <section class="slide">
-  <p class="kicker">ლექცია 07 · VII კვირა</p>
-  <h1>სტრიქონები</h1>
-  <p class="lead" style="margin-top:16px">სტრიქონებთან სამუშაო ფუნქციები · ფორმატირება · ძებნა და ჩანაცვლება</p>
-  <p class="small muted" style="margin-top:22px">⚠ შემდეგ კვირას — <b>შუალედური გამოცდა</b></p>
+  <p class="kicker"><span lang="ka">ლექცია 07 · VII კვირა</span><span lang="en">Lecture 07 · Week VII</span></p>
+  <h1><span lang="ka">სტრიქონები</span><span lang="en">Strings</span></h1>
+  <p class="lead" style="margin-top:16px">
+    <span lang="ka">სტრიქონებთან სამუშაო ფუნქციები · ფორმატირება · ძებნა და ჩანაცვლება</span>
+    <span lang="en">String methods · formatting · searching and replacing</span>
+  </p>
+  <p class="small muted" style="margin-top:22px">
+    <span lang="ka">⚠ შემდეგ კვირას — <b>შუალედური გამოცდა</b></span>
+    <span lang="en">⚠ Next week — the <b>midterm exam</b></span>
+  </p>
 </section>
 
 <section class="slide">
-  <p class="kicker g">გამეორება · ლექციები 05–06</p>
-  <h2>შემოწმება — 9 კითხვა</h2>
+  <p class="kicker g"><span lang="ka">გამეორება · ლექციები 05–06</span><span lang="en">Review · lectures 05–06</span></p>
+  <h2><span lang="ka">შემოწმება — 9 კითხვა</span><span lang="en">Check yourself — 9 questions</span></h2>
   <div class="quiz">
-    <details><summary>1. რა განსხვავებაა <code class="inl">return</code>-სა და <code class="inl">print</code>-ს შორის ფუნქციაში?</summary>
-      <div class="ans"><code>return</code> <b>აბრუნებს</b> მნიშვნელობას გამომძახებელს — მისი შემდგომი გამოყენება შეიძლება. <code>print</code> მხოლოდ ეკრანზე გამოაქვს; ასეთი ფუნქცია <code>None</code>-ს აბრუნებს.</div></details>
-    <details><summary>2. რას აბრუნებს ფუნქცია, რომელსაც <code class="inl">return</code> არ აქვს?</summary>
-      <div class="ans"><code>None</code>.</div></details>
-    <details><summary>3. რატომ არის <code class="inl">def f(a=1, b):</code> შეცდომა?</summary>
-      <div class="ans">ნაგულისხმევი მნიშვნელობის მქონე პარამეტრი <b>ბოლოში</b> უნდა იდგეს. სწორია <code>def f(b, a=1):</code>.</div></details>
-    <details><summary>4. რას აკეთებს <code class="inl">*args</code> და რას <code class="inl">**kwargs</code>?</summary>
-      <div class="ans"><code>*args</code> აგროვებს <b>პოზიციურ</b> არგუმენტებს tuple-ად; <code>**kwargs</code> — <b>სახელდებულს</b> ლექსიკონად.</div></details>
-    <details><summary>5. რას დაბეჭდავს?<br><code class="inl">x = 10</code><br><code class="inl">def f(): x = 5</code><br><code class="inl">f(); print(x)</code></summary>
-      <div class="ans"><code>10</code>. ფუნქციაში შექმნილი <code>x</code> <b>ლოკალურია</b> — გლობალურს არ ცვლის.</div></details>
-    <details><summary>6. <code class="inl">math.sqrt(16)</code> აბრუნებს <code class="inl">4</code>-ს თუ <code class="inl">4.0</code>-ს?</summary>
-      <div class="ans"><code>4.0</code> — <code>math</code>-ის ფუნქციები <code>float</code>-ს აბრუნებენ.</div></details>
-    <details><summary>7. რომელი დიაპაზონიდან აბრუნებს რიცხვს <code class="inl">random.randint(1, 6)</code>?</summary>
-      <div class="ans">1-დან 6-ის ჩათვლით — <b>ორივე კიდე შედის</b>, <code>range</code>-ისგან განსხვავებით.</div></details>
-    <details><summary>8. რას აკეთებს <code class="inl">random.seed(42)</code>?</summary>
-      <div class="ans">აფიქსირებს გენერატორის საწყის წერტილს — მიმდევრობა <b>განმეორებადი</b> ხდება. სასარგებლოა ტესტირებისთვის.</div></details>
-    <details><summary>9. რას აბრუნებს <code class="inl">def f(): return 1, 2</code> და რა ტიპისაა?</summary>
-      <div class="ans"><code>(1, 2)</code> — ერთი ობიექტი, <b>tuple</b>. შეიძლება დაიშალოს: <code>a, b = f()</code>.</div></details>
+    <details>
+      <summary><span lang="ka">1. რა განსხვავებაა <code class="inl">return</code>-სა და <code class="inl">print</code>-ს შორის ფუნქციაში?</span>
+               <span lang="en">1. What is the difference between <code class="inl">return</code> and <code class="inl">print</code> in a function?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>return</code> <b>აბრუნებს</b> მნიშვნელობას გამომძახებელს — მისი შემდგომი გამოყენება შეიძლება. <code>print</code> მხოლოდ ეკრანზე გამოაქვს; ასეთი ფუნქცია <code>None</code>-ს აბრუნებს.</span>
+        <span lang="en"><code>return</code> <b>hands a value back</b> to the caller, so it can be used further. <code>print</code> only writes to the screen; such a function returns <code>None</code>.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">2. რას აბრუნებს ფუნქცია, რომელსაც <code class="inl">return</code> არ აქვს?</span>
+               <span lang="en">2. What does a function without a <code class="inl">return</code> return?</span></summary>
+      <div class="ans"><span lang="ka"><code>None</code>.</span><span lang="en"><code>None</code>.</span></div></details>
+    <details>
+      <summary><span lang="ka">3. რატომ არის <code class="inl">def f(a=1, b):</code> შეცდომა?</span>
+               <span lang="en">3. Why is <code class="inl">def f(a=1, b):</code> an error?</span></summary>
+      <div class="ans">
+        <span lang="ka">ნაგულისხმევი მნიშვნელობის მქონე პარამეტრი <b>ბოლოში</b> უნდა იდგეს. სწორია <code>def f(b, a=1):</code>.</span>
+        <span lang="en">A parameter with a default must come <b>last</b>. The correct form is <code>def f(b, a=1):</code>.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">4. რას აკეთებს <code class="inl">*args</code> და რას <code class="inl">**kwargs</code>?</span>
+               <span lang="en">4. What do <code class="inl">*args</code> and <code class="inl">**kwargs</code> do?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>*args</code> აგროვებს <b>პოზიციურ</b> არგუმენტებს tuple-ად; <code>**kwargs</code> — <b>სახელდებულს</b> ლექსიკონად.</span>
+        <span lang="en"><code>*args</code> collects <b>positional</b> arguments into a tuple; <code>**kwargs</code> collects <b>keyword</b> arguments into a dictionary.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">5. რას დაბეჭდავს?<br><code class="inl">x = 10</code><br><code class="inl">def f(): x = 5</code><br><code class="inl">f(); print(x)</code></span>
+               <span lang="en">5. What does this print?<br><code class="inl">x = 10</code><br><code class="inl">def f(): x = 5</code><br><code class="inl">f(); print(x)</code></span></summary>
+      <div class="ans">
+        <span lang="ka"><code>10</code>. ფუნქციაში შექმნილი <code>x</code> <b>ლოკალურია</b> — გლობალურს არ ცვლის.</span>
+        <span lang="en"><code>10</code>. The <code>x</code> created inside the function is <b>local</b> — it does not touch the global one.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">6. <code class="inl">math.sqrt(16)</code> აბრუნებს <code class="inl">4</code>-ს თუ <code class="inl">4.0</code>-ს?</span>
+               <span lang="en">6. Does <code class="inl">math.sqrt(16)</code> return <code class="inl">4</code> or <code class="inl">4.0</code>?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>4.0</code> — <code>math</code>-ის ფუნქციები <code>float</code>-ს აბრუნებენ.</span>
+        <span lang="en"><code>4.0</code> — the <code>math</code> functions return floats.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">7. რომელი დიაპაზონიდან აბრუნებს რიცხვს <code class="inl">random.randint(1, 6)</code>?</span>
+               <span lang="en">7. What range does <code class="inl">random.randint(1, 6)</code> draw from?</span></summary>
+      <div class="ans">
+        <span lang="ka">1-დან 6-ის ჩათვლით — <b>ორივე კიდე შედის</b>, <code>range</code>-ისგან განსხვავებით.</span>
+        <span lang="en">1 to 6 inclusive — <b>both ends are included</b>, unlike <code>range</code>.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">8. რას აკეთებს <code class="inl">random.seed(42)</code>?</span>
+               <span lang="en">8. What does <code class="inl">random.seed(42)</code> do?</span></summary>
+      <div class="ans">
+        <span lang="ka">აფიქსირებს გენერატორის საწყის წერტილს — მიმდევრობა <b>განმეორებადი</b> ხდება. სასარგებლოა ტესტირებისთვის.</span>
+        <span lang="en">It fixes the generator’s starting point, making the sequence <b>reproducible</b>. Useful for testing.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">9. რას აბრუნებს <code class="inl">def f(): return 1, 2</code> და რა ტიპისაა?</span>
+               <span lang="en">9. What does <code class="inl">def f(): return 1, 2</code> return, and of what type?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>(1, 2)</code> — ერთი ობიექტი, <b>tuple</b>. შეიძლება დაიშალოს: <code>a, b = f()</code>.</span>
+        <span lang="en"><code>(1, 2)</code> — a single object, a <b>tuple</b>. It can be unpacked: <code>a, b = f()</code>.</span>
+      </div></details>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">საფუძველი</p>
-  <h2>სტრიქონის შექმნა</h2>
+  <p class="kicker"><span lang="ka">საფუძველი</span><span lang="en">Fundamentals</span></p>
+  <h2><span lang="ka">სტრიქონის შექმნა</span><span lang="en">Creating strings</span></h2>
 <pre class="code"><code>a = "ორმაგ ბრჭყალებში"
 b = 'ერთმაგ ბრჭყალებში'
 c = """მრავალხაზიანი
 ტექსტი"""
 
-# როცა ტექსტში ბრჭყალია
+# when the text itself contains quotes
 d = "მან თქვა: 'გამარჯობა'"
 e = 'ის არის "სტუდენტი"'
 f = "ეკრანირება: \"ბრჭყალი\" ტექსტში"</code></pre>
-  <h3 style="margin-top:16px">სპეციალური სიმბოლოები</h3>
+  <h3 style="margin-top:16px"><span lang="ka">სპეციალური სიმბოლოები</span><span lang="en">Escape sequences</span></h3>
   <table class="small">
-    <tr><th style="width:14%">ჩანაწერი</th><th>რას ნიშნავს</th></tr>
-    <tr><td><code>\n</code></td><td>ახალი ხაზი</td></tr>
-    <tr><td><code>\t</code></td><td>ტაბულაცია</td></tr>
-    <tr><td><code>\\</code></td><td>უკუსლეში</td></tr>
-    <tr><td><code>\"</code> <code>\'</code></td><td>ბრჭყალი ტექსტში</td></tr>
+    <tr>
+      <th style="width:14%"><span lang="ka">ჩანაწერი</span><span lang="en">Written as</span></th>
+      <th><span lang="ka">რას ნიშნავს</span><span lang="en">Meaning</span></th>
+    </tr>
+    <tr><td><code>\n</code></td><td><span lang="ka">ახალი ხაზი</span><span lang="en">New line</span></td></tr>
+    <tr><td><code>\t</code></td><td><span lang="ka">ტაბულაცია</span><span lang="en">Tab</span></td></tr>
+    <tr><td><code>\\</code></td><td><span lang="ka">უკუსლეში</span><span lang="en">Backslash</span></td></tr>
+    <tr><td><code>\"</code> <code>\'</code></td><td><span lang="ka">ბრჭყალი ტექსტში</span><span lang="en">A quote inside the text</span></td></tr>
   </table>
 <pre class="code" style="margin-top:10px"><code>print("გზა: C:\\Users\\K")
-print(r"გზა: C:\Users\K")     # r — "ნედლი" სტრიქონი</code></pre>
+print(r"გზა: C:\Users\K")     # r — a "raw" string</code></pre>
 </section>
 
 <section class="slide">
-  <p class="kicker">წვდომა</p>
-  <h2>ინდექსაცია — სიმბოლო ნომრით</h2>
+  <p class="kicker"><span lang="ka">წვდომა</span><span lang="en">Access</span></p>
+  <h2><span lang="ka">ინდექსაცია — სიმბოლო ნომრით</span><span lang="en">Indexing — a character by position</span></h2>
 <pre class="code"><code>s = "Python"
 #    0 1 2 3 4 5
 #   -6-5-4-3-2-1
 
-print(s[0])      # P   პირველი
-print(s[5])      # n   ბოლო
-print(s[-1])     # n   ბოლო, მოკლედ
-print(s[-2])     # o   ბოლოს წინა
+print(s[0])      # P   the first
+print(s[5])      # n   the last
+print(s[-1])     # n   the last, shorter
+print(s[-2])     # o   one before the last
 print(len(s))    # 6
 
 print(s[10])
 # IndexError: string index out of range</code></pre>
   <div class="two" style="margin-top:12px">
-    <div class="callout tip small"><b>ინდექსი 0-დან იწყება</b>ბოლო სიმბოლოს ინდექსია <code class="inl">len(s) - 1</code>, ან უბრალოდ <code class="inl">-1</code>.</div>
-    <div class="callout small"><b>უარყოფითი ინდექსი</b>ითვლის ბოლოდან. <code class="inl">s[-1]</code> ბევრად კითხვადია, ვიდრე <code class="inl">s[len(s)-1]</code>.</div>
+    <div class="callout tip small">
+      <span lang="ka"><b>ინდექსი 0-დან იწყება</b>ბოლო სიმბოლოს ინდექსია <code class="inl">len(s) - 1</code>, ან უბრალოდ <code class="inl">-1</code>.</span>
+      <span lang="en"><b>Indexing starts at 0</b>The last character is at <code class="inl">len(s) - 1</code>, or simply <code class="inl">-1</code>.</span>
+    </div>
+    <div class="callout small">
+      <span lang="ka"><b>უარყოფითი ინდექსი</b>ითვლის ბოლოდან. <code class="inl">s[-1]</code> ბევრად კითხვადია, ვიდრე <code class="inl">s[len(s)-1]</code>.</span>
+      <span lang="en"><b>Negative indexes</b>count from the end. <code class="inl">s[-1]</code> reads far better than <code class="inl">s[len(s)-1]</code>.</span>
+    </div>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">წვდომა</p>
-  <h2>ამონაჭერი (slice) — <code class="inl">[start:stop:step]</code></h2>
+  <p class="kicker"><span lang="ka">წვდომა</span><span lang="en">Access</span></p>
+  <h2><span lang="ka">ამონაჭერი (slice) — <code class="inl">[start:stop:step]</code></span><span lang="en">Slicing — <code class="inl">[start:stop:step]</code></span></h2>
 <pre class="code"><code>s = "პროგრამირება"
 
-print(s[0:5])     # პროგრ   — 5 არ შედის
-print(s[:5])      # პროგრ   — თავიდან
-print(s[5:])      # ამირება — ბოლომდე
-print(s[:])       # მთლიანი ასლი
-print(s[-4:])     # რება    — ბოლო 4
-print(s[::2])     # ყოველი მეორე
-print(s[::-1])    # შებრუნებული!</code></pre>
-  <div class="callout"><b>ისევ იგივე წესი</b><code class="inl">stop</code> <b>არ შედის</b> — ზუსტად ისე, როგორც <code class="inl">range()</code>-ში.</div>
-  <div class="callout tip"><b>ხერხი, რომელიც უნდა იცოდე</b><code class="inl">s[::-1]</code> — სტრიქონის შებრუნების უმოკლესი გზა. პალინდრომის შემოწმებისთვის აუცილებელია.</div>
-  <div class="note">დაფაზე დახატე ინდექსების ორი რიგი (დადებითი და უარყოფითი). სლაისინგი ვიზუალურად ბევრად ადვილად ესმით.</div>
+print(s[0:5])     # პროგრ   — 5 is excluded
+print(s[:5])      # პროგრ   — from the start
+print(s[5:])      # ამირება — to the end
+print(s[:])       # a full copy
+print(s[-4:])     # რება    — the last 4
+print(s[::2])     # every second character
+print(s[::-1])    # reversed!</code></pre>
+  <div class="callout">
+    <span lang="ka"><b>ისევ იგივე წესი</b><code class="inl">stop</code> <b>არ შედის</b> — ზუსტად ისე, როგორც <code class="inl">range()</code>-ში.</span>
+    <span lang="en"><b>The same rule again</b><code class="inl">stop</code> is <b>excluded</b> — exactly as in <code class="inl">range()</code>.</span>
+  </div>
+  <div class="callout tip">
+    <span lang="ka"><b>ხერხი, რომელიც უნდა იცოდე</b><code class="inl">s[::-1]</code> — სტრიქონის შებრუნების უმოკლესი გზა. პალინდრომის შემოწმებისთვის აუცილებელია.</span>
+    <span lang="en"><b>A trick worth knowing</b><code class="inl">s[::-1]</code> is the shortest way to reverse a string — essential for palindrome checks.</span>
+  </div>
+  <div class="note">
+    <span lang="ka">დაფაზე დახატე ინდექსების ორი რიგი (დადებითი და უარყოფითი). სლაისინგი ვიზუალურად ბევრად ადვილად ესმით.</span>
+    <span lang="en">Draw both index rows on the board (positive and negative). Slicing lands much better visually.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">მნიშვნელოვანი თვისება</p>
-  <h2>სტრიქონი <em>უცვლელია</em> (immutable)</h2>
+  <p class="kicker"><span lang="ka">მნიშვნელოვანი თვისება</span><span lang="en">An important property</span></p>
+  <h2><span lang="ka">სტრიქონი <em>უცვლელია</em> (immutable)</span><span lang="en">Strings are <em>immutable</em></span></h2>
 <pre class="code"><code>s = "Python"
 
 s[0] = "J"
 # TypeError: 'str' object does not support item assignment
 
-# სწორი გზა — ახალი სტრიქონის შექმნა
+# the right way — build a new string
 s2 = "J" + s[1:]
 print(s2)         # Jython
-print(s)          # Python — ორიგინალი უცვლელია</code></pre>
-  <div class="callout"><b>ყველა მეთოდი ახალ სტრიქონს აბრუნებს</b>
+print(s)          # Python — the original is unchanged</code></pre>
+  <div class="callout">
+    <span lang="ka"><b>ყველა მეთოდი ახალ სტრიქონს აბრუნებს</b></span>
+    <span lang="en"><b>Every method returns a new string</b></span>
 <pre class="code" style="margin-top:8px"><code>name = "ნინო"
-name.upper()          # შედეგი დაიკარგა!
+name.upper()          # the result is thrown away!
 print(name)           # ნინო
 
-name = name.upper()   # ✓ სწორად
-print(name)           # ნინო (ქართულს რეგისტრი არ აქვს)</code></pre></div>
-  <p class="small muted" style="margin-top:10px">სიები (X კვირა), პირიქით, <b>ცვალებადია</b> — ეს განსხვავება მნიშვნელოვანია.</p>
+name = name.upper()   # correct
+print(name)           # ნინო (Georgian has no letter case)</code></pre></div>
+  <p class="small muted" style="margin-top:10px">
+    <span lang="ka">სიები (X კვირა), პირიქით, <b>ცვალებადია</b> — ეს განსხვავება მნიშვნელოვანია.</span>
+    <span lang="en">Lists (week X), by contrast, are <b>mutable</b> — that difference matters.</span>
+  </p>
 </section>
 
 <section class="slide">
-  <p class="kicker">მეთოდები</p>
-  <h2>რეგისტრი და გასუფთავება</h2>
+  <p class="kicker"><span lang="ka">მეთოდები</span><span lang="en">Methods</span></p>
+  <h2><span lang="ka">რეგისტრი და გასუფთავება</span><span lang="en">Case and trimming</span></h2>
   <div class="two">
     <div>
-<pre class="code" data-title="რეგისტრი"><code>s = "python IS fun"
+<pre class="code" data-title="case"><code>s = "python IS fun"
 
 print(s.upper())       # PYTHON IS FUN
 print(s.lower())       # python is fun
@@ -139,7 +210,7 @@ print(s.capitalize())  # Python is fun
 print(s.swapcase())    # PYTHON is FUN</code></pre>
     </div>
     <div>
-<pre class="code" data-title="გასუფთავება"><code>s = "   ტექსტი   "
+<pre class="code" data-title="trimming"><code>s = "   ტექსტი   "
 
 print(s.strip())       # "ტექსტი"
 print(s.lstrip())      # "ტექსტი   "
@@ -149,59 +220,68 @@ f = "###სათაური###"
 print(f.strip("#"))    # "სათაური"</code></pre>
     </div>
   </div>
-  <div class="callout tip"><b><code class="inl">strip()</code> — თითქმის ყოველთვის საჭიროა</b><code class="inl">input()</code>-ით მიღებულ ტექსტში ხშირად ზედმეტი ჰარეებია. <code class="inl">input().strip()</code> კარგი ჩვევაა.</div>
+  <div class="callout tip">
+    <span lang="ka"><b><code class="inl">strip()</code> — თითქმის ყოველთვის საჭიროა</b><code class="inl">input()</code>-ით მიღებულ ტექსტში ხშირად ზედმეტი ჰარეებია. <code class="inl">input().strip()</code> კარგი ჩვევაა.</span>
+    <span lang="en"><b><code class="inl">strip()</code> — you almost always want it</b>Text from <code class="inl">input()</code> often carries stray spaces. <code class="inl">input().strip()</code> is a good habit.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">მეთოდები</p>
-  <h2>ძებნა</h2>
+  <p class="kicker"><span lang="ka">მეთოდები</span><span lang="en">Methods</span></p>
+  <h2><span lang="ka">ძებნა</span><span lang="en">Searching</span></h2>
 <pre class="code" data-title="search.py"><code>s = "პროგრამირება არის საინტერესო"
 
-print("არის" in s)            # True   — უმარტივესი შემოწმება
+print("არის" in s)            # True   — the simplest check
 print("java" not in s)        # True
 
-print(s.find("არის"))         # 13     — ინდექსი
-print(s.find("java"))         # -1     — ვერ იპოვა
+print(s.find("არის"))         # 13     — the index
+print(s.find("java"))         # -1     — not found
 print(s.index("არის"))        # 13
 # s.index("java")             # ValueError!
 
-print(s.count("რ"))           # რამდენჯერ გვხვდება
+print(s.count("რ"))           # how many times it occurs
 print(s.startswith("პრო"))    # True
 print(s.endswith("ო"))        # True</code></pre>
-  <div class="callout warn"><b><code class="inl">find</code> თუ <code class="inl">index</code>?</b><code class="inl">find</code> ვერ პოვნისას აბრუნებს <code class="inl">-1</code>-ს, <code class="inl">index</code> კი <b>შეცდომას აგდებს</b>. თუ არსებობა დარწმუნებული არ ხარ — <code class="inl">find</code> ან <code class="inl">in</code>.</div>
+  <div class="callout warn">
+    <span lang="ka"><b><code class="inl">find</code> თუ <code class="inl">index</code>?</b><code class="inl">find</code> ვერ პოვნისას აბრუნებს <code class="inl">-1</code>-ს, <code class="inl">index</code> კი <b>შეცდომას აგდებს</b>. თუ არსებობა დარწმუნებული არ ხარ — <code class="inl">find</code> ან <code class="inl">in</code>.</span>
+    <span lang="en"><b><code class="inl">find</code> or <code class="inl">index</code>?</b><code class="inl">find</code> returns <code class="inl">-1</code> when nothing is found; <code class="inl">index</code> <b>raises an error</b>. If you are not sure it is there, use <code class="inl">find</code> or <code class="inl">in</code>.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">მეთოდები</p>
-  <h2>ჩანაცვლება, დაშლა, შეერთება</h2>
+  <p class="kicker"><span lang="ka">მეთოდები</span><span lang="en">Methods</span></p>
+  <h2><span lang="ka">ჩანაცვლება, დაშლა, შეერთება</span><span lang="en">Replacing, splitting, joining</span></h2>
 <pre class="code"><code>s = "მე ვსწავლობ Java-ს"
 print(s.replace("Java", "Python"))
-print("aaa".replace("a", "b", 2))      # bba — მხოლოდ 2
+print("aaa".replace("a", "b", 2))      # bba — only 2
 
-# split — სტრიქონი → სია
+# split — string → list
 line = "ნინო,გიორგი,ანა"
 names = line.split(",")
 print(names)                # ['ნინო', 'გიორგი', 'ანა']
 
 text = "ერთი ორი სამი"
-print(text.split())         # ჰარეებით, ავტომატურად
+print(text.split())         # on whitespace, automatically
 
-# join — სია → სტრიქონი
+# join — list → string
 print(", ".join(names))     # ნინო, გიორგი, ანა
 print("-".join("abc"))      # a-b-c</code></pre>
-  <div class="callout tip"><b><code class="inl">split()</code> + <code class="inl">join()</code></b>ესაა ტექსტური მონაცემების დამუშავების საფუძველი — CSV ფაილები, მომხმარებლის შეყვანა, ლოგები. ფაილებთან მუშაობისას (IX კვირა) მუდმივად გამოვიყენებთ.</div>
+  <div class="callout tip">
+    <span lang="ka"><b><code class="inl">split()</code> + <code class="inl">join()</code></b>ესაა ტექსტური მონაცემების დამუშავების საფუძველი — CSV ფაილები, მომხმარებლის შეყვანა, ლოგები. ფაილებთან მუშაობისას (IX კვირა) მუდმივად გამოვიყენებთ.</span>
+    <span lang="en"><b><code class="inl">split()</code> + <code class="inl">join()</code></b>The foundation of text processing — CSV files, user input, log files. We will use them constantly once we reach files (week IX).</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">მეთოდები</p>
-  <h2>შემოწმება — რა შეიცავს სტრიქონი</h2>
-<pre class="code"><code>print("12345".isdigit())      # True   მხოლოდ ციფრები
-print("abc".isalpha())        # True   მხოლოდ ასოები
-print("abc123".isalnum())     # True   ასოები ან ციფრები
-print("   ".isspace())        # True   მხოლოდ ჰარეები
+  <p class="kicker"><span lang="ka">მეთოდები</span><span lang="en">Methods</span></p>
+  <h2><span lang="ka">შემოწმება — რა შეიცავს სტრიქონი</span><span lang="en">Checking what a string contains</span></h2>
+<pre class="code"><code>print("12345".isdigit())      # True   digits only
+print("abc".isalpha())        # True   letters only
+print("abc123".isalnum())     # True   letters or digits
+print("   ".isspace())        # True   whitespace only
 print("Hello".istitle())      # True
 print("ABC".isupper())        # True</code></pre>
-  <h3 style="margin-top:16px">პრაქტიკული გამოყენება</h3>
+  <h3 style="margin-top:16px"><span lang="ka">პრაქტიკული გამოყენება</span><span lang="en">In practice</span></h3>
 <pre class="code"><code>value = input("შეიყვანე რიცხვი: ").strip()
 
 if value.isdigit():
@@ -209,21 +289,24 @@ if value.isdigit():
     print("კვადრატი:", number ** 2)
 else:
     print("ეს რიცხვი არ არის")</code></pre>
-  <div class="callout warn"><b>ყურადღება</b><code class="inl">"-5".isdigit()</code> და <code class="inl">"3.14".isdigit()</code> ორივე <code class="inl">False</code>-ია — მინუსი და წერტილი ციფრები არაა. სრულყოფილი შემოწმებისთვის <code class="inl">try/except</code>-ია საჭირო (XII კვირა).</div>
+  <div class="callout warn">
+    <span lang="ka"><b>ყურადღება</b><code class="inl">"-5".isdigit()</code> და <code class="inl">"3.14".isdigit()</code> ორივე <code class="inl">False</code>-ია — მინუსი და წერტილი ციფრები არაა. სრულყოფილი შემოწმებისთვის <code class="inl">try/except</code>-ია საჭირო (XII კვირა).</span>
+    <span lang="en"><b>Careful</b>Both <code class="inl">"-5".isdigit()</code> and <code class="inl">"3.14".isdigit()</code> are <code class="inl">False</code> — a minus sign and a dot are not digits. A complete check needs <code class="inl">try/except</code> (week XII).</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ფორმატირება</p>
-  <h2>f-სტრიქონის სრული შესაძლებლობები</h2>
+  <p class="kicker"><span lang="ka">ფორმატირება</span><span lang="en">Formatting</span></p>
+  <h2><span lang="ka">f-სტრიქონის სრული შესაძლებლობები</span><span lang="en">The full power of f-strings</span></h2>
 <pre class="code"><code>name = "ნინო"
 score = 87.6543
 n = 42
 
 print(f"{name} — {score:.2f}")        # ნინო — 87.65
-print(f"{score:10.2f}")               # "     87.65"  სიგანე 10
-print(f"{name:&gt;12}")                  # მარჯვნივ
-print(f"{name:&lt;12}|")                 # მარცხნივ
-print(f"{name:^12}|")                 # ცენტრში
+print(f"{score:10.2f}")               # "     87.65"  width 10
+print(f"{name:&gt;12}")                  # right aligned
+print(f"{name:&lt;12}|")                 # left aligned
+print(f"{name:^12}|")                 # centred
 print(f"{name:*^12}")                 # ****ნინო****
 
 print(f"{n:05}")                      # 00042
@@ -231,16 +314,19 @@ print(f"{1234567:,}")                 # 1,234,567
 print(f"{0.256:.1%}")                 # 25.6%
 print(f"{255:b} {255:o} {255:x}")     # 11111111 377 ff
 
-print(f"{n = }")                      # n = 42  (გამართვისთვის)</code></pre>
-  <div class="callout tip"><b>ცხრილის დაბეჭდვა</b><code class="inl">f"{name:&lt;15}{score:&gt;8.2f}"</code> — გასწორებული სვეტები ყოველგვარი ბიბლიოთეკის გარეშე.</div>
+print(f"{n = }")                      # n = 42  (for debugging)</code></pre>
+  <div class="callout tip">
+    <span lang="ka"><b>ცხრილის დაბეჭდვა</b><code class="inl">f"{name:&lt;15}{score:&gt;8.2f}"</code> — გასწორებული სვეტები ყოველგვარი ბიბლიოთეკის გარეშე.</span>
+    <span lang="en"><b>Printing a table</b><code class="inl">f"{name:&lt;15}{score:&gt;8.2f}"</code> — aligned columns without any library at all.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">პრაქტიკა</p>
-  <h2>სტრიქონზე ციკლით გავლა</h2>
+  <p class="kicker"><span lang="ka">პრაქტიკა</span><span lang="en">Practice</span></p>
+  <h2><span lang="ka">სტრიქონზე ციკლით გავლა</span><span lang="en">Looping over a string</span></h2>
   <div class="two">
     <div>
-<pre class="code" data-title="ხმოვნების დათვლა"><code>text = input("ტექსტი: ").lower()
+<pre class="code" data-title="counting vowels"><code>text = input("ტექსტი: ").lower()
 vowels = "აეიოუ"
 count = 0
 
@@ -251,7 +337,7 @@ for ch in text:
 print("ხმოვნები:", count)</code></pre>
     </div>
     <div>
-<pre class="code" data-title="პალინდრომი"><code>word = input("სიტყვა: ").lower().strip()
+<pre class="code" data-title="palindrome"><code>word = input("სიტყვა: ").lower().strip()
 clean = ""
 
 for ch in word:
@@ -264,16 +350,19 @@ else:
     print("არაა პალინდრომი")</code></pre>
     </div>
   </div>
-<pre class="code" data-title="ინდექსთან ერთად" style="margin-top:8px"><code>for i, ch in enumerate("Python"):
+<pre class="code" data-title="with the index" style="margin-top:8px"><code>for i, ch in enumerate("Python"):
     print(i, ch)</code></pre>
-  <div class="callout tip"><b><code class="inl">enumerate()</code></b>ერთდროულად გაძლევს ინდექსსაც და მნიშვნელობასაც. <code class="inl">range(len(s))</code>-ზე ბევრად კითხვადია.</div>
+  <div class="callout tip">
+    <span lang="ka"><b><code class="inl">enumerate()</code></b>ერთდროულად გაძლევს ინდექსსაც და მნიშვნელობასაც. <code class="inl">range(len(s))</code>-ზე ბევრად კითხვადია.</span>
+    <span lang="en"><b><code class="inl">enumerate()</code></b>gives you the index and the value at once. Far more readable than <code class="inl">range(len(s))</code>.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">სრული მაგალითი</p>
-  <h2>ტექსტის ანალიზატორი</h2>
+  <p class="kicker"><span lang="ka">სრული მაგალითი</span><span lang="en">Full example</span></p>
+  <h2><span lang="ka">ტექსტის ანალიზატორი</span><span lang="en">A text analyser</span></h2>
 <pre class="code" data-title="analyze.py"><code>def analyze(text):
-    """ტექსტის მოკლე სტატისტიკა."""
+    """ტექსტის მოკლე სტატისტიკა. / Quick text statistics."""
     words = text.split()
     letters = sum(1 for ch in text if ch.isalpha())
 
@@ -289,24 +378,34 @@ else:
 
 sample = input("ჩასვი ტექსტი: ")
 analyze(sample)</code></pre>
-  <div class="note">ეს კარგი „ხიდია“ ფუნქციებსა და სტრიქონებს შორის. სთხოვე დაამატონ: საშუალო სიტყვის სიგრძე, ყველაზე ხშირი ასო (ეს უკვე ლექსიკონს მოითხოვს — კაუჭი XI კვირისთვის).</div>
+  <div class="note">
+    <span lang="ka">ეს კარგი „ხიდია“ ფუნქციებსა და სტრიქონებს შორის. სთხოვე დაამატონ: საშუალო სიტყვის სიგრძე, ყველაზე ხშირი ასო (ეს უკვე ლექსიკონს მოითხოვს — კაუჭი XI კვირისთვის).</span>
+    <span lang="en">A good bridge between functions and strings. Ask them to add: average word length, most frequent letter (that already needs a dictionary — a hook for week XI).</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">მომზადება</p>
-  <h2>შუალედური გამოცდა — VIII კვირა</h2>
+  <p class="kicker"><span lang="ka">მომზადება</span><span lang="en">Preparation</span></p>
+  <h2><span lang="ka">შუალედური გამოცდა — VIII კვირა</span><span lang="en">The midterm exam — week VIII</span></h2>
   <div class="two">
     <div>
-      <h3>ფორმატი — 30 ქულა</h3>
-      <ul class="pts tight">
+      <h3><span lang="ka">ფორმატი — 30 ქულა</span><span lang="en">Format — 30 points</span></h3>
+      <ul class="pts tight" lang="ka">
         <li><b>10 ტესტური კითხვა</b> × 1 ქულა</li>
         <li><b>10 ღია კითხვა</b> × 2 ქულა</li>
       </ul>
-      <div class="callout warn small" style="margin-top:12px"><b>ყურადღება</b>ბევრ პროგრამაში შუალედურზე მინიმალური ზღვრის ვერგადალახვა დასკვნით გამოცდაზე დაშვებას გიკეტავს — ზუსტი წესი შენს კურსში დააზუსტე.</div>
+      <ul class="pts tight" lang="en">
+        <li><b>10 test questions</b> × 1 point</li>
+        <li><b>10 open questions</b> × 2 points</li>
+      </ul>
+      <div class="callout warn small" style="margin-top:12px">
+        <span lang="ka"><b>ყურადღება</b>ბევრ პროგრამაში შუალედურზე მინიმალური ზღვრის ვერგადალახვა დასკვნით გამოცდაზე დაშვებას გიკეტავს — ზუსტი წესი შენს კურსში დააზუსტე.</span>
+        <span lang="en"><b>Careful</b>In many programmes, failing to clear the midterm threshold blocks you from the final exam — check the exact rule for your own course.</span>
+      </div>
     </div>
     <div>
-      <h3>რა შედის</h3>
-      <ul class="pts tight">
+      <h3><span lang="ka">რა შედის</span><span lang="en">What it covers</span></h3>
+      <ul class="pts tight" lang="ka">
         <li>I–VII კვირის მთელი მასალა</li>
         <li>სინტაქსი, ტიპები, ოპერატორები</li>
         <li>პირობები და ციკლები</li>
@@ -314,15 +413,26 @@ analyze(sample)</code></pre>
         <li>საკუთარი ფუნქციები</li>
         <li>სტრიქონები და მათი მეთოდები</li>
       </ul>
+      <ul class="pts tight" lang="en">
+        <li>Everything from weeks I–VII</li>
+        <li>Syntax, types, operators</li>
+        <li>Conditions and loops</li>
+        <li>Built-in functions, <code class="inl">math</code>, <code class="inl">random</code></li>
+        <li>Writing your own functions</li>
+        <li>Strings and their methods</li>
+      </ul>
     </div>
   </div>
-  <div class="callout tip"><b>როგორ მოემზადო</b>გაიარე ყოველი ლექციის „შემაჯამებელი“ სლაიდი და გამეორების კითხვები (ლექციები 03, 05, 07). ხელახლა დაწერე — არა წაიკითხო — 3 პრაქტიკული დავალება.</div>
+  <div class="callout tip">
+    <span lang="ka"><b>როგორ მოემზადო</b>გაიარე ყოველი ლექციის „შემაჯამებელი“ სლაიდი და გამეორების კითხვები (ლექციები 03, 05, 07). ხელახლა დაწერე — არა წაიკითხო — 3 პრაქტიკული დავალება.</span>
+    <span lang="en"><b>How to prepare</b>Go through the wrap-up slide of every lecture and the review questions (lectures 03, 05, 07). Re-write — do not just re-read — three of the practical assignments.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">შემაჯამებელი</p>
-  <h2>რა უნდა დაგამახსოვრდეს</h2>
-  <ul class="pts">
+  <p class="kicker"><span lang="ka">შემაჯამებელი</span><span lang="en">Wrap-up</span></p>
+  <h2><span lang="ka">რა უნდა დაგამახსოვრდეს</span><span lang="en">What to remember</span></h2>
+  <ul class="pts" lang="ka">
     <li>სტრიქონი <b>უცვლელია</b> — ყველა მეთოდი ახალს აბრუნებს: <code class="inl">s = s.upper()</code></li>
     <li>ინდექსი 0-დან; <code class="inl">-1</code> — ბოლო; ამონაჭერი <code class="inl">s[a:b:c]</code>, <code class="inl">b</code> არ შედის</li>
     <li><code class="inl">s[::-1]</code> — შებრუნება</li>
@@ -330,8 +440,22 @@ analyze(sample)</code></pre>
     <li>დამუშავება: <code class="inl">strip · replace · split · join</code></li>
     <li>ფორმატირება: <code class="inl">f"{value:&lt;10.2f}"</code></li>
   </ul>
-  <div class="callout"><b>სახლში</b>1) სიტყვების დათვლა და ყველაზე გრძელის პოვნა. 2) CSV-ხაზის დაშლა და ლამაზად დაბეჭდვა. 3) ცეზარის შიფრი (ასოს გადაწევა). 4) სახელისა და გვარის ინიციალები.</div>
-  <div class="callout tip"><b>შემდეგი — VIII კვირა: შუალედური გამოცდა</b>ლექცია 08 — გამეორების სრული დეკი მოსამზადებლად.</div>
+  <ul class="pts" lang="en">
+    <li>Strings are <b>immutable</b> — every method returns a new one: <code class="inl">s = s.upper()</code></li>
+    <li>Indexing from 0; <code class="inl">-1</code> is the last; slicing <code class="inl">s[a:b:c]</code>, where <code class="inl">b</code> is excluded</li>
+    <li><code class="inl">s[::-1]</code> — reverse</li>
+    <li>Searching: <code class="inl">in</code> · <code class="inl">find</code> (−1) · <code class="inl">index</code> (raises) · <code class="inl">count</code></li>
+    <li>Processing: <code class="inl">strip · replace · split · join</code></li>
+    <li>Formatting: <code class="inl">f"{value:&lt;10.2f}"</code></li>
+  </ul>
+  <div class="callout">
+    <span lang="ka"><b>სახლში</b>1) სიტყვების დათვლა და ყველაზე გრძელის პოვნა. 2) CSV-ხაზის დაშლა და ლამაზად დაბეჭდვა. 3) ცეზარის შიფრი (ასოს გადაწევა). 4) სახელისა და გვარის ინიციალები.</span>
+    <span lang="en"><b>At home</b>1) Count the words and find the longest one. 2) Split a CSV line and print it neatly. 3) A Caesar cipher (shifting letters). 4) Initials from a first and last name.</span>
+  </div>
+  <div class="callout tip">
+    <span lang="ka"><b>შემდეგი — VIII კვირა: შუალედური გამოცდა</b>ლექცია 08 — გამეორების სრული დეკი მოსამზადებლად.</span>
+    <span lang="en"><b>Next — week VIII: the midterm</b>Lecture 08 is a full revision deck to prepare with.</span>
+  </div>
 </section>
 
 </main>

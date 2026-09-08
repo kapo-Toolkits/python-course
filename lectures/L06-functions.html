@@ -10,18 +10,24 @@
 <main class="deck">
 
 <section class="slide">
-  <p class="kicker">ლექცია 06 · VI კვირა</p>
-  <h1>საკუთარი<br>ფუნქციები</h1>
-  <p class="lead" style="margin-top:16px"><code class="inl">def</code> · პარამეტრიანი და უპარამეტრო ფუნქციები · გაჩუმებით პარამეტრი · ანონიმური ფუნქცია</p>
-  <p class="small muted" style="margin-top:22px">დღეს ასევე: <b>პრაქტიკული დავალება #2</b></p>
+  <p class="kicker"><span lang="ka">ლექცია 06 · VI კვირა</span><span lang="en">Lecture 06 · Week VI</span></p>
+  <h1><span lang="ka">საკუთარი<br>ფუნქციები</span><span lang="en">Writing your<br>own functions</span></h1>
+  <p class="lead" style="margin-top:16px">
+    <span lang="ka"><code class="inl">def</code> · პარამეტრიანი და უპარამეტრო ფუნქციები · გაჩუმებით პარამეტრი · ანონიმური ფუნქცია</span>
+    <span lang="en"><code class="inl">def</code> · functions with and without parameters · default parameters · anonymous functions</span>
+  </p>
+  <p class="small muted" style="margin-top:22px">
+    <span lang="ka">დღეს ასევე: <b>პრაქტიკული დავალება #2</b></span>
+    <span lang="en">Also today: <b>practical assignment #2</b></span>
+  </p>
 </section>
 
 <section class="slide">
-  <p class="kicker">მოტივაცია</p>
-  <h2>რატომ ვქმნით ფუნქციებს</h2>
+  <p class="kicker"><span lang="ka">მოტივაცია</span><span lang="en">Motivation</span></p>
+  <h2><span lang="ka">რატომ ვქმნით ფუნქციებს</span><span lang="en">Why we write functions</span></h2>
   <div class="two">
     <div>
-      <h3 style="color:var(--danger)">გამეორება</h3>
+      <h3 style="color:var(--danger)"><span lang="ka">გამეორება</span><span lang="en">Repetition</span></h3>
 <pre class="code"><code>a, b = 3, 4
 print((a ** 2 + b ** 2) ** 0.5)
 
@@ -30,62 +36,79 @@ print((c ** 2 + d ** 2) ** 0.5)
 
 e, f = 5, 12
 print((e ** 2 + f ** 2) ** 0.5)</code></pre>
-      <p class="small muted" style="margin-top:8px">ფორმულა შესაცვლელი რომ იყოს — სამივე ადგილას უნდა შეასწორო.</p>
+      <p class="small muted" style="margin-top:8px">
+        <span lang="ka">ფორმულა შესაცვლელი რომ იყოს — სამივე ადგილას უნდა შეასწორო.</span>
+        <span lang="en">If the formula changes, you must fix it in all three places.</span>
+      </p>
     </div>
     <div>
-      <h3 style="color:var(--accent2)">ფუნქციით</h3>
+      <h3 style="color:var(--accent2)"><span lang="ka">ფუნქციით</span><span lang="en">With a function</span></h3>
 <pre class="code"><code>def hypotenuse(a, b):
     return (a ** 2 + b ** 2) ** 0.5
 
 print(hypotenuse(3, 4))
 print(hypotenuse(6, 8))
 print(hypotenuse(5, 12))</code></pre>
-      <div class="callout tip small" style="margin-top:12px"><b>DRY</b><i>Don't Repeat Yourself</i> — ერთი ლოგიკა ერთ ადგილას უნდა ცხოვრობდეს.</div>
+      <div class="callout tip small" style="margin-top:12px">
+        <span lang="ka"><b>DRY</b><i>Don't Repeat Yourself</i> — ერთი ლოგიკა ერთ ადგილას უნდა ცხოვრობდეს.</span>
+        <span lang="en"><b>DRY</b><i>Don’t Repeat Yourself</i> — one piece of logic should live in one place.</span>
+      </div>
     </div>
   </div>
-  <div class="note">ხაზი გაუსვი: ფუნქცია მხოლოდ „ხაზების დაზოგვა“ არაა — ეს <b>სახელის მიცემაა</b> აზრისთვის. კარგად დასახელებული ფუნქცია კომენტარს ცვლის.</div>
+  <div class="note">
+    <span lang="ka">ხაზი გაუსვი: ფუნქცია მხოლოდ „ხაზების დაზოგვა“ არაა — ეს <b>სახელის მიცემაა</b> აზრისთვის. კარგად დასახელებული ფუნქცია კომენტარს ცვლის.</span>
+    <span lang="en">Stress this: a function is not just about saving lines — it is about <b>naming an idea</b>. A well-named function replaces a comment.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">სინტაქსი</p>
-  <h2><code class="inl">def</code> — ფუნქციის აღწერა</h2>
-<pre class="code" data-title="სქემა"><code class="nohl">def სახელი(პარამეტრები):
-    """დოკუმენტაცია — არასავალდებულო"""
-    სხეული
-    return შედეგი</code></pre>
+  <p class="kicker"><span lang="ka">სინტაქსი</span><span lang="en">Syntax</span></p>
+  <h2><span lang="ka"><code class="inl">def</code> — ფუნქციის აღწერა</span><span lang="en"><code class="inl">def</code> — defining a function</span></h2>
+<pre class="code" data-title="shape"><code class="nohl">def name(parameters):
+    """documentation — optional"""
+    body
+    return result</code></pre>
   <div class="two" style="margin-top:14px">
     <div>
 <pre class="code"><code>def greet():
     print("გამარჯობა!")
 
-greet()          # გამოძახება
+greet()          # calling it
 greet()</code></pre>
-      <p class="small muted" style="margin-top:8px">უპარამეტრო ფუნქცია. ფრჩხილები მაინც სავალდებულოა.</p>
+      <p class="small muted" style="margin-top:8px">
+        <span lang="ka">უპარამეტრო ფუნქცია. ფრჩხილები მაინც სავალდებულოა.</span>
+        <span lang="en">A function with no parameters. The parentheses are still required.</span>
+      </p>
     </div>
     <div>
-      <ul class="pts tight">
+      <ul class="pts tight" lang="ka">
         <li><b>აღწერა ≠ შესრულება</b><small><code class="inl">def</code> მხოლოდ „ასწავლის“ Python-ს. კოდი მხოლოდ გამოძახებისას შესრულდება</small></li>
         <li><b>აღწერა გამოძახებამდე</b><small>წინააღმდეგ შემთხვევაში — <code class="inl">NameError</code></small></li>
         <li><b>სახელი</b><small><code class="inl">snake_case</code>, ზმნით იწყება: <code class="inl">calculate_total</code>, <code class="inl">is_valid</code></small></li>
+      </ul>
+      <ul class="pts tight" lang="en">
+        <li><b>Defining ≠ running</b><small><code class="inl">def</code> only teaches Python the recipe. The body runs only when called</small></li>
+        <li><b>Define before you call</b><small>Otherwise — <code class="inl">NameError</code></small></li>
+        <li><b>The name</b><small><code class="inl">snake_case</code>, usually starting with a verb: <code class="inl">calculate_total</code>, <code class="inl">is_valid</code></small></li>
       </ul>
     </div>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">გასაღები</p>
+  <p class="kicker"><span lang="ka">გასაღები</span><span lang="en">The key idea</span></p>
   <h2><code class="inl">return</code> ≠ <code class="inl">print</code></h2>
   <div class="two">
     <div>
-<pre class="code" data-title="print — მხოლოდ აჩვენებს"><code>def add_print(a, b):
+<pre class="code" data-title="print — only displays"><code>def add_print(a, b):
     print(a + b)
 
-result = add_print(2, 3)   # ეკრანზე: 5
+result = add_print(2, 3)   # on screen: 5
 print(result)              # None
 print(result * 2)          # TypeError!</code></pre>
     </div>
     <div>
-<pre class="code" data-title="return — აბრუნებს მნიშვნელობას"><code>def add(a, b):
+<pre class="code" data-title="return — hands back a value"><code>def add(a, b):
     return a + b
 
 result = add(2, 3)
@@ -94,41 +117,52 @@ print(result * 2)          # 10
 print(add(1, 1) + add(2, 2))  # 6</code></pre>
     </div>
   </div>
-  <div class="callout err"><b>ეს ყველაზე ხშირი გაუგებრობაა დამწყებთან</b><code class="inl">print</code> — ეკრანზე გამოტანაა (ადამიანისთვის). <code class="inl">return</code> — მნიშვნელობის დაბრუნებაა (პროგრამისთვის). თუ <code class="inl">return</code> არაა, ფუნქცია <code class="inl">None</code>-ს აბრუნებს.</div>
+  <div class="callout err">
+    <span lang="ka"><b>ეს ყველაზე ხშირი გაუგებრობაა დამწყებთან</b><code class="inl">print</code> — ეკრანზე გამოტანაა (ადამიანისთვის). <code class="inl">return</code> — მნიშვნელობის დაბრუნებაა (პროგრამისთვის). თუ <code class="inl">return</code> არაა, ფუნქცია <code class="inl">None</code>-ს აბრუნებს.</span>
+    <span lang="en"><b>The most common beginner confusion</b><code class="inl">print</code> displays something on screen (for a human). <code class="inl">return</code> hands a value back (for the program). Without a <code class="inl">return</code>, a function returns <code class="inl">None</code>.</span>
+  </div>
 <pre class="code" style="margin-top:8px"><code>def check(n):
     if n &gt; 0:
-        return "დადებითი"     # აქვე გამოდის ფუნქციიდან
-    return "არადადებითი"      # else არ სჭირდება</code></pre>
+        return "დადებითი"     # exits the function right here
+    return "არადადებითი"      # no else needed</code></pre>
 </section>
 
 <section class="slide">
-  <p class="kicker">არგუმენტები</p>
-  <h2>პარამეტრები და არგუმენტები</h2>
-<pre class="code"><code>def rectangle_area(width, height):   # width, height — პარამეტრები
+  <p class="kicker"><span lang="ka">არგუმენტები</span><span lang="en">Arguments</span></p>
+  <h2><span lang="ka">პარამეტრები და არგუმენტები</span><span lang="en">Parameters and arguments</span></h2>
+<pre class="code"><code>def rectangle_area(width, height):   # width, height — parameters
     return width * height
 
-print(rectangle_area(4, 5))          # 4, 5 — არგუმენტები</code></pre>
-  <h3 style="margin-top:18px">გადაცემის ორი გზა</h3>
+print(rectangle_area(4, 5))          # 4, 5 — arguments</code></pre>
+  <h3 style="margin-top:18px"><span lang="ka">გადაცემის ორი გზა</span><span lang="en">Two ways to pass them</span></h3>
   <div class="two">
     <div>
-<pre class="code" data-title="პოზიციური"><code>def intro(name, city, age):
+<pre class="code" data-title="positional"><code>def intro(name, city, age):
     print(f"{name}, {city}, {age} წლის")
 
 intro("ნინო", "თბილისი", 20)</code></pre>
-      <p class="small muted" style="margin-top:6px">თანმიმდევრობა მნიშვნელოვანია.</p>
+      <p class="small muted" style="margin-top:6px">
+        <span lang="ka">თანმიმდევრობა მნიშვნელოვანია.</span><span lang="en">The order matters.</span>
+      </p>
     </div>
     <div>
-<pre class="code" data-title="სახელდებული"><code>intro(age=20, name="ნინო", city="თბილისი")
+<pre class="code" data-title="keyword"><code>intro(age=20, name="ნინო", city="თბილისი")
 intro("ნინო", age=20, city="თბილისი")</code></pre>
-      <p class="small muted" style="margin-top:6px">თანმიმდევრობა თავისუფალია, კოდი კითხვადი.</p>
-      <div class="callout warn small" style="margin-top:10px"><b>წესი</b>პოზიციური არგუმენტი <b>ვერ</b> დადგება სახელდებულის შემდეგ.</div>
+      <p class="small muted" style="margin-top:6px">
+        <span lang="ka">თანმიმდევრობა თავისუფალია, კოდი კითხვადი.</span>
+        <span lang="en">Order is free and the code reads clearly.</span>
+      </p>
+      <div class="callout warn small" style="margin-top:10px">
+        <span lang="ka"><b>წესი</b>პოზიციური არგუმენტი <b>ვერ</b> დადგება სახელდებულის შემდეგ.</span>
+        <span lang="en"><b>Rule</b>A positional argument <b>cannot</b> follow a keyword argument.</span>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">არგუმენტები</p>
-  <h2>გაჩუმებით (ნაგულისხმევი) პარამეტრი</h2>
+  <p class="kicker"><span lang="ka">არგუმენტები</span><span lang="en">Arguments</span></p>
+  <h2><span lang="ka">გაჩუმებით (ნაგულისხმევი) პარამეტრი</span><span lang="en">Default parameters</span></h2>
 <pre class="code" data-title="default.py"><code>def greet(name, greeting="გამარჯობა"):
     print(f"{greeting}, {name}!")
 
@@ -139,18 +173,24 @@ greet("ანა", greeting="დილა მშვიდობისა")
 def power(base, exp=2):
     return base ** exp
 
-print(power(5))        # 25  — კვადრატი, გაჩუმებით
+print(power(5))        # 25  — squared by default
 print(power(5, 3))     # 125</code></pre>
-  <div class="callout warn"><b>წესი</b>ნაგულისხმევიანი პარამეტრები ყოველთვის <b>ბოლოში</b> იწერება.<br><code class="inl">def f(a=1, b):</code> → <code class="inl">SyntaxError</code></div>
-  <div class="callout err"><b>ხაფანგი, რომელიც უნდა იცოდე</b>ნაგულისხმევ მნიშვნელობად <b>არასდროს</b> გამოიყენო ცვალებადი ობიექტი (სია, ლექსიკონი): <code class="inl">def f(items=[])</code> — ის <b>ერთხელ</b> იქმნება და ყველა გამოძახებას შორის ინახება. სწორია <code class="inl">def f(items=None)</code>.</div>
+  <div class="callout warn">
+    <span lang="ka"><b>წესი</b>ნაგულისხმევიანი პარამეტრები ყოველთვის <b>ბოლოში</b> იწერება.<br><code class="inl">def f(a=1, b):</code> → <code class="inl">SyntaxError</code></span>
+    <span lang="en"><b>Rule</b>Parameters with defaults always come <b>last</b>.<br><code class="inl">def f(a=1, b):</code> → <code class="inl">SyntaxError</code></span>
+  </div>
+  <div class="callout err">
+    <span lang="ka"><b>ხაფანგი, რომელიც უნდა იცოდე</b>ნაგულისხმევ მნიშვნელობად <b>არასდროს</b> გამოიყენო ცვალებადი ობიექტი (სია, ლექსიკონი): <code class="inl">def f(items=[])</code> — ის <b>ერთხელ</b> იქმნება და ყველა გამოძახებას შორის ინახება. სწორია <code class="inl">def f(items=None)</code>.</span>
+    <span lang="en"><b>A trap worth knowing</b><b>Never</b> use a mutable object (list, dict) as a default: <code class="inl">def f(items=[])</code> — it is created <b>once</b> and shared across every call. The correct form is <code class="inl">def f(items=None)</code>.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">არგუმენტები</p>
-  <h2>ცვალებადი რაოდენობა: <code class="inl">*args</code> და <code class="inl">**kwargs</code></h2>
+  <p class="kicker"><span lang="ka">არგუმენტები</span><span lang="en">Arguments</span></p>
+  <h2><span lang="ka">ცვალებადი რაოდენობა: <code class="inl">*args</code> და <code class="inl">**kwargs</code></span><span lang="en">A variable number: <code class="inl">*args</code> and <code class="inl">**kwargs</code></span></h2>
   <div class="two">
     <div>
-<pre class="code" data-title="*args — პოზიციური"><code>def total(*numbers):
+<pre class="code" data-title="*args — positional"><code>def total(*numbers):
     result = 0
     for n in numbers:
         result += n
@@ -161,7 +201,7 @@ print(total(1, 2, 3, 4, 5))   # 15
 print(total())                # 0</code></pre>
     </div>
     <div>
-<pre class="code" data-title="**kwargs — სახელდებული"><code>def profile(**info):
+<pre class="code" data-title="**kwargs — keyword"><code>def profile(**info):
     for key, value in info.items():
         print(f"{key}: {value}")
 
@@ -171,12 +211,15 @@ age: 20
 city: ბათუმი</p>
     </div>
   </div>
-  <div class="callout tip"><b>მნიშვნელოვანია ვარსკვლავი, არა სახელი</b><code class="inl">args</code> და <code class="inl">kwargs</code> უბრალოდ მიღებული სახელებია. <code class="inl">*</code> აგროვებს პოზიციურს, <code class="inl">**</code> — სახელდებულს.</div>
+  <div class="callout tip">
+    <span lang="ka"><b>მნიშვნელოვანია ვარსკვლავი, არა სახელი</b><code class="inl">args</code> და <code class="inl">kwargs</code> უბრალოდ მიღებული სახელებია. <code class="inl">*</code> აგროვებს პოზიციურს, <code class="inl">**</code> — სახელდებულს.</span>
+    <span lang="en"><b>The asterisk matters, not the name</b><code class="inl">args</code> and <code class="inl">kwargs</code> are just conventional names. <code class="inl">*</code> collects positional arguments, <code class="inl">**</code> collects keyword ones.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">დაბრუნება</p>
-  <h2>რამდენიმე მნიშვნელობის დაბრუნება</h2>
+  <p class="kicker"><span lang="ka">დაბრუნება</span><span lang="en">Returning</span></p>
+  <h2><span lang="ka">რამდენიმე მნიშვნელობის დაბრუნება</span><span lang="en">Returning several values</span></h2>
 <pre class="code"><code>def stats(a, b, c):
     return min(a, b, c), max(a, b, c), (a + b + c) / 3
 
@@ -187,7 +230,10 @@ result = stats(4, 9, 2)
 print(result)                  # (2, 9, 5.0)
 print(type(result))            # &lt;class 'tuple'&gt;
 print(result[0])               # 2</code></pre>
-  <div class="callout"><b>რა მოხდა სინამდვილეში</b>Python ერთ ობიექტს აბრუნებს — <b><code class="inl">tuple</code>-ს</b> (X კვირა). მისი „დაშლა“ ცალკე ცვლადებად ეწოდება <i>unpacking</i>.</div>
+  <div class="callout">
+    <span lang="ka"><b>რა მოხდა სინამდვილეში</b>Python ერთ ობიექტს აბრუნებს — <b><code class="inl">tuple</code>-ს</b> (X კვირა). მისი „დაშლა“ ცალკე ცვლადებად ეწოდება <i>unpacking</i>.</span>
+    <span lang="en"><b>What actually happened</b>Python returns one object — a <b><code class="inl">tuple</code></b> (week X). Splitting it into separate variables is called <i>unpacking</i>.</span>
+  </div>
 <pre class="code" style="margin-top:8px"><code>def divide(a, b):
     return a // b, a % b
 
@@ -196,39 +242,47 @@ print(f"{whole} მთელი, {rest} ნაშთი")   # 3 მთელი,
 </section>
 
 <section class="slide">
-  <p class="kicker">ცნება</p>
-  <h2>ხილვადობის არე (scope)</h2>
-<pre class="code" data-title="scope.py"><code>counter = 10          # გლობალური
+  <p class="kicker"><span lang="ka">ცნება</span><span lang="en">Concept</span></p>
+  <h2><span lang="ka">ხილვადობის არე (scope)</span><span lang="en">Scope</span></h2>
+<pre class="code" data-title="scope.py"><code>counter = 10          # global
 
 def show():
-    counter = 5       # ლოკალური — ახალი ცვლადია!
+    counter = 5       # local — a brand new variable!
     print("შიგნით:", counter)
 
 show()                # შიგნით: 5
 print("გარეთ:", counter)   # გარეთ: 10</code></pre>
   <div class="two" style="margin-top:14px">
     <div class="card">
-      <h3>ლოკალური</h3>
-      <p class="small">იბადება ფუნქციის გამოძახებისას, კვდება დასრულებისას. გარედან მიუწვდომელია.</p>
+      <h3><span lang="ka">ლოკალური</span><span lang="en">Local</span></h3>
+      <p class="small" lang="ka">იბადება ფუნქციის გამოძახებისას, კვდება დასრულებისას. გარედან მიუწვდომელია.</p>
+      <p class="small" lang="en">Born when the function is called, gone when it ends. Not reachable from outside.</p>
     </div>
     <div class="card">
-      <h3>გლობალური</h3>
-      <p class="small">ცხოვრობს მთელი პროგრამის განმავლობაში. ფუნქციას <b>წაკითხვა</b> შეუძლია, <b>შეცვლა</b> — მხოლოდ <code>global</code>-ით.</p>
+      <h3><span lang="ka">გლობალური</span><span lang="en">Global</span></h3>
+      <p class="small" lang="ka">ცხოვრობს მთელი პროგრამის განმავლობაში. ფუნქციას <b>წაკითხვა</b> შეუძლია, <b>შეცვლა</b> — მხოლოდ <code>global</code>-ით.</p>
+      <p class="small" lang="en">Lives for the whole program. A function can <b>read</b> it; to <b>change</b> it you need <code>global</code>.</p>
     </div>
   </div>
-  <div class="callout err"><b><code class="inl">global</code>-ს მოერიდე</b>ის აკავშირებს ერთმანეთთან კოდის შორეულ ნაწილებს და შეცდომების პოვნას ართულებს. სუფთა გზაა: <b>მიიღე არგუმენტად, დააბრუნე <code class="inl">return</code>-ით</b>.</div>
-  <div class="note">დაფაზე დახატე ორი „ყუთი“ — გლობალური და ლოკალური სივრცე. ეს ვიზუალი კარგად მუშაობს.</div>
+  <div class="callout err">
+    <span lang="ka"><b><code class="inl">global</code>-ს მოერიდე</b>ის აკავშირებს ერთმანეთთან კოდის შორეულ ნაწილებს და შეცდომების პოვნას ართულებს. სუფთა გზაა: <b>მიიღე არგუმენტად, დააბრუნე <code class="inl">return</code>-ით</b>.</span>
+    <span lang="en"><b>Avoid <code class="inl">global</code></b>It couples distant parts of the code and makes bugs harder to find. The clean way: <b>take it as an argument, hand it back with <code class="inl">return</code></b>.</span>
+  </div>
+  <div class="note">
+    <span lang="ka">დაფაზე დახატე ორი „ყუთი“ — გლობალური და ლოკალური სივრცე. ეს ვიზუალი კარგად მუშაობს.</span>
+    <span lang="en">Draw two boxes on the board — the global and the local space. That visual works well.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">დოკუმენტაცია</p>
-  <h2>Docstring — ფუნქციის აღწერა</h2>
+  <p class="kicker"><span lang="ka">დოკუმენტაცია</span><span lang="en">Documentation</span></p>
+  <h2><span lang="ka">Docstring — ფუნქციის აღწერა</span><span lang="en">Docstrings — describing a function</span></h2>
 <pre class="code" data-title="docstring.py"><code>def bmi(weight, height):
     """სხეულის მასის ინდექსის გამოთვლა.
+    Body mass index.
 
-    weight — წონა კილოგრამებში
-    height — სიმაღლე მეტრებში
-    აბრუნებს BMI-ს (float)
+    weight — წონა კილოგრამებში / weight in kilograms
+    height — სიმაღლე მეტრებში / height in metres
     """
     return weight / height ** 2
 
@@ -236,16 +290,22 @@ print("გარეთ:", counter)   # გარეთ: 10</code></pre>
 print(bmi(70, 1.75))       # 22.857…
 help(bmi)
 print(bmi.__doc__)</code></pre>
-  <div class="callout tip"><b>რატომ ღირს</b>VS Code-ში კურსორის გაჩერებისას სწორედ ეს ტექსტი გამოჩნდება. საკუთარ თავს სამი თვის შემდეგ დიდად დაეხმარები.</div>
-  <p class="small muted" style="margin-top:10px">დანამატი <code class="inl">njpwerner.autodocstring</code> ჩარჩოს ავტომატურად აგენერირებს.</p>
+  <div class="callout tip">
+    <span lang="ka"><b>რატომ ღირს</b>VS Code-ში კურსორის გაჩერებისას სწორედ ეს ტექსტი გამოჩნდება. საკუთარ თავს სამი თვის შემდეგ დიდად დაეხმარები.</span>
+    <span lang="en"><b>Why it pays off</b>This is exactly the text VS Code shows when you hover. You are helping your future self three months from now.</span>
+  </div>
+  <p class="small muted" style="margin-top:10px">
+    <span lang="ka">დანამატი <code class="inl">njpwerner.autodocstring</code> ჩარჩოს ავტომატურად აგენერირებს.</span>
+    <span lang="en">The <code class="inl">njpwerner.autodocstring</code> extension generates the skeleton for you.</span>
+  </p>
 </section>
 
 <section class="slide">
-  <p class="kicker">ანონიმური</p>
-  <h2><code class="inl">lambda</code> — ერთხაზიანი ფუნქცია</h2>
+  <p class="kicker"><span lang="ka">ანონიმური</span><span lang="en">Anonymous</span></p>
+  <h2><span lang="ka"><code class="inl">lambda</code> — ერთხაზიანი ფუნქცია</span><span lang="en"><code class="inl">lambda</code> — a one-line function</span></h2>
   <div class="two">
     <div>
-<pre class="code" data-title="ჩვეულებრივი"><code>def square(x):
+<pre class="code" data-title="the usual way"><code>def square(x):
     return x ** 2
 
 print(square(5))    # 25</code></pre>
@@ -258,10 +318,10 @@ add = lambda a, b: a + b
 print(add(2, 3))    # 5</code></pre>
     </div>
   </div>
-  <h3 style="margin-top:18px">სად გამოიყენება რეალურად</h3>
+  <h3 style="margin-top:18px"><span lang="ka">სად გამოიყენება რეალურად</span><span lang="en">Where it is actually used</span></h3>
 <pre class="code"><code>students = [("ნინო", 92), ("გიორგი", 78), ("ანა", 85)]
 
-# დახარისხება ქულის მიხედვით
+# sort by score
 students.sort(key=lambda s: s[1], reverse=True)
 print(students)
 # [('ნინო', 92), ('ანა', 85), ('გიორგი', 78)]
@@ -269,14 +329,18 @@ print(students)
 numbers = [1, 2, 3, 4, 5, 6]
 evens = list(filter(lambda n: n % 2 == 0, numbers))
 squares = list(map(lambda n: n ** 2, numbers))</code></pre>
-  <div class="callout warn"><b>წესი</b><code class="inl">lambda</code> მხოლოდ <b>ერთი გამოსახულებისთვისაა</b>. თუ ცვლადს ანიჭებ — უბრალოდ <code class="inl">def</code> დაწერე. მისი ნამდვილი ადგილი <code class="inl">sort</code>, <code class="inl">map</code>, <code class="inl">filter</code>-ის არგუმენტშია.</div>
+  <div class="callout warn">
+    <span lang="ka"><b>წესი</b><code class="inl">lambda</code> მხოლოდ <b>ერთი გამოსახულებისთვისაა</b>. თუ ცვლადს ანიჭებ — უბრალოდ <code class="inl">def</code> დაწერე. მისი ნამდვილი ადგილი <code class="inl">sort</code>, <code class="inl">map</code>, <code class="inl">filter</code>-ის არგუმენტშია.</span>
+    <span lang="en"><b>Rule</b><code class="inl">lambda</code> holds <b>one expression only</b>. If you are assigning it to a name, just write <code class="inl">def</code>. Its real home is as an argument to <code class="inl">sort</code>, <code class="inl">map</code> or <code class="inl">filter</code>.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">სრული მაგალითი</p>
-  <h2>პროგრამა ფუნქციებად დაშლილი</h2>
+  <p class="kicker"><span lang="ka">სრული მაგალითი</span><span lang="en">Full example</span></p>
+  <h2><span lang="ka">პროგრამა ფუნქციებად დაშლილი</span><span lang="en">A program split into functions</span></h2>
 <pre class="code" data-title="grades.py"><code>def get_grade(score):
-    """ქულა → ასოითი შეფასება (ECTS სკალა)."""
+    """ქულა → ასოითი შეფასება (ECTS სკალა).
+    Score → letter grade (ECTS scale)."""
     if score &gt;= 91: return "A"
     if score &gt;= 81: return "B"
     if score &gt;= 71: return "C"
@@ -286,7 +350,7 @@ squares = list(map(lambda n: n ** 2, numbers))</code></pre>
 
 
 def is_valid(score):
-    """ქულა კორექტულ დიაპაზონშია?"""
+    """ქულა კორექტულ დიაპაზონშია? / Is the score in range?"""
     return 0 &lt;= score &lt;= 100
 
 
@@ -300,27 +364,43 @@ def show(name, score):
 show("ნინო", 92)
 show("გიორგი", 67)
 show("ანა", 150)</code></pre>
-  <div class="note">აჩვენე, რომ თითოეული ფუნქცია ცალკე იტესტება. ესაა გადასვლა „სკრიპტიდან“ „პროგრამაზე“.</div>
+  <div class="note">
+    <span lang="ka">აჩვენე, რომ თითოეული ფუნქცია ცალკე იტესტება. ესაა გადასვლა „სკრიპტიდან“ „პროგრამაზე“.</span>
+    <span lang="en">Show that each function can be tested on its own. This is the step from “script” to “program”.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">შეფასება</p>
-  <h2>პრაქტიკული დავალება #2</h2>
-  <p class="small muted">8 ქულა · სრულდება აუდიტორიაში, დამოუკიდებლად</p>
-  <ol class="pts">
+  <p class="kicker"><span lang="ka">შეფასება</span><span lang="en">Assessment</span></p>
+  <h2><span lang="ka">პრაქტიკული დავალება #2</span><span lang="en">Practical assignment #2</span></h2>
+  <p class="small muted">
+    <span lang="ka">8 ქულა · სრულდება აუდიტორიაში, დამოუკიდებლად</span>
+    <span lang="en">8 points · done in class, independently</span>
+  </p>
+  <ol class="pts" lang="ka">
     <li><b><code class="inl">is_prime(n)</code></b><small>აბრუნებს <code class="inl">True</code>/<code class="inl">False</code>. გამოიყენე ციკლში 1–50 მარტივი რიცხვების დასაბეჭდად</small></li>
     <li><b><code class="inl">convert_temp(value, to="F")</code></b><small>ნაგულისხმევი პარამეტრით: °C → °F ან °C → K</small></li>
     <li><b><code class="inl">stats(*numbers)</code></b><small>აბრუნებს მინიმუმს, მაქსიმუმს, ჯამსა და საშუალოს (რამდენიმე მნიშვნელობა)</small></li>
     <li><b><code class="inl">count_vowels(text)</code></b><small>ითვლის ხმოვნებს; დაუმატე docstring და შეამოწმე <code class="inl">help()</code>-ით</small></li>
     <li><b>ყველა ფუნქციას</b> უნდა ჰქონდეს <code class="inl">return</code>, არა <code class="inl">print</code></li>
   </ol>
-  <div class="callout tip"><b>შემოწმების კრიტერიუმი</b>ფუნქცია სწორად უნდა მუშაობდეს <b>სხვადასხვა</b> არგუმენტზე — არა მხოლოდ ერთ მაგალითზე. სცადე კიდურა შემთხვევები: 0, 1, უარყოფითი, ცარიელი ტექსტი.</div>
+  <ol class="pts" lang="en">
+    <li><b><code class="inl">is_prime(n)</code></b><small>Returns <code class="inl">True</code>/<code class="inl">False</code>. Use it in a loop to print the primes from 1 to 50</small></li>
+    <li><b><code class="inl">convert_temp(value, to="F")</code></b><small>With a default parameter: °C → °F or °C → K</small></li>
+    <li><b><code class="inl">stats(*numbers)</code></b><small>Returns the minimum, maximum, sum and average (several values at once)</small></li>
+    <li><b><code class="inl">count_vowels(text)</code></b><small>Counts vowels; add a docstring and check it with <code class="inl">help()</code></small></li>
+    <li><b>Every function</b> must use <code class="inl">return</code>, not <code class="inl">print</code></li>
+  </ol>
+  <div class="callout tip">
+    <span lang="ka"><b>შემოწმების კრიტერიუმი</b>ფუნქცია სწორად უნდა მუშაობდეს <b>სხვადასხვა</b> არგუმენტზე — არა მხოლოდ ერთ მაგალითზე. სცადე კიდურა შემთხვევები: 0, 1, უარყოფითი, ცარიელი ტექსტი.</span>
+    <span lang="en"><b>Marking criteria</b>Each function must work for <b>a range</b> of arguments, not just one example. Try the edge cases: 0, 1, negatives, empty text.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">შემაჯამებელი</p>
-  <h2>რა უნდა დაგამახსოვრდეს</h2>
-  <ul class="pts">
+  <p class="kicker"><span lang="ka">შემაჯამებელი</span><span lang="en">Wrap-up</span></p>
+  <h2><span lang="ka">რა უნდა დაგამახსოვრდეს</span><span lang="en">What to remember</span></h2>
+  <ul class="pts" lang="ka">
     <li><code class="inl">def სახელი(პარამეტრები):</code> — აღწერა; შესრულება მხოლოდ გამოძახებისას</li>
     <li><code class="inl">return</code> აბრუნებს მნიშვნელობას; <code class="inl">print</code> მხოლოდ აჩვენებს. <code class="inl">return</code>-ის გარეშე — <code class="inl">None</code></li>
     <li>არგუმენტები: პოზიციური და სახელდებული; ნაგულისხმევი — ბოლოში</li>
@@ -328,7 +408,18 @@ show("ანა", 150)</code></pre>
     <li>ლოკალური ცვლადი ფუნქციის გარეთ არ არსებობს; <code class="inl">global</code>-ს ვერიდებით</li>
     <li><code class="inl">lambda</code> — მოკლე ერთხაზიანი ფუნქცია <code class="inl">sort</code>/<code class="inl">map</code>/<code class="inl">filter</code>-ისთვის</li>
   </ul>
-  <div class="callout tip"><b>შემდეგი — ლექცია 07</b>სტრიქონები: მეთოდები, ფორმატირება, ძებნა და ჩანაცვლება. <b>შემდეგ კვირას — შუალედური გამოცდა.</b></div>
+  <ul class="pts" lang="en">
+    <li><code class="inl">def name(parameters):</code> — a definition; it runs only when called</li>
+    <li><code class="inl">return</code> hands back a value; <code class="inl">print</code> only displays. Without <code class="inl">return</code> — <code class="inl">None</code></li>
+    <li>Arguments: positional and keyword; defaults go last</li>
+    <li><code class="inl">*args</code> / <code class="inl">**kwargs</code> — a variable number of arguments</li>
+    <li>Local variables do not exist outside the function; avoid <code class="inl">global</code></li>
+    <li><code class="inl">lambda</code> — a short one-line function for <code class="inl">sort</code>/<code class="inl">map</code>/<code class="inl">filter</code></li>
+  </ul>
+  <div class="callout tip">
+    <span lang="ka"><b>შემდეგი — ლექცია 07</b>სტრიქონები: მეთოდები, ფორმატირება, ძებნა და ჩანაცვლება. <b>შემდეგ კვირას — შუალედური გამოცდა.</b></span>
+    <span lang="en"><b>Next — lecture 07</b>Strings: methods, formatting, searching and replacing. <b>The midterm exam follows the week after.</b></span>
+  </div>
 </section>
 
 </main>
