@@ -10,83 +10,147 @@
 <main class="deck">
 
 <section class="slide">
-  <p class="kicker">ლექცია 03 · III კვირა</p>
-  <h1>პირობები და<br>ლოგიკა</h1>
-  <p class="lead" style="margin-top:16px">შედარების ოპერატორები · ლოგიკური ოპერატორები · <code class="inl">if / elif / else</code></p>
-  <p class="small muted" style="margin-top:22px">დღეს ასევე: <b>პრაქტიკული დავალება #1</b></p>
+  <p class="kicker"><span lang="ka">ლექცია 03 · III კვირა</span><span lang="en">Lecture 03 · Week III</span></p>
+  <h1><span lang="ka">პირობები და<br>ლოგიკა</span><span lang="en">Conditions and<br>logic</span></h1>
+  <p class="lead" style="margin-top:16px">
+    <span lang="ka">შედარების ოპერატორები · ლოგიკური ოპერატორები · <code class="inl">if / elif / else</code></span>
+    <span lang="en">Comparison operators · logical operators · <code class="inl">if / elif / else</code></span>
+  </p>
+  <p class="small muted" style="margin-top:22px">
+    <span lang="ka">დღეს ასევე: <b>პრაქტიკული დავალება #1</b></span>
+    <span lang="en">Also today: <b>practical assignment #1</b></span>
+  </p>
 </section>
 
 <section class="slide">
-  <p class="kicker g">გამეორება · ლექციები 01–02</p>
-  <h2>შემოწმება — 8 კითხვა</h2>
-  <p class="small muted">იფიქრე, მერე გახსენი პასუხი.</p>
+  <p class="kicker g"><span lang="ka">გამეორება · ლექციები 01–02</span><span lang="en">Review · lectures 01–02</span></p>
+  <h2><span lang="ka">შემოწმება — 8 კითხვა</span><span lang="en">Check yourself — 8 questions</span></h2>
+  <p class="small muted"><span lang="ka">იფიქრე, მერე გახსენი პასუხი.</span><span lang="en">Think first, then open the answer.</span></p>
   <div class="quiz">
-    <details><summary>1. რა ეტაპებს გადის <code class="inl">.py</code> ფაილი შესრულებამდე?</summary>
-      <div class="ans">წყარო <code>.py</code> → თარგმნა <b>ბაიტკოდში</b> (<code>.pyc</code>, <code>__pycache__</code>) → შესრულება <b>PVM</b>-ის (Python-ის ვირტუალური მანქანის) მიერ.</div></details>
-    <details><summary>2. რით ქმნის Python კოდის ბლოკს, თუ ფიგურული ფრჩხილები არ აქვს?</summary>
-      <div class="ans"><b>წანაცვლებით</b> (indentation) — სტანდარტი 4 ჰარეა. ბლოკს ხსნის ორწერტილი <code>:</code>.</div></details>
-    <details><summary>3. რას დაბეჭდავს <code class="inl">print(7 // 2, 7 % 2, 7 / 2)</code>?</summary>
-      <div class="ans"><code>3 1 3.5</code> — მთელი გაყოფა, ნაშთი და ჩვეულებრივი გაყოფა (ყოველთვის <code>float</code>).</div></details>
-    <details><summary>4. რა ტიპს აბრუნებს <code class="inl">input()</code>?</summary>
-      <div class="ans">ყოველთვის <code>str</code>-ს. რიცხვად გამოსაყენებლად საჭიროა <code>int(input(...))</code> ან <code>float(input(...))</code>.</div></details>
-    <details><summary>5. რას დაბეჭდავს <code class="inl">print(2 + 3 * 4)</code> და რატომ?</summary>
-      <div class="ans"><code>14</code>. გამრავლებას შეკრებაზე მაღალი პრიორიტეტი აქვს. 20-ის მისაღებად საჭიროა <code>(2 + 3) * 4</code>.</div></details>
-    <details><summary>6. რომელი სამი სახელია დაუშვებელი ცვლადისთვის: <code class="inl">2name</code>, <code class="inl">_x</code>, <code class="inl">my name</code>, <code class="inl">class</code>, <code class="inl">Age</code>?</summary>
-      <div class="ans"><code>2name</code> (ციფრით იწყება), <code>my name</code> (ჰარე), <code>class</code> (რეზერვირებული სიტყვა). <code>_x</code> და <code>Age</code> დასაშვებია.</div></details>
-    <details><summary>7. რას აბრუნებს <code class="inl">int(9.99)</code> და რით განსხვავდება <code class="inl">round(9.99)</code>-ისგან?</summary>
-      <div class="ans"><code>int(9.99)</code> → <b>9</b> (წილად ნაწილს კვეცავს), <code>round(9.99)</code> → <b>10</b> (ამრგვალებს).</div></details>
-    <details><summary>8. რატომ არის <code class="inl">0.1 + 0.2 == 0.3</code> მცდარი?</summary>
-      <div class="ans">ორობით სისტემაში 0.1 და 0.2 ზუსტად ვერ ჩაიწერება, ამიტომ ჯამი გამოდის <code>0.30000000000000004</code>. ეს ყველა ენას ეხება, არა მხოლოდ Python-ს.</div></details>
+    <details>
+      <summary><span lang="ka">1. რა ეტაპებს გადის <code class="inl">.py</code> ფაილი შესრულებამდე?</span>
+               <span lang="en">1. What stages does a <code class="inl">.py</code> file go through before it runs?</span></summary>
+      <div class="ans">
+        <span lang="ka">წყარო <code>.py</code> → თარგმნა <b>ბაიტკოდში</b> (<code>.pyc</code>, <code>__pycache__</code>) → შესრულება <b>PVM</b>-ის (Python-ის ვირტუალური მანქანის) მიერ.</span>
+        <span lang="en">Source <code>.py</code> → compilation to <b>bytecode</b> (<code>.pyc</code> in <code>__pycache__</code>) → execution by the <b>PVM</b> (Python Virtual Machine).</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">2. რით ქმნის Python კოდის ბლოკს, თუ ფიგურული ფრჩხილები არ აქვს?</span>
+               <span lang="en">2. How does Python create a code block without curly braces?</span></summary>
+      <div class="ans">
+        <span lang="ka"><b>წანაცვლებით</b> (indentation) — სტანდარტი 4 ჰარეა. ბლოკს ხსნის ორწერტილი <code>:</code>.</span>
+        <span lang="en">By <b>indentation</b> — the standard is 4 spaces. A colon <code>:</code> opens the block.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">3. რას დაბეჭდავს <code class="inl">print(7 // 2, 7 % 2, 7 / 2)</code>?</span>
+               <span lang="en">3. What does <code class="inl">print(7 // 2, 7 % 2, 7 / 2)</code> print?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>3 1 3.5</code> — მთელი გაყოფა, ნაშთი და ჩვეულებრივი გაყოფა (ყოველთვის <code>float</code>).</span>
+        <span lang="en"><code>3 1 3.5</code> — floor division, remainder, and true division (always a <code>float</code>).</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">4. რა ტიპს აბრუნებს <code class="inl">input()</code>?</span>
+               <span lang="en">4. What type does <code class="inl">input()</code> return?</span></summary>
+      <div class="ans">
+        <span lang="ka">ყოველთვის <code>str</code>-ს. რიცხვად გამოსაყენებლად საჭიროა <code>int(input(...))</code> ან <code>float(input(...))</code>.</span>
+        <span lang="en">Always <code>str</code>. To use it as a number you need <code>int(input(...))</code> or <code>float(input(...))</code>.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">5. რას დაბეჭდავს <code class="inl">print(2 + 3 * 4)</code> და რატომ?</span>
+               <span lang="en">5. What does <code class="inl">print(2 + 3 * 4)</code> print, and why?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>14</code>. გამრავლებას შეკრებაზე მაღალი პრიორიტეტი აქვს. 20-ის მისაღებად საჭიროა <code>(2 + 3) * 4</code>.</span>
+        <span lang="en"><code>14</code>. Multiplication binds tighter than addition. To get 20 you need <code>(2 + 3) * 4</code>.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">6. რომელი სამი სახელია დაუშვებელი ცვლადისთვის: <code class="inl">2name</code>, <code class="inl">_x</code>, <code class="inl">my name</code>, <code class="inl">class</code>, <code class="inl">Age</code>?</span>
+               <span lang="en">6. Which three of these are invalid variable names: <code class="inl">2name</code>, <code class="inl">_x</code>, <code class="inl">my name</code>, <code class="inl">class</code>, <code class="inl">Age</code>?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>2name</code> (ციფრით იწყება), <code>my name</code> (ჰარე), <code>class</code> (რეზერვირებული სიტყვა). <code>_x</code> და <code>Age</code> დასაშვებია.</span>
+        <span lang="en"><code>2name</code> (starts with a digit), <code>my name</code> (contains a space), <code>class</code> (reserved word). <code>_x</code> and <code>Age</code> are fine.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">7. რას აბრუნებს <code class="inl">int(9.99)</code> და რით განსხვავდება <code class="inl">round(9.99)</code>-ისგან?</span>
+               <span lang="en">7. What does <code class="inl">int(9.99)</code> return, and how does it differ from <code class="inl">round(9.99)</code>?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>int(9.99)</code> → <b>9</b> (წილად ნაწილს კვეცავს), <code>round(9.99)</code> → <b>10</b> (ამრგვალებს).</span>
+        <span lang="en"><code>int(9.99)</code> → <b>9</b> (truncates the fraction), <code>round(9.99)</code> → <b>10</b> (rounds).</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">8. რატომ არის <code class="inl">0.1 + 0.2 == 0.3</code> მცდარი?</span>
+               <span lang="en">8. Why is <code class="inl">0.1 + 0.2 == 0.3</code> false?</span></summary>
+      <div class="ans">
+        <span lang="ka">ორობით სისტემაში 0.1 და 0.2 ზუსტად ვერ ჩაიწერება, ამიტომ ჯამი გამოდის <code>0.30000000000000004</code>. ეს ყველა ენას ეხება, არა მხოლოდ Python-ს.</span>
+        <span lang="en">0.1 and 0.2 cannot be represented exactly in binary, so the sum comes out as <code>0.30000000000000004</code>. This affects every language, not just Python.</span>
+      </div></details>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ოპერატორები</p>
-  <h2>შედარების ოპერატორები</h2>
-  <p class="small muted">შედეგი ყოველთვის <code class="inl">bool</code>-ია: <code class="inl">True</code> ან <code class="inl">False</code>.</p>
+  <p class="kicker"><span lang="ka">ოპერატორები</span><span lang="en">Operators</span></p>
+  <h2><span lang="ka">შედარების ოპერატორები</span><span lang="en">Comparison operators</span></h2>
+  <p class="small muted">
+    <span lang="ka">შედეგი ყოველთვის <code class="inl">bool</code>-ია: <code class="inl">True</code> ან <code class="inl">False</code>.</span>
+    <span lang="en">The result is always a <code class="inl">bool</code>: <code class="inl">True</code> or <code class="inl">False</code>.</span>
+  </p>
   <table>
-    <tr><th style="width:12%">ოპ.</th><th style="width:28%">მნიშვნელობა</th><th style="width:30%">მაგალითი</th><th>შედეგი</th></tr>
-    <tr><td><code>==</code></td><td>ტოლია</td><td><code>5 == 5</code></td><td><code>True</code></td></tr>
-    <tr><td><code>!=</code></td><td>არ არის ტოლი</td><td><code>5 != 3</code></td><td><code>True</code></td></tr>
-    <tr><td><code>&gt;</code></td><td>მეტია</td><td><code>5 &gt; 10</code></td><td><code>False</code></td></tr>
-    <tr><td><code>&lt;</code></td><td>ნაკლებია</td><td><code>"a" &lt; "b"</code></td><td><code>True</code> (ანბანურად)</td></tr>
-    <tr><td><code>&gt;=</code></td><td>მეტია ან ტოლი</td><td><code>5 &gt;= 5</code></td><td><code>True</code></td></tr>
-    <tr><td><code>&lt;=</code></td><td>ნაკლებია ან ტოლი</td><td><code>4 &lt;= 3</code></td><td><code>False</code></td></tr>
+    <tr>
+      <th style="width:12%"><span lang="ka">ოპ.</span><span lang="en">Op.</span></th>
+      <th style="width:28%"><span lang="ka">მნიშვნელობა</span><span lang="en">Meaning</span></th>
+      <th style="width:30%"><span lang="ka">მაგალითი</span><span lang="en">Example</span></th>
+      <th><span lang="ka">შედეგი</span><span lang="en">Result</span></th>
+    </tr>
+    <tr><td><code>==</code></td><td><span lang="ka">ტოლია</span><span lang="en">Equal to</span></td><td><code>5 == 5</code></td><td><code>True</code></td></tr>
+    <tr><td><code>!=</code></td><td><span lang="ka">არ არის ტოლი</span><span lang="en">Not equal to</span></td><td><code>5 != 3</code></td><td><code>True</code></td></tr>
+    <tr><td><code>&gt;</code></td><td><span lang="ka">მეტია</span><span lang="en">Greater than</span></td><td><code>5 &gt; 10</code></td><td><code>False</code></td></tr>
+    <tr><td><code>&lt;</code></td><td><span lang="ka">ნაკლებია</span><span lang="en">Less than</span></td><td><code>"a" &lt; "b"</code></td>
+      <td><code>True</code> <span lang="ka">(ანბანურად)</span><span lang="en">(alphabetically)</span></td></tr>
+    <tr><td><code>&gt;=</code></td><td><span lang="ka">მეტია ან ტოლი</span><span lang="en">Greater or equal</span></td><td><code>5 &gt;= 5</code></td><td><code>True</code></td></tr>
+    <tr><td><code>&lt;=</code></td><td><span lang="ka">ნაკლებია ან ტოლი</span><span lang="en">Less or equal</span></td><td><code>4 &lt;= 3</code></td><td><code>False</code></td></tr>
   </table>
-  <div class="callout err"><b>ყველაზე ხშირი შეცდომა</b><code class="inl">=</code> არის <b>მინიჭება</b>, <code class="inl">==</code> — <b>შედარება</b>. <code class="inl">if x = 5:</code> სინტაქსური შეცდომაა.</div>
+  <div class="callout err">
+    <span lang="ka"><b>ყველაზე ხშირი შეცდომა</b><code class="inl">=</code> არის <b>მინიჭება</b>, <code class="inl">==</code> — <b>შედარება</b>. <code class="inl">if x = 5:</code> სინტაქსური შეცდომაა.</span>
+    <span lang="en"><b>The most common mistake</b><code class="inl">=</code> is <b>assignment</b>, <code class="inl">==</code> is <b>comparison</b>. <code class="inl">if x = 5:</code> is a syntax error.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ოპერატორები</p>
-  <h2>ლოგიკური ოპერატორები</h2>
+  <p class="kicker"><span lang="ka">ოპერატორები</span><span lang="en">Operators</span></p>
+  <h2><span lang="ka">ლოგიკური ოპერატორები</span><span lang="en">Logical operators</span></h2>
   <div class="grid">
     <div class="card">
       <h3><code>and</code></h3>
-      <p class="small"><b>ორივე</b> უნდა იყოს ჭეშმარიტი</p>
+      <p class="small" lang="ka"><b>ორივე</b> უნდა იყოს ჭეშმარიტი</p>
+      <p class="small" lang="en"><b>Both</b> must be true</p>
 <pre class="code" style="margin-top:8px"><code>age = 20
 has_id = True
 print(age &gt;= 18 and has_id)  # True</code></pre>
     </div>
     <div class="card">
       <h3><code>or</code></h3>
-      <p class="small"><b>ერთი მაინც</b> ჭეშმარიტი</p>
+      <p class="small" lang="ka"><b>ერთი მაინც</b> ჭეშმარიტი</p>
+      <p class="small" lang="en"><b>At least one</b> must be true</p>
 <pre class="code" style="margin-top:8px"><code>is_weekend = False
 is_holiday = True
 print(is_weekend or is_holiday)  # True</code></pre>
     </div>
     <div class="card">
       <h3><code>not</code></h3>
-      <p class="small">უარყოფა — ცვლის საპირისპიროდ</p>
+      <p class="small" lang="ka">უარყოფა — ცვლის საპირისპიროდ</p>
+      <p class="small" lang="en">Negation — flips the value</p>
 <pre class="code" style="margin-top:8px"><code>is_open = False
 print(not is_open)   # True</code></pre>
     </div>
   </div>
-  <div class="callout tip"><b>ქართულად წაიკითხე</b><code class="inl">and</code> = „და“, <code class="inl">or</code> = „ან“, <code class="inl">not</code> = „არა“. კოდი ხმამაღლა წაიკითხე — თუ წინადადებად აზრი აქვს, სავარაუდოდ სწორია.</div>
+  <div class="callout tip">
+    <span lang="ka"><b>ქართულად წაიკითხე</b><code class="inl">and</code> = „და“, <code class="inl">or</code> = „ან“, <code class="inl">not</code> = „არა“. კოდი ხმამაღლა წაიკითხე — თუ წინადადებად აზრი აქვს, სავარაუდოდ სწორია.</span>
+    <span lang="en"><b>Read it out loud</b>These operators are plain English words on purpose. If the line makes sense as a sentence, it is probably correct.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">თეორია</p>
-  <h2>ჭეშმარიტების ცხრილი</h2>
+  <p class="kicker"><span lang="ka">თეორია</span><span lang="en">Theory</span></p>
+  <h2><span lang="ka">ჭეშმარიტების ცხრილი</span><span lang="en">Truth table</span></h2>
   <div class="two">
     <div>
       <table class="small">
@@ -103,45 +167,60 @@ print(not is_open)   # True</code></pre>
       </table>
     </div>
     <div>
-      <h3>პრიორიტეტი</h3>
-      <ol class="pts tight">
+      <h3><span lang="ka">პრიორიტეტი</span><span lang="en">Precedence</span></h3>
+      <ol class="pts tight" lang="ka">
         <li><code class="inl">not</code> — ყველაზე მაღალი</li>
         <li><code class="inl">and</code></li>
         <li><code class="inl">or</code> — ყველაზე დაბალი</li>
       </ol>
+      <ol class="pts tight" lang="en">
+        <li><code class="inl">not</code> — highest</li>
+        <li><code class="inl">and</code></li>
+        <li><code class="inl">or</code> — lowest</li>
+      </ol>
 <pre class="code" style="margin-top:12px"><code>print(True or False and False)
-# True  — ჯერ and მუშაობს
+# True  — "and" is evaluated first
 
 print((True or False) and False)
 # False</code></pre>
-      <div class="callout tip small"><b>ისევ</b>ფრჩხილები აზრს ცხადს ხდის. დაწერე ისინი.</div>
+      <div class="callout tip small">
+        <span lang="ka"><b>ისევ</b>ფრჩხილები აზრს ცხადს ხდის. დაწერე ისინი.</span>
+        <span lang="en"><b>Again</b>Parentheses make the intent explicit. Write them.</span>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">თავისებურება</p>
-  <h2>„დამოკლებული“ გამოთვლა (short-circuit)</h2>
-  <p>Python ლოგიკურ გამოსახულებას <b>ბოლომდე არ ითვლის</b>, თუ პასუხი უკვე ცნობილია.</p>
+  <p class="kicker"><span lang="ka">თავისებურება</span><span lang="en">A key trait</span></p>
+  <h2><span lang="ka">„დამოკლებული“ გამოთვლა (short-circuit)</span><span lang="en">Short-circuit evaluation</span></h2>
+  <p lang="ka">Python ლოგიკურ გამოსახულებას <b>ბოლომდე არ ითვლის</b>, თუ პასუხი უკვე ცნობილია.</p>
+  <p lang="en">Python <b>stops evaluating</b> a logical expression as soon as the answer is known.</p>
 <pre class="code"><code>x = 0
 
-# and: თუ პირველი False-ია, მეორეს აღარ შეამოწმებს
-print(x != 0 and 10 / x &gt; 1)    # False — გაყოფა არ მოხდა
+# and: if the first part is False, the second is never checked
+print(x != 0 and 10 / x &gt; 1)    # False — no division happened
 
-# or: თუ პირველი True-ია, მეორეს აღარ შეამოწმებს
+# or: if the first part is True, the second is never checked
 print(x == 0 or 10 / x &gt; 1)     # True</code></pre>
-  <div class="callout tip"><b>პრაქტიკული სარგებელი</b>ესაა სტანდარტული ხერხი ნულზე გაყოფის ან ცარიელი მონაცემის „ავარიის“ ასაცილებლად — ჯერ ამოწმებ საშიშ პირობას, მერე იყენებ.</div>
-  <div class="note">კარგი ადგილია ავარიის ცოცხლად საჩვენებლად: ჯერ დაწერე <code>10 / x != 0 and x != 0</code> (ავარია), მერე შეაბრუნე თანმიმდევრობა.</div>
+  <div class="callout tip">
+    <span lang="ka"><b>პრაქტიკული სარგებელი</b>ესაა სტანდარტული ხერხი ნულზე გაყოფის ან ცარიელი მონაცემის „ავარიის“ ასაცილებლად — ჯერ ამოწმებ საშიშ პირობას, მერე იყენებ.</span>
+    <span lang="en"><b>Why it is useful</b>This is the standard way to avoid dividing by zero or touching empty data — you check the dangerous condition first, then use the value.</span>
+  </div>
+  <div class="note">
+    <span lang="ka">კარგი ადგილია ავარიის ცოცხლად საჩვენებლად: ჯერ დაწერე <code>10 / x != 0 and x != 0</code> (ავარია), მერე შეაბრუნე თანმიმდევრობა.</span>
+    <span lang="en">A good spot to crash it live: write <code>10 / x != 0 and x != 0</code> first (it crashes), then reverse the order.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">კონსტრუქცია</p>
-  <h2><code class="inl">if</code> — უმარტივესი პირობა</h2>
+  <p class="kicker"><span lang="ka">კონსტრუქცია</span><span lang="en">Construct</span></p>
+  <h2><span lang="ka"><code class="inl">if</code> — უმარტივესი პირობა</span><span lang="en"><code class="inl">if</code> — the simplest condition</span></h2>
   <div class="two">
     <div>
-<pre class="code" data-title="სინტაქსი"><code class="nohl">if პირობა:
-    ინსტრუქცია1
-    ინსტრუქცია2</code></pre>
+<pre class="code" data-title="syntax"><code class="nohl">if condition:
+    statement1
+    statement2</code></pre>
 <pre class="code" style="margin-top:12px"><code>temperature = 31
 
 if temperature &gt; 30:
@@ -151,25 +230,36 @@ if temperature &gt; 30:
 print("პროგრამა დასრულდა")</code></pre>
     </div>
     <div>
-      <ul class="pts tight">
+      <ul class="pts tight" lang="ka">
         <li><b>ორწერტილი</b> სავალდებულოა</li>
         <li>ბლოკი <b>წანაცვლებულია</b> 4 ჰარით</li>
         <li>ბლოკის გარეთ დაწერილი კოდი ყოველთვის სრულდება</li>
         <li>ფრჩხილები პირობის გარშემო <b>საჭირო არაა</b> (C/Java-სგან განსხვავებით)</li>
       </ul>
-      <div class="callout err"><b>ორი კლასიკური შეცდომა</b>
-        <span style="display:block;margin-top:5px">ორწერტილი დაგავიწყდა → <code class="inl">SyntaxError</code></span>
-        <span style="display:block">ბლოკი არ წაანაცვლე → <code class="inl">IndentationError</code></span></div>
+      <ul class="pts tight" lang="en">
+        <li>The <b>colon</b> is mandatory</li>
+        <li>The block is <b>indented</b> by 4 spaces</li>
+        <li>Code outside the block always runs</li>
+        <li>Parentheses around the condition are <b>not needed</b> (unlike C/Java)</li>
+      </ul>
+      <div class="callout err">
+        <span lang="ka"><b>ორი კლასიკური შეცდომა</b>
+          <span style="display:block;margin-top:5px">ორწერტილი დაგავიწყდა → <code class="inl">SyntaxError</code></span>
+          <span style="display:block">ბლოკი არ წაანაცვლე → <code class="inl">IndentationError</code></span></span>
+        <span lang="en"><b>Two classic mistakes</b>
+          <span style="display:block;margin-top:5px">Forgot the colon → <code class="inl">SyntaxError</code></span>
+          <span style="display:block">Did not indent the block → <code class="inl">IndentationError</code></span></span>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">კონსტრუქცია</p>
-  <h2><code class="inl">if / else</code> და <code class="inl">elif</code></h2>
+  <p class="kicker"><span lang="ka">კონსტრუქცია</span><span lang="en">Construct</span></p>
+  <h2><code class="inl">if / else</code> <span lang="ka">და</span><span lang="en">and</span> <code class="inl">elif</code></h2>
   <div class="two">
     <div>
-<pre class="code" data-title="ორი გზა"><code>age = int(input("ასაკი: "))
+<pre class="code" data-title="two paths"><code>age = int(input("ასაკი: "))
 
 if age &gt;= 18:
     print("სრულწლოვანი")
@@ -177,7 +267,7 @@ else:
     print("არასრულწლოვანი")</code></pre>
     </div>
     <div>
-<pre class="code" data-title="რამდენიმე გზა"><code>score = int(input("ქულა: "))
+<pre class="code" data-title="many paths"><code>score = int(input("ქულა: "))
 
 if score &gt;= 91:
     grade = "A"
@@ -195,16 +285,22 @@ else:
 print("შეფასება:", grade)</code></pre>
     </div>
   </div>
-  <div class="callout"><b>მთავარი წესი</b>Python პირობებს ამოწმებს <b>ზემოდან ქვემოთ</b> და ჩერდება <b>პირველივე</b> ჭეშმარიტზე. ამიტომ თანმიმდევრობა მნიშვნელოვანია — თუ ზემოთ <code class="inl">score &gt;= 51</code> დაწერე, ყველა ქულა „E“ გახდება.</div>
-  <div class="note">ეს ECTS-ის ასოითი სკალაა — სტუდენტებს ხიბლავს, რომ საკუთარ ქულას ითვლიან. საჭიროების შემთხვევაში ზღვრები შენი კურსის მიხედვით შეცვალე.</div>
+  <div class="callout">
+    <span lang="ka"><b>მთავარი წესი</b>Python პირობებს ამოწმებს <b>ზემოდან ქვემოთ</b> და ჩერდება <b>პირველივე</b> ჭეშმარიტზე. ამიტომ თანმიმდევრობა მნიშვნელოვანია — თუ ზემოთ <code class="inl">score &gt;= 51</code> დაწერე, ყველა ქულა „E“ გახდება.</span>
+    <span lang="en"><b>The key rule</b>Python checks conditions <b>top to bottom</b> and stops at the <b>first</b> true one. Order therefore matters — put <code class="inl">score &gt;= 51</code> at the top and every score becomes “E”.</span>
+  </div>
+  <div class="note">
+    <span lang="ka">ეს ECTS-ის ასოითი სკალაა — სტუდენტებს ხიბლავს, რომ საკუთარ ქულას ითვლიან. საჭიროების შემთხვევაში ზღვრები შენი კურსის მიხედვით შეცვალე.</span>
+    <span lang="en">This is the ECTS letter scale — students enjoy computing their own grade. Adjust the thresholds to your own course if needed.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">კონსტრუქცია</p>
-  <h2>ჩადგმული პირობები</h2>
+  <p class="kicker"><span lang="ka">კონსტრუქცია</span><span lang="en">Construct</span></p>
+  <h2><span lang="ka">ჩადგმული პირობები</span><span lang="en">Nested conditions</span></h2>
   <div class="two">
     <div>
-<pre class="code" data-title="ჩადგმული"><code>age = 20
+<pre class="code" data-title="nested"><code>age = 20
 has_ticket = True
 
 if age &gt;= 18:
@@ -216,31 +312,37 @@ else:
     print("ასაკი არ გაძლევს უფლებას")</code></pre>
     </div>
     <div>
-<pre class="code" data-title="იგივე, ბრტყლად"><code>if age &gt;= 18 and has_ticket:
+<pre class="code" data-title="the same, flat"><code>if age &gt;= 18 and has_ticket:
     print("შედი")
 elif age &gt;= 18:
     print("იყიდე ბილეთი")
 else:
     print("ასაკი არ გაძლევს უფლებას")</code></pre>
-      <div class="callout tip small" style="margin-top:12px"><b>PEP 20 (Zen of Python)</b><i>„Flat is better than nested“</i> — ბრტყელი სჯობს ჩადგმულს. სამზე მეტი დონე უკვე გადასაწერი ნიშანია.</div>
+      <div class="callout tip small" style="margin-top:12px">
+        <span lang="ka"><b>PEP 20 (Zen of Python)</b><i>„Flat is better than nested“</i> — ბრტყელი სჯობს ჩადგმულს. სამზე მეტი დონე უკვე გადასაწერი ნიშანია.</span>
+        <span lang="en"><b>PEP 20 (Zen of Python)</b><i>“Flat is better than nested.”</i> More than three levels is a sign to rewrite.</span>
+      </div>
     </div>
   </div>
-  <p class="small muted" style="margin-top:12px">სცადე REPL-ში: <code class="inl">import this</code> — Python-ის ფილოსოფიის 19 პრინციპი.</p>
+  <p class="small muted" style="margin-top:12px">
+    <span lang="ka">სცადე REPL-ში: <code class="inl">import this</code> — Python-ის ფილოსოფიის 19 პრინციპი.</span>
+    <span lang="en">Try it in the REPL: <code class="inl">import this</code> — the 19 principles of Python’s philosophy.</span>
+  </p>
 </section>
 
 <section class="slide">
-  <p class="kicker">მოხერხებულობა</p>
-  <h2>ჯაჭვური შედარება და <code class="inl">in</code></h2>
+  <p class="kicker"><span lang="ka">მოხერხებულობა</span><span lang="en">Convenience</span></p>
+  <h2><span lang="ka">ჯაჭვური შედარება და <code class="inl">in</code></span><span lang="en">Chained comparison and <code class="inl">in</code></span></h2>
   <div class="two">
     <div>
-      <h3>ჯაჭვი</h3>
+      <h3><span lang="ka">ჯაჭვი</span><span lang="en">Chaining</span></h3>
 <pre class="code"><code>x = 15
 
-# სხვა ენებში:
+# in other languages:
 if x &gt; 10 and x &lt; 20:
     print("დიაპაზონში")
 
-# Python-ში, ბუნებრივად:
+# in Python, naturally:
 if 10 &lt; x &lt; 20:
     print("დიაპაზონში")
 
@@ -248,7 +350,7 @@ if 0 &lt;= score &lt;= 100:
     print("ქულა კორექტულია")</code></pre>
     </div>
     <div>
-      <h3><code>in</code> — „ეკუთვნის?“</h3>
+      <h3><code>in</code> — <span lang="ka">„ეკუთვნის?“</span><span lang="en">“is it in there?”</span></h3>
 <pre class="code"><code>letter = "ა"
 print(letter in "გამარჯობა")   # True
 
@@ -257,50 +359,61 @@ if day in ("შაბათი", "კვირა"):
     print("დასვენება")
 
 print("x" not in "python")     # True</code></pre>
-      <p class="small muted" style="margin-top:8px">დეტალურად <code class="inl">in</code>-ს სიებთან (X კვირა) და ლექსიკონებთან (XI კვირა) გავიხსენებთ.</p>
+      <p class="small muted" style="margin-top:8px">
+        <span lang="ka">დეტალურად <code class="inl">in</code>-ს სიებთან (X კვირა) და ლექსიკონებთან (XI კვირა) გავიხსენებთ.</span>
+        <span lang="en">We return to <code class="inl">in</code> with lists (week X) and dictionaries (week XI).</span>
+      </p>
     </div>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">დამატებით</p>
-  <h2>ტერნარული ოპერატორი და <code class="inl">is</code></h2>
+  <p class="kicker"><span lang="ka">დამატებით</span><span lang="en">Extras</span></p>
+  <h2><span lang="ka">ტერნარული ოპერატორი და <code class="inl">is</code></span><span lang="en">The ternary operator and <code class="inl">is</code></span></h2>
   <div class="two">
     <div>
-      <h3>პირობა ერთ ხაზში</h3>
+      <h3><span lang="ka">პირობა ერთ ხაზში</span><span lang="en">A condition on one line</span></h3>
 <pre class="code"><code>age = 20
 
-# ჩვეულებრივი
+# the usual way
 if age &gt;= 18:
     status = "სრულწლოვანი"
 else:
     status = "არასრულწლოვანი"
 
-# ერთ ხაზში
+# on one line
 status = "სრულწლოვანი" if age &gt;= 18 else "არასრულწლოვანი"</code></pre>
-      <p class="small muted" style="margin-top:8px">გამოიყენე მხოლოდ მაშინ, როცა მართლა კითხვადია.</p>
+      <p class="small muted" style="margin-top:8px">
+        <span lang="ka">გამოიყენე მხოლოდ მაშინ, როცა მართლა კითხვადია.</span>
+        <span lang="en">Use it only when it genuinely reads better.</span>
+      </p>
     </div>
     <div>
-      <h3><code>==</code> თუ <code>is</code>?</h3>
+      <h3><code>==</code> <span lang="ka">თუ</span><span lang="en">or</span> <code>is</code>?</h3>
 <pre class="code"><code>a = [1, 2, 3]
 b = [1, 2, 3]
 
-print(a == b)   # True  — მნიშვნელობები ტოლია
-print(a is b)   # False — სხვადასხვა ობიექტია
+print(a == b)   # True  — equal values
+print(a is b)   # False — different objects
 
 x = None
-print(x is None)      # ✓ სწორი სტილი
-print(x == None)      # მუშაობს, მაგრამ არასწორი სტილი</code></pre>
-      <div class="callout warn small"><b>წესი</b><code class="inl">is</code> მხოლოდ <code class="inl">None</code>, <code class="inl">True</code>, <code class="inl">False</code>-სთან. დანარჩენ შემთხვევაში — <code class="inl">==</code>.</div>
+print(x is None)      # correct style
+print(x == None)      # works, but poor style</code></pre>
+      <div class="callout warn small">
+        <span lang="ka"><b>წესი</b><code class="inl">is</code> მხოლოდ <code class="inl">None</code>, <code class="inl">True</code>, <code class="inl">False</code>-სთან. დანარჩენ შემთხვევაში — <code class="inl">==</code>.</span>
+        <span lang="en"><b>Rule</b>Use <code class="inl">is</code> only with <code class="inl">None</code>, <code class="inl">True</code>, <code class="inl">False</code>. Everywhere else — <code class="inl">==</code>.</span>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">სრული მაგალითი</p>
-  <h2>წელიწადის დღეების კალკულატორი</h2>
+  <p class="kicker"><span lang="ka">სრული მაგალითი</span><span lang="en">Full example</span></p>
+  <h2><span lang="ka">წელიწადის დღეების კალკულატორი</span><span lang="en">Leap-year calculator</span></h2>
 <pre class="code" data-title="leap.py"><code># ნაკიანი წელი: იყოფა 4-ზე, მაგრამ არა 100-ზე,
 # გარდა იმ შემთხვევისა, როცა 400-ზეც იყოფა
+# a leap year is divisible by 4, but not by 100,
+# unless it is also divisible by 400
 
 year = int(input("წელი: "))
 
@@ -318,28 +431,43 @@ if is_leap:
 else:
     print(f"{year} ჩვეულებრივია — 365 დღე")
 
-# იგივე, ერთი ლოგიკური გამოსახულებით:
+# the same as one logical expression:
 is_leap = year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)</code></pre>
-  <div class="note">კარგი დისკუსია: რომელი ვარიანტი სჯობს? ხუთხაზიანი if-ჯაჭვი უფრო წაკითხვადია, ერთხაზიანი — უფრო კომპაქტური. სწორი პასუხი კონტექსტზეა დამოკიდებული.</div>
+  <div class="note">
+    <span lang="ka">კარგი დისკუსია: რომელი ვარიანტი სჯობს? ხუთხაზიანი if-ჯაჭვი უფრო წაკითხვადია, ერთხაზიანი — უფრო კომპაქტური. სწორი პასუხი კონტექსტზეა დამოკიდებული.</span>
+    <span lang="en">A good discussion: which version is better? The if-chain reads more clearly, the one-liner is more compact. The right answer depends on context.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">შეფასება</p>
-  <h2>პრაქტიკული დავალება #1</h2>
-  <p class="small muted">8 ქულა · სრულდება აუდიტორიაში, დამოუკიდებლად</p>
-  <ol class="pts">
+  <p class="kicker"><span lang="ka">შეფასება</span><span lang="en">Assessment</span></p>
+  <h2><span lang="ka">პრაქტიკული დავალება #1</span><span lang="en">Practical assignment #1</span></h2>
+  <p class="small muted">
+    <span lang="ka">8 ქულა · სრულდება აუდიტორიაში, დამოუკიდებლად</span>
+    <span lang="en">8 points · done in class, independently</span>
+  </p>
+  <ol class="pts" lang="ka">
     <li><b>ლუწი/კენტი + ნიშანი</b><small>მომხმარებელი შეიყვანს მთელ რიცხვს. დაბეჭდე, ლუწია თუ კენტი და დადებითია, უარყოფითი თუ ნული</small></li>
     <li><b>უდიდესი სამიდან</b><small>სამი რიცხვიდან იპოვე უდიდესი (ჩაშენებული <code class="inl">max()</code>-ის გარეშე)</small></li>
     <li><b>შეფასების კონვერტორი</b><small>0–100 ქულა → A/B/C/D/E/F ასოითი სკალით. არაკორექტულ ქულაზე დაბეჭდე შეტყობინება</small></li>
     <li><b>ბილეთის ფასი</b><small>ასაკი &lt; 6 — უფასო; 6–17 — 50% ფასდაკლება; 18–64 — სრული; ≥ 65 — 30% ფასდაკლება</small></li>
   </ol>
-  <div class="callout tip"><b>შეფასების კრიტერიუმი</b>3 ქ. — სრულად შესრულებული · 2 ქ. — დამოუკიდებლად, დროში · 3 ქ. — სწორი გზა, მექანიკური შეცდომების გარეშე.</div>
+  <ol class="pts" lang="en">
+    <li><b>Even/odd + sign</b><small>The user enters an integer. Print whether it is even or odd, and positive, negative or zero</small></li>
+    <li><b>Largest of three</b><small>Find the largest of three numbers — without the built-in <code class="inl">max()</code></small></li>
+    <li><b>Grade converter</b><small>A score of 0–100 → an A/B/C/D/E/F letter grade. Print a message for an invalid score</small></li>
+    <li><b>Ticket price</b><small>Age &lt; 6 — free; 6–17 — 50% off; 18–64 — full price; ≥ 65 — 30% off</small></li>
+  </ol>
+  <div class="callout tip">
+    <span lang="ka"><b>შეფასების კრიტერიუმი</b>3 ქ. — სრულად შესრულებული · 2 ქ. — დამოუკიდებლად, დროში · 3 ქ. — სწორი გზა, მექანიკური შეცდომების გარეშე.</span>
+    <span lang="en"><b>Marking criteria</b>3 pts — completed in full · 2 pts — done independently, on time · 3 pts — correct approach, no mechanical errors.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">შემაჯამებელი</p>
-  <h2>რა უნდა დაგამახსოვრდეს</h2>
-  <ul class="pts">
+  <p class="kicker"><span lang="ka">შემაჯამებელი</span><span lang="en">Wrap-up</span></p>
+  <h2><span lang="ka">რა უნდა დაგამახსოვრდეს</span><span lang="en">What to remember</span></h2>
+  <ul class="pts" lang="ka">
     <li>შედარება აბრუნებს <code class="inl">bool</code>-ს; <code class="inl">=</code> ანიჭებს, <code class="inl">==</code> ადარებს</li>
     <li><code class="inl">and</code> · <code class="inl">or</code> · <code class="inl">not</code> — პრიორიტეტი სწორედ ამ თანმიმდევრობით ეცემა</li>
     <li><code class="inl">if / elif / else</code>: მოწმდება ზემოდან ქვემოთ, ჩერდება პირველივე ჭეშმარიტზე</li>
@@ -347,7 +475,18 @@ is_leap = year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)</code></pre>
     <li>ჯაჭვი <code class="inl">10 &lt; x &lt; 20</code> და <code class="inl">in</code> კოდს კითხვადს ხდის</li>
     <li><code class="inl">is</code> მხოლოდ <code class="inl">None</code>/<code class="inl">True</code>/<code class="inl">False</code>-სთვის</li>
   </ul>
-  <div class="callout tip"><b>შემდეგი — ლექცია 04</b>ციკლები: <code class="inl">for</code>, <code class="inl">while</code>, <code class="inl">range()</code>, <code class="inl">break</code> და <code class="inl">continue</code>.</div>
+  <ul class="pts" lang="en">
+    <li>Comparison returns a <code class="inl">bool</code>; <code class="inl">=</code> assigns, <code class="inl">==</code> compares</li>
+    <li><code class="inl">not</code> · <code class="inl">and</code> · <code class="inl">or</code> — precedence falls in exactly that order</li>
+    <li><code class="inl">if / elif / else</code>: checked top to bottom, stops at the first true branch</li>
+    <li>Colon + indentation — both mandatory</li>
+    <li>Chaining <code class="inl">10 &lt; x &lt; 20</code> and <code class="inl">in</code> make code readable</li>
+    <li><code class="inl">is</code> only for <code class="inl">None</code>/<code class="inl">True</code>/<code class="inl">False</code></li>
+  </ul>
+  <div class="callout tip">
+    <span lang="ka"><b>შემდეგი — ლექცია 04</b>ციკლები: <code class="inl">for</code>, <code class="inl">while</code>, <code class="inl">range()</code>, <code class="inl">break</code> და <code class="inl">continue</code>.</span>
+    <span lang="en"><b>Next — lecture 04</b>Loops: <code class="inl">for</code>, <code class="inl">while</code>, <code class="inl">range()</code>, <code class="inl">break</code> and <code class="inl">continue</code>.</span>
+  </div>
 </section>
 
 </main>

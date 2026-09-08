@@ -10,42 +10,59 @@
 <main class="deck">
 
 <section class="slide">
-  <p class="kicker">ლექცია 04 · IV კვირა</p>
-  <h1>ციკლები</h1>
-  <p class="lead" style="margin-top:16px"><code class="inl">for</code> · <code class="inl">while</code> · <code class="inl">range()</code> · <code class="inl">break</code> და <code class="inl">continue</code> · ჩადგმული ციკლები</p>
-  <div class="note">ეს კურსის ერთ-ერთი გადამწყვეტი ლექციაა. ვინც ციკლებს ვერ აითვისებს, შემდეგ ყველგან გაუჭირდება. მეტი დრო დაუთმე ცოცხალ ტრასირებას.</div>
+  <p class="kicker"><span lang="ka">ლექცია 04 · IV კვირა</span><span lang="en">Lecture 04 · Week IV</span></p>
+  <h1><span lang="ka">ციკლები</span><span lang="en">Loops</span></h1>
+  <p class="lead" style="margin-top:16px">
+    <span lang="ka"><code class="inl">for</code> · <code class="inl">while</code> · <code class="inl">range()</code> · <code class="inl">break</code> და <code class="inl">continue</code> · ჩადგმული ციკლები</span>
+    <span lang="en"><code class="inl">for</code> · <code class="inl">while</code> · <code class="inl">range()</code> · <code class="inl">break</code> and <code class="inl">continue</code> · nested loops</span>
+  </p>
+  <div class="note">
+    <span lang="ka">ეს კურსის ერთ-ერთი გადამწყვეტი ლექციაა. ვინც ციკლებს ვერ აითვისებს, შემდეგ ყველგან გაუჭირდება. მეტი დრო დაუთმე ცოცხალ ტრასირებას.</span>
+    <span lang="en">One of the pivotal lectures. Anyone who does not get loops will struggle everywhere afterwards. Spend extra time tracing them live.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">მოტივაცია</p>
-  <h2>რატომ გვჭირდება ციკლი</h2>
+  <p class="kicker"><span lang="ka">მოტივაცია</span><span lang="en">Motivation</span></p>
+  <h2><span lang="ka">რატომ გვჭირდება ციკლი</span><span lang="en">Why we need loops</span></h2>
   <div class="two">
     <div>
-      <h3 style="color:var(--danger)">ციკლის გარეშე</h3>
+      <h3 style="color:var(--danger)"><span lang="ka">ციკლის გარეშე</span><span lang="en">Without a loop</span></h3>
 <pre class="code"><code>print("გამარჯობა")
 print("გამარჯობა")
 print("გამარჯობა")
 print("გამარჯობა")
 print("გამარჯობა")</code></pre>
-      <p class="small muted" style="margin-top:8px">და თუ 1000-ჯერ დაგვჭირდა? ან რაოდენობა მომხმარებლისგან მოდის?</p>
+      <p class="small muted" style="margin-top:8px">
+        <span lang="ka">და თუ 1000-ჯერ დაგვჭირდა? ან რაოდენობა მომხმარებლისგან მოდის?</span>
+        <span lang="en">And if we needed it 1000 times? Or the count comes from the user?</span>
+      </p>
     </div>
     <div>
-      <h3 style="color:var(--accent2)">ციკლით</h3>
+      <h3 style="color:var(--accent2)"><span lang="ka">ციკლით</span><span lang="en">With a loop</span></h3>
 <pre class="code"><code>for i in range(5):
     print("გამარჯობა")</code></pre>
-      <p class="small muted" style="margin-top:8px">რიცხვის შეცვლა — ერთი სიმბოლოა.</p>
-      <div class="callout tip" style="margin-top:14px"><b>ორი სახეობა</b>
-        <span style="display:block;margin-top:5px"><code class="inl">for</code> — როცა <b>ვიცით</b>, რამდენჯერ (ან რაზე ვიარებთ)</span>
-        <span style="display:block"><code class="inl">while</code> — როცა <b>პირობა</b> წყვეტს, გავაგრძელოთ თუ არა</span></div>
+      <p class="small muted" style="margin-top:8px">
+        <span lang="ka">რიცხვის შეცვლა — ერთი სიმბოლოა.</span>
+        <span lang="en">Changing the count is a single character.</span>
+      </p>
+      <div class="callout tip" style="margin-top:14px">
+        <span lang="ka"><b>ორი სახეობა</b>
+          <span style="display:block;margin-top:5px"><code class="inl">for</code> — როცა <b>ვიცით</b>, რამდენჯერ (ან რაზე ვიარებთ)</span>
+          <span style="display:block"><code class="inl">while</code> — როცა <b>პირობა</b> წყვეტს, გავაგრძელოთ თუ არა</span></span>
+        <span lang="en"><b>Two kinds</b>
+          <span style="display:block;margin-top:5px"><code class="inl">for</code> — when we <b>know</b> how many times (or what to walk over)</span>
+          <span style="display:block"><code class="inl">while</code> — when a <b>condition</b> decides whether to continue</span></span>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">კონსტრუქცია</p>
-  <h2><code class="inl">for</code> — გავლა თანმიმდევრობაზე</h2>
-<pre class="code" data-title="სინტაქსი"><code class="nohl">for ცვლადი in თანმიმდევრობა:
-    სხეული</code></pre>
+  <p class="kicker"><span lang="ka">კონსტრუქცია</span><span lang="en">Construct</span></p>
+  <h2><span lang="ka"><code class="inl">for</code> — გავლა თანმიმდევრობაზე</span><span lang="en"><code class="inl">for</code> — walking a sequence</span></h2>
+<pre class="code" data-title="syntax"><code class="nohl">for variable in sequence:
+    body</code></pre>
   <div class="two" style="margin-top:14px">
     <div>
 <pre class="code"><code>for i in range(5):
@@ -60,22 +77,32 @@ print("გამარჯობა")</code></pre>
 <pre class="code"><code>for letter in "პითონი":
     print(letter, end=" ")</code></pre>
       <p class="out">პ ი თ ო ნ ი</p>
-      <div class="callout small" style="margin-top:12px"><b>ცვლადის სახელი</b>ხშირად <code class="inl">i</code> (index), მაგრამ აზრიანი სახელი სჯობს: <code class="inl">for student in group:</code></div>
+      <div class="callout small" style="margin-top:12px">
+        <span lang="ka"><b>ცვლადის სახელი</b>ხშირად <code class="inl">i</code> (index), მაგრამ აზრიანი სახელი სჯობს: <code class="inl">for student in group:</code></span>
+        <span lang="en"><b>The variable name</b>Often <code class="inl">i</code> (for index), but a meaningful name is better: <code class="inl">for student in group:</code></span>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ინსტრუმენტი</p>
-  <h2><code class="inl">range()</code> — სამი ფორმა</h2>
+  <p class="kicker"><span lang="ka">ინსტრუმენტი</span><span lang="en">Tool</span></p>
+  <h2><span lang="ka"><code class="inl">range()</code> — სამი ფორმა</span><span lang="en"><code class="inl">range()</code> — three forms</span></h2>
   <table>
-    <tr><th style="width:30%">ჩანაწერი</th><th style="width:36%">რას ნიშნავს</th><th>მნიშვნელობები</th></tr>
-    <tr><td><code>range(5)</code></td><td>0-დან 5-მდე</td><td><code>0 1 2 3 4</code></td></tr>
-    <tr><td><code>range(2, 6)</code></td><td>2-დან 6-მდე</td><td><code>2 3 4 5</code></td></tr>
-    <tr><td><code>range(0, 10, 2)</code></td><td>ბიჯით 2</td><td><code>0 2 4 6 8</code></td></tr>
-    <tr><td><code>range(10, 0, -1)</code></td><td>უკუსვლით</td><td><code>10 9 8 … 1</code></td></tr>
+    <tr>
+      <th style="width:30%"><span lang="ka">ჩანაწერი</span><span lang="en">Written as</span></th>
+      <th style="width:36%"><span lang="ka">რას ნიშნავს</span><span lang="en">What it means</span></th>
+      <th><span lang="ka">მნიშვნელობები</span><span lang="en">Values</span></th>
+    </tr>
+    <tr><td><code>range(5)</code></td><td><span lang="ka">0-დან 5-მდე</span><span lang="en">From 0 up to 5</span></td><td><code>0 1 2 3 4</code></td></tr>
+    <tr><td><code>range(2, 6)</code></td><td><span lang="ka">2-დან 6-მდე</span><span lang="en">From 2 up to 6</span></td><td><code>2 3 4 5</code></td></tr>
+    <tr><td><code>range(0, 10, 2)</code></td><td><span lang="ka">ბიჯით 2</span><span lang="en">In steps of 2</span></td><td><code>0 2 4 6 8</code></td></tr>
+    <tr><td><code>range(10, 0, -1)</code></td><td><span lang="ka">უკუსვლით</span><span lang="en">Counting down</span></td><td><code>10 9 8 … 1</code></td></tr>
   </table>
-  <div class="callout warn"><b>ბოლო რიცხვი <u>არ</u> შედის</b><code class="inl">range(1, 5)</code> იძლევა <b>1, 2, 3, 4</b>-ს. 5-ის ჩასათვლელად საჭიროა <code class="inl">range(1, 6)</code>.<br>ეს დამწყებთა #1 შეცდომაა („off-by-one“).</div>
+  <div class="callout warn">
+    <span lang="ka"><b>ბოლო რიცხვი <u>არ</u> შედის</b><code class="inl">range(1, 5)</code> იძლევა <b>1, 2, 3, 4</b>-ს. 5-ის ჩასათვლელად საჭიროა <code class="inl">range(1, 6)</code>.<br>ეს დამწყებთა #1 შეცდომაა („off-by-one“).</span>
+    <span lang="en"><b>The last number is <u>not</u> included</b><code class="inl">range(1, 5)</code> gives <b>1, 2, 3, 4</b>. To include 5 you need <code class="inl">range(1, 6)</code>.<br>This is the #1 beginner mistake — the “off-by-one”.</span>
+  </div>
 <pre class="code" style="margin-top:8px"><code>for i in range(1, 11):
     print(i, end=" ")        # 1 2 3 4 5 6 7 8 9 10
 
@@ -83,39 +110,48 @@ print(list(range(5)))        # [0, 1, 2, 3, 4]</code></pre>
 </section>
 
 <section class="slide">
-  <p class="kicker">კონსტრუქცია</p>
-  <h2><code class="inl">while</code> — სანამ პირობა სრულდება</h2>
+  <p class="kicker"><span lang="ka">კონსტრუქცია</span><span lang="en">Construct</span></p>
+  <h2><span lang="ka"><code class="inl">while</code> — სანამ პირობა სრულდება</span><span lang="en"><code class="inl">while</code> — as long as the condition holds</span></h2>
   <div class="two">
     <div>
-<pre class="code" data-title="სინტაქსი"><code class="nohl">while პირობა:
-    სხეული</code></pre>
+<pre class="code" data-title="syntax"><code class="nohl">while condition:
+    body</code></pre>
 <pre class="code" style="margin-top:12px"><code>count = 0
 
 while count &lt; 5:
     print(count)
-    count += 1        # ⚠ სავალდებულო!
+    count += 1        # ⚠ mandatory!
 
 print("დასრულდა")</code></pre>
     </div>
     <div>
-      <h3>სამი აუცილებელი ნაწილი</h3>
-      <ol class="pts tight">
+      <h3><span lang="ka">სამი აუცილებელი ნაწილი</span><span lang="en">Three essential parts</span></h3>
+      <ol class="pts tight" lang="ka">
         <li><b>ინიციალიზაცია</b> — <code class="inl">count = 0</code> ციკლამდე</li>
         <li><b>პირობა</b> — <code class="inl">count &lt; 5</code></li>
         <li><b>ცვლილება</b> — <code class="inl">count += 1</code> სხეულში</li>
       </ol>
-      <div class="callout err" style="margin-top:14px"><b>თუ მესამე დაგავიწყდა</b>მიიღებ <b>უსასრულო ციკლს</b> — პროგრამა არასდროს დამთავრდება.<br>გაჩერება: <kbd>Ctrl</kbd>+<kbd>C</kbd> ტერმინალში.</div>
+      <ol class="pts tight" lang="en">
+        <li><b>Initialisation</b> — <code class="inl">count = 0</code> before the loop</li>
+        <li><b>Condition</b> — <code class="inl">count &lt; 5</code></li>
+        <li><b>Change</b> — <code class="inl">count += 1</code> in the body</li>
+      </ol>
+      <div class="callout err" style="margin-top:14px">
+        <span lang="ka"><b>თუ მესამე დაგავიწყდა</b>მიიღებ <b>უსასრულო ციკლს</b> — პროგრამა არასდროს დამთავრდება.<br>გაჩერება: <kbd>Ctrl</kbd>+<kbd>C</kbd> ტერმინალში.</span>
+        <span lang="en"><b>Forget the third and</b>you get an <b>infinite loop</b> — the program never ends.<br>Stop it with <kbd>Ctrl</kbd>+<kbd>C</kbd> in the terminal.</span>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">მაგალითი</p>
-  <h2><code class="inl">while</code>-ის ნამდვილი ადგილი</h2>
-  <p><code class="inl">for</code> ჯობია, როცა რაოდენობა ცნობილია. <code class="inl">while</code> — როცა არა.</p>
+  <p class="kicker"><span lang="ka">მაგალითი</span><span lang="en">Example</span></p>
+  <h2><span lang="ka"><code class="inl">while</code>-ის ნამდვილი ადგილი</span><span lang="en">Where <code class="inl">while</code> really belongs</span></h2>
+  <p lang="ka"><code class="inl">for</code> ჯობია, როცა რაოდენობა ცნობილია. <code class="inl">while</code> — როცა არა.</p>
+  <p lang="en">Use <code class="inl">for</code> when the count is known, <code class="inl">while</code> when it is not.</p>
   <div class="two">
     <div>
-      <h3>მომხმარებლის შემოწმება</h3>
+      <h3><span lang="ka">მომხმარებლის შემოწმება</span><span lang="en">Checking user input</span></h3>
 <pre class="code"><code>password = ""
 
 while password != "python":
@@ -124,51 +160,62 @@ while password != "python":
 print("წვდომა დაშვებულია")</code></pre>
     </div>
     <div>
-      <h3>დაგროვება ზღვრამდე</h3>
+      <h3><span lang="ka">დაგროვება ზღვრამდე</span><span lang="en">Growing to a threshold</span></h3>
 <pre class="code"><code>balance = 1000
 year = 0
 
 while balance &lt; 2000:
-    balance *= 1.10   # 10% წლიური
+    balance *= 1.10   # 10% per year
     year += 1
 
 print(f"{year} წელი, ბალანსი {balance:.2f}")</code></pre>
       <p class="out">8 წელი, ბალანსი 2143.59</p>
     </div>
   </div>
-  <div class="note">იკითხე: „რამდენი წელი დასჭირდება?“ — სტუდენტები ვერ იტყვიან წინასწარ. სწორედ ესაა while-ის არსი.</div>
+  <div class="note">
+    <span lang="ka">იკითხე: „რამდენი წელი დასჭირდება?“ — სტუდენტები ვერ იტყვიან წინასწარ. სწორედ ესაა while-ის არსი.</span>
+    <span lang="en">Ask: “how many years will it take?” — nobody can say in advance. That is exactly the point of <code>while</code>.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">მართვა</p>
-  <h2><code class="inl">break</code> და <code class="inl">continue</code></h2>
+  <p class="kicker"><span lang="ka">მართვა</span><span lang="en">Control</span></p>
+  <h2><code class="inl">break</code> <span lang="ka">და</span><span lang="en">and</span> <code class="inl">continue</code></h2>
   <div class="two">
     <div>
-      <h3><code>break</code> — გამოდის ციკლიდან</h3>
+      <h3><code>break</code> — <span lang="ka">გამოდის ციკლიდან</span><span lang="en">exits the loop</span></h3>
 <pre class="code"><code>for i in range(1, 11):
     if i == 5:
         break
     print(i, end=" ")</code></pre>
       <p class="out">1 2 3 4</p>
-      <p class="small muted" style="margin-top:6px">ციკლი მთლიანად წყდება.</p>
+      <p class="small muted" style="margin-top:6px">
+        <span lang="ka">ციკლი მთლიანად წყდება.</span><span lang="en">The loop stops entirely.</span>
+      </p>
     </div>
     <div>
-      <h3><code>continue</code> — გამოტოვებს ერთ ბიჯს</h3>
+      <h3><code>continue</code> — <span lang="ka">გამოტოვებს ერთ ბიჯს</span><span lang="en">skips one iteration</span></h3>
 <pre class="code"><code>for i in range(1, 11):
     if i % 2 == 0:
         continue
     print(i, end=" ")</code></pre>
       <p class="out">1 3 5 7 9</p>
-      <p class="small muted" style="margin-top:6px">ციკლი გრძელდება, ეს ბიჯი გამოტოვდა.</p>
+      <p class="small muted" style="margin-top:6px">
+        <span lang="ka">ციკლი გრძელდება, ეს ბიჯი გამოტოვდა.</span><span lang="en">The loop continues; this step was skipped.</span>
+      </p>
     </div>
   </div>
-  <div class="callout tip"><b>ჩადგმულ ციკლში</b><code class="inl">break</code> მხოლოდ <b>უახლოეს</b> ციკლს წყვეტს, არა ყველას.</div>
+  <div class="callout tip">
+    <span lang="ka"><b>ჩადგმულ ციკლში</b><code class="inl">break</code> მხოლოდ <b>უახლოეს</b> ციკლს წყვეტს, არა ყველას.</span>
+    <span lang="en"><b>Inside nested loops</b><code class="inl">break</code> exits only the <b>innermost</b> loop, not all of them.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ნაკლებად ცნობილი</p>
-  <h2><code class="inl">else</code> ციკლთან ერთად</h2>
-  <p>სრულდება მაშინ, როცა ციკლი <b><code class="inl">break</code>-ის გარეშე</b> დამთავრდა.</p>
+  <p class="kicker"><span lang="ka">ნაკლებად ცნობილი</span><span lang="en">Lesser known</span></p>
+  <h2><span lang="ka"><code class="inl">else</code> ციკლთან ერთად</span><span lang="en"><code class="inl">else</code> attached to a loop</span></h2>
+  <p lang="ka">სრულდება მაშინ, როცა ციკლი <b><code class="inl">break</code>-ის გარეშე</b> დამთავრდა.</p>
+  <p lang="en">It runs when the loop finished <b>without hitting <code class="inl">break</code></b>.</p>
 <pre class="code" data-title="prime.py"><code>n = int(input("რიცხვი: "))
 
 for d in range(2, n):
@@ -177,22 +224,31 @@ for d in range(2, n):
         break
 else:
     print(f"{n} მარტივი რიცხვია")</code></pre>
-  <div class="callout"><b>წაიკითხე ასე</b><i>„გაიარე ციკლი; თუ <code class="inl">break</code>-ს <b>ვერ</b> მიაღწიე — შეასრულე <code class="inl">else</code>“.</i> გამოგადგება „ვეძებდი და ვერ ვიპოვე“ ტიპის ამოცანებში.</div>
-  <div class="note">ეს კონსტრუქცია Python-ის სპეციფიკურია და შუალედურის ღია კითხვად კარგად გამოდგება.</div>
+  <div class="callout">
+    <span lang="ka"><b>წაიკითხე ასე</b><i>„გაიარე ციკლი; თუ <code class="inl">break</code>-ს <b>ვერ</b> მიაღწიე — შეასრულე <code class="inl">else</code>“.</i> გამოგადგება „ვეძებდი და ვერ ვიპოვე“ ტიპის ამოცანებში.</span>
+    <span lang="en"><b>Read it as</b><i>“run the loop; if you never reached <code class="inl">break</code>, run the <code class="inl">else</code>.”</i> Useful for “I searched and found nothing” problems.</span>
+  </div>
+  <div class="note">
+    <span lang="ka">ეს კონსტრუქცია Python-ის სპეციფიკურია და შუალედურის ღია კითხვად კარგად გამოდგება.</span>
+    <span lang="en">This construct is Python-specific and makes a good midterm open question.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">შაბლონი</p>
-  <h2>დაგროვება (accumulator)</h2>
-  <p class="small muted">ყველაზე ხშირი შაბლონი ციკლებში: ცვლადი ციკლამდე, ცვლილება ციკლში.</p>
+  <p class="kicker"><span lang="ka">შაბლონი</span><span lang="en">Pattern</span></p>
+  <h2><span lang="ka">დაგროვება (accumulator)</span><span lang="en">The accumulator</span></h2>
+  <p class="small muted">
+    <span lang="ka">ყველაზე ხშირი შაბლონი ციკლებში: ცვლადი ციკლამდე, ცვლილება ციკლში.</span>
+    <span lang="en">The most common loop pattern: declare the variable before the loop, change it inside.</span>
+  </p>
   <div class="two">
     <div>
-      <h3>ჯამი</h3>
+      <h3><span lang="ka">ჯამი</span><span lang="en">Sum</span></h3>
 <pre class="code"><code>total = 0
 for i in range(1, 101):
     total += i
 print(total)        # 5050</code></pre>
-      <h3 style="margin-top:14px">დათვლა</h3>
+      <h3 style="margin-top:14px"><span lang="ka">დათვლა</span><span lang="en">Counting</span></h3>
 <pre class="code"><code>count = 0
 for c in "programming":
     if c in "aeiou":
@@ -200,34 +256,40 @@ for c in "programming":
 print(count)        # 3</code></pre>
     </div>
     <div>
-      <h3>მაქსიმუმის ძებნა</h3>
+      <h3><span lang="ka">მაქსიმუმის ძებნა</span><span lang="en">Finding the maximum</span></h3>
 <pre class="code"><code>biggest = 0
 for i in range(5):
     n = int(input("რიცხვი: "))
     if n &gt; biggest:
         biggest = n
 print("უდიდესი:", biggest)</code></pre>
-      <div class="callout warn small" style="margin-top:12px"><b>ფრთხილად</b><code class="inl">biggest = 0</code> ვერ იმუშავებს, თუ ყველა რიცხვი უარყოფითია. სწორი გზა — პირველი მნიშვნელობით ინიციალიზაცია.</div>
+      <div class="callout warn small" style="margin-top:12px">
+        <span lang="ka"><b>ფრთხილად</b><code class="inl">biggest = 0</code> ვერ იმუშავებს, თუ ყველა რიცხვი უარყოფითია. სწორი გზა — პირველი მნიშვნელობით ინიციალიზაცია.</span>
+        <span lang="en"><b>Careful</b><code class="inl">biggest = 0</code> fails if every number is negative. The correct approach is to initialise with the first value.</span>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">კონსტრუქცია</p>
-  <h2>ჩადგმული ციკლები</h2>
+  <p class="kicker"><span lang="ka">კონსტრუქცია</span><span lang="en">Construct</span></p>
+  <h2><span lang="ka">ჩადგმული ციკლები</span><span lang="en">Nested loops</span></h2>
 <pre class="code" data-title="multiplication.py"><code>for i in range(1, 6):
     for j in range(1, 6):
         print(f"{i * j:4}", end="")
-    print()          # ხაზის გადატანა გარე ციკლში</code></pre>
+    print()          # line break, in the outer loop</code></pre>
   <p class="out">   1   2   3   4   5
    2   4   6   8  10
    3   6   9  12  15
    4   8  12  16  20
    5  10  15  20  25</p>
-  <div class="callout"><b>როგორ იმუშავა</b>გარე ციკლის <b>ერთ</b> ბიჯზე შიდა ციკლი <b>მთლიანად</b> გაირბენს. 5 × 5 = 25 შესრულება.</div>
+  <div class="callout">
+    <span lang="ka"><b>როგორ იმუშავა</b>გარე ციკლის <b>ერთ</b> ბიჯზე შიდა ციკლი <b>მთლიანად</b> გაირბენს. 5 × 5 = 25 შესრულება.</span>
+    <span lang="en"><b>How it works</b>For <b>each</b> step of the outer loop, the inner loop runs <b>completely</b>. 5 × 5 = 25 executions.</span>
+  </div>
   <div class="two" style="margin-top:12px">
     <div>
-<pre class="code" data-title="სამკუთხედი"><code>for i in range(1, 6):
+<pre class="code" data-title="triangle"><code>for i in range(1, 6):
     print("*" * i)</code></pre>
     </div>
     <div>
@@ -241,8 +303,8 @@ print("უდიდესი:", biggest)</code></pre>
 </section>
 
 <section class="slide">
-  <p class="kicker">შაბლონი</p>
-  <h2>უსასრულო ციკლი + <code class="inl">break</code> (მენიუ)</h2>
+  <p class="kicker"><span lang="ka">შაბლონი</span><span lang="en">Pattern</span></p>
+  <h2><span lang="ka">უსასრულო ციკლი + <code class="inl">break</code> (მენიუ)</span><span lang="en">Infinite loop + <code class="inl">break</code> (a menu)</span></h2>
 <pre class="code" data-title="menu.py"><code>while True:
     print("\n1 — შეკრება")
     print("2 — გამრავლება")
@@ -263,12 +325,15 @@ print("უდიდესი:", biggest)</code></pre>
         print("შედეგი:", a * b)
     else:
         print("არასწორი არჩევანი")</code></pre>
-  <div class="callout tip"><b>ეს შაბლონი</b>ინტერაქტიული პროგრამების საფუძველია. <code class="inl">while True</code> + <code class="inl">break</code> — სრულიად ნორმალური და გავრცელებული ხერხია.</div>
+  <div class="callout tip">
+    <span lang="ka"><b>ეს შაბლონი</b>ინტერაქტიული პროგრამების საფუძველია. <code class="inl">while True</code> + <code class="inl">break</code> — სრულიად ნორმალური და გავრცელებული ხერხია.</span>
+    <span lang="en"><b>This pattern</b>is the backbone of interactive programs. <code class="inl">while True</code> + <code class="inl">break</code> is perfectly normal and widely used.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">პრაქტიკა</p>
-  <h2>რიცხვის ციფრებთან მუშაობა</h2>
+  <p class="kicker"><span lang="ka">პრაქტიკა</span><span lang="en">Practice</span></p>
+  <h2><span lang="ka">რიცხვის ციფრებთან მუშაობა</span><span lang="en">Working with the digits of a number</span></h2>
 <pre class="code" data-title="digits.py"><code>n = int(input("მთელი რიცხვი: "))
 n = abs(n)
 
@@ -277,11 +342,11 @@ count = 0
 reversed_num = 0
 
 while n &gt; 0:
-    digit = n % 10          # ბოლო ციფრი
+    digit = n % 10          # the last digit
     total += digit
     count += 1
     reversed_num = reversed_num * 10 + digit
-    n = n // 10             # ბოლო ციფრს ვაშორებთ
+    n = n // 10             # drop the last digit
 
 print("ციფრების ჯამი:", total)
 print("ციფრების რაოდენობა:", count)
@@ -290,35 +355,62 @@ print("შებრუნებული:", reversed_num)</code></pre>
 ციფრების ჯამი: 10
 ციფრების რაოდენობა: 4
 შებრუნებული: 4321</p>
-  <div class="note">ეს კლასიკური ამოცანაა და გამოცდაზე ხშირად ხვდება. ტრასირება დაფაზე: n=1234 → digit=4, n=123 → …</div>
+  <div class="note">
+    <span lang="ka">ეს კლასიკური ამოცანაა და გამოცდაზე ხშირად ხვდება. ტრასირება დაფაზე: n=1234 → digit=4, n=123 → …</span>
+    <span lang="en">A classic exercise that shows up in exams often. Trace it on the board: n=1234 → digit=4, n=123 → …</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">დიაგნოსტიკა</p>
-  <h2>ხშირი შეცდომები</h2>
+  <p class="kicker"><span lang="ka">დიაგნოსტიკა</span><span lang="en">Troubleshooting</span></p>
+  <h2><span lang="ka">ხშირი შეცდომები</span><span lang="en">Common mistakes</span></h2>
   <table class="small">
-    <tr><th style="width:40%">შეცდომა</th><th>რა ხდება</th></tr>
-    <tr><td>მთვლელის გაზრდა დაგავიწყდა <code>while</code>-ში</td><td>უსასრულო ციკლი. <kbd>Ctrl</kbd>+<kbd>C</kbd></td></tr>
-    <tr><td><code>range(1, 5)</code> და 5-ს ელოდები</td><td>ბოლო რიცხვი არ შედის → <code>range(1, 6)</code></td></tr>
-    <tr><td>დამგროვებელი ცვლადი ციკლის <b>შიგნით</b> ინიციალიზდება</td><td>ყოველ ბიჯზე ნულდება — შედეგი არასწორია</td></tr>
-    <tr><td><code>print()</code> არასწორ დონეზეა ჩადგმულ ციკლში</td><td>გამოტანა არეულია — გადახედე წანაცვლებას</td></tr>
-    <tr><td><code>for i in range(len(s))</code> როცა პირდაპირ <code>for c in s</code> გამოდგება</td><td>მუშაობს, მაგრამ არა-Python-ური სტილია</td></tr>
+    <tr>
+      <th style="width:40%"><span lang="ka">შეცდომა</span><span lang="en">Mistake</span></th>
+      <th><span lang="ka">რა ხდება</span><span lang="en">What happens</span></th>
+    </tr>
+    <tr><td><span lang="ka">მთვლელის გაზრდა დაგავიწყდა <code>while</code>-ში</span><span lang="en">Forgot to increment the counter in <code>while</code></span></td>
+      <td><span lang="ka">უსასრულო ციკლი. <kbd>Ctrl</kbd>+<kbd>C</kbd></span><span lang="en">Infinite loop. <kbd>Ctrl</kbd>+<kbd>C</kbd></span></td></tr>
+    <tr><td><span lang="ka"><code>range(1, 5)</code> და 5-ს ელოდები</span><span lang="en"><code>range(1, 5)</code> while expecting 5</span></td>
+      <td><span lang="ka">ბოლო რიცხვი არ შედის → <code>range(1, 6)</code></span><span lang="en">The last value is excluded → <code>range(1, 6)</code></span></td></tr>
+    <tr><td><span lang="ka">დამგროვებელი ცვლადი ციკლის <b>შიგნით</b> ინიციალიზდება</span><span lang="en">The accumulator is initialised <b>inside</b> the loop</span></td>
+      <td><span lang="ka">ყოველ ბიჯზე ნულდება — შედეგი არასწორია</span><span lang="en">It resets every iteration — the result is wrong</span></td></tr>
+    <tr><td><span lang="ka"><code>print()</code> არასწორ დონეზეა ჩადგმულ ციკლში</span><span lang="en"><code>print()</code> at the wrong level in a nested loop</span></td>
+      <td><span lang="ka">გამოტანა არეულია — გადახედე წანაცვლებას</span><span lang="en">The output is scrambled — check the indentation</span></td></tr>
+    <tr><td><span lang="ka"><code>for i in range(len(s))</code> როცა პირდაპირ <code>for c in s</code> გამოდგება</span><span lang="en"><code>for i in range(len(s))</code> where <code>for c in s</code> would do</span></td>
+      <td><span lang="ka">მუშაობს, მაგრამ არა-Python-ური სტილია</span><span lang="en">It works, but it is not Pythonic</span></td></tr>
   </table>
-  <div class="callout tip"><b>დიაგნოსტიკის ხერხი</b>ჩადეთ <code class="inl">print(i, total)</code> ციკლის სხეულში — მაშინვე დაინახავთ, სად გაფუჭდა. ან გამოიყენეთ დებაგერი (<kbd>F5</kbd>).</div>
+  <div class="callout tip">
+    <span lang="ka"><b>დიაგნოსტიკის ხერხი</b>ჩადეთ <code class="inl">print(i, total)</code> ციკლის სხეულში — მაშინვე დაინახავთ, სად გაფუჭდა. ან გამოიყენეთ დებაგერი (<kbd>F5</kbd>).</span>
+    <span lang="en"><b>A debugging trick</b>Drop <code class="inl">print(i, total)</code> into the loop body — you will see immediately where it went wrong. Or use the debugger (<kbd>F5</kbd>).</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">შემაჯამებელი</p>
-  <h2>რა უნდა დაგამახსოვრდეს</h2>
-  <ul class="pts">
+  <p class="kicker"><span lang="ka">შემაჯამებელი</span><span lang="en">Wrap-up</span></p>
+  <h2><span lang="ka">რა უნდა დაგამახსოვრდეს</span><span lang="en">What to remember</span></h2>
+  <ul class="pts" lang="ka">
     <li><code class="inl">for</code> — ცნობილი რაოდენობა ან გავლა თანმიმდევრობაზე; <code class="inl">while</code> — პირობით მართვა</li>
     <li><code class="inl">range(start, stop, step)</code> — <b>stop არ შედის</b></li>
     <li><code class="inl">break</code> წყვეტს, <code class="inl">continue</code> ტოვებს ბიჯს, <code class="inl">else</code> სრულდება <code class="inl">break</code>-ის გარეშე დასრულებისას</li>
     <li>დაგროვების შაბლონი: ცვლადი <b>ციკლამდე</b>, ცვლილება <b>ციკლში</b></li>
     <li>ჩადგმულ ციკლში გარე ბიჯზე შიდა მთლიანად გადის</li>
   </ul>
-  <div class="callout"><b>სახლში</b>1) 1–100 რიცხვების ჯამი და საშუალო. 2) ფაქტორიალი. 3) მამრავლების ცხრილი (1–9). 4) გამოიცანი რიცხვი (<code class="inl">random</code>-ის გარეშე, ფიქსირებული რიცხვით). 5) დახატე „ნაძვის ხე“ ვარსკვლავებით.</div>
-  <div class="callout tip"><b>შემდეგი — ლექცია 05</b>ჩაშენებული ფუნქციები, მოდული <code class="inl">math</code> და შემთხვევითი რიცხვები.</div>
+  <ul class="pts" lang="en">
+    <li><code class="inl">for</code> — a known count or walking a sequence; <code class="inl">while</code> — driven by a condition</li>
+    <li><code class="inl">range(start, stop, step)</code> — <b>stop is excluded</b></li>
+    <li><code class="inl">break</code> exits, <code class="inl">continue</code> skips a step, <code class="inl">else</code> runs when the loop ended without <code class="inl">break</code></li>
+    <li>The accumulator pattern: variable <b>before</b> the loop, changes <b>inside</b> it</li>
+    <li>In nested loops, the inner one runs fully for each outer step</li>
+  </ul>
+  <div class="callout">
+    <span lang="ka"><b>სახლში</b>1) 1–100 რიცხვების ჯამი და საშუალო. 2) ფაქტორიალი. 3) მამრავლების ცხრილი (1–9). 4) გამოიცანი რიცხვი (<code class="inl">random</code>-ის გარეშე, ფიქსირებული რიცხვით). 5) დახატე „ნაძვის ხე“ ვარსკვლავებით.</span>
+    <span lang="en"><b>At home</b>1) Sum and average of 1–100. 2) Factorial. 3) A multiplication table (1–9). 4) Guess-the-number (without <code class="inl">random</code>, using a fixed number). 5) Draw a “fir tree” out of asterisks.</span>
+  </div>
+  <div class="callout tip">
+    <span lang="ka"><b>შემდეგი — ლექცია 05</b>ჩაშენებული ფუნქციები, მოდული <code class="inl">math</code> და შემთხვევითი რიცხვები.</span>
+    <span lang="en"><b>Next — lecture 05</b>Built-in functions, the <code class="inl">math</code> module and random numbers.</span>
+  </div>
 </section>
 
 </main>
