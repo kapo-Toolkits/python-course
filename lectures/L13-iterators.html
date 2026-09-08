@@ -10,82 +10,140 @@
 <main class="deck">
 
 <section class="slide">
-  <p class="kicker">ლექცია 13 · XIII კვირა</p>
-  <h1>იტერატორები და<br>კონტეინერები</h1>
-  <p class="lead" style="margin-top:16px">როგორ მუშაობს <code class="inl">for</code> სინამდვილეში · <code class="inl">iter()</code> და <code class="inl">next()</code> · გენერატორები</p>
-  <p class="small muted" style="margin-top:22px">დღეს ასევე: <b>პრაქტიკული დავალება #4</b></p>
+  <p class="kicker"><span lang="ka">ლექცია 13 · XIII კვირა</span><span lang="en">Lecture 13 · Week XIII</span></p>
+  <h1><span lang="ka">იტერატორები და<br>კონტეინერები</span><span lang="en">Iterators and<br>containers</span></h1>
+  <p class="lead" style="margin-top:16px">
+    <span lang="ka">როგორ მუშაობს <code class="inl">for</code> სინამდვილეში · <code class="inl">iter()</code> და <code class="inl">next()</code> · გენერატორები</span>
+    <span lang="en">How <code class="inl">for</code> really works · <code class="inl">iter()</code> and <code class="inl">next()</code> · generators</span>
+  </p>
+  <p class="small muted" style="margin-top:22px">
+    <span lang="ka">დღეს ასევე: <b>პრაქტიკული დავალება #4</b></span>
+    <span lang="en">Also today: <b>practical assignment #4</b></span>
+  </p>
 </section>
 
 <section class="slide">
-  <p class="kicker g">გამეორება · ლექციები 11–12</p>
-  <h2>შემოწმება — 9 კითხვა</h2>
+  <p class="kicker g"><span lang="ka">გამეორება · ლექციები 11–12</span><span lang="en">Review · lectures 11–12</span></p>
+  <h2><span lang="ka">შემოწმება — 9 კითხვა</span><span lang="en">Check yourself — 9 questions</span></h2>
   <div class="quiz">
-    <details><summary>1. როგორ შევქმნათ ცარიელი <code class="inl">set</code> და რატომ არა <code class="inl">{}</code>-ით?</summary>
-      <div class="ans"><code>set()</code>-ით. <code>{}</code> ქმნის ცარიელ <b>ლექსიკონს</b>.</div></details>
-    <details><summary>2. რას აბრუნებს <code class="inl">{1,2,3} &amp; {2,3,4}</code> და <code class="inl">{1,2,3} - {2,3,4}</code>?</summary>
-      <div class="ans"><code>{2, 3}</code> (თანაკვეთა) და <code>{1}</code> (სხვაობა).</div></details>
-    <details><summary>3. რა განსხვავებაა <code class="inl">d["x"]</code>-სა და <code class="inl">d.get("x")</code>-ს შორის?</summary>
-      <div class="ans"><code>[]</code> გასაღების არარსებობისას ისვრის <code>KeyError</code>-ს; <code>get()</code> აბრუნებს <code>None</code>-ს (ან მითითებულ ნაგულისხმევს).</div></details>
-    <details><summary>4. როგორ გავიაროთ ლექსიკონზე გასაღებთან და მნიშვნელობასთან ერთად?</summary>
+    <details>
+      <summary><span lang="ka">1. როგორ შევქმნათ ცარიელი <code class="inl">set</code> და რატომ არა <code class="inl">{}</code>-ით?</span>
+               <span lang="en">1. How do you create an empty <code class="inl">set</code>, and why not with <code class="inl">{}</code>?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>set()</code>-ით. <code>{}</code> ქმნის ცარიელ <b>ლექსიკონს</b>.</span>
+        <span lang="en">With <code>set()</code>. <code>{}</code> creates an empty <b>dictionary</b>.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">2. რას აბრუნებს <code class="inl">{1,2,3} &amp; {2,3,4}</code> და <code class="inl">{1,2,3} - {2,3,4}</code>?</span>
+               <span lang="en">2. What do <code class="inl">{1,2,3} &amp; {2,3,4}</code> and <code class="inl">{1,2,3} - {2,3,4}</code> return?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>{2, 3}</code> (თანაკვეთა) და <code>{1}</code> (სხვაობა).</span>
+        <span lang="en"><code>{2, 3}</code> (intersection) and <code>{1}</code> (difference).</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">3. რა განსხვავებაა <code class="inl">d["x"]</code>-სა და <code class="inl">d.get("x")</code>-ს შორის?</span>
+               <span lang="en">3. What is the difference between <code class="inl">d["x"]</code> and <code class="inl">d.get("x")</code>?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>[]</code> გასაღების არარსებობისას ისვრის <code>KeyError</code>-ს; <code>get()</code> აბრუნებს <code>None</code>-ს (ან მითითებულ ნაგულისხმევს).</span>
+        <span lang="en"><code>[]</code> raises <code>KeyError</code> if the key is missing; <code>get()</code> returns <code>None</code> (or a default you supply).</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">4. როგორ გავიაროთ ლექსიკონზე გასაღებთან და მნიშვნელობასთან ერთად?</span>
+               <span lang="en">4. How do you loop a dictionary with both key and value?</span></summary>
       <div class="ans"><code>for k, v in d.items():</code></div></details>
-    <details><summary>5. დაწერე ერთი ხაზი, რომელიც სიიდან დუბლიკატებს აშორებს.</summary>
-      <div class="ans"><code>unique = list(set(data))</code>. ⚠ თავდაპირველი რიგი არ შენარჩუნდება — თუ საჭიროა, <code>list(dict.fromkeys(data))</code>.</div></details>
-    <details><summary>6. რომელი ბლოკი სრულდება ყოველთვის — <code class="inl">else</code> თუ <code class="inl">finally</code>?</summary>
-      <div class="ans"><code>finally</code>. <code>else</code> სრულდება მხოლოდ მაშინ, თუ <code>try</code>-ში შეცდომა <b>არ</b> მოხდა.</div></details>
-    <details><summary>7. რატომ არის ცუდი <code class="inl">except: pass</code>?</summary>
-      <div class="ans">„შიშველი“ <code>except</code> ყველაფერს იჭერს (<kbd>Ctrl</kbd>+<kbd>C</kbd>-საც), <code>pass</code> კი პრობლემას ჩუმად მალავს — შეცდომა მოგვიანებით სულ სხვა ადგილას გამოჩნდება.</div></details>
-    <details><summary>8. რომელი გამონაკლისი მოხდება? <code class="inl">int("abc")</code> · <code class="inl">[1,2][9]</code> · <code class="inl">"5" + 5</code></summary>
+    <details>
+      <summary><span lang="ka">5. დაწერე ერთი ხაზი, რომელიც სიიდან დუბლიკატებს აშორებს.</span>
+               <span lang="en">5. Write one line that removes duplicates from a list.</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>unique = list(set(data))</code>. ⚠ თავდაპირველი რიგი არ შენარჩუნდება — თუ საჭიროა, <code>list(dict.fromkeys(data))</code>.</span>
+        <span lang="en"><code>unique = list(set(data))</code>. ⚠ The original order is lost — if you need it, use <code>list(dict.fromkeys(data))</code>.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">6. რომელი ბლოკი სრულდება ყოველთვის — <code class="inl">else</code> თუ <code class="inl">finally</code>?</span>
+               <span lang="en">6. Which block always runs — <code class="inl">else</code> or <code class="inl">finally</code>?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>finally</code>. <code>else</code> სრულდება მხოლოდ მაშინ, თუ <code>try</code>-ში შეცდომა <b>არ</b> მოხდა.</span>
+        <span lang="en"><code>finally</code>. The <code>else</code> runs only if <b>no</b> error occurred in the <code>try</code>.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">7. რატომ არის ცუდი <code class="inl">except: pass</code>?</span>
+               <span lang="en">7. Why is <code class="inl">except: pass</code> bad?</span></summary>
+      <div class="ans">
+        <span lang="ka">„შიშველი“ <code>except</code> ყველაფერს იჭერს (<kbd>Ctrl</kbd>+<kbd>C</kbd>-საც), <code>pass</code> კი პრობლემას ჩუმად მალავს — შეცდომა მოგვიანებით სულ სხვა ადგილას გამოჩნდება.</span>
+        <span lang="en">A bare <code>except</code> catches everything (including <kbd>Ctrl</kbd>+<kbd>C</kbd>), and <code>pass</code> hides the problem silently — the error resurfaces somewhere else entirely.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">8. რომელი გამონაკლისი მოხდება? <code class="inl">int("abc")</code> · <code class="inl">[1,2][9]</code> · <code class="inl">"5" + 5</code></span>
+               <span lang="en">8. Which exception is raised by <code class="inl">int("abc")</code> · <code class="inl">[1,2][9]</code> · <code class="inl">"5" + 5</code>?</span></summary>
       <div class="ans"><code>ValueError</code> · <code>IndexError</code> · <code>TypeError</code>.</div></details>
-    <details><summary>9. რას აკეთებს <code class="inl">raise</code>?</summary>
-      <div class="ans">განზრახ „ისვრის“ გამონაკლისს — გამოიყენება არასწორი მონაცემის მაშინვე უარსაყოფად: <code>raise ValueError("ასაკი უარყოფითი ვერ იქნება")</code>.</div></details>
+    <details>
+      <summary><span lang="ka">9. რას აკეთებს <code class="inl">raise</code>?</span>
+               <span lang="en">9. What does <code class="inl">raise</code> do?</span></summary>
+      <div class="ans">
+        <span lang="ka">განზრახ „ისვრის“ გამონაკლისს — გამოიყენება არასწორი მონაცემის მაშინვე უარსაყოფად: <code>raise ValueError("ასაკი უარყოფითი ვერ იქნება")</code>.</span>
+        <span lang="en">It deliberately throws an exception — used to reject invalid data immediately: <code>raise ValueError("age cannot be negative")</code>.</span>
+      </div></details>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ცნება</p>
-  <h2>კონტეინერი — რა არის</h2>
-  <p class="big">ობიექტი, რომელიც <em>სხვა ობიექტებს იტევს</em> და შეუძლია პასუხი გასცეს კითხვას „ეს შენში არის?“</p>
+  <p class="kicker"><span lang="ka">ცნება</span><span lang="en">Concept</span></p>
+  <h2><span lang="ka">კონტეინერი — რა არის</span><span lang="en">What a container is</span></h2>
+  <p class="big" lang="ka">ობიექტი, რომელიც <em>სხვა ობიექტებს იტევს</em> და შეუძლია პასუხი გასცეს კითხვას „ეს შენში არის?“</p>
+  <p class="big" lang="en">An object that <em>holds other objects</em> and can answer the question “is this one of yours?”</p>
 <pre class="code" style="margin-top:14px"><code>print(3 in [1, 2, 3])           # list
 print("a" in ("a", "b"))        # tuple
 print(1 in {1, 2})              # set
-print("key" in {"key": 1})      # dict — გასაღებებში
+print("key" in {"key": 1})      # dict — searches the keys
 print("th" in "python")         # str
 
-# ყველა მათგანს აქვს len()
+# every one of them supports len()
 print(len([1,2,3]), len("abc"), len({1,2}))</code></pre>
   <div class="two" style="margin-top:14px">
-    <div class="card"><h3>დალაგებული</h3><p class="small"><code>list</code> · <code>tuple</code> · <code>str</code> · <code>range</code> — ინდექსით მუშაობს</p></div>
-    <div class="card"><h3>დაულაგებელი</h3><p class="small"><code>set</code> · <code>dict</code> — ინდექსი არ აქვს, სამაგიეროდ ძებნა სწრაფია</p></div>
+    <div class="card"><h3><span lang="ka">დალაგებული</span><span lang="en">Ordered</span></h3>
+      <p class="small" lang="ka"><code>list</code> · <code>tuple</code> · <code>str</code> · <code>range</code> — ინდექსით მუშაობს</p>
+      <p class="small" lang="en"><code>list</code> · <code>tuple</code> · <code>str</code> · <code>range</code> — support indexing</p></div>
+    <div class="card"><h3><span lang="ka">დაულაგებელი</span><span lang="en">Unordered</span></h3>
+      <p class="small" lang="ka"><code>set</code> · <code>dict</code> — ინდექსი არ აქვს, სამაგიეროდ ძებნა სწრაფია</p>
+      <p class="small" lang="en"><code>set</code> · <code>dict</code> — no indexing, but lookups are fast</p></div>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">მთავარი</p>
-  <h2>რა ხდება <code class="inl">for</code>-ის შიგნით</h2>
+  <p class="kicker"><span lang="ka">მთავარი</span><span lang="en">The core idea</span></p>
+  <h2><span lang="ka">რა ხდება <code class="inl">for</code>-ის შიგნით</span><span lang="en">What happens inside a <code class="inl">for</code></span></h2>
   <div class="two">
     <div>
-<pre class="code" data-title="რასაც ვწერთ"><code>for x in [10, 20, 30]:
+<pre class="code" data-title="what we write"><code>for x in [10, 20, 30]:
     print(x)</code></pre>
     </div>
     <div>
-<pre class="code" data-title="რასაც Python აკეთებს"><code>it = iter([10, 20, 30])   # იტერატორის აღება
+<pre class="code" data-title="what Python does"><code>it = iter([10, 20, 30])   # get an iterator
 while True:
     try:
-        x = next(it)       # შემდეგი ელემენტი
-    except StopIteration:  # ელემენტები გათავდა
+        x = next(it)       # the next element
+    except StopIteration:  # elements exhausted
         break
     print(x)</code></pre>
     </div>
   </div>
-  <div class="callout"><b>ორი ცნება</b>
-    <span style="display:block;margin-top:6px"><b>Iterable</b> (გასავლელი) — ობიექტი, რომელზეც <code class="inl">for</code>-ით გავლა შეიძლება: <code class="inl">list</code>, <code class="inl">str</code>, <code class="inl">dict</code>, ფაილი…</span>
-    <span style="display:block"><b>Iterator</b> (მიმდევრობის მკითხველი) — ობიექტი, რომელსაც ახსოვს, სად გაჩერდა, და <code class="inl">next()</code>-ზე შემდეგს აბრუნებს</span></div>
-  <div class="note">ეს ლექციის გასაღები სლაიდია. სტუდენტებს აქამდე <code>for</code> „ჯადოსნური“ ეგონათ — აქ ხდება ცხადი, რომ ისიც ჩვეულებრივი მექანიზმია.</div>
+  <div class="callout">
+    <span lang="ka"><b>ორი ცნება</b>
+      <span style="display:block;margin-top:6px"><b>Iterable</b> (გასავლელი) — ობიექტი, რომელზეც <code class="inl">for</code>-ით გავლა შეიძლება: <code class="inl">list</code>, <code class="inl">str</code>, <code class="inl">dict</code>, ფაილი…</span>
+      <span style="display:block"><b>Iterator</b> (მიმდევრობის მკითხველი) — ობიექტი, რომელსაც ახსოვს, სად გაჩერდა, და <code class="inl">next()</code>-ზე შემდეგს აბრუნებს</span></span>
+    <span lang="en"><b>Two concepts</b>
+      <span style="display:block;margin-top:6px">An <b>iterable</b> is anything you can loop over with <code class="inl">for</code>: <code class="inl">list</code>, <code class="inl">str</code>, <code class="inl">dict</code>, a file…</span>
+      <span style="display:block">An <b>iterator</b> is the object that remembers where it stopped and hands back the next item on <code class="inl">next()</code></span></span>
+  </div>
+  <div class="note">
+    <span lang="ka">ეს ლექციის გასაღები სლაიდია. სტუდენტებს აქამდე <code>for</code> „ჯადოსნური“ ეგონათ — აქ ხდება ცხადი, რომ ისიც ჩვეულებრივი მექანიზმია.</span>
+    <span lang="en">The key slide of the lecture. Until now <code>for</code> felt like magic — here it becomes an ordinary mechanism.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">პრაქტიკა</p>
-  <h2><code class="inl">iter()</code> და <code class="inl">next()</code> ხელით</h2>
+  <p class="kicker"><span lang="ka">პრაქტიკა</span><span lang="en">Practice</span></p>
+  <h2><span lang="ka"><code class="inl">iter()</code> და <code class="inl">next()</code> ხელით</span><span lang="en"><code class="inl">iter()</code> and <code class="inl">next()</code> by hand</span></h2>
 <pre class="code"><code>numbers = [10, 20, 30]
 it = iter(numbers)
 
@@ -94,34 +152,38 @@ print(next(it))    # 20
 print(next(it))    # 30
 print(next(it))    # StopIteration!
 
-# ნაგულისხმევი მნიშვნელობით — შეცდომის გარეშე
+# with a default value — no error
 it = iter(numbers)
 print(next(it, "დასრულდა"))   # 10
 print(next(it, "დასრულდა"))   # 20
 print(next(it, "დასრულდა"))   # 30
 print(next(it, "დასრულდა"))   # დასრულდა</code></pre>
-  <div class="callout warn"><b>იტერატორი ერთჯერადია</b>
+  <div class="callout warn">
+    <span lang="ka"><b>იტერატორი ერთჯერადია</b></span>
+    <span lang="en"><b>An iterator is single-use</b></span>
 <pre class="code" style="margin-top:8px"><code>it = iter([1, 2, 3])
 print(list(it))    # [1, 2, 3]
-print(list(it))    # []  — უკვე ცარიელია!</code></pre>
-  სია ხელახლა გავლადია, იტერატორი — არა.</div>
+print(list(it))    # []  — already exhausted!</code></pre>
+    <span lang="ka">სია ხელახლა გავლადია, იტერატორი — არა.</span>
+    <span lang="en">A list can be traversed again; an iterator cannot.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">შექმნა</p>
-  <h2>საკუთარი იტერატორი</h2>
+  <p class="kicker"><span lang="ka">შექმნა</span><span lang="en">Building one</span></p>
+  <h2><span lang="ka">საკუთარი იტერატორი</span><span lang="en">Your own iterator</span></h2>
 <pre class="code" data-title="countdown.py"><code>class Countdown:
-    """უკუთვლა n-დან 1-მდე."""
+    """უკუთვლა n-დან 1-მდე. / Counts down from n to 1."""
 
     def __init__(self, start):
         self.current = start
 
     def __iter__(self):
-        return self                # თავად არის იტერატორი
+        return self                # it is its own iterator
 
     def __next__(self):
         if self.current &lt;= 0:
-            raise StopIteration    # სიგნალი: დასრულდა
+            raise StopIteration    # the signal: we are done
         value = self.current
         self.current -= 1
         return value
@@ -129,16 +191,22 @@ print(list(it))    # []  — უკვე ცარიელია!</code></pre>
 
 for n in Countdown(5):
     print(n, end=" ")              # 5 4 3 2 1</code></pre>
-  <div class="callout"><b>ორი მეთოდი — ესაა მთელი „კონტრაქტი“</b><code class="inl">__iter__()</code> აბრუნებს იტერატორს, <code class="inl">__next__()</code> — შემდეგ ელემენტს ან ისვრის <code class="inl">StopIteration</code>-ს. ვინც ამ ორ მეთოდს ატარებს, მასზე <code class="inl">for</code> იმუშავებს.</div>
-  <p class="small muted" style="margin-top:10px">კლასები კურსის პროგრამაში არაა — აქ ის მხოლოდ მექანიზმის საჩვენებლადაა. ქვემოთ ბევრად მარტივი გზაა.</p>
+  <div class="callout">
+    <span lang="ka"><b>ორი მეთოდი — ესაა მთელი „კონტრაქტი“</b><code class="inl">__iter__()</code> აბრუნებს იტერატორს, <code class="inl">__next__()</code> — შემდეგ ელემენტს ან ისვრის <code class="inl">StopIteration</code>-ს. ვინც ამ ორ მეთოდს ატარებს, მასზე <code class="inl">for</code> იმუშავებს.</span>
+    <span lang="en"><b>Two methods — that is the whole contract</b><code class="inl">__iter__()</code> returns an iterator, <code class="inl">__next__()</code> returns the next item or raises <code class="inl">StopIteration</code>. Anything implementing both works with <code class="inl">for</code>.</span>
+  </div>
+  <p class="small muted" style="margin-top:10px">
+    <span lang="ka">კლასები კურსის პროგრამაში არაა — აქ ის მხოლოდ მექანიზმის საჩვენებლადაა. ქვემოთ ბევრად მარტივი გზაა.</span>
+    <span lang="en">Classes are not part of this course — this is only to show the mechanism. A much simpler route follows.</span>
+  </p>
 </section>
 
 <section class="slide">
-  <p class="kicker">მარტივი გზა</p>
-  <h2>გენერატორი — <code class="inl">yield</code></h2>
+  <p class="kicker"><span lang="ka">მარტივი გზა</span><span lang="en">The simple route</span></p>
+  <h2><span lang="ka">გენერატორი — <code class="inl">yield</code></span><span lang="en">Generators — <code class="inl">yield</code></span></h2>
   <div class="two">
     <div>
-<pre class="code" data-title="კლასით — 12 ხაზი"><code>class Countdown:
+<pre class="code" data-title="a class — 12 lines"><code>class Countdown:
     def __init__(self, start):
         self.current = start
     def __iter__(self):
@@ -151,7 +219,7 @@ for n in Countdown(5):
         return v</code></pre>
     </div>
     <div>
-<pre class="code" data-title="გენერატორით — 4 ხაზი"><code>def countdown(start):
+<pre class="code" data-title="a generator — 4 lines"><code>def countdown(start):
     while start &gt; 0:
         yield start
         start -= 1
@@ -161,43 +229,56 @@ for n in countdown(5):
     print(n, end=" ")     # 5 4 3 2 1</code></pre>
     </div>
   </div>
-  <div class="callout tip"><b><code class="inl">yield</code> vs <code class="inl">return</code></b><code class="inl">return</code> ფუნქციას <b>ამთავრებს</b>. <code class="inl">yield</code> მნიშვნელობას აბრუნებს და ფუნქციას <b>„აპაუზებს“</b> — შემდეგი <code class="inl">next()</code> სწორედ იმ ადგილიდან გააგრძელებს.</div>
-  <div class="note">ეს დემონსტრაცია დებაგერით შესანიშნავად მუშაობს: breakpoint yield-ზე და ნახავენ, როგორ „ბრუნდება“ შესრულება იმავე ხაზზე.</div>
+  <div class="callout tip">
+    <span lang="ka"><b><code class="inl">yield</code> vs <code class="inl">return</code></b><code class="inl">return</code> ფუნქციას <b>ამთავრებს</b>. <code class="inl">yield</code> მნიშვნელობას აბრუნებს და ფუნქციას <b>„აპაუზებს“</b> — შემდეგი <code class="inl">next()</code> სწორედ იმ ადგილიდან გააგრძელებს.</span>
+    <span lang="en"><b><code class="inl">yield</code> vs <code class="inl">return</code></b><code class="inl">return</code> <b>ends</b> the function. <code class="inl">yield</code> hands back a value and <b>pauses</b> it — the next <code class="inl">next()</code> resumes from exactly that point.</span>
+  </div>
+  <div class="note">
+    <span lang="ka">ეს დემონსტრაცია დებაგერით შესანიშნავად მუშაობს: breakpoint yield-ზე და ნახავენ, როგორ „ბრუნდება“ შესრულება იმავე ხაზზე.</span>
+    <span lang="en">This demos beautifully in the debugger: a breakpoint on the <code>yield</code> shows execution returning to the same line.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">უპირატესობა</p>
-  <h2>„ზარმაცი“ გამოთვლა (lazy evaluation)</h2>
+  <p class="kicker"><span lang="ka">უპირატესობა</span><span lang="en">The advantage</span></p>
+  <h2><span lang="ka">„ზარმაცი“ გამოთვლა (lazy evaluation)</span><span lang="en">Lazy evaluation</span></h2>
 <pre class="code"><code>import sys
 
-# სია — ყველა ელემენტი მაშინვე მეხსიერებაშია
+# a list — every element is in memory at once
 squares_list = [n ** 2 for n in range(1_000_000)]
-print(sys.getsizeof(squares_list))     # ~8 400 000 ბაიტი
+print(sys.getsizeof(squares_list))     # ~8,400,000 bytes
 
-# გენერატორი — ელემენტი მხოლოდ საჭიროებისას იქმნება
+# a generator — each element is produced on demand
 squares_gen = (n ** 2 for n in range(1_000_000))
-print(sys.getsizeof(squares_gen))      # ~200 ბაიტი
+print(sys.getsizeof(squares_gen))      # ~200 bytes
 
-print(sum(squares_gen))                # მუშაობს, მეხსიერების გარეშე</code></pre>
+print(sum(squares_gen))                # works, without the memory</code></pre>
   <div class="two" style="margin-top:14px">
-    <div class="card"><h3>ფრჩხილები მნიშვნელოვანია</h3>
-      <p class="small"><code>[x for x in ...]</code> → სია (list comprehension)<br><code>(x for x in ...)</code> → გენერატორი</p></div>
-    <div class="card"><h3>უსასრულო მიმდევრობა</h3>
+    <div class="card"><h3><span lang="ka">ფრჩხილები მნიშვნელოვანია</span><span lang="en">The brackets matter</span></h3>
+      <p class="small" lang="ka"><code>[x for x in ...]</code> → სია (list comprehension)<br><code>(x for x in ...)</code> → გენერატორი</p>
+      <p class="small" lang="en"><code>[x for x in ...]</code> → a list<br><code>(x for x in ...)</code> → a generator</p></div>
+    <div class="card"><h3><span lang="ka">უსასრულო მიმდევრობა</span><span lang="en">An endless sequence</span></h3>
 <pre class="code" style="margin-top:6px"><code>def naturals():
     n = 1
     while True:
         yield n
         n += 1</code></pre>
-      <p class="small muted" style="margin-top:6px">სიად ეს შეუძლებელია</p></div>
+      <p class="small muted" style="margin-top:6px">
+        <span lang="ka">სიად ეს შეუძლებელია</span><span lang="en">Impossible as a list</span>
+      </p></div>
   </div>
-  <div class="callout tip"><b>სად ხვდები ამას ყოველდღიურად</b><code class="inl">range()</code>, <code class="inl">enumerate()</code>, <code class="inl">zip()</code>, <code class="inl">map()</code>, <code class="inl">filter()</code> და <b>ფაილი</b> — ყველა ზარმაცია. ამიტომაც კითხულობს <code class="inl">for line in f</code> გიგაბაიტიან ფაილს პრობლემის გარეშე.</div>
+  <div class="callout tip">
+    <span lang="ka"><b>სად ხვდები ამას ყოველდღიურად</b><code class="inl">range()</code>, <code class="inl">enumerate()</code>, <code class="inl">zip()</code>, <code class="inl">map()</code>, <code class="inl">filter()</code> და <b>ფაილი</b> — ყველა ზარმაცია. ამიტომაც კითხულობს <code class="inl">for line in f</code> გიგაბაიტიან ფაილს პრობლემის გარეშე.</span>
+    <span lang="en"><b>Where you already meet this</b><code class="inl">range()</code>, <code class="inl">enumerate()</code>, <code class="inl">zip()</code>, <code class="inl">map()</code>, <code class="inl">filter()</code> and <b>files</b> are all lazy. That is precisely why <code class="inl">for line in f</code> handles a gigabyte file without trouble.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">პრაქტიკა</p>
-  <h2>გენერატორები რეალურ ამოცანაში</h2>
+  <p class="kicker"><span lang="ka">პრაქტიკა</span><span lang="en">Practice</span></p>
+  <h2><span lang="ka">გენერატორები რეალურ ამოცანაში</span><span lang="en">Generators in a real task</span></h2>
 <pre class="code" data-title="log_reader.py"><code>def read_lines(path):
-    """ფაილს ხაზ-ხაზ კითხულობს, ცარიელებს ტოვებს."""
+    """ფაილს ხაზ-ხაზ კითხულობს, ცარიელებს ტოვებს.
+    Reads the file line by line, skipping blanks."""
     with open(path, encoding="utf-8") as f:
         for line in f:
             line = line.strip()
@@ -206,7 +287,7 @@ print(sum(squares_gen))                # მუშაობს, მეხსი�
 
 
 def only_errors(lines):
-    """მხოლოდ შეცდომების ხაზები."""
+    """მხოლოდ შეცდომების ხაზები. / Only the error lines."""
     for line in lines:
         if "ERROR" in line:
             yield line
@@ -217,55 +298,71 @@ def first_words(lines):
         yield line.split()[0]
 
 
-# ჯაჭვი — არცერთი შუალედური სია არ იქმნება
+# a chain — not a single intermediate list is built
 for word in first_words(only_errors(read_lines("app.log"))):
     print(word)</code></pre>
-  <div class="callout"><b>ეს არის „მილსადენი“ (pipeline)</b>თითოეული ფუნქცია პატარაა, ცალკე იტესტება, და მონაცემი მათ შორის <b>ერთ ელემენტად</b> მიედინება — არა მთელი სიით.</div>
+  <div class="callout">
+    <span lang="ka"><b>ეს არის „მილსადენი“ (pipeline)</b>თითოეული ფუნქცია პატარაა, ცალკე იტესტება, და მონაცემი მათ შორის <b>ერთ ელემენტად</b> მიედინება — არა მთელი სიით.</span>
+    <span lang="en"><b>This is a pipeline</b>Each function is small and independently testable, and the data flows through <b>one item at a time</b> rather than as a whole list.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ბიბლიოთეკა</p>
-  <h2><code class="inl">itertools</code> — მზა იტერატორები</h2>
+  <p class="kicker"><span lang="ka">ბიბლიოთეკა</span><span lang="en">Library</span></p>
+  <h2><span lang="ka"><code class="inl">itertools</code> — მზა იტერატორები</span><span lang="en"><code class="inl">itertools</code> — ready-made iterators</span></h2>
 <pre class="code"><code>from itertools import count, cycle, islice, chain, product, combinations
 
-# უსასრულო მთვლელი
+# an infinite counter
 for n in islice(count(10, 5), 4):
     print(n, end=" ")            # 10 15 20 25
 
-# ციკლური გამეორება
+# repeating in a cycle
 colors = cycle(["წითელი", "მწვანე"])
 print(list(islice(colors, 5)))
 
-# სიების შეერთება
+# joining sequences
 print(list(chain([1, 2], [3, 4])))       # [1, 2, 3, 4]
 
-# დეკარტული ნამრავლი
+# the cartesian product
 print(list(product("AB", [1, 2])))
 # [('A',1), ('A',2), ('B',1), ('B',2)]
 
-# კომბინაციები
+# combinations
 print(list(combinations([1, 2, 3], 2)))
 # [(1,2), (1,3), (2,3)]</code></pre>
-  <div class="callout tip"><b>პრინციპი</b>სანამ საკუთარს დაწერ — შეამოწმე, ხომ არ არსებობს მზა. <code class="inl">itertools</code> სტანდარტული ბიბლიოთეკის ნაწილია, დაყენება არ სჭირდება.</div>
+  <div class="callout tip">
+    <span lang="ka"><b>პრინციპი</b>სანამ საკუთარს დაწერ — შეამოწმე, ხომ არ არსებობს მზა. <code class="inl">itertools</code> სტანდარტული ბიბლიოთეკის ნაწილია, დაყენება არ სჭირდება.</span>
+    <span lang="en"><b>The principle</b>Before writing your own, check whether it already exists. <code class="inl">itertools</code> ships with Python — nothing to install.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">შეფასება</p>
-  <h2>პრაქტიკული დავალება #4</h2>
-  <p class="small muted">8 ქულა · სრულდება აუდიტორიაში, დამოუკიდებლად</p>
-  <ol class="pts">
+  <p class="kicker"><span lang="ka">შეფასება</span><span lang="en">Assessment</span></p>
+  <h2><span lang="ka">პრაქტიკული დავალება #4</span><span lang="en">Practical assignment #4</span></h2>
+  <p class="small muted">
+    <span lang="ka">8 ქულა · სრულდება აუდიტორიაში, დამოუკიდებლად</span>
+    <span lang="en">8 points · done in class, independently</span>
+  </p>
+  <ol class="pts" lang="ka">
     <li><b><code class="inl">iter</code>/<code class="inl">next</code> ხელით</b><small>სიაზე გაიარე <code class="inl">while True</code>-თი, <code class="inl">next()</code>-ითა და <code class="inl">StopIteration</code>-ის დაჭერით</small></li>
     <li><b>გენერატორი <code class="inl">even_numbers(limit)</code></b><small>აბრუნებს ლუწ რიცხვებს <code class="inl">yield</code>-ით. შეადარე იმავე ლოგიკის სიისეულ ვარიანტს <code class="inl">sys.getsizeof()</code>-ით</small></li>
     <li><b>ფიბონაჩის გენერატორი</b><small>უსასრულო; პირველი 15 წევრი ამოიღე <code class="inl">islice</code>-ით</small></li>
     <li><b>ფაილის მილსადენი</b><small>სამი გენერატორი: ხაზების კითხვა → გაფილტვრა → გარდაქმნა. ჩააერთე ერთ ჯაჭვში</small></li>
     <li><b>ახსნა</b><small>დაწერე კომენტარად: რით განსხვავდება <code class="inl">[x for x in ...]</code> და <code class="inl">(x for x in ...)</code></small></li>
   </ol>
+  <ol class="pts" lang="en">
+    <li><b><code class="inl">iter</code>/<code class="inl">next</code> by hand</b><small>Walk a list with <code class="inl">while True</code>, <code class="inl">next()</code> and a caught <code class="inl">StopIteration</code></small></li>
+    <li><b>A generator <code class="inl">even_numbers(limit)</code></b><small>Yields even numbers with <code class="inl">yield</code>. Compare it to the list version using <code class="inl">sys.getsizeof()</code></small></li>
+    <li><b>A Fibonacci generator</b><small>Infinite; take the first 15 terms with <code class="inl">islice</code></small></li>
+    <li><b>A file pipeline</b><small>Three generators: read lines → filter → transform. Chain them together</small></li>
+    <li><b>Explain</b><small>Write as a comment: how <code class="inl">[x for x in ...]</code> differs from <code class="inl">(x for x in ...)</code></small></li>
+  </ol>
 </section>
 
 <section class="slide">
-  <p class="kicker">შემაჯამებელი</p>
-  <h2>რა უნდა დაგამახსოვრდეს</h2>
-  <ul class="pts">
+  <p class="kicker"><span lang="ka">შემაჯამებელი</span><span lang="en">Wrap-up</span></p>
+  <h2><span lang="ka">რა უნდა დაგამახსოვრდეს</span><span lang="en">What to remember</span></h2>
+  <ul class="pts" lang="ka">
     <li><b>Iterable</b> — რაზეც <code class="inl">for</code>-ით გავლა შეიძლება; <b>Iterator</b> — ის, ვინც ახსოვს, სად გაჩერდა</li>
     <li><code class="inl">for</code> სინამდვილეში აკეთებს: <code class="inl">iter()</code> → <code class="inl">next()</code> → <code class="inl">StopIteration</code></li>
     <li>იტერატორი <b>ერთჯერადია</b> — მეორედ გავლა ცარიელს დააბრუნებს</li>
@@ -273,7 +370,18 @@ print(list(combinations([1, 2, 3], 2)))
     <li>გენერატორი მეხსიერებას არ ჭამს — ელემენტს <b>საჭიროებისას</b> ქმნის</li>
     <li><code class="inl">[...]</code> სია · <code class="inl">(...)</code> გენერატორი</li>
   </ul>
-  <div class="callout tip"><b>შემდეგი — ლექცია 14</b>PEP 8, კოდის სტილი, style checker-ები და PyPI პაკეტების რეპოზიტორი.</div>
+  <ul class="pts" lang="en">
+    <li>An <b>iterable</b> is what you can loop over; an <b>iterator</b> is what remembers the position</li>
+    <li><code class="inl">for</code> really performs: <code class="inl">iter()</code> → <code class="inl">next()</code> → <code class="inl">StopIteration</code></li>
+    <li>An iterator is <b>single-use</b> — a second pass yields nothing</li>
+    <li>Your own iterator: <code class="inl">__iter__</code> + <code class="inl">__next__</code>; the easy way is <code class="inl">yield</code></li>
+    <li>A generator uses almost no memory — it produces items <b>on demand</b></li>
+    <li><code class="inl">[...]</code> a list · <code class="inl">(...)</code> a generator</li>
+  </ul>
+  <div class="callout tip">
+    <span lang="ka"><b>შემდეგი — ლექცია 14</b>PEP 8, კოდის სტილი, style checker-ები და PyPI პაკეტების რეპოზიტორი.</span>
+    <span lang="en"><b>Next — lecture 14</b>PEP 8, code style, style checkers and the PyPI package index.</span>
+  </div>
 </section>
 
 </main>
