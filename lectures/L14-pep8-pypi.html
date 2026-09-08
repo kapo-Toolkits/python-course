@@ -274,6 +274,44 @@ matplotlib==3.8.2</code></pre>
 </section>
 
 <section class="slide">
+  <p class="kicker g">ცოცხალი მაგალითი</p>
+  <h2>ჩვენი კურსის პაკეტი PyPI-ზე</h2>
+  <p>ეს არაა თეორია — კურსს <b>საკუთარი პაკეტი</b> აქვს გამოქვეყნებული. სცადე ახლავე:</p>
+<pre class="code" data-title="terminal"><code class="nohl">pip install kapo-mathtools</code></pre>
+<pre class="code" data-title="Python" style="margin-top:10px"><code>from kapo_mathtools import statistics, geometry, text_tools, converters
+
+print(statistics.mean([85, 90, 78, 92]))      # 86.25
+print(geometry.circle_area(5))                # 78.53981633974483
+print(text_tools.is_palindrome("radar"))      # True
+print(converters.celsius_to_fahrenheit(25))   # 77.0
+
+help(statistics.mean)      # ქართული docstring</code></pre>
+  <div class="two" style="margin-top:14px">
+    <div class="card small">
+      <h3>რა არის შიგნით</h3>
+      <p>26 ფუნქცია 4 მოდულში, გარე დამოკიდებულების გარეშე. სულ ~8 კბ.</p>
+      <ul>
+        <li><code>statistics</code> — mean, median, variance, std_dev</li>
+        <li><code>geometry</code> — წრე, მართკუთხედი, სამკუთხედი</li>
+        <li><code>text_tools</code> — სიტყვები, პალინდრომი, ხმოვნები</li>
+        <li><code>converters</code> — ტემპერატურა, მანძილი, წონა</li>
+      </ul>
+    </div>
+    <div class="card small">
+      <h3>სად ცხოვრობს კოდი</h3>
+      <p><code>github.com/kapo-Toolkits/python-course</code> → საქაღალდე <code>library/</code></p>
+      <ul>
+        <li><code>pyproject.toml</code> — პაკეტის აღწერა</li>
+        <li><code>tests/</code> — 26 ტესტი</li>
+        <li>GitHub Actions — ტესტი 3.9/3.11/3.13-ზე, შემდეგ ატვირთვა</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout tip"><b>გახსენი <code class="inl">pypi.org/project/kapo-mathtools</code></b>ყველაფერი, რაზეც ახლა ვსაუბრობდით, იქ თვალითაც ჩანს: აღწერა, ვერსია, ლიცენზია, ბმულები, ფაილები.</div>
+  <div class="note">ეს სლაიდი ლექციას აზრს აძლევს — სტუდენტი ხედავს, რომ პაკეტის გამოქვეყნება მისაწვდომია, არა „დიდი კომპანიების საქმე“. სთხოვე აუდიტორიაში დააყენონ და გაუშვან.</div>
+</section>
+
+<section class="slide">
   <p class="kicker">კონტექსტი</p>
   <h2>პარალელი სხვა ენებთან</h2>
   <table>

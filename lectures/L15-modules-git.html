@@ -159,6 +159,31 @@ print(textutils.clean("  ტექსტი  "))</code></pre>
 </section>
 
 <section class="slide">
+  <p class="kicker g">ცოცხალი მაგალითი</p>
+  <h2>ნამდვილი პაკეტი, რომელიც შეგიძლია წაიკითხო</h2>
+  <p>ზუსტად ის სტრუქტურა, რაზეც ახლა ვსაუბრობდით — ცოცხალ პროექტში:</p>
+<pre class="code" data-title="github.com/kapo-Toolkits/python-course"><code class="nohl">library/
+├── pyproject.toml            პაკეტის აღწერა: სახელი, ვერსია, ლიცენზია
+├── README.md                 ეს ტექსტი PyPI-ს გვერდზე ჩანს
+├── LICENSE
+├── kapo_mathtools/           ← თავად პაკეტი
+│   ├── __init__.py           from . import statistics, geometry, ...
+│   ├── statistics.py
+│   ├── geometry.py
+│   ├── text_tools.py
+│   └── converters.py
+├── tests/                    26 ტესტი
+└── examples/demo.py</code></pre>
+<pre class="code" data-title="__init__.py — პაკეტის „ფასადი“" style="margin-top:10px"><code>__version__ = "0.3.0"
+
+from . import converters, geometry, statistics, text_tools
+
+__all__ = ["statistics", "geometry", "text_tools", "converters"]</code></pre>
+  <div class="callout tip"><b>სცადე</b><code class="inl">pip install kapo-mathtools</code>, შემდეგ <code class="inl">from kapo_mathtools import geometry</code>. იგივე პაკეტი — ერთხელ როგორც <b>საქაღალდე</b> GitHub-ზე, ერთხელ როგორც <b>დაყენებული ბიბლიოთეკა</b> შენს კომპიუტერზე. → იხ. ლექცია 14</div>
+  <div class="note">კარგი მომენტია დავალება #5-ის დასაკავშირებლად: ზუსტად ამ სტრუქტურას ქმნიან. სთხოვე GitHub-ზე გახსნან library/ და შეადარონ საკუთარს.</div>
+</section>
+
+<section class="slide">
   <p class="kicker">ვერსიების კონტროლი</p>
   <h2>რა პრობლემას წყვეტს git</h2>
   <div class="two">
