@@ -10,117 +10,142 @@
 <main class="deck">
 
 <section class="slide">
-  <p class="kicker">ლექცია 08 · VIII კვირა</p>
-  <h1>შუალედური —<br>სრული გამეორება</h1>
-  <p class="lead" style="margin-top:16px">I–VII კვირის მასალა · 10 ტესტური + 10 ღია სავარჯიშო კითხვა · ტიპური შეცდომები</p>
-  <div class="note">ეს დეკი გამოცდის წინა კონსულტაციისთვისაა. დაურიგე სტუდენტებს — თავად გაივლიან. კითხვები გამოცდის ფორმატს იმეორებს, მაგრამ არა ზუსტ შინაარსს.</div>
-</section>
-
-<section class="slide">
-  <p class="kicker">რუკა</p>
-  <h2>რა გავიარეთ</h2>
-  <div class="grid">
-    <div class="card"><h3>I · შესავალი</h3><ul><li>ისტორია, PVM, ბაიტკოდი</li><li>წანაცვლება, ორწერტილი</li><li>კომენტარები, 35 keyword</li></ul></div>
-    <div class="card"><h3>II · ტიპები</h3><ul><li>int, float, str, bool, None</li><li><code>type()</code>, კონვერტაცია</li><li><code>input()</code> → str, f-string</li></ul></div>
-    <div class="card"><h3>III · პირობები</h3><ul><li><code>== != &gt; &lt; &gt;= &lt;=</code></li><li><code>and or not</code></li><li><code>if / elif / else</code></li></ul></div>
-    <div class="card"><h3>IV · ციკლები</h3><ul><li><code>for</code> + <code>range()</code></li><li><code>while</code>, 3 ნაწილი</li><li><code>break continue else</code></li></ul></div>
-    <div class="card"><h3>V · ჩაშენებული</h3><ul><li><code>abs round divmod sum</code></li><li><code>math</code>: sqrt, ceil, floor, pi</li><li><code>random</code>: randint, choice, seed</li></ul></div>
-    <div class="card"><h3>VI · ფუნქციები</h3><ul><li><code>def</code>, <code>return</code> ≠ <code>print</code></li><li>ნაგულისხმევი, <code>*args</code></li><li>scope, <code>lambda</code></li></ul></div>
-    <div class="card"><h3>VII · სტრიქონები</h3><ul><li>ინდექსი, slice, <code>[::-1]</code></li><li><code>strip split join replace</code></li><li><code>find index count in</code></li></ul></div>
-    <div class="card"><h3>ფორმატი</h3><ul><li>10 ტესტი × 1 ქულა</li><li>10 ღია × 2 ქულა</li><li>სულ 30 ქულა</li></ul></div>
+  <p class="kicker"><span lang="ka">ლექცია 08 · VIII კვირა</span><span lang="en">Lecture 08 · Week VIII</span></p>
+  <h1><span lang="ka">შუალედური —<br>სრული გამეორება</span><span lang="en">Midterm —<br>full revision</span></h1>
+  <p class="lead" style="margin-top:16px">
+    <span lang="ka">I–VII კვირის მასალა · 10 ტესტური + 10 ღია სავარჯიშო კითხვა · ტიპური შეცდომები</span>
+    <span lang="en">Weeks I–VII · 10 test + 10 open practice questions · typical mistakes</span>
+  </p>
+  <div class="note">
+    <span lang="ka">ეს დეკი გამოცდის წინა კონსულტაციისთვისაა. დაურიგე სტუდენტებს — თავად გაივლიან. კითხვები გამოცდის ფორმატს იმეორებს, მაგრამ არა ზუსტ შინაარსს.</span>
+    <span lang="en">This deck is for the pre-exam consultation. Hand it out — they can work through it themselves. The questions mirror the exam format, not its exact content.</span>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">გამეორება 1/4</p>
-  <h2>ტიპები და ოპერაციები — ერთ ეკრანზე</h2>
-<pre class="code"><code>7 / 2      # 3.5   ყოველთვის float
-7 // 2     # 3     მთელი ნაწილი
-7 % 2      # 1     ნაშთი
-7 ** 2     # 49    ახარისხება
-2 + 3 * 4  # 14    * უსწრებს +
-2 ** 3 ** 2  # 512  მარჯვნიდან მარცხნივ
--2 ** 2    # -4    ჯერ ხარისხი, მერე მინუსი
+  <p class="kicker"><span lang="ka">რუკა</span><span lang="en">The map</span></p>
+  <h2><span lang="ka">რა გავიარეთ</span><span lang="en">What we have covered</span></h2>
+  <div class="grid">
+    <div class="card"><h3><span lang="ka">I · შესავალი</span><span lang="en">I · Introduction</span></h3>
+      <ul lang="ka"><li>ისტორია, PVM, ბაიტკოდი</li><li>წანაცვლება, ორწერტილი</li><li>კომენტარები, 35 keyword</li></ul>
+      <ul lang="en"><li>History, the PVM, bytecode</li><li>Indentation, the colon</li><li>Comments, 35 keywords</li></ul></div>
+    <div class="card"><h3><span lang="ka">II · ტიპები</span><span lang="en">II · Types</span></h3>
+      <ul lang="ka"><li>int, float, str, bool, None</li><li><code>type()</code>, კონვერტაცია</li><li><code>input()</code> → str, f-string</li></ul>
+      <ul lang="en"><li>int, float, str, bool, None</li><li><code>type()</code>, casting</li><li><code>input()</code> → str, f-strings</li></ul></div>
+    <div class="card"><h3><span lang="ka">III · პირობები</span><span lang="en">III · Conditions</span></h3>
+      <ul lang="ka"><li><code>== != &gt; &lt; &gt;= &lt;=</code></li><li><code>and or not</code></li><li><code>if / elif / else</code></li></ul>
+      <ul lang="en"><li><code>== != &gt; &lt; &gt;= &lt;=</code></li><li><code>and or not</code></li><li><code>if / elif / else</code></li></ul></div>
+    <div class="card"><h3><span lang="ka">IV · ციკლები</span><span lang="en">IV · Loops</span></h3>
+      <ul lang="ka"><li><code>for</code> + <code>range()</code></li><li><code>while</code>, 3 ნაწილი</li><li><code>break continue else</code></li></ul>
+      <ul lang="en"><li><code>for</code> + <code>range()</code></li><li><code>while</code>, its 3 parts</li><li><code>break continue else</code></li></ul></div>
+    <div class="card"><h3><span lang="ka">V · ჩაშენებული</span><span lang="en">V · Built-ins</span></h3>
+      <ul lang="ka"><li><code>abs round divmod sum</code></li><li><code>math</code>: sqrt, ceil, floor, pi</li><li><code>random</code>: randint, choice, seed</li></ul>
+      <ul lang="en"><li><code>abs round divmod sum</code></li><li><code>math</code>: sqrt, ceil, floor, pi</li><li><code>random</code>: randint, choice, seed</li></ul></div>
+    <div class="card"><h3><span lang="ka">VI · ფუნქციები</span><span lang="en">VI · Functions</span></h3>
+      <ul lang="ka"><li><code>def</code>, <code>return</code> ≠ <code>print</code></li><li>ნაგულისხმევი, <code>*args</code></li><li>scope, <code>lambda</code></li></ul>
+      <ul lang="en"><li><code>def</code>, <code>return</code> ≠ <code>print</code></li><li>Defaults, <code>*args</code></li><li>Scope, <code>lambda</code></li></ul></div>
+    <div class="card"><h3><span lang="ka">VII · სტრიქონები</span><span lang="en">VII · Strings</span></h3>
+      <ul lang="ka"><li>ინდექსი, slice, <code>[::-1]</code></li><li><code>strip split join replace</code></li><li><code>find index count in</code></li></ul>
+      <ul lang="en"><li>Indexing, slicing, <code>[::-1]</code></li><li><code>strip split join replace</code></li><li><code>find index count in</code></li></ul></div>
+    <div class="card"><h3><span lang="ka">ფორმატი</span><span lang="en">Format</span></h3>
+      <ul lang="ka"><li>10 ტესტი × 1 ქულა</li><li>10 ღია × 2 ქულა</li><li>სულ 30 ქულა</li></ul>
+      <ul lang="en"><li>10 test × 1 point</li><li>10 open × 2 points</li><li>30 points in total</li></ul></div>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker"><span lang="ka">გამეორება 1/4</span><span lang="en">Revision 1/4</span></p>
+  <h2><span lang="ka">ტიპები და ოპერაციები — ერთ ეკრანზე</span><span lang="en">Types and operators — on one screen</span></h2>
+<pre class="code"><code>7 / 2      # 3.5   always a float
+7 // 2     # 3     the whole part
+7 % 2      # 1     the remainder
+7 ** 2     # 49    exponentiation
+2 + 3 * 4  # 14    * binds tighter than +
+2 ** 3 ** 2  # 512  right to left
+-2 ** 2    # -4    power first, then the minus
 
 int("42")      # 42
-int(9.99)      # 9      კვეცავს
-round(9.99)    # 10     ამრგვალებს
-round(0.5)     # 0      ლუწისკენ!
+int(9.99)      # 9      truncates
+round(9.99)    # 10     rounds
+round(0.5)     # 0      to the nearest even!
 str(100) + "ლ" # "100ლ"
 
-bool(0), bool(""), bool([]), bool(None)   # ყველა False
+bool(0), bool(""), bool([]), bool(None)   # all False
 bool("False")                              # True!
 0.1 + 0.2 == 0.3                           # False</code></pre>
 </section>
 
 <section class="slide">
-  <p class="kicker">გამეორება 2/4</p>
-  <h2>პირობები და ციკლები</h2>
+  <p class="kicker"><span lang="ka">გამეორება 2/4</span><span lang="en">Revision 2/4</span></p>
+  <h2><span lang="ka">პირობები და ციკლები</span><span lang="en">Conditions and loops</span></h2>
   <div class="two">
     <div>
-<pre class="code" data-title="პირობა"><code>if score &gt;= 91:
+<pre class="code" data-title="conditions"><code>if score &gt;= 91:
     grade = "A"
 elif score &gt;= 81:
     grade = "B"
 else:
     grade = "F"
 
-# ჯაჭვი
+# chaining
 if 0 &lt;= x &lt;= 100: ...
 
-# ტერნარული
+# ternary
 s = "დიდი" if n &gt; 10 else "პატარა"</code></pre>
     </div>
     <div>
-<pre class="code" data-title="ციკლი"><code>range(5)          # 0 1 2 3 4
+<pre class="code" data-title="loops"><code>range(5)          # 0 1 2 3 4
 range(2, 6)       # 2 3 4 5
 range(0, 10, 2)   # 0 2 4 6 8
 range(10, 0, -1)  # 10 … 1
 
 for i in range(1, 11):
     if i == 5:
-        continue      # ბიჯს ტოვებს
+        continue      # skips this step
     if i == 8:
-        break         # ციკლს წყვეტს
+        break         # ends the loop
 else:
-    print("break-ის გარეშე")</code></pre>
+    print("finished without break")</code></pre>
     </div>
   </div>
-  <div class="callout warn"><b>ორი ხაფანგი</b><code class="inl">range(1, 5)</code> — 5 <b>არ</b> შედის · <code class="inl">while</code>-ში მთვლელის გაზრდა დაგავიწყდა → უსასრულო ციკლი.</div>
+  <div class="callout warn">
+    <span lang="ka"><b>ორი ხაფანგი</b><code class="inl">range(1, 5)</code> — 5 <b>არ</b> შედის · <code class="inl">while</code>-ში მთვლელის გაზრდა დაგავიწყდა → უსასრულო ციკლი.</span>
+    <span lang="en"><b>Two traps</b><code class="inl">range(1, 5)</code> — 5 is <b>not</b> included · forgetting to increment the counter in a <code class="inl">while</code> → an infinite loop.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">გამეორება 3/4</p>
-  <h2>ფუნქციები</h2>
-<pre class="code"><code>def area(w, h=1):              # h — ნაგულისხმევი, ბოლოშია
-    """მართკუთხედის ფართობი."""
+  <p class="kicker"><span lang="ka">გამეორება 3/4</span><span lang="en">Revision 3/4</span></p>
+  <h2><span lang="ka">ფუნქციები</span><span lang="en">Functions</span></h2>
+<pre class="code"><code>def area(w, h=1):              # h has a default, so it comes last
+    """მართკუთხედის ფართობი. / Area of a rectangle."""
     return w * h               # return ≠ print
 
 print(area(4, 5))              # 20
 print(area(4))                 # 4
-print(area(h=5, w=4))          # 20  სახელდებული
+print(area(h=5, w=4))          # 20  keyword arguments
 
-def stats(*nums):              # ცვლადი რაოდენობა
+def stats(*nums):              # a variable number of arguments
     return min(nums), max(nums)
 
 low, high = stats(3, 9, 1)     # unpacking
 
 x = 10
 def f():
-    x = 5                      # ლოკალური! გლობალურს არ ცვლის
+    x = 5                      # local! does not touch the global
 f()
 print(x)                       # 10
 
-square = lambda n: n ** 2      # ანონიმური</code></pre>
+square = lambda n: n ** 2      # anonymous</code></pre>
 </section>
 
 <section class="slide">
-  <p class="kicker">გამეორება 4/4</p>
-  <h2>სტრიქონები</h2>
+  <p class="kicker"><span lang="ka">გამეორება 4/4</span><span lang="en">Revision 4/4</span></p>
+  <h2><span lang="ka">სტრიქონები</span><span lang="en">Strings</span></h2>
 <pre class="code"><code>s = "Python"
 s[0]        # 'P'
 s[-1]       # 'n'
-s[0:3]      # 'Pyt'   3 არ შედის
+s[0:3]      # 'Pyt'   3 is excluded
 s[::-1]     # 'nohtyP'
 len(s)      # 6
 
@@ -128,127 +153,255 @@ s.upper() s.lower() s.title() s.strip()
 s.replace("a", "b")
 s.split(",")            # str → list
 ",".join(["a", "b"])    # list → str
-s.find("th")            # 2, ვერ პოვნისას -1
-s.index("th")           # 2, ვერ პოვნისას ValueError
+s.find("th")            # 2, or -1 if not found
+s.index("th")           # 2, or ValueError if not found
 s.count("t")
 "th" in s               # True
 "123".isdigit()         # True
 
-f"{name:&lt;10}{score:&gt;8.2f}"    # გასწორება
+f"{name:&lt;10}{score:&gt;8.2f}"    # alignment
 f"{n:05}"                      # 00042
 f"{0.256:.1%}"                 # 25.6%</code></pre>
-  <div class="callout err"><b>გახსოვდეს</b>სტრიქონი <b>უცვლელია</b>: <code class="inl">s.upper()</code> არაფერს ცვლის — უნდა დაწერო <code class="inl">s = s.upper()</code>.</div>
-</section>
-
-<section class="slide">
-  <p class="kicker">სავარჯიშო</p>
-  <h2>ტესტური კითხვები — 1–5</h2>
-  <div class="quiz">
-    <details><summary>1. რას დაბეჭდავს <code class="inl">print(type(10 / 2))</code>?</summary>
-      <div class="ans"><code>&lt;class 'float'&gt;</code> — ოპერატორი <code>/</code> ყოველთვის <code>float</code>-ს აბრუნებს, მაშინაც კი, როცა შედეგი მთელია.</div></details>
-    <details><summary>2. რომელი სახელია დაუშვებელი ცვლადისთვის? <code class="inl">_x</code> · <code class="inl">x2</code> · <code class="inl">2x</code> · <code class="inl">X</code></summary>
-      <div class="ans"><code>2x</code> — იდენტიფიკატორი ციფრით ვერ დაიწყება.</div></details>
-    <details><summary>3. რას დაბეჭდავს <code class="inl">print(list(range(1, 10, 3)))</code>?</summary>
-      <div class="ans"><code>[1, 4, 7]</code>.</div></details>
-    <details><summary>4. რას აბრუნებს <code class="inl">"Python".find("z")</code>?</summary>
-      <div class="ans"><code>-1</code>. <code>index()</code> იმავე შემთხვევაში <code>ValueError</code>-ს ისვრის.</div></details>
-    <details><summary>5. რას დაბეჭდავს? <code class="inl">s = "abc"; s.upper(); print(s)</code></summary>
-      <div class="ans"><code>abc</code>. სტრიქონი უცვლელია — შედეგი არსად შეინახა.</div></details>
+  <div class="callout err">
+    <span lang="ka"><b>გახსოვდეს</b>სტრიქონი <b>უცვლელია</b>: <code class="inl">s.upper()</code> არაფერს ცვლის — უნდა დაწერო <code class="inl">s = s.upper()</code>.</span>
+    <span lang="en"><b>Remember</b>Strings are <b>immutable</b>: <code class="inl">s.upper()</code> changes nothing — you must write <code class="inl">s = s.upper()</code>.</span>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">სავარჯიშო</p>
-  <h2>ტესტური კითხვები — 6–10</h2>
+  <p class="kicker"><span lang="ka">სავარჯიშო</span><span lang="en">Practice</span></p>
+  <h2><span lang="ka">ტესტური კითხვები — 1–5</span><span lang="en">Test questions — 1–5</span></h2>
   <div class="quiz">
-    <details><summary>6. რას დაბეჭდავს <code class="inl">print(bool("False"))</code>?</summary>
-      <div class="ans"><code>True</code> — ესაა არაცარიელი სტრიქონი. მცდარია მხოლოდ ცარიელი <code>""</code>.</div></details>
-    <details><summary>7. რას აბრუნებს ფუნქცია <code class="inl">return</code>-ის გარეშე?</summary>
-      <div class="ans"><code>None</code>.</div></details>
-    <details><summary>8. რას დაბეჭდავს <code class="inl">print(divmod(17, 5))</code>?</summary>
-      <div class="ans"><code>(3, 2)</code> — მთელი ნაწილი და ნაშთი, tuple-ად.</div></details>
-    <details><summary>9. რომელი ჩანაწერი შეაბრუნებს სტრიქონს?</summary>
-      <div class="ans"><code>s[::-1]</code>.</div></details>
-    <details><summary>10. რას დაბეჭდავს <code class="inl">print(2 + 3 * 4 ** 2)</code>?</summary>
-      <div class="ans"><code>50</code>. ჯერ <code>4**2=16</code>, მერე <code>3*16=48</code>, ბოლოს <code>2+48=50</code>.</div></details>
+    <details>
+      <summary><span lang="ka">1. რას დაბეჭდავს <code class="inl">print(type(10 / 2))</code>?</span>
+               <span lang="en">1. What does <code class="inl">print(type(10 / 2))</code> print?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>&lt;class 'float'&gt;</code> — ოპერატორი <code>/</code> ყოველთვის <code>float</code>-ს აბრუნებს, მაშინაც კი, როცა შედეგი მთელია.</span>
+        <span lang="en"><code>&lt;class 'float'&gt;</code> — the <code>/</code> operator always returns a <code>float</code>, even when the result is a whole number.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">2. რომელი სახელია დაუშვებელი ცვლადისთვის? <code class="inl">_x</code> · <code class="inl">x2</code> · <code class="inl">2x</code> · <code class="inl">X</code></span>
+               <span lang="en">2. Which of these is an invalid variable name? <code class="inl">_x</code> · <code class="inl">x2</code> · <code class="inl">2x</code> · <code class="inl">X</code></span></summary>
+      <div class="ans">
+        <span lang="ka"><code>2x</code> — იდენტიფიკატორი ციფრით ვერ დაიწყება.</span>
+        <span lang="en"><code>2x</code> — an identifier cannot start with a digit.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">3. რას დაბეჭდავს <code class="inl">print(list(range(1, 10, 3)))</code>?</span>
+               <span lang="en">3. What does <code class="inl">print(list(range(1, 10, 3)))</code> print?</span></summary>
+      <div class="ans"><span lang="ka"><code>[1, 4, 7]</code>.</span><span lang="en"><code>[1, 4, 7]</code>.</span></div></details>
+    <details>
+      <summary><span lang="ka">4. რას აბრუნებს <code class="inl">"Python".find("z")</code>?</span>
+               <span lang="en">4. What does <code class="inl">"Python".find("z")</code> return?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>-1</code>. <code>index()</code> იმავე შემთხვევაში <code>ValueError</code>-ს ისვრის.</span>
+        <span lang="en"><code>-1</code>. In the same situation <code>index()</code> raises a <code>ValueError</code>.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">5. რას დაბეჭდავს? <code class="inl">s = "abc"; s.upper(); print(s)</code></span>
+               <span lang="en">5. What does this print? <code class="inl">s = "abc"; s.upper(); print(s)</code></span></summary>
+      <div class="ans">
+        <span lang="ka"><code>abc</code>. სტრიქონი უცვლელია — შედეგი არსად შეინახა.</span>
+        <span lang="en"><code>abc</code>. Strings are immutable — the result was never stored.</span>
+      </div></details>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">სავარჯიშო</p>
-  <h2>ღია კითხვები — 1–5</h2>
+  <p class="kicker"><span lang="ka">სავარჯიშო</span><span lang="en">Practice</span></p>
+  <h2><span lang="ka">ტესტური კითხვები — 6–10</span><span lang="en">Test questions — 6–10</span></h2>
   <div class="quiz">
-    <details><summary>1. აღწერეთ Python-ის პროგრამის შესრულების ეტაპები.</summary>
-      <div class="ans">წყარო <code>.py</code> → ინტერპრეტატორი თარგმნის <b>ბაიტკოდში</b> (ინახება <code>__pycache__</code>-ში, <code>.pyc</code>) → <b>PVM</b> (Python-ის ვირტუალური მანქანა) ასრულებს ბაიტკოდს → შედეგი. სწორედ ბაიტკოდის გამო მუშაობს ერთი და იგივე ფაილი სხვადასხვა ოპერაციულ სისტემაზე.</div></details>
-    <details><summary>2. რით განსხვავდება <code class="inl">for</code> და <code class="inl">while</code>? მოიყვანეთ თითო მაგალითი.</summary>
-      <div class="ans"><code>for</code> — გავლა <b>ცნობილ</b> თანმიმდევრობაზე ან რაოდენობაზე (<code>for i in range(10)</code>). <code>while</code> — სრულდება, სანამ <b>პირობა</b> ჭეშმარიტია, როცა რაოდენობა წინასწარ არაა ცნობილი (პაროლის შემოწმება).</div></details>
-    <details><summary>3. რა განსხვავებაა ლოკალურ და გლობალურ ცვლადს შორის?</summary>
-      <div class="ans">ლოკალური იქმნება ფუნქციის შიგნით და მისი დასრულებისას ქრება — გარედან მიუწვდომელია. გლობალური ცხოვრობს მთელი პროგრამის განმავლობაში; ფუნქციას მისი წაკითხვა შეუძლია, შეცვლა — მხოლოდ <code>global</code>-ით (რაც არასასურველია).</div></details>
-    <details><summary>4. რას ნიშნავს „სტრიქონი უცვლელია“ და რა გამომდინარეობს აქედან?</summary>
-      <div class="ans">შექმნის შემდეგ სტრიქონის ცალკეული სიმბოლოს შეცვლა შეუძლებელია (<code>s[0] = "x"</code> → <code>TypeError</code>). ყველა მეთოდი <b>ახალ</b> სტრიქონს აბრუნებს, ამიტომ შედეგი ცვლადში უნდა შევინახოთ: <code>s = s.upper()</code>.</div></details>
-    <details><summary>5. რატომ არის <code class="inl">0.1 + 0.2 != 0.3</code>?</summary>
-      <div class="ans"><code>float</code> ორობით სისტემაში ინახება, სადაც 0.1 და 0.2 ზუსტად ვერ ჩაიწერება (ისევე, როგორც 1/3 ათობითში). ჯამი გამოდის <code>0.30000000000000004</code>. შედარებისთვის იყენებენ <code>round()</code>-ს ან <code>math.isclose()</code>-ს.</div></details>
+    <details>
+      <summary><span lang="ka">6. რას დაბეჭდავს <code class="inl">print(bool("False"))</code>?</span>
+               <span lang="en">6. What does <code class="inl">print(bool("False"))</code> print?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>True</code> — ესაა არაცარიელი სტრიქონი. მცდარია მხოლოდ ცარიელი <code>""</code>.</span>
+        <span lang="en"><code>True</code> — it is a non-empty string. Only the empty <code>""</code> is falsy.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">7. რას აბრუნებს ფუნქცია <code class="inl">return</code>-ის გარეშე?</span>
+               <span lang="en">7. What does a function without a <code class="inl">return</code> return?</span></summary>
+      <div class="ans"><span lang="ka"><code>None</code>.</span><span lang="en"><code>None</code>.</span></div></details>
+    <details>
+      <summary><span lang="ka">8. რას დაბეჭდავს <code class="inl">print(divmod(17, 5))</code>?</span>
+               <span lang="en">8. What does <code class="inl">print(divmod(17, 5))</code> print?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>(3, 2)</code> — მთელი ნაწილი და ნაშთი, tuple-ად.</span>
+        <span lang="en"><code>(3, 2)</code> — the quotient and the remainder, as a tuple.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">9. რომელი ჩანაწერი შეაბრუნებს სტრიქონს?</span>
+               <span lang="en">9. Which expression reverses a string?</span></summary>
+      <div class="ans"><span lang="ka"><code>s[::-1]</code>.</span><span lang="en"><code>s[::-1]</code>.</span></div></details>
+    <details>
+      <summary><span lang="ka">10. რას დაბეჭდავს <code class="inl">print(2 + 3 * 4 ** 2)</code>?</span>
+               <span lang="en">10. What does <code class="inl">print(2 + 3 * 4 ** 2)</code> print?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>50</code>. ჯერ <code>4**2=16</code>, მერე <code>3*16=48</code>, ბოლოს <code>2+48=50</code>.</span>
+        <span lang="en"><code>50</code>. First <code>4**2=16</code>, then <code>3*16=48</code>, finally <code>2+48=50</code>.</span>
+      </div></details>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">სავარჯიშო</p>
-  <h2>ღია კითხვები — 6–10</h2>
+  <p class="kicker"><span lang="ka">სავარჯიშო</span><span lang="en">Practice</span></p>
+  <h2><span lang="ka">ღია კითხვები — 1–5</span><span lang="en">Open questions — 1–5</span></h2>
   <div class="quiz">
-    <details><summary>6. რას აკეთებს <code class="inl">break</code>, <code class="inl">continue</code> და ციკლის <code class="inl">else</code>?</summary>
-      <div class="ans"><code>break</code> — ციკლს მთლიანად წყვეტს. <code>continue</code> — მიმდინარე ბიჯს ტოვებს და შემდეგზე გადადის. <code>else</code> — სრულდება მხოლოდ მაშინ, თუ ციკლი <code>break</code>-ის გარეშე დასრულდა.</div></details>
-    <details><summary>7. რა განსხვავებაა <code class="inl">return</code>-სა და <code class="inl">print</code>-ს შორის?</summary>
-      <div class="ans"><code>print</code> ტექსტს ეკრანზე გამოაქვს — ეს <b>ადამიანისთვისაა</b>, დაბრუნებული მნიშვნელობა <code>None</code>-ია. <code>return</code> მნიშვნელობას <b>გამომძახებელს უბრუნებს</b> — მისი შემდგომი გამოთვლებში გამოყენება შესაძლებელია.</div></details>
-    <details><summary>8. რას ნიშნავს ნაგულისხმევი (გაჩუმებით) პარამეტრი? რა წესი მოქმედებს?</summary>
-      <div class="ans">პარამეტრი, რომელსაც აღწერისას მნიშვნელობა ენიჭება და გამოძახებისას შეიძლება არ გადავცეთ: <code>def greet(name, msg="გამარჯობა")</code>. წესი — ასეთი პარამეტრები ყოველთვის <b>ბოლოში</b> იწერება.</div></details>
-    <details><summary>9. აღწერეთ სამი განსხვავება <code class="inl">find()</code>-სა და <code class="inl">index()</code>-ს შორის.</summary>
-      <div class="ans">ორივე ეძებს ქვესტრიქონს და აბრუნებს პირველი დამთხვევის ინდექსს. განსხვავება: ვერ პოვნისას <code>find</code> აბრუნებს <code>-1</code>-ს, <code>index</code> კი ისვრის <code>ValueError</code>-ს. ამიტომ <code>find</code> უსაფრთხოა, როცა არსებობა დარწმუნებული არაა.</div></details>
-    <details><summary>10. რას აკეთებს <code class="inl">split()</code> და <code class="inl">join()</code>? მოიყვანეთ მაგალითი.</summary>
-      <div class="ans"><code>split()</code> სტრიქონს ჰყოფს გამყოფის მიხედვით და <b>სიას</b> აბრუნებს: <code>"a,b".split(",") → ['a','b']</code>. <code>join()</code> პირიქით — სიის ელემენტებს <b>ერთ სტრიქონად</b> აერთებს: <code>",".join(['a','b']) → "a,b"</code>.</div></details>
+    <details>
+      <summary><span lang="ka">1. აღწერეთ Python-ის პროგრამის შესრულების ეტაპები.</span>
+               <span lang="en">1. Describe the stages of executing a Python program.</span></summary>
+      <div class="ans">
+        <span lang="ka">წყარო <code>.py</code> → ინტერპრეტატორი თარგმნის <b>ბაიტკოდში</b> (ინახება <code>__pycache__</code>-ში, <code>.pyc</code>) → <b>PVM</b> (Python-ის ვირტუალური მანქანა) ასრულებს ბაიტკოდს → შედეგი. სწორედ ბაიტკოდის გამო მუშაობს ერთი და იგივე ფაილი სხვადასხვა ოპერაციულ სისტემაზე.</span>
+        <span lang="en">Source <code>.py</code> → the interpreter compiles it to <b>bytecode</b> (stored as <code>.pyc</code> in <code>__pycache__</code>) → the <b>PVM</b> (Python Virtual Machine) executes that bytecode → the result. It is precisely this bytecode layer that lets the same file run on different operating systems.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">2. რით განსხვავდება <code class="inl">for</code> და <code class="inl">while</code>? მოიყვანეთ თითო მაგალითი.</span>
+               <span lang="en">2. How do <code class="inl">for</code> and <code class="inl">while</code> differ? Give one example of each.</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>for</code> — გავლა <b>ცნობილ</b> თანმიმდევრობაზე ან რაოდენობაზე (<code>for i in range(10)</code>). <code>while</code> — სრულდება, სანამ <b>პირობა</b> ჭეშმარიტია, როცა რაოდენობა წინასწარ არაა ცნობილი (პაროლის შემოწმება).</span>
+        <span lang="en"><code>for</code> walks a <b>known</b> sequence or count (<code>for i in range(10)</code>). <code>while</code> runs as long as a <b>condition</b> holds, for cases where the count is not known in advance (checking a password).</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">3. რა განსხვავებაა ლოკალურ და გლობალურ ცვლადს შორის?</span>
+               <span lang="en">3. What is the difference between a local and a global variable?</span></summary>
+      <div class="ans">
+        <span lang="ka">ლოკალური იქმნება ფუნქციის შიგნით და მისი დასრულებისას ქრება — გარედან მიუწვდომელია. გლობალური ცხოვრობს მთელი პროგრამის განმავლობაში; ფუნქციას მისი წაკითხვა შეუძლია, შეცვლა — მხოლოდ <code>global</code>-ით (რაც არასასურველია).</span>
+        <span lang="en">A local variable is created inside a function and disappears when it ends — it is unreachable from outside. A global lives for the whole program; a function can read it, but changing it requires <code>global</code> (which is discouraged).</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">4. რას ნიშნავს „სტრიქონი უცვლელია“ და რა გამომდინარეობს აქედან?</span>
+               <span lang="en">4. What does “strings are immutable” mean, and what follows from it?</span></summary>
+      <div class="ans">
+        <span lang="ka">შექმნის შემდეგ სტრიქონის ცალკეული სიმბოლოს შეცვლა შეუძლებელია (<code>s[0] = "x"</code> → <code>TypeError</code>). ყველა მეთოდი <b>ახალ</b> სტრიქონს აბრუნებს, ამიტომ შედეგი ცვლადში უნდა შევინახოთ: <code>s = s.upper()</code>.</span>
+        <span lang="en">Once created, an individual character cannot be changed (<code>s[0] = "x"</code> → <code>TypeError</code>). Every method returns a <b>new</b> string, so the result must be stored: <code>s = s.upper()</code>.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">5. რატომ არის <code class="inl">0.1 + 0.2 != 0.3</code>?</span>
+               <span lang="en">5. Why is <code class="inl">0.1 + 0.2 != 0.3</code>?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>float</code> ორობით სისტემაში ინახება, სადაც 0.1 და 0.2 ზუსტად ვერ ჩაიწერება (ისევე, როგორც 1/3 ათობითში). ჯამი გამოდის <code>0.30000000000000004</code>. შედარებისთვის იყენებენ <code>round()</code>-ს ან <code>math.isclose()</code>-ს.</span>
+        <span lang="en">A <code>float</code> is stored in binary, where 0.1 and 0.2 cannot be represented exactly (just as 1/3 cannot in decimal). The sum comes out as <code>0.30000000000000004</code>. For comparison, use <code>round()</code> or <code>math.isclose()</code>.</span>
+      </div></details>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">სავარჯიშო</p>
-  <h2>პრაქტიკული ამოცანები</h2>
-  <ol class="pts">
+  <p class="kicker"><span lang="ka">სავარჯიშო</span><span lang="en">Practice</span></p>
+  <h2><span lang="ka">ღია კითხვები — 6–10</span><span lang="en">Open questions — 6–10</span></h2>
+  <div class="quiz">
+    <details>
+      <summary><span lang="ka">6. რას აკეთებს <code class="inl">break</code>, <code class="inl">continue</code> და ციკლის <code class="inl">else</code>?</span>
+               <span lang="en">6. What do <code class="inl">break</code>, <code class="inl">continue</code> and a loop’s <code class="inl">else</code> do?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>break</code> — ციკლს მთლიანად წყვეტს. <code>continue</code> — მიმდინარე ბიჯს ტოვებს და შემდეგზე გადადის. <code>else</code> — სრულდება მხოლოდ მაშინ, თუ ციკლი <code>break</code>-ის გარეშე დასრულდა.</span>
+        <span lang="en"><code>break</code> ends the loop entirely. <code>continue</code> skips the current iteration and moves on. <code>else</code> runs only if the loop finished without a <code>break</code>.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">7. რა განსხვავებაა <code class="inl">return</code>-სა და <code class="inl">print</code>-ს შორის?</span>
+               <span lang="en">7. What is the difference between <code class="inl">return</code> and <code class="inl">print</code>?</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>print</code> ტექსტს ეკრანზე გამოაქვს — ეს <b>ადამიანისთვისაა</b>, დაბრუნებული მნიშვნელობა <code>None</code>-ია. <code>return</code> მნიშვნელობას <b>გამომძახებელს უბრუნებს</b> — მისი შემდგომი გამოთვლებში გამოყენება შესაძლებელია.</span>
+        <span lang="en"><code>print</code> writes text to the screen — that is <b>for a human</b>, and the returned value is <code>None</code>. <code>return</code> <b>hands a value back to the caller</b>, so it can be used in further calculations.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">8. რას ნიშნავს ნაგულისხმევი (გაჩუმებით) პარამეტრი? რა წესი მოქმედებს?</span>
+               <span lang="en">8. What is a default parameter, and what rule applies to it?</span></summary>
+      <div class="ans">
+        <span lang="ka">პარამეტრი, რომელსაც აღწერისას მნიშვნელობა ენიჭება და გამოძახებისას შეიძლება არ გადავცეთ: <code>def greet(name, msg="გამარჯობა")</code>. წესი — ასეთი პარამეტრები ყოველთვის <b>ბოლოში</b> იწერება.</span>
+        <span lang="en">A parameter given a value in the definition, which the caller may omit: <code>def greet(name, msg="hello")</code>. The rule — such parameters always come <b>last</b>.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">9. აღწერეთ სამი განსხვავება <code class="inl">find()</code>-სა და <code class="inl">index()</code>-ს შორის.</span>
+               <span lang="en">9. Describe the difference between <code class="inl">find()</code> and <code class="inl">index()</code>.</span></summary>
+      <div class="ans">
+        <span lang="ka">ორივე ეძებს ქვესტრიქონს და აბრუნებს პირველი დამთხვევის ინდექსს. განსხვავება: ვერ პოვნისას <code>find</code> აბრუნებს <code>-1</code>-ს, <code>index</code> კი ისვრის <code>ValueError</code>-ს. ამიტომ <code>find</code> უსაფრთხოა, როცა არსებობა დარწმუნებული არაა.</span>
+        <span lang="en">Both search for a substring and return the index of the first match. The difference: when nothing is found <code>find</code> returns <code>-1</code>, while <code>index</code> raises a <code>ValueError</code>. So <code>find</code> is the safe choice when you are not sure it is there.</span>
+      </div></details>
+    <details>
+      <summary><span lang="ka">10. რას აკეთებს <code class="inl">split()</code> და <code class="inl">join()</code>? მოიყვანეთ მაგალითი.</span>
+               <span lang="en">10. What do <code class="inl">split()</code> and <code class="inl">join()</code> do? Give an example.</span></summary>
+      <div class="ans">
+        <span lang="ka"><code>split()</code> სტრიქონს ჰყოფს გამყოფის მიხედვით და <b>სიას</b> აბრუნებს: <code>"a,b".split(",") → ['a','b']</code>. <code>join()</code> პირიქით — სიის ელემენტებს <b>ერთ სტრიქონად</b> აერთებს: <code>",".join(['a','b']) → "a,b"</code>.</span>
+        <span lang="en"><code>split()</code> breaks a string on a separator and returns a <b>list</b>: <code>"a,b".split(",") → ['a','b']</code>. <code>join()</code> does the opposite — it joins list elements into <b>one string</b>: <code>",".join(['a','b']) → "a,b"</code>.</span>
+      </div></details>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="kicker"><span lang="ka">სავარჯიშო</span><span lang="en">Practice</span></p>
+  <h2><span lang="ka">პრაქტიკული ამოცანები</span><span lang="en">Coding exercises</span></h2>
+  <ol class="pts" lang="ka">
     <li><b>ციფრების ანალიზი</b><small>მთელი რიცხვისთვის იპოვე: ციფრების ჯამი, რაოდენობა, უდიდესი ციფრი და შებრუნებული რიცხვი. მხოლოდ <code class="inl">%</code> და <code class="inl">//</code>-ით</small></li>
     <li><b>ფუნქცია <code class="inl">is_prime(n)</code></b><small>დაწერე ფუნქცია და გამოიყენე 1–100 დიაპაზონში ყველა მარტივი რიცხვის დასაბეჭდად</small></li>
     <li><b>ტექსტის სტატისტიკა</b><small>სიმბოლოების, სიტყვების, ხმოვნების რაოდენობა; ყველაზე გრძელი სიტყვა; შებრუნებული ტექსტი</small></li>
     <li><b>ბანკის კალკულატორი</b><small>თანხა და წლიური პროცენტი შეიტანე; დაბეჭდე ბალანსი ყოველი წლისთვის, სანამ არ გაორმაგდება</small></li>
     <li><b>მენიუ</b><small><code class="inl">while True</code> + ფუნქციები: 4 არითმეტიკული ოპერაცია, 0 — გასვლა. ნულზე გაყოფა უნდა შემოწმდეს</small></li>
   </ol>
-  <div class="callout tip"><b>რჩევა</b>ამოცანა ჯერ <b>ქაღალდზე</b> დაშალე ნაბიჯებად, მერე დაწერე. გამოცდაზე ეს დროს დაზოგავს, არა დაგახარჯვინებს.</div>
+  <ol class="pts" lang="en">
+    <li><b>Digit analysis</b><small>For an integer, find: the sum of its digits, how many there are, the largest digit and the number reversed. Using only <code class="inl">%</code> and <code class="inl">//</code></small></li>
+    <li><b>An <code class="inl">is_prime(n)</code> function</b><small>Write it, then use it to print every prime from 1 to 100</small></li>
+    <li><b>Text statistics</b><small>Counts of characters, words and vowels; the longest word; the text reversed</small></li>
+    <li><b>A savings calculator</b><small>Take an amount and an annual rate; print the balance each year until it doubles</small></li>
+    <li><b>A menu</b><small><code class="inl">while True</code> + functions: four arithmetic operations, 0 to exit. Division by zero must be handled</small></li>
+  </ol>
+  <div class="callout tip">
+    <span lang="ka"><b>რჩევა</b>ამოცანა ჯერ <b>ქაღალდზე</b> დაშალე ნაბიჯებად, მერე დაწერე. გამოცდაზე ეს დროს დაზოგავს, არა დაგახარჯვინებს.</span>
+    <span lang="en"><b>Advice</b>Break the problem into steps <b>on paper</b> first, then write it. In an exam that saves time rather than costing it.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ყურადღება</p>
-  <h2>ტიპური შეცდომები გამოცდაზე</h2>
+  <p class="kicker"><span lang="ka">ყურადღება</span><span lang="en">Watch out</span></p>
+  <h2><span lang="ka">ტიპური შეცდომები გამოცდაზე</span><span lang="en">Typical exam mistakes</span></h2>
   <table class="small">
-    <tr><th style="width:34%">შეცდომა</th><th>სწორად</th></tr>
-    <tr><td><code>age = input("ასაკი: ")</code> და შემდეგ <code>age + 1</code></td><td><code>age = int(input("ასაკი: "))</code></td></tr>
-    <tr><td><code>range(1, 5)</code> როცა 5 გჭირდება</td><td><code>range(1, 6)</code></td></tr>
+    <tr>
+      <th style="width:34%"><span lang="ka">შეცდომა</span><span lang="en">Mistake</span></th>
+      <th><span lang="ka">სწორად</span><span lang="en">Correct</span></th>
+    </tr>
+    <tr><td><span lang="ka"><code>age = input("ასაკი: ")</code> და შემდეგ <code>age + 1</code></span>
+             <span lang="en"><code>age = input("age: ")</code> then <code>age + 1</code></span></td>
+        <td><code>age = int(input(...))</code></td></tr>
+    <tr><td><span lang="ka"><code>range(1, 5)</code> როცა 5 გჭირდება</span><span lang="en"><code>range(1, 5)</code> when you need 5</span></td>
+        <td><code>range(1, 6)</code></td></tr>
     <tr><td><code>if x = 5:</code></td><td><code>if x == 5:</code></td></tr>
-    <tr><td><code>s.upper()</code> შედეგის შენახვის გარეშე</td><td><code>s = s.upper()</code></td></tr>
-    <tr><td><code>while</code>-ში მთვლელი არ იზრდება</td><td><code>count += 1</code> სხეულში</td></tr>
-    <tr><td>ფუნქციაში <code>print</code> <code>return</code>-ის ნაცვლად</td><td><code>return result</code></td></tr>
-    <tr><td>დამგროვებელი ცვლადი ციკლის შიგნით ინიციალიზდება</td><td>გაიტანე ციკლის <b>წინ</b></td></tr>
-    <tr><td>ორწერტილი ან წანაცვლება დაგავიწყდა</td><td><code>if x &gt; 0:</code> + 4 ჰარე</td></tr>
+    <tr><td><span lang="ka"><code>s.upper()</code> შედეგის შენახვის გარეშე</span><span lang="en"><code>s.upper()</code> without storing the result</span></td>
+        <td><code>s = s.upper()</code></td></tr>
+    <tr><td><span lang="ka"><code>while</code>-ში მთვლელი არ იზრდება</span><span lang="en">The counter never grows in a <code>while</code></span></td>
+        <td><span lang="ka"><code>count += 1</code> სხეულში</span><span lang="en"><code>count += 1</code> in the body</span></td></tr>
+    <tr><td><span lang="ka">ფუნქციაში <code>print</code> <code>return</code>-ის ნაცვლად</span><span lang="en"><code>print</code> instead of <code>return</code> in a function</span></td>
+        <td><code>return result</code></td></tr>
+    <tr><td><span lang="ka">დამგროვებელი ცვლადი ციკლის შიგნით ინიციალიზდება</span><span lang="en">The accumulator is initialised inside the loop</span></td>
+        <td><span lang="ka">გაიტანე ციკლის <b>წინ</b></span><span lang="en">Move it <b>before</b> the loop</span></td></tr>
+    <tr><td><span lang="ka">ორწერტილი ან წანაცვლება დაგავიწყდა</span><span lang="en">Forgot the colon or the indentation</span></td>
+        <td><span lang="ka"><code>if x &gt; 0:</code> + 4 ჰარე</span><span lang="en"><code>if x &gt; 0:</code> + 4 spaces</span></td></tr>
   </table>
-  <div class="note">ეს ცხრილი შუალედურის შემდეგ IX კვირაზეც გამოგადგება შედეგების განხილვისას.</div>
+  <div class="note">
+    <span lang="ka">ეს ცხრილი შუალედურის შემდეგ IX კვირაზეც გამოგადგება შედეგების განხილვისას.</span>
+    <span lang="en">This table is useful again in week IX when going over the results.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">ტაქტიკა</p>
-  <h2>გამოცდის დღეს</h2>
-  <ul class="pts">
+  <p class="kicker"><span lang="ka">ტაქტიკა</span><span lang="en">Tactics</span></p>
+  <h2><span lang="ka">გამოცდის დღეს</span><span lang="en">On exam day</span></h2>
+  <ul class="pts" lang="ka">
     <li><b>ჯერ გადაათვალიერე ყველა კითხვა</b><small>დაიწყე იმით, რაც ზუსტად იცი — ქულა უკვე ჯიბეშია</small></li>
     <li><b>ღია კითხვაზე ტერმინოლოგია მნიშვნელოვანია</b><small>2 ქულა იწერება, როცა პასუხი სრული და ტერმინოლოგიურად გამართულია</small></li>
     <li><b>კოდის ამოცანაზე ჯერ ალგორითმი დაწერე</b><small>ნაწილობრივ სწორი გზაც ფასდება — ცარიელი ფურცელი არა</small></li>
     <li><b>შეამოწმე კიდურა შემთხვევები</b><small>0, უარყოფითი, ცარიელი ტექსტი — სწორედ იქ იმალება შეცდომა</small></li>
     <li><b>წანაცვლება და ორწერტილი</b><small>ქაღალდზეც კი — ეს შეფასების კრიტერიუმია</small></li>
   </ul>
-  <div class="callout tip"><b>შემდეგი — ლექცია 09</b>შუალედურის შედეგების განხილვა + ფაილებთან მუშაობა.</div>
+  <ul class="pts" lang="en">
+    <li><b>Skim every question first</b><small>Start with what you know for certain — those points are already banked</small></li>
+    <li><b>Terminology matters on open questions</b><small>Full marks go to answers that are complete and use the right terms</small></li>
+    <li><b>Write the algorithm before the code</b><small>A partially correct approach still earns marks — a blank page does not</small></li>
+    <li><b>Check the edge cases</b><small>0, negatives, empty text — that is exactly where the bug hides</small></li>
+    <li><b>Indentation and colons</b><small>Even on paper — they are part of the marking criteria</small></li>
+  </ul>
+  <div class="callout tip">
+    <span lang="ka"><b>შემდეგი — ლექცია 09</b>შუალედურის შედეგების განხილვა + ფაილებთან მუშაობა.</span>
+    <span lang="en"><b>Next — lecture 09</b>Going over the midterm results + working with files.</span>
+  </div>
 </section>
 
 </main>
