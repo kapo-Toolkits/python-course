@@ -10,15 +10,21 @@
 <main class="deck">
 
 <section class="slide">
-  <p class="kicker">ლექცია 14 · XIV კვირა</p>
-  <h1>კოდის სტილი<br>და პაკეტები</h1>
-  <p class="lead" style="margin-top:16px">PEP 8 · style checker-ები · PyPI რეპოზიტორი · პარალელი სხვა ენების პაკეტების მენეჯერებთან</p>
+  <p class="kicker"><span lang="ka">ლექცია 14 · XIV კვირა</span><span lang="en">Lecture 14 · Week XIV</span></p>
+  <h1><span lang="ka">კოდის სტილი<br>და პაკეტები</span><span lang="en">Code style<br>and packages</span></h1>
+  <p class="lead" style="margin-top:16px">
+    <span lang="ka">PEP 8 · style checker-ები · PyPI რეპოზიტორი · პარალელი სხვა ენების პაკეტების მენეჯერებთან</span>
+    <span lang="en">PEP 8 · style checkers · the PyPI repository · a parallel with other languages' package managers</span>
+  </p>
 </section>
 
 <section class="slide">
-  <p class="kicker">მოტივაცია</p>
-  <h2>რატომ ვწუხდებით სტილზე</h2>
-  <p class="big">კოდი <em>ერთხელ იწერება</em> და <em>ათჯერ იკითხება</em> — შენივე თავის მიერ, სამი თვის შემდეგ.</p>
+  <p class="kicker"><span lang="ka">მოტივაცია</span><span lang="en">Motivation</span></p>
+  <h2><span lang="ka">რატომ ვწუხდებით სტილზე</span><span lang="en">Why we care about style</span></h2>
+  <p class="big">
+    <span lang="ka">კოდი <em>ერთხელ იწერება</em> და <em>ათჯერ იკითხება</em> — შენივე თავის მიერ, სამი თვის შემდეგ.</span>
+    <span lang="en">Code is <em>written once</em> and <em>read ten times</em> — by you, three months from now.</span>
+  </p>
   <div class="two" style="margin-top:18px">
     <div>
 <pre class="code" data-title="✗"><code>def calc(x,y,z=0):
@@ -34,41 +40,58 @@
     subtotal = price * quantity
 
     if subtotal &gt; 100:
-        subtotal *= 0.9      # 10% ფასდაკლება
+        subtotal *= 0.9      # 10% discount
 
     return subtotal + shipping</code></pre>
     </div>
   </div>
-  <div class="callout tip"><b>ორივე ერთნაირად მუშაობს</b>განსხვავება მხოლოდ ადამიანისთვისაა. და სწორედ ეს არის მთელი აზრი.</div>
+  <div class="callout tip">
+    <span lang="ka"><b>ორივე ერთნაირად მუშაობს</b>განსხვავება მხოლოდ ადამიანისთვისაა. და სწორედ ეს არის მთელი აზრი.</span>
+    <span lang="en"><b>Both work identically</b>The difference matters only to a human. And that is exactly the point.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">კონტექსტი</p>
-  <h2>რა არის PEP</h2>
-  <p><b>P</b>ython <b>E</b>nhancement <b>P</b>roposal — საჯარო წინადადება ენის განვითარებაზე. ნებისმიერს შეუძლია დაწეროს; საზოგადოება განიხილავს.</p>
+  <p class="kicker"><span lang="ka">კონტექსტი</span><span lang="en">Context</span></p>
+  <h2><span lang="ka">რა არის PEP</span><span lang="en">What is a PEP</span></h2>
+  <p>
+    <span lang="ka"><b>P</b>ython <b>E</b>nhancement <b>P</b>roposal — საჯარო წინადადება ენის განვითარებაზე. ნებისმიერს შეუძლია დაწეროს; საზოგადოება განიხილავს.</span>
+    <span lang="en"><b>P</b>ython <b>E</b>nhancement <b>P</b>roposal — a public proposal for developing the language. Anyone may write one; the community discusses it.</span>
+  </p>
   <div class="grid" style="margin-top:18px">
-    <div class="card"><h3>PEP 8</h3><p class="small">კოდის სტილის სახელმძღვანელო. <b>დღევანდელი თემა.</b></p></div>
-    <div class="card"><h3>PEP 20</h3><p class="small">Zen of Python — 19 პრინციპი. სცადე <code>import this</code></p></div>
-    <div class="card"><h3>PEP 257</h3><p class="small">Docstring-ების კონვენცია</p></div>
-    <div class="card"><h3>PEP 484</h3><p class="small">ტიპების მინიშნებები (type hints)</p></div>
+    <div class="card"><h3>PEP 8</h3>
+      <p class="small" lang="ka">კოდის სტილის სახელმძღვანელო. <b>დღევანდელი თემა.</b></p>
+      <p class="small" lang="en">The code style guide. <b>Today's topic.</b></p></div>
+    <div class="card"><h3>PEP 20</h3>
+      <p class="small" lang="ka">Zen of Python — 19 პრინციპი. სცადე <code>import this</code></p>
+      <p class="small" lang="en">The Zen of Python — 19 principles. Try <code>import this</code></p></div>
+    <div class="card"><h3>PEP 257</h3>
+      <p class="small" lang="ka">Docstring-ების კონვენცია</p>
+      <p class="small" lang="en">The docstring convention</p></div>
+    <div class="card"><h3>PEP 484</h3>
+      <p class="small" lang="ka">ტიპების მინიშნებები (type hints)</p>
+      <p class="small" lang="en">Type hints</p></div>
   </div>
-  <div class="callout"><b>PEP 8 კანონი არაა</b>ის <b>რეკომენდაციაა</b>. მაგრამ მას თითქმის მთელი Python-ის სამყარო იცავს — ამიტომ სხვისი კოდი ნაცნობი გამოიყურება, შენი კი — პროფესიული.</div>
+  <div class="callout">
+    <span lang="ka"><b>PEP 8 კანონი არაა</b>ის <b>რეკომენდაციაა</b>. მაგრამ მას თითქმის მთელი Python-ის სამყარო იცავს — ამიტომ სხვისი კოდი ნაცნობი გამოიყურება, შენი კი — პროფესიული.</span>
+    <span lang="en"><b>PEP 8 is not a law</b>It is a <b>recommendation</b>. But nearly the whole Python world follows it — which is why other people's code looks familiar, and yours looks professional.</span>
+  </div>
 </section>
 
 <section class="slide">
   <p class="kicker">PEP 8</p>
-  <h2>განლაგება</h2>
-<pre class="code"><code># წანაცვლება — 4 ჰარე (არა ტაბი!)
+  <h2><span lang="ka">განლაგება</span><span lang="en">Layout</span></h2>
+<pre class="code"><code># indentation — 4 spaces (not a tab!)
 def function():
     if True:
-        print("ოთხი ჰარე თითო დონეზე")
+        print("four spaces per level")
 
-# ხაზის სიგრძე — მაქსიმუმ 79 სიმბოლო
-# გრძელი ხაზი ფრჩხილებით გადაიტანე:
+# line length — 79 characters at most
+# wrap a long line with parentheses:
 total = (first_value + second_value
          + third_value + fourth_value)
 
-# ორი ცარიელი ხაზი ფუნქციებს შორის
+# two blank lines between functions
 def first():
     pass
 
@@ -77,37 +100,50 @@ def second():
     pass
 
 
-# ერთი ცარიელი ხაზი — ლოგიკურ ბლოკებს შორის ფუნქციაში
+# one blank line — between logical blocks inside a function
 def process(data):
     cleaned = data.strip()
 
     result = cleaned.upper()
     return result</code></pre>
-  <div class="callout tip"><b>79 სიმბოლო არქაიკაა?</b>ნაწილობრივ. მაგრამ ვიწრო ხაზი გვერდიგვერდ ორი ფაილის ნახვას აადვილებს და კოდის მიმოხილვას (code review) ამარტივებს. ბევრი გუნდი 88 ან 100-ს იყენებს — მთავარია, ერთი წესი მოქმედებდეს.</div>
+  <div class="callout tip">
+    <span lang="ka"><b>79 სიმბოლო არქაიკაა?</b>ნაწილობრივ. მაგრამ ვიწრო ხაზი გვერდიგვერდ ორი ფაილის ნახვას აადვილებს და კოდის მიმოხილვას (code review) ამარტივებს. ბევრი გუნდი 88 ან 100-ს იყენებს — მთავარია, ერთი წესი მოქმედებდეს.</span>
+    <span lang="en"><b>Is 79 characters archaic?</b>Partly. But a narrow line makes it easy to view two files side by side and simplifies code review. Many teams use 88 or 100 — what matters is that one rule applies to everyone.</span>
+  </div>
 </section>
 
 <section class="slide">
   <p class="kicker">PEP 8</p>
-  <h2>სახელდების კონვენციები</h2>
+  <h2><span lang="ka">სახელდების კონვენციები</span><span lang="en">Naming conventions</span></h2>
   <table>
-    <tr><th style="width:26%">რა</th><th style="width:26%">სტილი</th><th>მაგალითი</th></tr>
-    <tr><td>ცვლადი, ფუნქცია</td><td><code>snake_case</code></td><td><code>student_name</code>, <code>calculate_total()</code></td></tr>
-    <tr><td>კონსტანტა</td><td><code>UPPER_CASE</code></td><td><code>MAX_SCORE = 100</code></td></tr>
-    <tr><td>კლასი</td><td><code>PascalCase</code></td><td><code>class StudentRecord:</code></td></tr>
-    <tr><td>მოდული, ფაილი</td><td><code>lowercase</code></td><td><code>data_utils.py</code></td></tr>
-    <tr><td>„შიდა“ სახელი</td><td><code>_leading</code></td><td><code>_internal_helper()</code></td></tr>
-    <tr><td>გამოუყენებელი</td><td><code>_</code></td><td><code>for _ in range(3):</code></td></tr>
+    <tr>
+      <th style="width:26%"><span lang="ka">რა</span><span lang="en">What</span></th>
+      <th style="width:26%"><span lang="ka">სტილი</span><span lang="en">Style</span></th>
+      <th><span lang="ka">მაგალითი</span><span lang="en">Example</span></th>
+    </tr>
+    <tr><td><span lang="ka">ცვლადი, ფუნქცია</span><span lang="en">Variable, function</span></td><td><code>snake_case</code></td><td><code>student_name</code>, <code>calculate_total()</code></td></tr>
+    <tr><td><span lang="ka">კონსტანტა</span><span lang="en">Constant</span></td><td><code>UPPER_CASE</code></td><td><code>MAX_SCORE = 100</code></td></tr>
+    <tr><td><span lang="ka">კლასი</span><span lang="en">Class</span></td><td><code>PascalCase</code></td><td><code>class StudentRecord:</code></td></tr>
+    <tr><td><span lang="ka">მოდული, ფაილი</span><span lang="en">Module, file</span></td><td><code>lowercase</code></td><td><code>data_utils.py</code></td></tr>
+    <tr><td><span lang="ka">„შიდა“ სახელი</span><span lang="en">"Internal" name</span></td><td><code>_leading</code></td><td><code>_internal_helper()</code></td></tr>
+    <tr><td><span lang="ka">გამოუყენებელი</span><span lang="en">Unused</span></td><td><code>_</code></td><td><code>for _ in range(3):</code></td></tr>
   </table>
-  <div class="callout warn"><b>სახელები, რომლებსაც ვერიდებით</b>
-    <span style="display:block;margin-top:6px">ერთი ასო: <code class="inl">l</code>, <code class="inl">I</code>, <code class="inl">O</code> — ციფრებს ჰგავს</span>
-    <span style="display:block">ჩაშენებულის გადაფარვა: <code class="inl">list = [1,2]</code>, <code class="inl">str = "x"</code>, <code class="inl">sum = 0</code> — ფუნქციას „კლავს“</span>
-    <span style="display:block">უაზრო: <code class="inl">data2</code>, <code class="inl">temp</code>, <code class="inl">x1</code></span></div>
+  <div class="callout warn">
+    <span lang="ka"><b>სახელები, რომლებსაც ვერიდებით</b>
+      <span style="display:block;margin-top:6px">ერთი ასო: <code class="inl">l</code>, <code class="inl">I</code>, <code class="inl">O</code> — ციფრებს ჰგავს</span>
+      <span style="display:block">ჩაშენებულის გადაფარვა: <code class="inl">list = [1,2]</code>, <code class="inl">str = "x"</code>, <code class="inl">sum = 0</code> — ფუნქციას „კლავს“</span>
+      <span style="display:block">უაზრო: <code class="inl">data2</code>, <code class="inl">temp</code>, <code class="inl">x1</code></span></span>
+    <span lang="en"><b>Names we avoid</b>
+      <span style="display:block;margin-top:6px">Single letters: <code class="inl">l</code>, <code class="inl">I</code>, <code class="inl">O</code> — they look like digits</span>
+      <span style="display:block">Shadowing a built-in: <code class="inl">list = [1,2]</code>, <code class="inl">str = "x"</code>, <code class="inl">sum = 0</code> — this "kills" the function</span>
+      <span style="display:block">Meaningless: <code class="inl">data2</code>, <code class="inl">temp</code>, <code class="inl">x1</code></span></span>
+  </div>
 </section>
 
 <section class="slide">
   <p class="kicker">PEP 8</p>
-  <h2>ჰარეები</h2>
-<pre class="code" data-title="✓ სწორად"><code>x = 5
+  <h2><span lang="ka">ჰარეები</span><span lang="en">Whitespace</span></h2>
+<pre class="code" data-title="✓ correct"><code>x = 5
 result = x + y * 2
 print(a, b)
 def f(a, b=1):
@@ -116,7 +152,7 @@ f(1, b=2)
 lst[0]
 d["key"]
 if x == 1 and y &gt; 2:</code></pre>
-<pre class="code" data-title="✗ არასწორად" style="margin-top:10px"><code class="nohl">x=5
+<pre class="code" data-title="✗ wrong" style="margin-top:10px"><code class="nohl">x=5
 result = x+y * 2
 print( a,b )
 def f(a, b = 1):
@@ -124,37 +160,45 @@ def f(a, b = 1):
 lst [0]
 d ["key"]
 if x==1 and y&gt;2 :</code></pre>
-  <div class="callout"><b>ორი წესი, რომელიც ყველაფერს ფარავს</b>
-    <span style="display:block;margin-top:6px">1. ბინარულ ოპერატორს ორივე მხრიდან <b>თითო ჰარე</b>: <code class="inl">a + b</code>, <code class="inl">x == y</code></span>
-    <span style="display:block">2. ნაგულისხმევ პარამეტრს ჰარეები <b>არ</b> უნდა (თუ ტიპი მითითებული არაა): <code class="inl">def f(b=1)</code></span></div>
+  <div class="callout">
+    <span lang="ka"><b>ორი წესი, რომელიც ყველაფერს ფარავს</b>
+      <span style="display:block;margin-top:6px">1. ბინარულ ოპერატორს ორივე მხრიდან <b>თითო ჰარე</b>: <code class="inl">a + b</code>, <code class="inl">x == y</code></span>
+      <span style="display:block">2. ნაგულისხმევ პარამეტრს ჰარეები <b>არ</b> უნდა (თუ ტიპი მითითებული არაა): <code class="inl">def f(b=1)</code></span></span>
+    <span lang="en"><b>Two rules that cover almost everything</b>
+      <span style="display:block;margin-top:6px">1. A binary operator gets <b>one space</b> on each side: <code class="inl">a + b</code>, <code class="inl">x == y</code></span>
+      <span style="display:block">2. A default parameter gets <b>no</b> spaces (when no type is annotated): <code class="inl">def f(b=1)</code></span></span>
+  </div>
 </section>
 
 <section class="slide">
   <p class="kicker">PEP 8</p>
-  <h2>იმპორტები</h2>
-<pre class="code"><code># 1. სტანდარტული ბიბლიოთეკა
+  <h2><span lang="ka">იმპორტები</span><span lang="en">Imports</span></h2>
+<pre class="code"><code># 1. the standard library
 import os
 import sys
 from pathlib import Path
 
-# 2. მესამე მხარის პაკეტები
+# 2. third-party packages
 import requests
 import pandas as pd
 
-# 3. საკუთარი მოდულები
+# 3. your own modules
 from utils import clean_text
 from models import Student
 
 
-# ✗ ასე არა:
-import os, sys                # ერთ ხაზზე რამდენიმე
-from math import *            # ყველაფრის შემოტანა</code></pre>
+# ✗ not like this:
+import os, sys                # several on one line
+from math import *            # importing everything</code></pre>
   <ul class="pts tight" style="margin-top:12px">
-    <li>ყველა იმპორტი — <b>ფაილის თავში</b>, docstring-ის შემდეგ</li>
-    <li>სამი ჯგუფი, ცარიელი ხაზით გამოყოფილი</li>
-    <li>თითოეულ ჯგუფში — ანბანურად</li>
+    <li><span lang="ka">ყველა იმპორტი — <b>ფაილის თავში</b>, docstring-ის შემდეგ</span><span lang="en">All imports go <b>at the top of the file</b>, after the docstring</span></li>
+    <li><span lang="ka">სამი ჯგუფი, ცარიელი ხაზით გამოყოფილი</span><span lang="en">Three groups, separated by a blank line</span></li>
+    <li><span lang="ka">თითოეულ ჯგუფში — ანბანურად</span><span lang="en">Alphabetical within each group</span></li>
   </ul>
-  <div class="callout tip"><b>ავტომატურად</b>VS Code-ში <code class="inl">"source.organizeImports"</code> პარამეტრი შენახვისას თავად დაალაგებს (იხ. ლექცია 00).</div>
+  <div class="callout tip">
+    <span lang="ka"><b>ავტომატურად</b>VS Code-ში <code class="inl">"source.organizeImports"</code> პარამეტრი შენახვისას თავად დაალაგებს (იხ. ლექცია 00).</span>
+    <span lang="en"><b>Automatically</b>In VS Code the <code class="inl">"source.organizeImports"</code> setting sorts them on save (see lecture 00).</span>
+  </div>
 </section>
 
 <section class="slide">
@@ -163,19 +207,19 @@ from math import *            # ყველაფრის შემოტა�
   <div class="two">
     <div>
       <ul class="pts tight">
-        <li><i>Beautiful is better than ugly</i><small>ლამაზი სჯობს მახინჯს</small></li>
-        <li><i>Explicit is better than implicit</i><small>ცხადი სჯობს ნაგულისხმევს</small></li>
-        <li><i>Simple is better than complex</i><small>მარტივი სჯობს რთულს</small></li>
-        <li><i>Flat is better than nested</i><small>ბრტყელი სჯობს ჩადგმულს</small></li>
-        <li><i>Readability counts</i><small>წაკითხვადობას მნიშვნელობა აქვს</small></li>
+        <li><i>Beautiful is better than ugly</i><small lang="ka">ლამაზი სჯობს მახინჯს</small><small lang="en">Aesthetics are a real criterion</small></li>
+        <li><i>Explicit is better than implicit</i><small lang="ka">ცხადი სჯობს ნაგულისხმევს</small><small lang="en">Say what you mean; do not rely on hidden behaviour</small></li>
+        <li><i>Simple is better than complex</i><small lang="ka">მარტივი სჯობს რთულს</small><small lang="en">Reach for the simplest thing that works</small></li>
+        <li><i>Flat is better than nested</i><small lang="ka">ბრტყელი სჯობს ჩადგმულს</small><small lang="en">Deep nesting hides the logic</small></li>
+        <li><i>Readability counts</i><small lang="ka">წაკითხვადობას მნიშვნელობა აქვს</small><small lang="en">The whole reason PEP 8 exists</small></li>
       </ul>
     </div>
     <div>
       <ul class="pts tight">
-        <li><i>Errors should never pass silently</i><small>შეცდომა ჩუმად არ უნდა ჩაიაროს → XII კვირა</small></li>
-        <li><i>In the face of ambiguity, refuse the temptation to guess</i><small>ორაზროვნებისას ნუ გამოიცნობ</small></li>
-        <li><i>There should be one obvious way to do it</i><small>უნდა არსებობდეს ერთი ცხადი გზა</small></li>
-        <li><i>Now is better than never</i><small>ახლა სჯობს არასდროსს</small></li>
+        <li><i>Errors should never pass silently</i><small lang="ka">შეცდომა ჩუმად არ უნდა ჩაიაროს → XII კვირა</small><small lang="en">See week XII — <code class="inl">except: pass</code></small></li>
+        <li><i>In the face of ambiguity, refuse the temptation to guess</i><small lang="ka">ორაზროვნებისას ნუ გამოიცნობ</small><small lang="en">Ask, or raise — do not guess</small></li>
+        <li><i>There should be one obvious way to do it</i><small lang="ka">უნდა არსებობდეს ერთი ცხადი გზა</small><small lang="en">One obvious way, ideally only one</small></li>
+        <li><i>Now is better than never</i><small lang="ka">ახლა სჯობს არასდროსს</small><small lang="en">Ship it; then improve it</small></li>
       </ul>
     </div>
   </div>
@@ -183,100 +227,145 @@ from math import *            # ყველაფრის შემოტა�
 </section>
 
 <section class="slide">
-  <p class="kicker">ინსტრუმენტები</p>
-  <h2>Style checker-ები</h2>
+  <p class="kicker"><span lang="ka">ინსტრუმენტები</span><span lang="en">Tooling</span></p>
+  <h2><span lang="ka">Style checker-ები</span><span lang="en">Style checkers</span></h2>
   <table class="small">
-    <tr><th style="width:16%">ინსტრუმენტი</th><th style="width:20%">ტიპი</th><th>რას აკეთებს</th></tr>
-    <tr><td><b>Ruff</b></td><td>linter + formatter</td><td>ძალიან სწრაფი (Rust-ზეა დაწერილი). ცვლის flake8+isort+black-ს ერთად. <b>რეკომენდებული</b></td></tr>
-    <tr><td><b>Black</b></td><td>formatter</td><td>„უკომპრომისო“ — თავად წყვეტს ფორმატს. კამათი მთავრდება</td></tr>
-    <tr><td><b>flake8</b></td><td>linter</td><td>კლასიკური. PEP 8 + ლოგიკური შეცდომების ძებნა</td></tr>
-    <tr><td><b>pylint</b></td><td>linter</td><td>ყველაზე მკაცრი. ქულას აყენებს კოდს (0–10)</td></tr>
-    <tr><td><b>mypy</b></td><td>type checker</td><td>ამოწმებს ტიპების მინიშნებებს</td></tr>
+    <tr>
+      <th style="width:16%"><span lang="ka">ინსტრუმენტი</span><span lang="en">Tool</span></th>
+      <th style="width:20%"><span lang="ka">ტიპი</span><span lang="en">Type</span></th>
+      <th><span lang="ka">რას აკეთებს</span><span lang="en">What it does</span></th>
+    </tr>
+    <tr><td><b>Ruff</b></td><td>linter + formatter</td>
+      <td><span lang="ka">ძალიან სწრაფი (Rust-ზეა დაწერილი). ცვლის flake8+isort+black-ს ერთად. <b>რეკომენდებული</b></span>
+          <span lang="en">Very fast (written in Rust). Replaces flake8+isort+black at once. <b>Recommended</b></span></td></tr>
+    <tr><td><b>Black</b></td><td>formatter</td>
+      <td><span lang="ka">„უკომპრომისო“ — თავად წყვეტს ფორმატს. კამათი მთავრდება</span>
+          <span lang="en">"Uncompromising" — it decides the format for you. The arguing stops</span></td></tr>
+    <tr><td><b>flake8</b></td><td>linter</td>
+      <td><span lang="ka">კლასიკური. PEP 8 + ლოგიკური შეცდომების ძებნა</span>
+          <span lang="en">The classic one. PEP 8 plus a hunt for logical errors</span></td></tr>
+    <tr><td><b>pylint</b></td><td>linter</td>
+      <td><span lang="ka">ყველაზე მკაცრი. ქულას აყენებს კოდს (0–10)</span>
+          <span lang="en">The strictest. It scores your code (0–10)</span></td></tr>
+    <tr><td><b>mypy</b></td><td>type checker</td>
+      <td><span lang="ka">ამოწმებს ტიპების მინიშნებებს</span>
+          <span lang="en">Checks your type hints</span></td></tr>
   </table>
   <div class="two" style="margin-top:14px">
-    <div class="card"><h3>Linter</h3><p class="small"><b>ამბობს</b>, რა არასწორია. არ ცვლის კოდს.</p></div>
-    <div class="card"><h3>Formatter</h3><p class="small"><b>თავად ასწორებს</b> ფორმატს — წანაცვლებას, ჰარეებს, ხაზის გადატანას.</p></div>
+    <div class="card"><h3>Linter</h3>
+      <p class="small" lang="ka"><b>ამბობს</b>, რა არასწორია. არ ცვლის კოდს.</p>
+      <p class="small" lang="en"><b>Tells you</b> what is wrong. It does not change the code.</p></div>
+    <div class="card"><h3>Formatter</h3>
+      <p class="small" lang="ka"><b>თავად ასწორებს</b> ფორმატს — წანაცვლებას, ჰარეებს, ხაზის გადატანას.</p>
+      <p class="small" lang="en"><b>Fixes the format itself</b> — indentation, whitespace, line wrapping.</p></div>
   </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">პრაქტიკა</p>
-  <h2>Ruff — ერთ წუთში</h2>
+  <p class="kicker"><span lang="ka">პრაქტიკა</span><span lang="en">Practice</span></p>
+  <h2><span lang="ka">Ruff — ერთ წუთში</span><span lang="en">Ruff — in one minute</span></h2>
 <pre class="code" data-title="terminal"><code class="nohl">pip install ruff
 
-ruff check .              # პრობლემების პოვნა
-ruff check . --fix        # ავტომატური გასწორება
-ruff format .             # ფორმატირება
+ruff check .              # find problems
+ruff check . --fix        # fix them automatically
+ruff format .             # format the code
 
-# ტიპური გამოტანა:
+# typical output:
 main.py:3:1: F401 [*] `os` imported but unused
 main.py:7:80: E501 Line too long (94 &gt; 79)
 main.py:12:5: E722 Do not use bare `except`
 Found 3 errors (2 fixable with `--fix`).</code></pre>
-<pre class="code" data-title="pyproject.toml — კონფიგურაცია" style="margin-top:10px"><code class="nohl">[tool.ruff]
+<pre class="code" data-title="pyproject.toml — configuration" style="margin-top:10px"><code class="nohl">[tool.ruff]
 line-length = 88
 target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]   # pycodestyle, pyflakes, isort
 ignore = ["E501"]</code></pre>
-  <div class="callout tip"><b>VS Code-ში</b>დანამატი <code class="inl">charliermarsh.ruff</code> + <code class="inl">"editor.formatOnSave": true</code> — და კოდი ყოველი შენახვისას თავად სწორდება. ხელით არაფრის კეთება არ გჭირდება.</div>
+  <div class="callout tip">
+    <span lang="ka"><b>VS Code-ში</b>დანამატი <code class="inl">charliermarsh.ruff</code> + <code class="inl">"editor.formatOnSave": true</code> — და კოდი ყოველი შენახვისას თავად სწორდება. ხელით არაფრის კეთება არ გჭირდება.</span>
+    <span lang="en"><b>In VS Code</b>The <code class="inl">charliermarsh.ruff</code> extension + <code class="inl">"editor.formatOnSave": true</code> — and the code fixes itself on every save. Nothing to do by hand.</span>
+  </div>
 </section>
 
 <section class="slide">
   <p class="kicker">PyPI</p>
-  <h2>რა არის PyPI</h2>
-  <p class="big"><b>PyPI</b> (Python Package Index) — <code class="inl">pypi.org</code> — ღია რეპოზიტორი, სადაც ~600 000 პაკეტია განთავსებული.</p>
+  <h2><span lang="ka">რა არის PyPI</span><span lang="en">What is PyPI</span></h2>
+  <p class="big">
+    <span lang="ka"><b>PyPI</b> (Python Package Index) — <code class="inl">pypi.org</code> — ღია რეპოზიტორი, სადაც ~600 000 პაკეტია განთავსებული.</span>
+    <span lang="en"><b>PyPI</b> (the Python Package Index) — <code class="inl">pypi.org</code> — an open repository hosting roughly 600,000 packages.</span>
+  </p>
   <div class="grid" style="margin-top:18px">
-    <div class="card"><h3>requests</h3><p class="small">HTTP მოთხოვნები</p></div>
-    <div class="card"><h3>pandas</h3><p class="small">ცხრილური მონაცემების ანალიზი</p></div>
-    <div class="card"><h3>numpy</h3><p class="small">რიცხვითი გამოთვლები</p></div>
-    <div class="card"><h3>matplotlib</h3><p class="small">გრაფიკები</p></div>
-    <div class="card"><h3>flask / django</h3><p class="small">ვებ-აპლიკაციები</p></div>
-    <div class="card"><h3>pillow</h3><p class="small">სურათების დამუშავება</p></div>
+    <div class="card"><h3>requests</h3>
+      <p class="small" lang="ka">HTTP მოთხოვნები</p><p class="small" lang="en">HTTP requests</p></div>
+    <div class="card"><h3>pandas</h3>
+      <p class="small" lang="ka">ცხრილური მონაცემების ანალიზი</p><p class="small" lang="en">Tabular data analysis</p></div>
+    <div class="card"><h3>numpy</h3>
+      <p class="small" lang="ka">რიცხვითი გამოთვლები</p><p class="small" lang="en">Numerical computing</p></div>
+    <div class="card"><h3>matplotlib</h3>
+      <p class="small" lang="ka">გრაფიკები</p><p class="small" lang="en">Plots and charts</p></div>
+    <div class="card"><h3>flask / django</h3>
+      <p class="small" lang="ka">ვებ-აპლიკაციები</p><p class="small" lang="en">Web applications</p></div>
+    <div class="card"><h3>pillow</h3>
+      <p class="small" lang="ka">სურათების დამუშავება</p><p class="small" lang="en">Image processing</p></div>
   </div>
-  <div class="callout"><b>სტანდარტული ბიბლიოთეკა ≠ PyPI</b><code class="inl">math</code>, <code class="inl">random</code>, <code class="inl">os</code>, <code class="inl">json</code> — Python-თან ერთად მოდის, დაყენება არ სჭირდება („batteries included“). PyPI-ის პაკეტები კი ცალკე ისხმება.</div>
+  <div class="callout">
+    <span lang="ka"><b>სტანდარტული ბიბლიოთეკა ≠ PyPI</b><code class="inl">math</code>, <code class="inl">random</code>, <code class="inl">os</code>, <code class="inl">json</code> — Python-თან ერთად მოდის, დაყენება არ სჭირდება („batteries included“). PyPI-ის პაკეტები კი ცალკე ისხმება.</span>
+    <span lang="en"><b>The standard library ≠ PyPI</b><code class="inl">math</code>, <code class="inl">random</code>, <code class="inl">os</code>, <code class="inl">json</code> ship with Python and need no installation ("batteries included"). PyPI packages are installed separately.</span>
+  </div>
 </section>
 
 <section class="slide">
   <p class="kicker">pip</p>
-  <h2>პაკეტების მართვა</h2>
-<pre class="code" data-title="terminal"><code class="nohl">pip install requests              # დაყენება
-pip install requests==2.31.0      # კონკრეტული ვერსია
-pip install "requests&gt;=2.28"      # მინიმალური ვერსია
-pip install --upgrade requests    # განახლება
-pip uninstall requests            # წაშლა
+  <h2><span lang="ka">პაკეტების მართვა</span><span lang="en">Managing packages</span></h2>
+<pre class="code" data-title="terminal"><code class="nohl">pip install requests              # install
+pip install requests==2.31.0      # a specific version
+pip install "requests&gt;=2.28"      # a minimum version
+pip install --upgrade requests    # upgrade
+pip uninstall requests            # remove
 
-pip list                          # რა მაქვს დაყენებული
-pip show requests                 # დეტალები ერთ პაკეტზე
-pip freeze                        # ზუსტი ვერსიები
+pip list                          # what is installed
+pip show requests                 # details of one package
+pip freeze                        # exact versions
 
-# ვირტუალურ გარემოში (იხ. ლექცია 00)
+# inside a virtual environment (see lecture 00)
 python -m venv .venv
 .venv\Scripts\activate            # Windows
 source .venv/bin/activate         # Linux / macOS</code></pre>
-  <div class="callout warn"><b>ყოველთვის ვირტუალურ გარემოში</b>გლობალურად დაყენებული პაკეტები ერთმანეთს ეჯახება. <code class="inl">venv</code> თითოეულ პროექტს საკუთარ „სამზარეულოს“ აძლევს.</div>
+  <div class="callout warn">
+    <span lang="ka"><b>ყოველთვის ვირტუალურ გარემოში</b>გლობალურად დაყენებული პაკეტები ერთმანეთს ეჯახება. <code class="inl">venv</code> თითოეულ პროექტს საკუთარ „სამზარეულოს“ აძლევს.</span>
+    <span lang="en"><b>Always inside a virtual environment</b>Globally installed packages collide with each other. <code class="inl">venv</code> gives every project its own kitchen.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">გამეორებადობა</p>
+  <p class="kicker"><span lang="ka">გამეორებადობა</span><span lang="en">Reproducibility</span></p>
   <h2><code class="inl">requirements.txt</code></h2>
-<pre class="code" data-title="terminal"><code class="nohl"># მიმდინარე გარემოს ჩაწერა ფაილში
+<pre class="code" data-title="terminal"><code class="nohl"># write the current environment into a file
 pip freeze &gt; requirements.txt
 
-# იმავე გარემოს აღდგენა სხვა კომპიუტერზე
+# restore the same environment on another machine
 pip install -r requirements.txt</code></pre>
 <pre class="code" data-title="requirements.txt" style="margin-top:10px"><code class="nohl">requests==2.31.0
 pandas==2.1.4
 matplotlib==3.8.2</code></pre>
-  <div class="callout tip"><b>რატომ ღირს</b>„ჩემთან მუშაობს“ — პროგრამირების ყველაზე ცნობილი საბაბი. <code class="inl">requirements.txt</code> ზუსტად აღწერს, რა ვერსიები სჭირდება პროექტს, და პრობლემას აქრობს.</div>
-  <p class="small muted" style="margin-top:12px">თანამედროვე ალტერნატივები: <code class="inl">pyproject.toml</code> + <code class="inl">poetry</code> ან <code class="inl">uv</code> — იგივე იდეა, უფრო მოხერხებული ინსტრუმენტებით.</p>
+  <div class="callout tip">
+    <span lang="ka"><b>რატომ ღირს</b>„ჩემთან მუშაობს“ — პროგრამირების ყველაზე ცნობილი საბაბი. <code class="inl">requirements.txt</code> ზუსტად აღწერს, რა ვერსიები სჭირდება პროექტს, და პრობლემას აქრობს.</span>
+    <span lang="en"><b>Why it is worth it</b>"It works on my machine" is programming's most famous excuse. <code class="inl">requirements.txt</code> states exactly which versions the project needs, and the excuse disappears.</span>
+  </div>
+  <p class="small muted" style="margin-top:12px">
+    <span lang="ka">თანამედროვე ალტერნატივები: <code class="inl">pyproject.toml</code> + <code class="inl">poetry</code> ან <code class="inl">uv</code> — იგივე იდეა, უფრო მოხერხებული ინსტრუმენტებით.</span>
+    <span lang="en">Modern alternatives: <code class="inl">pyproject.toml</code> with <code class="inl">poetry</code> or <code class="inl">uv</code> — the same idea, with more convenient tooling.</span>
+  </p>
 </section>
 
 <section class="slide">
-  <p class="kicker g">ცოცხალი მაგალითი</p>
-  <h2>ჩვენი კურსის პაკეტი PyPI-ზე</h2>
-  <p>ეს არაა თეორია — კურსს <b>საკუთარი პაკეტი</b> აქვს გამოქვეყნებული. სცადე ახლავე:</p>
+  <p class="kicker g"><span lang="ka">ცოცხალი მაგალითი</span><span lang="en">A live example</span></p>
+  <h2><span lang="ka">ჩვენი კურსის პაკეტი PyPI-ზე</span><span lang="en">This course's own package on PyPI</span></h2>
+  <p>
+    <span lang="ka">ეს არაა თეორია — კურსს <b>საკუთარი პაკეტი</b> აქვს გამოქვეყნებული. სცადე ახლავე:</span>
+    <span lang="en">This is not theory — the course has <b>its own package</b> published. Try it right now:</span>
+  </p>
 <pre class="code" data-title="terminal"><code class="nohl">pip install kapo-mathtools</code></pre>
 <pre class="code" data-title="Python" style="margin-top:10px"><code>from kapo_mathtools import statistics, geometry, text_tools, converters
 
@@ -285,37 +374,46 @@ print(geometry.circle_area(5))                # 78.53981633974483
 print(text_tools.is_palindrome("radar"))      # True
 print(converters.celsius_to_fahrenheit(25))   # 77.0
 
-help(statistics.mean)      # ქართული docstring</code></pre>
+help(statistics.mean)      # bilingual docstring</code></pre>
   <div class="two" style="margin-top:14px">
     <div class="card small">
-      <h3>რა არის შიგნით</h3>
-      <p>23 ფუნქცია 4 მოდულში, გარე დამოკიდებულების გარეშე. სულ ~8 კბ.</p>
+      <h3><span lang="ka">რა არის შიგნით</span><span lang="en">What is inside</span></h3>
+      <p lang="ka">23 ფუნქცია 4 მოდულში, გარე დამოკიდებულების გარეშე. სულ ~8 კბ.</p>
+      <p lang="en">23 functions in 4 modules, with no external dependencies. About 8 kB in total.</p>
       <ul>
-        <li><code>statistics</code> — mean, median, variance, std_dev</li>
-        <li><code>geometry</code> — წრე, მართკუთხედი, სამკუთხედი</li>
-        <li><code>text_tools</code> — სიტყვები, პალინდრომი, ხმოვნები</li>
-        <li><code>converters</code> — ტემპერატურა, მანძილი, წონა</li>
+        <li><code>statistics</code><span lang="ka"> — mean, median, variance, std_dev</span><span lang="en"> — mean, median, variance, std_dev</span></li>
+        <li><code>geometry</code><span lang="ka"> — წრე, მართკუთხედი, სამკუთხედი</span><span lang="en"> — circle, rectangle, triangle</span></li>
+        <li><code>text_tools</code><span lang="ka"> — სიტყვები, პალინდრომი, ხმოვნები</span><span lang="en"> — words, palindromes, vowels</span></li>
+        <li><code>converters</code><span lang="ka"> — ტემპერატურა, მანძილი, წონა</span><span lang="en"> — temperature, distance, weight</span></li>
       </ul>
     </div>
     <div class="card small">
-      <h3>სად ცხოვრობს კოდი</h3>
-      <p><code>github.com/kapo-Toolkits/python-course</code> → საქაღალდე <code>library/</code></p>
+      <h3><span lang="ka">სად ცხოვრობს კოდი</span><span lang="en">Where the code lives</span></h3>
+      <p><code>github.com/kapo-Toolkits/python-course</code><span lang="ka"> → საქაღალდე <code>library/</code></span><span lang="en"> → the <code>library/</code> folder</span></p>
       <ul>
-        <li><code>pyproject.toml</code> — პაკეტის აღწერა</li>
-        <li><code>tests/</code> — 26 ტესტი</li>
-        <li>GitHub Actions — ტესტი 3.9/3.11/3.13-ზე, შემდეგ ატვირთვა</li>
+        <li><code>pyproject.toml</code><span lang="ka"> — პაკეტის აღწერა</span><span lang="en"> — the package description</span></li>
+        <li><code>tests/</code><span lang="ka"> — 26 ტესტი</span><span lang="en"> — 26 tests</span></li>
+        <li><span lang="ka">GitHub Actions — ტესტი 3.9/3.11/3.13-ზე, შემდეგ ატვირთვა</span><span lang="en">GitHub Actions — tested on 3.9/3.11/3.13, then published</span></li>
       </ul>
     </div>
   </div>
-  <div class="callout tip"><b>გახსენი <code class="inl">pypi.org/project/kapo-mathtools</code></b>ყველაფერი, რაზეც ახლა ვსაუბრობდით, იქ თვალითაც ჩანს: აღწერა, ვერსია, ლიცენზია, ბმულები, ფაილები.</div>
+  <div class="callout tip">
+    <span lang="ka"><b>გახსენი <code class="inl">pypi.org/project/kapo-mathtools</code></b>ყველაფერი, რაზეც ახლა ვსაუბრობდით, იქ თვალითაც ჩანს: აღწერა, ვერსია, ლიცენზია, ბმულები, ფაილები.</span>
+    <span lang="en"><b>Open <code class="inl">pypi.org/project/kapo-mathtools</code></b>Everything we just discussed is visible there: the description, the version, the license, the links, the files.</span>
+  </div>
   <div class="note">ეს სლაიდი ლექციას აზრს აძლევს — სტუდენტი ხედავს, რომ პაკეტის გამოქვეყნება მისაწვდომია, არა „დიდი კომპანიების საქმე“. სთხოვე აუდიტორიაში დააყენონ და გაუშვან.</div>
 </section>
 
 <section class="slide">
-  <p class="kicker">კონტექსტი</p>
-  <h2>პარალელი სხვა ენებთან</h2>
+  <p class="kicker"><span lang="ka">კონტექსტი</span><span lang="en">Context</span></p>
+  <h2><span lang="ka">პარალელი სხვა ენებთან</span><span lang="en">A parallel with other languages</span></h2>
   <table>
-    <tr><th style="width:16%">ენა</th><th style="width:18%">მენეჯერი</th><th style="width:26%">რეპოზიტორი</th><th>მანიფესტი</th></tr>
+    <tr>
+      <th style="width:16%"><span lang="ka">ენა</span><span lang="en">Language</span></th>
+      <th style="width:18%"><span lang="ka">მენეჯერი</span><span lang="en">Manager</span></th>
+      <th style="width:26%"><span lang="ka">რეპოზიტორი</span><span lang="en">Repository</span></th>
+      <th><span lang="ka">მანიფესტი</span><span lang="en">Manifest</span></th>
+    </tr>
     <tr><td><b>Python</b></td><td><code>pip</code></td><td>PyPI</td><td><code>requirements.txt</code></td></tr>
     <tr><td>JavaScript</td><td><code>npm</code> / <code>yarn</code></td><td>npmjs.com</td><td><code>package.json</code></td></tr>
     <tr><td>Java</td><td><code>maven</code> / <code>gradle</code></td><td>Maven Central</td><td><code>pom.xml</code></td></tr>
@@ -323,35 +421,51 @@ help(statistics.mean)      # ქართული docstring</code></pre>
     <tr><td>Rust</td><td><code>cargo</code></td><td>crates.io</td><td><code>Cargo.toml</code></td></tr>
     <tr><td>PHP</td><td><code>composer</code></td><td>Packagist</td><td><code>composer.json</code></td></tr>
   </table>
-  <div class="callout"><b>იდეა ყველგან ერთია</b>ცენტრალური რეპოზიტორი + ბრძანების ხაზის ინსტრუმენტი + ფაილი, სადაც დამოკიდებულებები წერია. თუ ერთი გაიგე — დანარჩენებიც ნაცნობი გახდება.</div>
+  <div class="callout">
+    <span lang="ka"><b>იდეა ყველგან ერთია</b>ცენტრალური რეპოზიტორი + ბრძანების ხაზის ინსტრუმენტი + ფაილი, სადაც დამოკიდებულებები წერია. თუ ერთი გაიგე — დანარჩენებიც ნაცნობი გახდება.</span>
+    <span lang="en"><b>The idea is the same everywhere</b>A central repository + a command-line tool + a file listing the dependencies. Understand one and the rest will look familiar.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">უსაფრთხოება</p>
-  <h2>რაზე უნდა იფიქრო პაკეტის დაყენებამდე</h2>
+  <p class="kicker"><span lang="ka">უსაფრთხოება</span><span lang="en">Security</span></p>
+  <h2><span lang="ka">რაზე უნდა იფიქრო პაკეტის დაყენებამდე</span><span lang="en">What to think about before installing a package</span></h2>
   <ul class="pts">
-    <li><b>სახელი ზუსტად შეამოწმე</b><small><code class="inl">requests</code> vs <code class="inl">request</code> vs <code class="inl">requestss</code> — თავდამსხმელები განზრახ არეგისტრირებენ მსგავს სახელებს (typosquatting)</small></li>
-    <li><b>შეხედე პოპულარობას</b><small>ჩამოტვირთვების რაოდენობა, GitHub-ის ვარსკვლავები, ბოლო განახლების თარიღი</small></li>
-    <li><b>PyPI მოდერაციას არ ახორციელებს</b><small>ნებისმიერს შეუძლია პაკეტის ატვირთვა. დაყენებისას კოდი <b>შენს კომპიუტერზე</b> სრულდება</small></li>
-    <li><b>ვირტუალური გარემო</b><small>ზღუდავს ზიანს — გლობალურ Python-ს არ ეხება</small></li>
+    <li><span lang="ka"><b>სახელი ზუსტად შეამოწმე</b><small><code class="inl">requests</code> vs <code class="inl">request</code> vs <code class="inl">requestss</code> — თავდამსხმელები განზრახ არეგისტრირებენ მსგავს სახელებს (typosquatting)</small></span>
+        <span lang="en"><b>Check the name exactly</b><small><code class="inl">requests</code> vs <code class="inl">request</code> vs <code class="inl">requestss</code> — attackers deliberately register lookalike names (typosquatting)</small></span></li>
+    <li><span lang="ka"><b>შეხედე პოპულარობას</b><small>ჩამოტვირთვების რაოდენობა, GitHub-ის ვარსკვლავები, ბოლო განახლების თარიღი</small></span>
+        <span lang="en"><b>Look at how popular it is</b><small>Download counts, GitHub stars, the date of the last update</small></span></li>
+    <li><span lang="ka"><b>PyPI მოდერაციას არ ახორციელებს</b><small>ნებისმიერს შეუძლია პაკეტის ატვირთვა. დაყენებისას კოდი <b>შენს კომპიუტერზე</b> სრულდება</small></span>
+        <span lang="en"><b>PyPI does not moderate uploads</b><small>Anyone can publish a package. On installation, its code runs <b>on your machine</b></small></span></li>
+    <li><span lang="ka"><b>ვირტუალური გარემო</b><small>ზღუდავს ზიანს — გლობალურ Python-ს არ ეხება</small></span>
+        <span lang="en"><b>A virtual environment</b><small>Limits the damage — it does not touch the global Python</small></span></li>
   </ul>
-  <div class="callout err"><b>რეალური შემთხვევები</b>2022–2024 წლებში PyPI-დან ასობით მავნე პაკეტი წაიშალა — ისინი პაროლებსა და კრიპტოსაფულეებს იპარავდნენ. სახელის ერთი ასოთი შეცდომა საკმარისია.</div>
+  <div class="callout err">
+    <span lang="ka"><b>რეალური შემთხვევები</b>2022–2024 წლებში PyPI-დან ასობით მავნე პაკეტი წაიშალა — ისინი პაროლებსა და კრიპტოსაფულეებს იპარავდნენ. სახელის ერთი ასოთი შეცდომა საკმარისია.</span>
+    <span lang="en"><b>Real cases</b>Between 2022 and 2024, hundreds of malicious packages were removed from PyPI — they stole passwords and crypto wallets. A one-letter typo in the name is enough.</span>
+  </div>
 </section>
 
 <section class="slide">
-  <p class="kicker">შემაჯამებელი</p>
-  <h2>რა უნდა დაგამახსოვრდეს</h2>
+  <p class="kicker"><span lang="ka">შემაჯამებელი</span><span lang="en">Summary</span></p>
+  <h2><span lang="ka">რა უნდა დაგამახსოვრდეს</span><span lang="en">What to take away</span></h2>
   <ul class="pts">
-    <li>PEP — ენის განვითარების წინადადება; <b>PEP 8</b> სტილის სტანდარტია</li>
-    <li>4 ჰარე · ≤79 სიმბოლო · <code class="inl">snake_case</code> · <code class="inl">UPPER_CASE</code> · <code class="inl">PascalCase</code></li>
-    <li>იმპორტები თავში, სამ ჯგუფად; <code class="inl">import *</code> — არასდროს</li>
-    <li><b>Ruff</b> ერთ ინსტრუმენტში აერთიანებს linter-სა და formatter-ს</li>
-    <li><b>PyPI</b> + <code class="inl">pip install</code>; გამეორებადობა — <code class="inl">requirements.txt</code></li>
-    <li>იგივე იდეა npm, maven, cargo, composer-შიც</li>
-    <li>უცნობი პაკეტი — ჯერ შეამოწმე, მერე დააყენე</li>
+    <li><span lang="ka">PEP — ენის განვითარების წინადადება; <b>PEP 8</b> სტილის სტანდარტია</span><span lang="en">A PEP is a proposal for developing the language; <b>PEP 8</b> is the style standard</span></li>
+    <li><span lang="ka">4 ჰარე · ≤79 სიმბოლო · <code class="inl">snake_case</code> · <code class="inl">UPPER_CASE</code> · <code class="inl">PascalCase</code></span><span lang="en">4 spaces · ≤79 characters · <code class="inl">snake_case</code> · <code class="inl">UPPER_CASE</code> · <code class="inl">PascalCase</code></span></li>
+    <li><span lang="ka">იმპორტები თავში, სამ ჯგუფად; <code class="inl">import *</code> — არასდროს</span><span lang="en">Imports at the top in three groups; <code class="inl">import *</code> — never</span></li>
+    <li><span lang="ka"><b>Ruff</b> ერთ ინსტრუმენტში აერთიანებს linter-სა და formatter-ს</span><span lang="en"><b>Ruff</b> combines a linter and a formatter in one tool</span></li>
+    <li><span lang="ka"><b>PyPI</b> + <code class="inl">pip install</code>; გამეორებადობა — <code class="inl">requirements.txt</code></span><span lang="en"><b>PyPI</b> + <code class="inl">pip install</code>; reproducibility — <code class="inl">requirements.txt</code></span></li>
+    <li><span lang="ka">იგივე იდეა npm, maven, cargo, composer-შიც</span><span lang="en">The same idea appears in npm, maven, cargo and composer</span></li>
+    <li><span lang="ka">უცნობი პაკეტი — ჯერ შეამოწმე, მერე დააყენე</span><span lang="en">An unfamiliar package — check it first, install it second</span></li>
   </ul>
-  <div class="callout"><b>სახლში</b>1) გაუშვი <code class="inl">ruff check</code> ყველა შენს დავალებაზე და გაასწორე. 2) შექმენი <code class="inl">venv</code>, დააყენე <code class="inl">requests</code>, დაწერე <code class="inl">requirements.txt</code>. 3) იპოვე PyPI-ზე პაკეტი, რომელიც შენს ინტერესს ეხება, და მოამზადე 2-წუთიანი პრეზენტაცია.</div>
-  <div class="callout tip"><b>შემდეგი — ლექცია 15</b>მოდულები და პაკეტები, <code class="inl">import</code>/<code class="inl">from</code>, ვერსიების კონტროლი (git) + <b>პრაქტიკული დავალება #5</b>.</div>
+  <div class="callout">
+    <span lang="ka"><b>სახლში</b>1) გაუშვი <code class="inl">ruff check</code> ყველა შენს დავალებაზე და გაასწორე. 2) შექმენი <code class="inl">venv</code>, დააყენე <code class="inl">requests</code>, დაწერე <code class="inl">requirements.txt</code>. 3) იპოვე PyPI-ზე პაკეტი, რომელიც შენს ინტერესს ეხება, და მოამზადე 2-წუთიანი პრეზენტაცია.</span>
+    <span lang="en"><b>At home</b>1) Run <code class="inl">ruff check</code> over all your assignments and fix what it reports. 2) Create a <code class="inl">venv</code>, install <code class="inl">requests</code>, write a <code class="inl">requirements.txt</code>. 3) Find a PyPI package related to your interests and prepare a 2-minute presentation about it.</span>
+  </div>
+  <div class="callout tip">
+    <span lang="ka"><b>შემდეგი — ლექცია 15</b>მოდულები და პაკეტები, <code class="inl">import</code>/<code class="inl">from</code>, ვერსიების კონტროლი (git) + <b>პრაქტიკული დავალება #5</b>.</span>
+    <span lang="en"><b>Next — lecture 15</b>Modules and packages, <code class="inl">import</code>/<code class="inl">from</code>, version control with git + <b>practical assignment #5</b>.</span>
+  </div>
 </section>
 
 </main>

@@ -43,160 +43,230 @@
   .keys{display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:8px; margin-top:12px}
   .keys div{font-size:13.5px; color:var(--muted)}
 
-  #themebtn{position:fixed; top:16px; right:18px; z-index:10;
+  #topbtns{position:fixed; top:16px; right:18px; z-index:10; display:flex; gap:8px}
+  #topbtns button{
     background:var(--panel); border:1px solid var(--line); color:var(--muted);
     border-radius:8px; font-family:var(--font); font-size:13px; padding:5px 12px; cursor:pointer}
-  #themebtn:hover{color:var(--accent); border-color:var(--accent)}
-  @media print{ #themebtn{display:none} body{overflow:visible} }
+  #topbtns button:hover{color:var(--accent); border-color:var(--accent)}
+  @media print{ #topbtns{display:none} body{overflow:visible} }
 </style>
 </head>
 <body>
-<button id="themebtn" type="button">◐ თემა</button>
+<div id="topbtns">
+  <button id="langbtn" type="button">EN</button>
+  <button id="themebtn" type="button">◐ <span lang="ka">თემა</span><span lang="en">theme</span></button>
+</div>
 
 <div class="wrap">
 
 <header>
-  <p class="kicker">ღია სასწავლო მასალა · თავისუფალი ლიცენზია</p>
-  <h1>პროგრამირების საწყისები (Python)</h1>
-  <p class="sub">სალექციო პრეზენტაციები — 15-კვირიანი შესავალი კურსი</p>
+  <p class="kicker">
+    <span lang="ka">ღია სასწავლო მასალა · თავისუფალი ლიცენზია</span>
+    <span lang="en">Open educational material · free license</span>
+  </p>
+  <h1><span lang="ka">პროგრამირების საწყისები (Python)</span><span lang="en">Introduction to Programming (Python)</span></h1>
+  <p class="sub">
+    <span lang="ka">სალექციო პრეზენტაციები — 15-კვირიანი შესავალი კურსი</span>
+    <span lang="en">Lecture slide decks — a 15-week introductory course</span>
+  </p>
   <div class="meta">
-    <span class="tag">15 კვირა</span>
-    <span class="tag">16 პრეზენტაცია</span>
-    <span class="tag">228 სლაიდი</span>
-    <span class="tag">7 გამეორების ბლოკი</span>
-    <span class="tag">5 პრაქტიკული დავალება</span>
+    <span class="tag"><span lang="ka">15 კვირა</span><span lang="en">15 weeks</span></span>
+    <span class="tag"><span lang="ka">16 პრეზენტაცია</span><span lang="en">16 decks</span></span>
+    <span class="tag"><span lang="ka">230 სლაიდი</span><span lang="en">230 slides</span></span>
+    <span class="tag"><span lang="ka">7 გამეორების ბლოკი</span><span lang="en">7 review blocks</span></span>
+    <span class="tag"><span lang="ka">5 პრაქტიკული დავალება</span><span lang="en">5 practical assignments</span></span>
+    <span class="tag"><span lang="ka">ორენოვანი — ქარ / EN</span><span lang="en">Bilingual — KA / EN</span></span>
   </div>
 </header>
 
-<h2 class="sec">მომზადება</h2>
+<h2 class="sec"><span lang="ka">მომზადება</span><span lang="en">Getting ready</span></h2>
 <div class="cards">
   <a class="lec setup" href="lectures/L00-setup.html">
-    <div class="wk">I კვირა · პრაქტიკული</div>
-    <h3>00 · სამუშაო გარემო</h3>
-    <p>Python-ის ინსტალაცია, VS Code, აუცილებელი დანამატები, settings.json, პირველი პროგრამა, debugger</p>
+    <div class="wk"><span lang="ka">I კვირა · პრაქტიკული</span><span lang="en">Week I · hands-on</span></div>
+    <h3><span lang="ka">00 · სამუშაო გარემო</span><span lang="en">00 · The working environment</span></h3>
+    <p lang="ka">Python-ის ინსტალაცია, VS Code, აუცილებელი დანამატები, settings.json, პირველი პროგრამა, debugger</p>
+    <p lang="en">Installing Python, VS Code, the essential extensions, settings.json, your first program, the debugger</p>
     <div class="flags"><span class="flag">setup</span><span class="flag">VS Code</span></div>
   </a>
 </div>
 
-<h2 class="sec">I ნახევარი — საფუძვლები</h2>
+<h2 class="sec"><span lang="ka">I ნახევარი — საფუძვლები</span><span lang="en">First half — fundamentals</span></h2>
 <div class="cards">
   <a class="lec" href="lectures/L01-intro.html">
-    <div class="wk">I კვირა</div>
-    <h3>01 · შესავალი</h3>
-    <p>Python-ის ისტორია და კავშირი სხვა ენებთან, შესრულების გარემო, სინტაქსი, პროგრამის სტრუქტურა, კომენტარები, რეზერვირებული სიტყვები</p>
+    <div class="wk"><span lang="ka">I კვირა</span><span lang="en">Week I</span></div>
+    <h3><span lang="ka">01 · შესავალი</span><span lang="en">01 · Introduction</span></h3>
+    <p lang="ka">Python-ის ისტორია და კავშირი სხვა ენებთან, შესრულების გარემო, სინტაქსი, პროგრამის სტრუქტურა, კომენტარები, რეზერვირებული სიტყვები</p>
+    <p lang="en">Python's history and its relation to other languages, the runtime, syntax, program structure, comments, reserved words</p>
   </a>
   <a class="lec" href="lectures/L02-types.html">
-    <div class="wk">II კვირა</div>
-    <h3>02 · ტიპები და ცვლადები</h3>
-    <p>საბაზისო ტიპები, ცვლადების გამოცხადება, არითმეტიკული ოპერაციები, <code>input()</code> და <code>print()</code>, f-სტრიქონი</p>
+    <div class="wk"><span lang="ka">II კვირა</span><span lang="en">Week II</span></div>
+    <h3><span lang="ka">02 · ტიპები და ცვლადები</span><span lang="en">02 · Types and variables</span></h3>
+    <p lang="ka">საბაზისო ტიპები, ცვლადების გამოცხადება, არითმეტიკული ოპერაციები, <code>input()</code> და <code>print()</code>, f-სტრიქონი</p>
+    <p lang="en">The basic types, declaring variables, arithmetic, <code>input()</code> and <code>print()</code>, f-strings</p>
   </a>
   <a class="lec" href="lectures/L03-conditions.html">
-    <div class="wk">III კვირა</div>
-    <h3>03 · პირობები და ლოგიკა</h3>
-    <p>შედარების და ლოგიკური ოპერატორები, <code>if / elif / else</code>, ჯაჭვური შედარება, ტერნარული ოპერატორი</p>
-    <div class="flags"><span class="flag q">გამეორება 01–02</span><span class="flag t">დავალება #1</span></div>
+    <div class="wk"><span lang="ka">III კვირა</span><span lang="en">Week III</span></div>
+    <h3><span lang="ka">03 · პირობები და ლოგიკა</span><span lang="en">03 · Conditions and logic</span></h3>
+    <p lang="ka">შედარების და ლოგიკური ოპერატორები, <code>if / elif / else</code>, ჯაჭვური შედარება, ტერნარული ოპერატორი</p>
+    <p lang="en">Comparison and logical operators, <code>if / elif / else</code>, chained comparisons, the ternary operator</p>
+    <div class="flags">
+      <span class="flag q"><span lang="ka">გამეორება 01–02</span><span lang="en">review 01–02</span></span>
+      <span class="flag t"><span lang="ka">დავალება #1</span><span lang="en">assignment #1</span></span>
+    </div>
   </a>
   <a class="lec" href="lectures/L04-loops.html">
-    <div class="wk">IV კვირა</div>
-    <h3>04 · ციკლები</h3>
-    <p><code>for</code>, <code>while</code>, <code>range()</code>, <code>break</code>/<code>continue</code>, ციკლის <code>else</code>, ჩადგმული ციკლები, დაგროვების შაბლონი</p>
+    <div class="wk"><span lang="ka">IV კვირა</span><span lang="en">Week IV</span></div>
+    <h3><span lang="ka">04 · ციკლები</span><span lang="en">04 · Loops</span></h3>
+    <p lang="ka"><code>for</code>, <code>while</code>, <code>range()</code>, <code>break</code>/<code>continue</code>, ციკლის <code>else</code>, ჩადგმული ციკლები, დაგროვების შაბლონი</p>
+    <p lang="en"><code>for</code>, <code>while</code>, <code>range()</code>, <code>break</code>/<code>continue</code>, the loop <code>else</code>, nested loops, the accumulator pattern</p>
   </a>
   <a class="lec" href="lectures/L05-builtins.html">
-    <div class="wk">V კვირა</div>
-    <h3>05 · ჩაშენებული ფუნქციები</h3>
-    <p>რიცხვებთან სამუშაო ფუნქციები, მოდული <code>math</code>, შემთხვევითი რიცხვები, იმპორტის ფორმები</p>
-    <div class="flags"><span class="flag q">გამეორება 03–04</span></div>
+    <div class="wk"><span lang="ka">V კვირა</span><span lang="en">Week V</span></div>
+    <h3><span lang="ka">05 · ჩაშენებული ფუნქციები</span><span lang="en">05 · Built-in functions</span></h3>
+    <p lang="ka">რიცხვებთან სამუშაო ფუნქციები, მოდული <code>math</code>, შემთხვევითი რიცხვები, იმპორტის ფორმები</p>
+    <p lang="en">Functions for working with numbers, the <code>math</code> module, random numbers, the forms of <code>import</code></p>
+    <div class="flags"><span class="flag q"><span lang="ka">გამეორება 03–04</span><span lang="en">review 03–04</span></span></div>
   </a>
   <a class="lec" href="lectures/L06-functions.html">
-    <div class="wk">VI კვირა</div>
-    <h3>06 · ფუნქციები</h3>
-    <p><code>def</code>, პარამეტრები, <code>return</code> vs <code>print</code>, ნაგულისხმევი პარამეტრი, <code>*args</code>, scope, <code>lambda</code></p>
-    <div class="flags"><span class="flag t">დავალება #2</span></div>
+    <div class="wk"><span lang="ka">VI კვირა</span><span lang="en">Week VI</span></div>
+    <h3><span lang="ka">06 · ფუნქციები</span><span lang="en">06 · Functions</span></h3>
+    <p lang="ka"><code>def</code>, პარამეტრები, <code>return</code> vs <code>print</code>, ნაგულისხმევი პარამეტრი, <code>*args</code>, scope, <code>lambda</code></p>
+    <p lang="en"><code>def</code>, parameters, <code>return</code> vs <code>print</code>, default parameters, <code>*args</code>, scope, <code>lambda</code></p>
+    <div class="flags"><span class="flag t"><span lang="ka">დავალება #2</span><span lang="en">assignment #2</span></span></div>
   </a>
   <a class="lec" href="lectures/L07-strings.html">
-    <div class="wk">VII კვირა</div>
-    <h3>07 · სტრიქონები</h3>
-    <p>ინდექსაცია და ამონაჭერი, უცვლელობა, მეთოდები, ძებნა და ჩანაცვლება, ფორმატირება</p>
-    <div class="flags"><span class="flag q">გამეორება 05–06</span></div>
+    <div class="wk"><span lang="ka">VII კვირა</span><span lang="en">Week VII</span></div>
+    <h3><span lang="ka">07 · სტრიქონები</span><span lang="en">07 · Strings</span></h3>
+    <p lang="ka">ინდექსაცია და ამონაჭერი, უცვლელობა, მეთოდები, ძებნა და ჩანაცვლება, ფორმატირება</p>
+    <p lang="en">Indexing and slicing, immutability, methods, search and replace, formatting</p>
+    <div class="flags"><span class="flag q"><span lang="ka">გამეორება 05–06</span><span lang="en">review 05–06</span></span></div>
   </a>
   <a class="lec exam" href="lectures/L08-midterm.html">
-    <div class="wk">VIII კვირა</div>
-    <h3>08 · შუალედური — გამეორება</h3>
-    <p>I–VII კვირის სრული მიმოხილვა, 10 ტესტური + 10 ღია სავარჯიშო კითხვა, ტიპური შეცდომები, გამოცდის ტაქტიკა</p>
-    <div class="flags"><span class="flag x">შუალედური გამოცდა</span><span class="flag q">20 კითხვა</span></div>
+    <div class="wk"><span lang="ka">VIII კვირა</span><span lang="en">Week VIII</span></div>
+    <h3><span lang="ka">08 · შუალედური — გამეორება</span><span lang="en">08 · Midterm review</span></h3>
+    <p lang="ka">I–VII კვირის სრული მიმოხილვა, 10 ტესტური + 10 ღია სავარჯიშო კითხვა, ტიპური შეცდომები, გამოცდის ტაქტიკა</p>
+    <p lang="en">A full sweep of weeks I–VII, 10 multiple-choice + 10 open questions, typical mistakes, exam tactics</p>
+    <div class="flags">
+      <span class="flag x"><span lang="ka">შუალედური გამოცდა</span><span lang="en">midterm exam</span></span>
+      <span class="flag q"><span lang="ka">20 კითხვა</span><span lang="en">20 questions</span></span>
+    </div>
   </a>
 </div>
 
-<h2 class="sec">II ნახევარი — მონაცემები და ჩვევები</h2>
+<h2 class="sec"><span lang="ka">II ნახევარი — მონაცემები და ჩვევები</span><span lang="en">Second half — data and habits</span></h2>
 <div class="cards">
   <a class="lec" href="lectures/L09-files.html">
-    <div class="wk">IX კვირა</div>
-    <h3>09 · ფაილებთან მუშაობა</h3>
-    <p><code>open()</code> და რეჟიმები, <code>with ... as</code>, კითხვა და ჩაწერა, <code>encoding="utf-8"</code>, გზები, <code>os</code> და <code>pathlib</code></p>
+    <div class="wk"><span lang="ka">IX კვირა</span><span lang="en">Week IX</span></div>
+    <h3><span lang="ka">09 · ფაილებთან მუშაობა</span><span lang="en">09 · Working with files</span></h3>
+    <p lang="ka"><code>open()</code> და რეჟიმები, <code>with ... as</code>, კითხვა და ჩაწერა, <code>encoding="utf-8"</code>, გზები, <code>os</code> და <code>pathlib</code></p>
+    <p lang="en"><code>open()</code> and its modes, <code>with ... as</code>, reading and writing, <code>encoding="utf-8"</code>, paths, <code>os</code> and <code>pathlib</code></p>
   </a>
   <a class="lec" href="lectures/L10-lists.html">
-    <div class="wk">X კვირა</div>
-    <h3>10 · სიები და Tuple</h3>
-    <p>შექმნა, დამატება/ამოშლა, დახარისხება, კოპირება, list comprehension, მრავალგანზომილებიანი სიები, <code>tuple</code></p>
+    <div class="wk"><span lang="ka">X კვირა</span><span lang="en">Week X</span></div>
+    <h3><span lang="ka">10 · სიები და Tuple</span><span lang="en">10 · Lists and tuples</span></h3>
+    <p lang="ka">შექმნა, დამატება/ამოშლა, დახარისხება, კოპირება, list comprehension, მრავალგანზომილებიანი სიები, <code>tuple</code></p>
+    <p lang="en">Creating, adding and removing, sorting, copying, list comprehensions, multi-dimensional lists, <code>tuple</code></p>
   </a>
   <a class="lec" href="lectures/L11-set-dict.html">
-    <div class="wk">XI კვირა</div>
-    <h3>11 · სიმრავლე და ლექსიკონი</h3>
-    <p><code>set</code>-ის ოპერაციები, <code>dict</code>, <code>get()</code>, <code>items()</code>, სიხშირის დათვლა, ჩადგმული სტრუქტურები</p>
-    <div class="flags"><span class="flag q">გამეორება 09–10</span><span class="flag t">დავალება #3</span></div>
+    <div class="wk"><span lang="ka">XI კვირა</span><span lang="en">Week XI</span></div>
+    <h3><span lang="ka">11 · სიმრავლე და ლექსიკონი</span><span lang="en">11 · Sets and dictionaries</span></h3>
+    <p lang="ka"><code>set</code>-ის ოპერაციები, <code>dict</code>, <code>get()</code>, <code>items()</code>, სიხშირის დათვლა, ჩადგმული სტრუქტურები</p>
+    <p lang="en"><code>set</code> operations, <code>dict</code>, <code>get()</code>, <code>items()</code>, counting frequencies, nested structures</p>
+    <div class="flags">
+      <span class="flag q"><span lang="ka">გამეორება 09–10</span><span lang="en">review 09–10</span></span>
+      <span class="flag t"><span lang="ka">დავალება #3</span><span lang="en">assignment #3</span></span>
+    </div>
   </a>
   <a class="lec" href="lectures/L12-exceptions.html">
-    <div class="wk">XII კვირა</div>
-    <h3>12 · შეცდომები</h3>
-    <p>Traceback-ის კითხვა, <code>try/except/else/finally</code>, <code>raise</code>, <code>with-as</code>, EAFP, ანტი-შაბლონები</p>
+    <div class="wk"><span lang="ka">XII კვირა</span><span lang="en">Week XII</span></div>
+    <h3><span lang="ka">12 · შეცდომები</span><span lang="en">12 · Errors and exceptions</span></h3>
+    <p lang="ka">Traceback-ის კითხვა, <code>try/except/else/finally</code>, <code>raise</code>, <code>with-as</code>, EAFP, ანტი-შაბლონები</p>
+    <p lang="en">Reading a traceback, <code>try/except/else/finally</code>, <code>raise</code>, <code>with-as</code>, EAFP, anti-patterns</p>
   </a>
   <a class="lec" href="lectures/L13-iterators.html">
-    <div class="wk">XIII კვირა</div>
-    <h3>13 · იტერატორები</h3>
-    <p>კონტეინერები, <code>iter()</code>/<code>next()</code>, <code>StopIteration</code>, გენერატორები და <code>yield</code>, lazy evaluation, <code>itertools</code></p>
-    <div class="flags"><span class="flag q">გამეორება 11–12</span><span class="flag t">დავალება #4</span></div>
+    <div class="wk"><span lang="ka">XIII კვირა</span><span lang="en">Week XIII</span></div>
+    <h3><span lang="ka">13 · იტერატორები</span><span lang="en">13 · Iterators</span></h3>
+    <p lang="ka">კონტეინერები, <code>iter()</code>/<code>next()</code>, <code>StopIteration</code>, გენერატორები და <code>yield</code>, lazy evaluation, <code>itertools</code></p>
+    <p lang="en">Containers, <code>iter()</code>/<code>next()</code>, <code>StopIteration</code>, generators and <code>yield</code>, lazy evaluation, <code>itertools</code></p>
+    <div class="flags">
+      <span class="flag q"><span lang="ka">გამეორება 11–12</span><span lang="en">review 11–12</span></span>
+      <span class="flag t"><span lang="ka">დავალება #4</span><span lang="en">assignment #4</span></span>
+    </div>
   </a>
   <a class="lec" href="lectures/L14-pep8-pypi.html">
-    <div class="wk">XIV კვირა</div>
-    <h3>14 · PEP 8 და PyPI</h3>
-    <p>კოდის სტილი, სახელდება, Zen of Python, Ruff და სხვა checker-ები, <code>pip</code>, <code>requirements.txt</code>, უსაფრთხოება</p>
+    <div class="wk"><span lang="ka">XIV კვირა</span><span lang="en">Week XIV</span></div>
+    <h3><span lang="ka">14 · PEP 8 და PyPI</span><span lang="en">14 · PEP 8 and PyPI</span></h3>
+    <p lang="ka">კოდის სტილი, სახელდება, Zen of Python, Ruff და სხვა checker-ები, <code>pip</code>, <code>requirements.txt</code>, უსაფრთხოება</p>
+    <p lang="en">Code style, naming, the Zen of Python, Ruff and other checkers, <code>pip</code>, <code>requirements.txt</code>, security</p>
   </a>
   <a class="lec" href="lectures/L15-modules-git.html">
-    <div class="wk">XV კვირა</div>
-    <h3>15 · მოდულები და git</h3>
-    <p><code>import</code>/<code>from</code>, <code>__name__ == "__main__"</code>, <code>sys.path</code>, პაკეტები, ვერსიების კონტროლი, კურსის შეჯამება</p>
-    <div class="flags"><span class="flag q">გამეორება 13–14</span><span class="flag t">დავალება #5</span></div>
+    <div class="wk"><span lang="ka">XV კვირა</span><span lang="en">Week XV</span></div>
+    <h3><span lang="ka">15 · მოდულები და git</span><span lang="en">15 · Modules and git</span></h3>
+    <p lang="ka"><code>import</code>/<code>from</code>, <code>__name__ == "__main__"</code>, <code>sys.path</code>, პაკეტები, ვერსიების კონტროლი, კურსის შეჯამება</p>
+    <p lang="en"><code>import</code>/<code>from</code>, <code>__name__ == "__main__"</code>, <code>sys.path</code>, packages, version control, the course wrap-up</p>
+    <div class="flags">
+      <span class="flag q"><span lang="ka">გამეორება 13–14</span><span lang="en">review 13–14</span></span>
+      <span class="flag t"><span lang="ka">დავალება #5</span><span lang="en">assignment #5</span></span>
+    </div>
   </a>
 </div>
 
-<h2 class="sec">კლავიატურა პრეზენტაციაში</h2>
+<h2 class="sec"><span lang="ka">კლავიატურა პრეზენტაციაში</span><span lang="en">Keyboard shortcuts in a deck</span></h2>
 <div class="keys">
-  <div><kbd>→</kbd> <kbd>←</kbd> <kbd>Space</kbd> — ნავიგაცია</div>
-  <div><kbd>Home</kbd> <kbd>End</kbd> — თავი / ბოლო</div>
-  <div><kbd>O</kbd> — სლაიდების სია</div>
-  <div><kbd>N</kbd> — ლექტორის ჩანაწერები</div>
-  <div><kbd>D</kbd> — ღია / მუქი თემა</div>
-  <div><kbd>F</kbd> — სრული ეკრანი</div>
-  <div><kbd>P</kbd> — ბეჭდვა / PDF</div>
-  <div>მობილურზე — გადაფურცვლა</div>
+  <div><kbd>→</kbd> <kbd>←</kbd> <kbd>Space</kbd> — <span lang="ka">ნავიგაცია</span><span lang="en">navigation</span></div>
+  <div><kbd>Home</kbd> <kbd>End</kbd> — <span lang="ka">თავი / ბოლო</span><span lang="en">first / last</span></div>
+  <div><kbd>O</kbd> — <span lang="ka">სლაიდების სია</span><span lang="en">slide outline</span></div>
+  <div><kbd>N</kbd> — <span lang="ka">ლექტორის ჩანაწერები</span><span lang="en">lecturer's notes</span></div>
+  <div><kbd>D</kbd> — <span lang="ka">ღია / მუქი თემა</span><span lang="en">light / dark theme</span></div>
+  <div><kbd>L</kbd> — <span lang="ka">ენა: ქართული / English</span><span lang="en">language: Georgian / English</span></div>
+  <div><kbd>F</kbd> — <span lang="ka">სრული ეკრანი</span><span lang="en">fullscreen</span></div>
+  <div><kbd>P</kbd> — <span lang="ka">ბეჭდვა / PDF</span><span lang="en">print / PDF</span></div>
+  <div><span lang="ka">მობილურზე — გადაფურცვლა</span><span lang="en">on mobile — swipe</span></div>
 </div>
 
 </div>
 
 <script>
 (function () {
+  var root = document.documentElement;
+
+  /* თემა */
   var btn = document.getElementById("themebtn");
   try {
     var saved = localStorage.getItem("deck-theme");
-    if (saved) document.documentElement.setAttribute("data-theme", saved);
+    if (saved) root.setAttribute("data-theme", saved);
     else if (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches)
-      document.documentElement.setAttribute("data-theme", "dark");
+      root.setAttribute("data-theme", "dark");
   } catch (e) {}
 
   btn.addEventListener("click", function () {
-    var dark = document.documentElement.getAttribute("data-theme") === "dark";
-    document.documentElement.setAttribute("data-theme", dark ? "light" : "dark");
+    var dark = root.getAttribute("data-theme") === "dark";
+    root.setAttribute("data-theme", dark ? "light" : "dark");
     try { localStorage.setItem("deck-theme", dark ? "light" : "dark"); } catch (e) {}
+  });
+
+  /* ენა — იგივე გასაღები, რასაც deck.js იყენებს */
+  var lbtn = document.getElementById("langbtn");
+
+  function setLang(l) {
+    root.setAttribute("lang", l);
+    lbtn.textContent = l === "en" ? "ქარ" : "EN";
+    try { localStorage.setItem("deck-lang", l); } catch (e) {}
+  }
+
+  var savedLang = "ka";
+  try { savedLang = localStorage.getItem("deck-lang") || "ka"; } catch (e) {}
+  setLang(savedLang === "en" ? "en" : "ka");
+
+  lbtn.addEventListener("click", function () {
+    setLang(root.getAttribute("lang") === "en" ? "ka" : "en");
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.ctrlKey || e.altKey || e.metaKey) return;
+    var k = e.key.toLowerCase();
+    if (k === "l") setLang(root.getAttribute("lang") === "en" ? "ka" : "en");
+    else if (k === "d") btn.click();
   });
 })();
 </script>
