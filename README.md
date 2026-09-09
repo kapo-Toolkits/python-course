@@ -34,7 +34,8 @@ python-course/
 │   ├── L14-pep8-pypi.html        XIV   PEP 8 და PyPI
 │   └── L15-modules-git.html      XV    მოდულები და git    + გამეორება + დავალება #5
 ├── tasks/
-│   └── practical-assignments.md  ← ხუთივე პრაქტიკული დავალება ერთად (დასარიგებლად)
+│   ├── practical-assignments.md  ← ხუთივე პრაქტიკული დავალება ერთად (დასარიგებლად)
+│   └── solutions/                ← სანიმუშო ამოხსნები + ტიპური შეცდომები (ლექტორისთვის)
 └── library/                      ← kapo-mathtools — PyPI პაკეტი (pip install kapo-mathtools)
     ├── kapo_mathtools/           statistics · geometry · text_tools · converters
     ├── tests/

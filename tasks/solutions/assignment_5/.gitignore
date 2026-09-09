@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# რედაქტორი
+.vscode/
+.idea/
+
+# ოპერაციული სისტემა
+.DS_Store
+Thumbs.db
+
+# საიდუმლოებები — არასდროს git-ში
+.env
