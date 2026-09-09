@@ -269,11 +269,59 @@ body.notes .note{display:block}
 #outline li:hover{background:var(--panel); color:var(--accent)}
 #outline li.cur{background:var(--panel); font-weight:700; color:var(--accent)}
 
+/* ---------- ლექტორის ხედი (მეორე ფანჯარა) ----------
+   იმავე ფაილს ვხსნით hash-ით "#5p"; deck.js ამატებს body.pmode-ს.
+   სლაიდი მინიატურაში ნამდვილი ასლია — transform: scale()-ით შემცირებული. */
+body.pmode main.deck{display:none}
+body.pmode #hint{display:none}
+
+#pv{position:fixed; inset:0; z-index:40; background:var(--bg);
+    display:grid; grid-template-rows:auto 1fr}
+
+#pv-top{display:flex; align-items:center; gap:12px;
+        padding:9px 16px; border-bottom:1px solid var(--line)}
+#pv-timer{font-size:31px; font-weight:800; letter-spacing:-1px; line-height:1;
+          font-variant-numeric:tabular-nums; color:var(--accent)}
+#pv-clock{font-size:14px; color:var(--muted); font-variant-numeric:tabular-nums; margin-left:6px}
+#pv-top button{background:none; border:1px solid var(--line); color:var(--muted);
+  border-radius:6px; font-family:var(--font); font-size:12px; padding:3px 9px; cursor:pointer}
+#pv-top button:hover{color:var(--accent); border-color:var(--accent)}
+#pv-title{margin-left:auto; font-size:11px; letter-spacing:2.2px;
+          text-transform:uppercase; color:var(--muted); font-weight:700}
+
+#pv-body{display:grid; grid-template-columns:1.35fr 1fr; gap:16px;
+         padding:12px 16px 54px; min-height:0}
+#pv-left,#pv-right{display:grid; gap:5px; min-height:0}
+#pv-left{grid-template-rows:auto 1fr}
+#pv-right{grid-template-rows:auto 1fr auto minmax(140px,1.3fr)}
+
+.plab{font-size:10.5px; letter-spacing:1.8px; text-transform:uppercase;
+      color:var(--muted); font-weight:700}
+.pstage{position:relative; overflow:hidden; min-height:0;
+        background:var(--panel); border:1px solid var(--line); border-radius:var(--radius)}
+.pframe{position:absolute; top:0; left:0; transform-origin:top left; background:var(--bg)}
+.pstage .slide{animation:none}
+.pend{position:absolute; inset:0; display:grid; place-items:center;
+      color:var(--muted); font-size:15px}
+
+#pv-notes{overflow-y:auto; min-height:0; padding:12px 15px;
+  background:color-mix(in srgb, var(--warn) 11%, transparent);
+  border-left:4px solid var(--warn); border-radius:0 var(--radius) var(--radius) 0}
+#pv-notes .pnote{font-size:17px; line-height:1.55; color:var(--ink)}
+#pv-notes .pnote + .pnote{margin-top:10px; padding-top:10px; border-top:1px dashed var(--line)}
+#pv-notes .pnone{font-size:14px; color:var(--muted); font-style:italic}
+
+/* ვიწრო ფანჯარაზე — ერთ სვეტად */
+@media (max-width:900px){
+  #pv-body{grid-template-columns:1fr; grid-template-rows:1.2fr auto}
+}
+
 /* ---------- ბეჭდვა / PDF ---------- */
 @media print{
   :root{--pad:14mm}
   body{overflow:visible; background:#fff; color:#000; font-size:11pt}
-  #bar,#hud,#hint,#outline,.cp{display:none !important}
+  #bar,#hud,#hint,#outline,#pv,.cp{display:none !important}
+  body.pmode main.deck{display:block !important}   /* ლექტორის ფანჯრიდანაც იბეჭდება */
   .deck{height:auto}
   .slide{
     position:relative; display:flex !important; inset:auto; height:auto; min-height:0;

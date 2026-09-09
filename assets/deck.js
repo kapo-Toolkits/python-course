@@ -7,7 +7,8 @@
      O — სლაიდების სია (outline)      N — ლექტორის ჩანაწერები
      D — ღია/მუქი თემა               F — სრული ეკრანი
      L — ენა (ქართული / English)     P — ბეჭდვა (PDF)
-   URL-ში #7 პირდაპირ მე-7 სლაიდზე გადადის.
+     S — ლექტორის ხედი მეორე ფანჯარაში (მიმდინარე + შემდეგი + ჩანაწერი + ტაიმერი)
+   URL-ში #7 პირდაპირ მე-7 სლაიდზე გადადის; #7p იმავე სლაიდს ლექტორის ხედში ხსნის.
    ============================================================ */
 (function () {
   "use strict";
@@ -84,7 +85,11 @@
   var slides = [].slice.call(document.querySelectorAll(".slide"));
   var cur = 0;
 
-  function show(n, push) {
+  /* ლექტორის ხედი: hash-ის ბოლოს "p" — მაგ. #5p. peer — მეორე ფანჯარა. */
+  var PRES = /p$/i.test(location.hash.slice(1));
+  var peer = null;
+
+  function show(n, push, quiet) {
     cur = Math.max(0, Math.min(slides.length - 1, n));
     for (var i = 0; i < slides.length; i++) slides[i].classList.toggle("active", i === cur);
     slides[cur].scrollTop = 0;
@@ -93,7 +98,9 @@
     document.getElementById("num").textContent = (cur + 1) + " / " + slides.length;
     var lis = document.querySelectorAll("#outline li");
     for (var j = 0; j < lis.length; j++) lis[j].classList.toggle("cur", j === cur);
-    if (push !== false) history.replaceState(null, "", "#" + (cur + 1));
+    if (push !== false) history.replaceState(null, "", "#" + (cur + 1) + (PRES ? "p" : ""));
+    if (PRES) paint();
+    if (!quiet) send();
   }
 
   var go = function (d) { show(cur + d); };
@@ -108,15 +115,18 @@
       '<span id="num"></span>' +
       '<button type="button" data-act="next" title="შემდეგი">→</button>' +
       '<button type="button" data-act="outline" title="სლაიდების სია · Outline (O)">☰</button>' +
+      (PRES ? "" :
+        '<button type="button" data-act="pres" ' +
+        'title="ლექტორის ხედი · Presenter view (S)">🎤</button>') +
       '<button type="button" data-act="lang" title="ენა · Language (L)"><span id="langlbl"></span></button>' +
       '<button type="button" data-act="theme" title="ღია / მუქი · Theme (D)">◐</button>';
 
     var hint = document.createElement("div"); hint.id = "hint";
     hint.innerHTML =
       '<span lang="ka"><b>←/→</b> ნავიგაცია · <b>O</b> სია · <b>N</b> ჩანაწერები · ' +
-      '<b>D</b> თემა · <b>L</b> ენა · <b>F</b> ეკრანი · <b>P</b> PDF</span>' +
+      '<b>S</b> ლექტორის ხედი · <b>D</b> თემა · <b>L</b> ენა · <b>F</b> ეკრანი · <b>P</b> PDF</span>' +
       '<span lang="en"><b>←/→</b> navigate · <b>O</b> outline · <b>N</b> notes · ' +
-      '<b>D</b> theme · <b>L</b> language · <b>F</b> fullscreen · <b>P</b> PDF</span>';
+      '<b>S</b> presenter · <b>D</b> theme · <b>L</b> language · <b>F</b> fullscreen · <b>P</b> PDF</span>';
 
     var ol = document.createElement("div"); ol.id = "outline";
 
@@ -133,6 +143,7 @@
       else if (a === "outline") ol.classList.toggle("on");
       else if (a === "theme") theme();
       else if (a === "lang") lang();
+      else if (a === "pres") openPresenter();
     });
     ol.addEventListener("click", function (e) {
       if (e.target.dataset && e.target.dataset.i !== undefined) {
@@ -145,6 +156,7 @@
     var d = document.documentElement.getAttribute("data-theme") === "dark";
     document.documentElement.setAttribute("data-theme", d ? "light" : "dark");
     try { localStorage.setItem("deck-theme", d ? "light" : "dark"); } catch (e) {}
+    send();
   }
 
   /* ---------- ენა ---------- */
@@ -152,12 +164,14 @@
     return document.documentElement.getAttribute("lang") === "en" ? "en" : "ka";
   }
 
-  function setLang(l) {
+  function setLang(l, quiet) {
     document.documentElement.setAttribute("lang", l);
     var lbl = document.getElementById("langlbl");
     if (lbl) lbl.textContent = l === "en" ? "ქარ" : "EN";
     buildOutline();
+    if (PRES) paint();
     try { localStorage.setItem("deck-lang", l); } catch (e) {}
+    if (!quiet) send();
   }
 
   function lang() { setLang(curLang() === "en" ? "ka" : "en"); }
@@ -211,6 +225,7 @@
         else document.documentElement.requestFullscreen();
       }
       else if (c === "p") { e.preventDefault(); window.print(); }
+      else if (c === "s" && !PRES) openPresenter();
     }
   }
 
@@ -225,7 +240,161 @@
     }, { passive: true });
   }
 
-  /* ---------- 6. გაშვება ---------- */
+  /* ---------- 6. ლექტორის ხედი (მეორე ფანჯარა) ----------
+     ორივე ფანჯარაში ერთი და იგივე ფაილია გახსნილი; განსხვავება მხოლოდ
+     hash-ის ბოლოს "p"-ია. სინქრონიზაცია — postMessage პირდაპირი ფანჯრის
+     მიმართვით, ამიტომ file://-იდანაც მუშაობს (localStorage იქ არ გამოდგება). */
+
+  function openPresenter() {
+    if (peer && !peer.closed) { try { peer.focus(); } catch (e) {} return; }
+    var url = location.href.split("#")[0] + "#" + (cur + 1) + "p";
+    peer = window.open(url, "deckPresenter",
+      "popup=yes,width=1280,height=820,menubar=no,toolbar=no,location=no");
+    if (!peer) {
+      alert(curLang() === "en"
+        ? "The browser blocked the pop-up window. Allow pop-ups for this page."
+        : "ბრაუზერმა ახალი ფანჯარა დაბლოკა. დაუშვი pop-up ამ გვერდისთვის.");
+    }
+  }
+
+  function send(t) {
+    if (!peer) return;
+    try {
+      if (peer.closed) { peer = null; return; }
+      peer.postMessage({
+        deck: 1, t: t || "state", n: cur, lang: curLang(),
+        theme: document.documentElement.getAttribute("data-theme") || "light"
+      }, "*");
+    } catch (e) { peer = null; }
+  }
+
+  function onMessage(e) {
+    var d = e.data;
+    if (!d || d.deck !== 1) return;
+    if (!peer || peer.closed) peer = e.source;
+    if (d.lang && d.lang !== curLang()) setLang(d.lang, true);
+    if (d.theme && d.theme !== document.documentElement.getAttribute("data-theme"))
+      document.documentElement.setAttribute("data-theme", d.theme);
+    if (typeof d.n === "number" && d.n !== cur) show(d.n, true, true);
+    if (d.t === "hello") send();          /* პასუხად მდგომარეობას ვუბრუნებთ */
+  }
+
+  function buildPresenter() {
+    document.title = "🎤 " + document.title;
+    document.body.classList.add("pmode");
+
+    var pv = document.createElement("div");
+    pv.id = "pv";
+    pv.innerHTML =
+      '<div id="pv-top">' +
+        '<div id="pv-timer">00:00</div>' +
+        '<button type="button" data-p="tog" id="pv-tog" ' +
+          'title="დაწყება / პაუზა · Start / pause">❚❚</button>' +
+        '<button type="button" data-p="rst" title="განულება · Reset">⟲</button>' +
+        '<div id="pv-clock"></div>' +
+        '<div id="pv-title">' +
+          '<span lang="ka">ლექტორის ხედი</span><span lang="en">Presenter view</span>' +
+        '</div>' +
+      '</div>' +
+      '<div id="pv-body">' +
+        '<div id="pv-left">' +
+          '<div class="plab"><span lang="ka">ეკრანზე</span><span lang="en">On screen</span></div>' +
+          '<div class="pstage" id="pv-cur"></div>' +
+        '</div>' +
+        '<div id="pv-right">' +
+          '<div class="plab"><span lang="ka">შემდეგი</span><span lang="en">Next</span></div>' +
+          '<div class="pstage" id="pv-next"></div>' +
+          '<div class="plab"><span lang="ka">ჩანაწერი</span><span lang="en">Note</span></div>' +
+          '<div id="pv-notes"></div>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(pv);
+
+    pv.addEventListener("click", function (e) {
+      var b = e.target.closest ? e.target.closest("[data-p]") : null;
+      if (!b) return;
+      if (b.dataset.p === "tog") timerToggle();
+      else if (b.dataset.p === "rst") timerReset();
+    });
+
+    var rt;
+    window.addEventListener("resize", function () {
+      clearTimeout(rt); rt = setTimeout(paint, 150);
+    });
+
+    timerRun(true);
+    setInterval(tick, 1000);
+  }
+
+  /* სლაიდის ასლი მინიატურაში. კადრს ამ ფანჯრის ზომას ვაძლევთ, რომ
+     clamp(...vw...) იმავე სიგანეზე გამოითვალოს, მერე კი ვამცირებთ. */
+  function stage(id, i) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML = "";
+    if (i < 0 || i >= slides.length) {
+      el.innerHTML = '<div class="pend"><span lang="ka">დასასრული</span>' +
+                     '<span lang="en">The end</span></div>';
+      return;
+    }
+    var c = slides[i].cloneNode(true);
+    c.classList.add("active");
+    var junk = c.querySelectorAll(".cp, .note");
+    for (var j = 0; j < junk.length; j++) junk[j].parentNode.removeChild(junk[j]);
+
+    var w = window.innerWidth, h = window.innerHeight;
+    var f = document.createElement("div");
+    f.className = "pframe";
+    f.style.width = w + "px";
+    f.style.height = h + "px";
+    f.appendChild(c);
+    el.appendChild(f);
+
+    var k = Math.min(el.clientWidth / w, el.clientHeight / h);
+    f.style.transform = "scale(" + k + ")";
+    f.style.left = Math.max(0, (el.clientWidth - w * k) / 2) + "px";
+    f.style.top = Math.max(0, (el.clientHeight - h * k) / 2) + "px";
+  }
+
+  function paint() {
+    if (!document.getElementById("pv")) return;
+    stage("pv-cur", cur);
+    stage("pv-next", cur + 1);
+
+    var notes = slides[cur].querySelectorAll(".note"), html = "";
+    for (var i = 0; i < notes.length; i++)
+      html += '<div class="pnote">' + notes[i].innerHTML + "</div>";
+    document.getElementById("pv-notes").innerHTML = html ||
+      '<p class="pnone"><span lang="ka">ამ სლაიდზე ჩანაწერი არ არის.</span>' +
+      '<span lang="en">No note on this slide.</span></p>';
+  }
+
+  /* ---------- ტაიმერი ---------- */
+  var tAcc = 0, tFrom = 0, tOn = false;
+
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+
+  function timerRun(on) {
+    if (on && !tOn) { tFrom = Date.now(); tOn = true; }
+    else if (!on && tOn) { tAcc += Date.now() - tFrom; tOn = false; }
+    var b = document.getElementById("pv-tog");
+    if (b) b.textContent = tOn ? "❚❚" : "▶";
+    tick();
+  }
+
+  function timerToggle() { timerRun(!tOn); }
+  function timerReset() { tAcc = 0; tFrom = Date.now(); tick(); }
+
+  function tick() {
+    var el = document.getElementById("pv-timer");
+    if (!el) return;
+    var sec = Math.floor((tAcc + (tOn ? Date.now() - tFrom : 0)) / 1000);
+    el.textContent = pad(Math.floor(sec / 60)) + ":" + pad(sec % 60);
+    var d = new Date();
+    document.getElementById("pv-clock").textContent = pad(d.getHours()) + ":" + pad(d.getMinutes());
+  }
+
+  /* ---------- 7. გაშვება ---------- */
   try {
     var saved = localStorage.getItem("deck-theme");
     if (saved) document.documentElement.setAttribute("data-theme", saved);
@@ -235,12 +404,14 @@
 
   prepCode();
   buildUI();
+  if (PRES) buildPresenter();
 
   var savedLang = "ka";
   try { savedLang = localStorage.getItem("deck-lang") || "ka"; } catch (e) {}
   setLang(savedLang);          /* outline-საც აწყობს */
 
   document.addEventListener("keydown", keys);
+  window.addEventListener("message", onMessage);
   window.addEventListener("hashchange", function () {
     var n = parseInt(location.hash.slice(1), 10);
     if (n && n - 1 !== cur) show(n - 1, false);
@@ -248,5 +419,11 @@
   swipe();
 
   var start = parseInt(location.hash.slice(1), 10);
-  show(start ? start - 1 : 0, false);
+  show(start ? start - 1 : 0, false, true);
+
+  /* ლექტორის ფანჯარა თავად ეცნობა მთავარს — ასე მთავარი იგებს, ვის მისწეროს */
+  if (PRES && window.opener && !window.opener.closed) {
+    peer = window.opener;
+    send("hello");
+  }
 })();
