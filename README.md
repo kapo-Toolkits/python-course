@@ -35,6 +35,7 @@ python-course/
 │   └── L15-modules-git.html      XV    მოდულები და git    + გამეორება + დავალება #5
 ├── tasks/
 │   ├── practical-assignments.md  ← ხუთივე პრაქტიკული დავალება ერთად (დასარიგებლად)
+│   ├── practical-assignments.en.md   იგივე, ინგლისურად
 │   └── solutions/                ← სანიმუშო ამოხსნები + ტიპური შეცდომები (ლექტორისთვის)
 └── library/                      ← kapo-mathtools — PyPI პაკეტი (pip install kapo-mathtools)
     ├── kapo_mathtools/           statistics · geometry · text_tools · converters
